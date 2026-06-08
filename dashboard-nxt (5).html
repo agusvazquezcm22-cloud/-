@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard · NXT</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#0c0c0f;--s1:#13131a;--s2:#1a1a24;--bd:#2a2a38;
+  --ac:#00e5a0;--wn:#ff6b35;--tx:#f0f0f5;--mt:#6b6b80;--m2:#3a3a50;--gm:#a07dd6;
+}
+html{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif}
+body{max-width:680px;margin:0 auto;padding:20px 14px 60px}
+
+h1{font-family:'Space Mono',monospace;font-size:26px;font-weight:700;letter-spacing:-1px;line-height:1.1}
+h1 em{color:var(--ac);font-style:normal}
+.sub{font-size:11px;color:var(--mt);font-family:'Space Mono',monospace;margin-top:4px}
+
+.hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;gap:10px;flex-wrap:wrap}
+.wk{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:9px 13px;font-family:'Space Mono',monospace;font-size:10px;color:var(--mt);text-align:right;flex-shrink:0}
+.wk strong{display:block;font-size:14px;color:var(--tx);margin-bottom:1px}
+
+/* alerts */
+.alert{background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.45);border-radius:12px;padding:11px 14px;margin-bottom:14px;font-size:12px;color:#ff9166;font-family:'Space Mono',monospace;display:none}
+
+/* card */
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:16px;padding:18px;margin-bottom:14px}
+.stitle{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--mt);font-weight:600;margin-bottom:12px;font-family:'Space Mono',monospace}
+
+/* billing */
+.b3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.btile{background:var(--s2);border-radius:10px;padding:11px 8px;text-align:center}
+.btile .bv{font-family:'Space Mono',monospace;font-size:15px;font-weight:700;margin-bottom:2px}
+.btile .bl{font-size:9px;color:var(--mt);text-transform:uppercase;letter-spacing:1px}
+.t1 .bv{color:#00c4ff}.t2 .bv{color:var(--ac)}.t3 .bv{color:var(--wn)}
+.bbar{height:5px;background:var(--s2);border-radius:20px;overflow:hidden;margin-bottom:6px}
+.bfill{height:100%;background:linear-gradient(90deg,var(--ac),#00c4ff);border-radius:20px;transition:width .4s}
+.blbl{display:flex;justify-content:space-between;font-size:9px;color:var(--mt);font-family:'Space Mono',monospace;margin-bottom:12px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.iw{flex:1;min-width:110px;background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:8px 10px}
+.iw label{display:block;font-size:9px;color:var(--mt);font-family:'Space Mono',monospace;margin-bottom:3px;letter-spacing:1px}
+.iw input{width:100%;background:none;border:none;outline:none;color:var(--tx);font-family:'Space Mono',monospace;font-size:14px;min-height:28px}
+
+/* buttons */
+button{cursor:pointer;font-family:'DM Sans',sans-serif;border:none;-webkit-appearance:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:10px;font-size:13px;font-weight:600;min-height:44px;transition:opacity .1s}
+.btn:active{opacity:.75}
+.btn-g{background:var(--ac);color:#0c0c0f;flex:1}
+.btn-r{background:var(--s2);border:1px solid var(--bd);color:var(--mt);min-width:44px}
+
+/* progress */
+.big{font-family:'Space Mono',monospace;font-size:40px;font-weight:700;color:var(--ac);line-height:1;margin-bottom:8px}
+.pbar{height:8px;background:var(--s2);border-radius:20px;overflow:hidden;margin-bottom:12px}
+.pfill{height:100%;background:linear-gradient(90deg,var(--ac),#00c4ff);border-radius:20px;transition:width .5s}
+.s3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sc{background:var(--s2);border-radius:10px;padding:11px 8px;text-align:center}
+.sc .sv{font-family:'Space Mono',monospace;font-size:20px;font-weight:700;margin-bottom:2px}
+.sc .sl{font-size:9px;color:var(--mt);text-transform:uppercase;letter-spacing:1px}
+.sc:nth-child(1) .sv{color:var(--tx)}.sc:nth-child(2) .sv{color:var(--ac)}.sc:nth-child(3) .sv{color:#00c4ff}
+
+/* day */
+.dc{background:var(--s1);border:1px solid var(--bd);border-radius:16px;margin-bottom:10px;overflow:hidden}
+.dc.today{border-color:var(--ac)}.dc.hot{border-color:rgba(255,107,53,.4)}
+.dh{display:flex;align-items:center;gap:8px;padding:12px 14px 8px;flex-wrap:wrap}
+.dn{font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--mt);font-weight:700}
+.badge{font-size:8px;padding:3px 7px;border-radius:20px;font-family:'Space Mono',monospace;letter-spacing:1px}
+.b-hoy{background:rgba(0,229,160,.12);color:var(--ac)}
+.b-hot{background:rgba(255,107,53,.15);color:var(--wn);margin-left:auto}
+.b-gym{background:rgba(160,125,214,.15);color:var(--gm);margin-left:auto}
+
+/* task — real button, full width, big tap */
+.tk{
+  display:flex;align-items:center;gap:10px;
+  width:100%;padding:12px 14px;
+  background:transparent;border:none;border-top:1px solid var(--bd);
+  color:var(--tx);font-size:14px;font-family:'DM Sans',sans-serif;
+  text-align:left;min-height:50px;
+  transition:background .1s;
+}
+.tk:active{background:rgba(255,255,255,.04)}
+.tk.done .tl{text-decoration:line-through;color:var(--mt)}
+.tk.gm .tl{color:var(--gm)}
+.tk.gm.done .tl{color:var(--mt)}
+
+.ck{width:22px;height:22px;border-radius:6px;border:2px solid var(--m2);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;position:relative}
+.tk.done .ck{background:var(--ac);border-color:var(--ac)}
+.tk.done .ck::after{content:'✓';font-size:13px;color:#0c0c0f;font-weight:700;line-height:1}
+.tk.gm .ck{border-color:var(--gm)}
+.tk.gm.done .ck{background:var(--gm);border-color:var(--gm)}
+.tl{font-size:14px;line-height:1.3}
+
+.mp{display:flex;align-items:center;gap:8px;padding:8px 14px 12px}
+.mt{flex:1;height:3px;background:var(--s2);border-radius:10px;overflow:hidden}
+.mf{height:100%;background:var(--ac);border-radius:10px;transition:width .3s}
+.mpct{font-family:'Space Mono',monospace;font-size:10px;color:var(--mt);min-width:30px;text-align:right}
+
+/* prio */
+.pi{display:flex;align-items:center;gap:10px;padding:11px 12px;background:var(--s2);border-radius:10px;margin-bottom:8px;border:1px solid transparent}
+.pi.urg{border-color:rgba(255,107,53,.3)}
+.pn{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;color:var(--m2);min-width:18px}
+.pd{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.pt{font-size:13px;color:var(--tx)}
+.ptg{margin-left:auto;font-size:8px;padding:3px 8px;border-radius:20px;font-family:'Space Mono',monospace;flex-shrink:0}
+
+footer{text-align:center;color:var(--mt);font-size:10px;font-family:'Space Mono',monospace;padding-top:18px;border-top:1px solid var(--bd);letter-spacing:1px;margin-top:10px}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div><h1>Dashboard<br><em>Semanal</em></h1><p class="sub">NXT Media · Agus Manager</p></div>
+  <div class="wk"><strong id="wkn">—</strong><span id="wkd">—</span></div>
+</div>
+
+<div class="alert" id="galert" style="display:block"></div>
+
+<!-- FACTURACIÓN -->
+<div class="card">
+  <div class="stitle">💰 Facturación — <span id="bmes"></span></div>
+  <div class="b3">
+    <div class="btile t1"><div class="bv" id="vf">$0</div><div class="bl">Facturado</div></div>
+    <div class="btile t2"><div class="bv" id="vc">$0</div><div class="bl">Cobrado</div></div>
+    <div class="btile t3"><div class="bv" id="vp">$0</div><div class="bl">Pendiente</div></div>
+  </div>
+  <div class="bbar"><div class="bfill" id="bf" style="width:0%"></div></div>
+  <div class="blbl"><span>$0</span><span id="bpct">0% cobrado</span><span id="btg">$0</span></div>
+  <div class="row" style="margin-bottom:8px">
+    <div class="iw"><label>FACTURADO $</label><input type="number" inputmode="numeric" id="if" placeholder="1600"></div>
+    <div class="iw"><label>COBRADO $</label><input type="number" inputmode="numeric" id="ic" placeholder="0"></div>
+  </div>
+  <div class="row">
+    <button class="btn btn-g" id="bsave">Guardar</button>
+    <button class="btn btn-r" id="breset">↺</button>
+  </div>
+</div>
+
+<!-- PROGRESO -->
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+    <div class="stitle" style="margin:0">Progreso semanal</div>
+    <button class="btn btn-r" id="brweek" style="font-size:11px;padding:7px 12px;min-height:36px">↺ Resetear</button>
+  </div>
+  <div class="big" id="gpct">0%</div>
+  <div class="pbar"><div class="pfill" id="gbar" style="width:0%"></div></div>
+  <div class="s3">
+    <div class="sc"><div class="sv" id="st">0</div><div class="sl">Tareas</div></div>
+    <div class="sc"><div class="sv" id="sd">0</div><div class="sl">Hechas</div></div>
+    <div class="sc"><div class="sv" id="sl">0</div><div class="sl">Pendientes</div></div>
+  </div>
+</div>
+
+<!-- DÍAS -->
+<div class="stitle" style="margin-bottom:8px;padding:0 2px">Tareas por día</div>
+<div id="dg"></div>
+
+<!-- PRIORIDADES -->
+<div class="card">
+  <div class="stitle">⬛ Prioridades</div>
+  <div class="pi urg"><span class="pn">01</span><div class="pd" style="background:#ff6b35"></div><span class="pt">Editar video Arles</span><span class="ptg" style="background:rgba(255,107,53,.15);color:#ff6b35">MIÉRCOLES</span></div>
+  <div class="pi"><span class="pn">02</span><div class="pd" style="background:#00e5a0"></div><span class="pt">1 video diario · Carlos</span><span class="ptg" style="background:rgba(0,229,160,.1);color:#00e5a0">DIARIO</span></div>
+  <div class="pi"><span class="pn">03</span><div class="pd" style="background:#00e5a0"></div><span class="pt">1 video diario · Alicia</span><span class="ptg" style="background:rgba(0,229,160,.1);color:#00e5a0">DIARIO</span></div>
+  <div class="pi"><span class="pn">04</span><div class="pd" style="background:#7b5ea7"></div><span class="pt">Supervisar clientes</span><span class="ptg" style="background:rgba(123,94,167,.15);color:#a07dd6">SEGUIMIENTO</span></div>
+  <div class="pi"><span class="pn">05</span><div class="pd" style="background:#00c4ff"></div><span class="pt">Cerrar ventas y cobrar</span><span class="ptg" style="background:rgba(0,196,255,.1);color:#00c4ff">💰 CAJA</span></div>
+</div>
+
+<footer>NXT MEDIA · SISTEMA OPERATIVO SEMANAL</footer>
+
+<script>
+// ── CONFIG ──────────────────────────────────────────────
+var DAYS=[
+  {n:'Lunes',   gym:1, tasks:['Video Carlos','Video Alicia','Seguimiento clientes','Revisar leads','🏋️ Gym']},
+  {n:'Martes',  gym:0, tasks:['Video Carlos','Video Alicia','Seguimiento clientes','Planificar contenidos']},
+  {n:'Miércoles',gym:1,hot:1,tasks:['Editar Arles (5 min)','Video Carlos','Video Alicia','Seguimiento clientes','🏋️ Gym']},
+  {n:'Jueves',  gym:0, tasks:['Video Carlos','Video Alicia','Seguimiento clientes','Revisar cierres']},
+  {n:'Viernes', gym:1, tasks:['Video Carlos','Video Alicia','Seguimiento clientes','Revisar ingresos','🏋️ Gym']},
+  {n:'Sábado',  gym:0, tasks:['Video Carlos','Video Alicia','Seguimiento clientes','Pensar mejoras']},
+  {n:'Domingo', gym:0, tasks:['Revisión semanal','Clientes activos','Cobros pendientes','Objetivos próximos']}
+];
+var todayIdx=(new Date().getDay()+6)%7;
+
+// ── STORAGE — intenta localStorage, cae a memoria ───────
+var mem={};
+function sSet(k,v){try{localStorage.setItem(k,v)}catch(e){mem[k]=v}}
+function sGet(k){try{return localStorage.getItem(k)}catch(e){return mem[k]||null}}
+function sDel(k){try{localStorage.removeItem(k)}catch(e){delete mem[k]}}
+
+// ── STATE ────────────────────────────────────────────────
+var state=null;
+try{state=JSON.parse(sGet('nxt-v4'))}catch(e){}
+if(!state||state.length!==DAYS.length)state=DAYS.map(function(d){return d.tasks.map(function(){return false})});
+
+function saveState(){sSet('nxt-v4',JSON.stringify(state))}
+
+// ── WEEK ─────────────────────────────────────────────────
+(function(){
+  var now=new Date();
+  var j=new Date(now.getFullYear(),0,1);
+  var wk=Math.ceil(((now-j)/864e5+j.getDay()+1)/7);
+  var mon=new Date(now);mon.setDate(now.getDate()-((now.getDay()+6)%7));
+  var sun=new Date(mon);sun.setDate(mon.getDate()+6);
+  var f=function(d){return d.toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit'})};
+  document.getElementById('wkn').textContent='Semana '+wk;
+  document.getElementById('wkd').textContent=f(mon)+' — '+f(sun);
+})();
+
+// ── GYM ALERT ────────────────────────────────────────────
+(function(){
+  var d=new Date().getDate();
+  var el=document.getElementById('galert');
+  if(d<=17){
+    var left=17-d;
+    el.style.display='block';
+    el.textContent=(left===0)?'⚠️ HOY último día para pagar el gym':'⚠️ Pagar gym antes del 17 — faltan '+left+(left===1?' día':' días');
+  } else {
+    el.style.display='none';
+  }
+})();
+
+// ── BILLING ──────────────────────────────────────────────
+function mkKey(){var n=new Date();return n.getFullYear()+'-'+n.getMonth()}
+function loadBill(){
+  var s=null;
+  try{s=JSON.parse(sGet('nxt-bill'))}catch(e){}
+  if(s&&s.k!==mkKey()){sDel('nxt-bill');return{f:1600,c:0,k:mkKey()}}
+  return s||{f:1600,c:0,k:mkKey()}
+}
+function renderBill(d){
+  var pend=Math.max(0,d.f-d.c);
+  var pct=d.f>0?Math.round(d.c/d.f*100):0;
+  document.getElementById('vf').textContent='$'+d.f.toLocaleString('es-AR');
+  document.getElementById('vc').textContent='$'+d.c.toLocaleString('es-AR');
+  document.getElementById('vp').textContent='$'+pend.toLocaleString('es-AR');
+  document.getElementById('bf').style.width=Math.min(pct,100)+'%';
+  document.getElementById('bpct').textContent=pct+'% cobrado';
+  document.getElementById('btg').textContent='$'+d.f.toLocaleString('es-AR');
+  document.getElementById('if').value=d.f;
+  document.getElementById('ic').value=d.c;
+  var now=new Date();
+  document.getElementById('bmes').textContent=now.toLocaleDateString('es-AR',{month:'long',year:'numeric'}).toUpperCase();
+}
+document.getElementById('bsave').onclick=function(){
+  var f=parseInt(document.getElementById('if').value)||0;
+  var c=parseInt(document.getElementById('ic').value)||0;
+  var d={f:f,c:c,k:mkKey()};
+  sSet('nxt-bill',JSON.stringify(d));
+  renderBill(d);
+};
+document.getElementById('breset').onclick=function(){
+  if(!confirm('¿Resetear facturación?'))return;
+  sDel('nxt-bill');renderBill(loadBill());
+};
+
+// ── GLOBAL PROGRESS ──────────────────────────────────────
+function updateGlobal(){
+  var tot=0,done=0;
+  state.forEach(function(d){tot+=d.length;done+=d.filter(Boolean).length});
+  var pct=tot?Math.round(done/tot*100):0;
+  document.getElementById('gpct').textContent=pct+'%';
+  document.getElementById('gbar').style.width=pct+'%';
+  document.getElementById('st').textContent=tot;
+  document.getElementById('sd').textContent=done;
+  document.getElementById('sl').textContent=tot-done;
+}
+function updateMini(di){
+  var done=state[di].filter(Boolean).length;
+  var tot=state[di].length;
+  var pct=Math.round(done/tot*100);
+  document.getElementById('mf'+di).style.width=pct+'%';
+  document.getElementById('mp'+di).textContent=pct+'%';
+}
+
+document.getElementById('brweek').onclick=function(){
+  if(!confirm('¿Resetear todas las tareas?'))return;
+  state=DAYS.map(function(d){return d.tasks.map(function(){return false})});
+  saveState();
+  var btns=document.querySelectorAll('.tk');
+  for(var i=0;i<btns.length;i++)btns[i].classList.remove('done');
+  for(var i=0;i<DAYS.length;i++){
+    document.getElementById('mf'+i).style.width='0%';
+    document.getElementById('mp'+i).textContent='0%';
+  }
+  updateGlobal();
+};
+
+// ── BUILD DAYS ───────────────────────────────────────────
+(function(){
+  var grid=document.getElementById('dg');
+  DAYS.forEach(function(d,di){
+    var card=document.createElement('div');
+    card.className='dc'+(di===todayIdx?' today':'')+(d.hot?' hot':'');
+
+    // head
+    var hd=document.createElement('div');
+    hd.className='dh';
+    var dn=document.createElement('span');
+    dn.className='dn';
+    dn.textContent=d.n.toUpperCase();
+    hd.appendChild(dn);
+    if(di===todayIdx){var b=document.createElement('span');b.className='badge b-hoy';b.textContent='HOY';hd.appendChild(b)}
+    if(d.hot){var b=document.createElement('span');b.className='badge b-hot';b.textContent='🔥 URGENTE';hd.appendChild(b)}
+    else if(d.gym){var b=document.createElement('span');b.className='badge b-gym';b.textContent='GYM';hd.appendChild(b)}
+    card.appendChild(hd);
+
+    // tasks
+    d.tasks.forEach(function(t,ti){
+      var btn=document.createElement('button');
+      btn.type='button';
+      var isGym=t.indexOf('🏋️')>=0;
+      btn.className='tk'+(state[di][ti]?' done':'')+(isGym?' gm':'');
+
+      var ck=document.createElement('span');ck.className='ck';
+      var tl=document.createElement('span');tl.className='tl';tl.textContent=t;
+      btn.appendChild(ck);btn.appendChild(tl);
+
+      // usa touchend para máxima respuesta en mobile
+      btn.addEventListener('touchend',function(e){
+        e.preventDefault();
+        state[di][ti]=!state[di][ti];
+        saveState();
+        if(state[di][ti])btn.classList.add('done');else btn.classList.remove('done');
+        updateMini(di);updateGlobal();
+      });
+      btn.addEventListener('click',function(e){
+        // fallback desktop
+        state[di][ti]=!state[di][ti];
+        saveState();
+        if(state[di][ti])btn.classList.add('done');else btn.classList.remove('done');
+        updateMini(di);updateGlobal();
+      });
+
+      card.appendChild(btn);
+    });
+
+    // mini prog
+    var dp=state[di].filter(Boolean).length;
+    var dt=d.tasks.length;
+    var pct=Math.round(dp/dt*100);
+    var mp=document.createElement('div');mp.className='mp';
+    mp.innerHTML='<div class="mt"><div class="mf" id="mf'+di+'" style="width:'+pct+'%"></div></div><span class="mpct" id="mp'+di+'">'+pct+'%</span>';
+    card.appendChild(mp);
+    grid.appendChild(card);
+  });
+})();
+
+// ── INIT ─────────────────────────────────────────────────
+renderBill(loadBill());
+updateGlobal();
+</script>
+</body>
+</html>
