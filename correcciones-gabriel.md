@@ -1,6 +1,6 @@
 # Gabriel Monsalve — correcciones y reglas del estilo
 
-Video: "La estrategia de 23,7M en un mes de IM8" (crudo: parece ser el de la carpeta "37." que subió Gabriel a Drive el 20/11)
+Video: Gabriel 32, "La estrategia de 23,7M en un mes de IM8" (formato pantalla verde, v02 con subtítulos). Editado en el chat en la nube "Sesión de Gabriel".
 Feedback recibido por WhatsApp (grupo EDICIÓN | GABRIEL), 20/11/2026.
 
 ## Estilo aprobado
