@@ -56,8 +56,9 @@ def comunicado(k, t_marca=0.25, flecha='flecha_ai', w1=1500, yrel=0.36, w0=2100)
     cx = (x0 + x1) / 2; cy = (y0 + y1) / 2
     def v(w):
         vx = min(max(cx - w / 2, 0), 2460 - w); return (vx, max(0, cy - yrel * w * 16 / 9), w)
-    ms = [('caja', (r[0], r[1], r[2], r[3]), t_marca) for r in rs]
-    if flecha: ms.append((flecha, tuple(rs[0]), t_marca))
+    u = (x0, y0, x1 - x0, y1 - y0) if abs(y1 - y0) < 90 else None      # una sola caja si la frase cabe en una linea
+    ms = [('caja', u, t_marca)] if u else [('caja', tuple(r), t_marca) for r in rs]
+    if flecha: ms.append((flecha, u or tuple(rs[0]), t_marca))
     return Lienzo(im, v(w0), v(w1), ms, dur_mov=0.55)
 
 
@@ -332,7 +333,7 @@ def toma(i, t0, t1, fondo, gab, texto=None, antes=None):
 
 toma('01', 0.00, 1.56, Lienzo(HERO, (0, 0, W), (22, 30, W - 44)), 'PL',
      T_(['La estrategia de', '23,7M en un mes', 'de IM8'], 330, 80, clave={'23,7M'}, emo='🤯', logo=LOGO))
-toma('02', 1.56, 4.06, comunicado('arr', flecha='flecha_ai'), 'MR', T_(['≈ US$23,7 M al mes'], 830, 70, t0=0.9, clave={'US$23,7', 'M'}))
+toma('02', 1.56, 4.06, comunicado('m237', t_marca=0.5, flecha='flecha_ai'), 'MR', T_(['US$23,7 M en un mes'], 880, 70, t0=1.0, clave={'US$23,7', 'M'}))
 toma('03', 4.06, 5.52, Grafico(g_linea_tiempo), 'G')
 toma('04', 5.52, 7.84, tarjeta('2184389968845356', [('sub', FBM['cards']['2184389968845356']['phr'][0], 0.75)]), 'PR')
 toma('04b', 7.84, 8.88, Grafico(g_16_a_1), 'PR')
