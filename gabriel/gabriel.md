@@ -2,7 +2,7 @@
 
 **Estado: BORRADOR v01 (2026-11-15). Nada aprobado por Agus todavía.**
 
-**Actualización 2026-11-20: el formato pantalla verde con subtítulos (video 32, IM8) quedó APROBADO por Gabriel como base de sus próximos videos. Ver 0.j y 0.k.**
+**Actualización 2026-11-20: el formato pantalla verde con subtítulos (video 32, IM8) quedó APROBADO por Gabriel como base de sus próximos videos. Ver 0.j y 0.k. Desde el 34, Gabriel va fijo abajo a la izquierda: ver 0.l.**
 
 Cómo leer las marcas:
 - **[M]** medido en el material (cuadros, ffprobe, ebur128, detección de cortes).
@@ -13,6 +13,7 @@ Material analizado: `2_estilo_referencias/` (18-4, 19_editado_v4, 20_final, 24, 
 Hojas de cuadros y datos: `Gabriel/_analisis/`.
 
 ---
+
 
 ## 0.a Decisión de Agus (2026-11-15, dicho en el chat)
 
@@ -245,6 +246,19 @@ Control obligatorio antes de entregar: tarjeta más corta, visuales repetidos, l
 - 79 tarjetas; la más corta 0,70 s; la clave que menos se ve, 0,80 s; el corte más corrido respecto de la voz, 0,22 s.
 - 50 fuentes distintas en 34 tomas; ninguna repetida salvo la portada en el cierre.
 - Pendiente con Gabriel: dice "unos 1.500 anuncios" y la Biblioteca mostraba "~1,800 results" el día de la edición; la foto oficial de Beckham mide solo 692 px.
+
+## 0.l Recorte fijo de Gabriel (referencia de Agus, 2026-11-20)
+
+Referencia: reel de Chase Chappell "10 BFCM Meta Ads that Sell like CRAZY" (`instagram.com/reel/Df-d9U5y4nh`).
+Pedido textual: "Mismo formato como venimos haciendo, pero que el recorte de Gabriel no pase de un lugar a otro, sino que se vea así.
+Está buena la toma esa que pones, que se ve él más grande también en el medio… obviamente adaptado a la referencia, más que nada en
+el recorte; subtítulo, dinamismo y demás, venimos re bien."
+
+- Gabriel va **siempre abajo a la izquierda**, mismo tamaño, desde la portada: tope de la cabeza al 62 % del alto, centro de la cabeza al 25 % del ancho, hombro izquierdo cortado por el borde.
+- El plano más grande al centro se usa una sola vez, en el cierre, y no vuelve.
+- Nunca salta de lado entre cortes (reemplaza la regla 2 de sus guías).
+- Lo que se señala va arriba de los subtítulos o a la derecha de Gabriel; nada importante en el rincón de abajo a la izquierda.
+- Hechos así: 34 v02 y 33 v02.
 
 ## 0. Pendientes (bloquean partes del estilo)
 

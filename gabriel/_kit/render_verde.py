@@ -46,8 +46,11 @@ LAYOUT = {
     'MR': (0.76, W - int(W * 0.76), 1150, 'l'),
     'PL': (0.50, 0, 1400, 'r'),       # pequeno, esquina izquierda
     'PR': (0.50, W - W // 2, 1400, 'l'),
-    'C':  (0.74, (W - int(W * 0.74)) // 2, 1300, 'ambos'),   # fijo abajo al centro (pedido de Agus: siempre en el mismo lugar)
-}
+    'C':  (0.74, (W - int(W * 0.74)) // 2, 1300, 'ambos'),   # mas grande, abajo al centro (cierre y momentos puntuales)
+    'R':  (0.60, None, 1200, 'r'),    # EL FIJO (referencia de Agus, reel de Chase Chappell): abajo a la izquierda, tope de la cabeza
+}                                     # al 62 % del alto y centro de la cabeza al 25 % del ancho, en todo el video
+CX = {'R': 270}                       # lugares que se ubican por el centro de la cabeza (px de pantalla)
+CENTRO = 540                          # columna del crudo donde esta el centro de la cabeza (el config puede pisarla)
 
 
 def recortar(fr):
@@ -79,9 +82,11 @@ def poner_gabriel(dst, fr, lay):
         elif lado == 'ambos':
             ramp = np.minimum(ramp, ramp[::-1])
         a = a * ramp[None, :]
-    y = ytop - int(round((CABEZA - Y0) * s))
+    if x0 is None: x0 = int(round(CX[lay] - CENTRO * s))
+    y = max(ytop - int(round((CABEZA - Y0) * s)), H - nh)      # nunca queda un hueco entre su cuerpo y el borde de abajo
     h = min(nh, H - y)
-    rgb, a = rgb[:h], a[:h]
+    c0 = max(0, -x0); c1 = min(nw, W - x0)                     # lo que cae fuera de la pantalla se descarta
+    rgb, a = rgb[:h, c0:c1], a[:h, c0:c1]; x0 += c0; nw = c1 - c0
     # sombra suave para despegarlo de fondos claros
     sh = cv2.GaussianBlur(a, (0, 0), 14) * 0.38
     reg = dst[y:y + h, x0:x0 + nw].astype(np.float32)
@@ -480,7 +485,7 @@ def leer_crudo(raw, ss=None, n=None):
 
 def main():
     cfg = cargar(sys.argv[1])
-    for k in ('CABEZA', 'Y0'):            # cada crudo tiene a Gabriel a otra altura: el config puede fijar la fila de su cabeza
+    for k in ('CABEZA', 'Y0', 'CENTRO'):            # cada crudo tiene a Gabriel a otra altura: el config puede fijar la fila de su cabeza
         if hasattr(cfg, k): globals()[k] = getattr(cfg, k)
     shots = cfg.SHOTS
     for a, b in zip(shots, shots[1:]):

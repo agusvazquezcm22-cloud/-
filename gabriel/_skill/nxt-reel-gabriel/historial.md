@@ -4,6 +4,8 @@ Se actualiza cada vez que se termina una versión o una tanda de correcciones. L
 
 ## 2026-11-20 · Video 34 "La estrategia de recompra de The Everyday Lab" · pantalla verde
 
+- **v02** = v01 con el recorte de la referencia. Agus pasó el link (reel de Chase Chappell, `instagram.com/reel/Df-d9U5y4nh`) y pidió: "mismo formato como venimos haciendo, pero que el recorte de Gabriel no pase de un lugar a otro, sino que se vea así… subtítulo, dinamismo y demás, venimos re bien". Gabriel va abajo a la izquierda (`R`) en las tomas 01 a 17 y pasa una sola vez al plano más grande al centro (`C`) en el cierre, desde "la segunda compra ya está asegurada" (47,94 s). Tomas, subtítulos y los 44 sonidos son los de la v01. Sin feedback todavía.
+
 - **v01** (62,8 s; sin feedback todavía). Primer video con **Gabriel fijo**: abajo al centro, mismo tamaño en las 23 tomas (`GAB = 'C'`). El link de referencia de Agus no había llegado: el encuadre es una propuesta y se ajusta cuando lo pase.
   - Control: 64 tarjetas, la más corta 0,70 s, clave mínima 0,80 s, corte más corrido 0,20 s; 33 fuentes en 23 tomas, ninguna repetida salvo la portada en el cierre. Sonidos: 44 del paquete de Naza (19 archivos), entre 15,9 y 19,7 dB bajo el pico de la voz, sin pitidos; mezcla −14,1 LUFS. Sin cuadros negros ni congelados.
   - Portada: anuncio real de la marca (animación del producto) entero, con el título arriba.
@@ -14,9 +16,11 @@ Se actualiza cada vez que se termina una versión o una tanda de correcciones. L
   - Para avisar: Gabriel dice "más de 70 anuncios" y la Biblioteca mostraba "~77 results" (coincide). En el artículo los combos son de otro producto de la marca (desde $1,499) y en la tienda el frasco cuesta $899: cada precio aparece cuando Gabriel habla de esa página. Las fechas de la Biblioteca dicen "Oct 18, 2026" y él dice "de las últimas semanas".
 
 ## 2026-11-20 · Pedido de Agus para los próximos videos (34 en adelante)
-- Sobre el 33 dijo "Top". Para los próximos: Gabriel casi siempre en el mismo lugar, cambiarlo solo cada tanto. Va a pasar un link de referencia de cómo se ve; **todavía no llegó**.
+- Sobre el 33 dijo "Top". Para los próximos: Gabriel casi siempre en el mismo lugar, cambiarlo solo cada tanto. El link de referencia llegó el mismo día (ver 34 v02): desde ahí el lugar fijo es abajo a la izquierda.
 
 ## 2026-11-20 · Video 33 "La estrategia de anuncios de 600M de AG1" · pantalla verde
+
+- **v02** (Agus: "¿El 33 me lo vas a corregir?"). Mismo video que la v01 con Gabriel fijo abajo a la izquierda (`R`) y el plano grande al centro (`C`) solo en el cierre, desde "guarda este video" (53,92 s). Lo que hubo que acomodar por el lugar nuevo: la etiqueta "Claude" pasó a la derecha, la lista de cuatro nombres ahora baja para que el cuarto no quede detrás de él (y su recuadro ya no corta "Austin"), y los tres gráficos propios se agrandaron lo justo para no tocar los subtítulos. Mismos 40 sonidos. Sin feedback todavía.
 
 - **v01** (58,1 s; sin feedback todavía). Mismo estilo aprobado en el 32, con subtítulos y sonidos desde la primera versión.
   - Control: 54 tarjetas, la más corta 0,70 s, clave mínima 0,80 s, corte más corrido 0,12 s; 39 fuentes en 26 tomas, ninguna repetida salvo la portada en el cierre; 40 sonidos del paquete de Naza, sin pitidos; mezcla −14,3 LUFS.
