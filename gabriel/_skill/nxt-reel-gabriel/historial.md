@@ -2,6 +2,15 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-20 · Video 36 "La estrategia del test de Aluné" · pantalla verde, una marca
+
+- **v01** (84,3 s; sin feedback todavía). Gabriel fijo abajo al centro en las 31 tomas. El cuerpo del video son las pantallas reales del test de piel (quiz.alune.com.co/piel), recorrido completo hasta la oferta.
+  - Control: 95 tarjetas, la más corta 0,70 s, clave mínima 0,80 s; 36 fuentes en 31 tomas, ninguna repetida salvo la portada en el cierre y la pregunta 8 antes y después de contestar (así lo pide la guía); 57 sonidos del paquete de Naza, entre 16,0 y 19,7 dB bajo el pico de la voz, sin pitidos; mezcla −14,3 LUFS; sin cuadros negros ni congelados.
+  - Material: 30 anuncios de la Biblioteca (página 113045051018664, "~58 results"; Gabriel dice "unos 60"), la tarjeta con el enlace quiz.alune.com.co, alune.com.co ("Recupera tus noches. Vuelve a sentirte tú."), las portadas de los tres tests (noche, piel, ánimo) y 22 pantallas del test de piel más 6 de la oferta.
+  - El test cambió respecto de la guía: la pregunta del gasto es la 8 de 11 (coincide con lo que dice Gabriel), la frase «Me miro al espejo y no me reconozco» es la 10, y la cuenta "serían otros $1.440.000" está en la 11. No hay tarjeta para raspar: el descuento aparece como "Desbloqueaste por terminar tu test · −$120.100". Cifras a la vista: $120.000 al mes, unos 2 años, $2.880.000, $1.440.000, $329.900, 3 tarros · 90 noches.
+  - Subtítulos ajustados a lo que quiso decir (la transcripción oyó otra cosa): "Por esa razón" (oyó "De esa razón"), "No lo usan" ("No la usan"), "Lo usan para que… la clienta sume sola" ("Lo suman… asume sola"). Si Gabriel dice otra cosa, se corrige.
+  - "A volver a dormir la noche entera": va un anuncio real de la marca (mujer despierta a las 3 a. m.). En pantalla quedan visibles precios de la marca dentro de sus propios anuncios y de la oferta.
+
 ## 2026-11-20 · Video 35 "Liquid I.V. vs Electrolit: ¿quién lo hace mejor?" · formato VS
 
 - **v01** (74,1 s; sin feedback todavía). Gabriel fijo abajo al centro en las 24 tomas. Liquid I.V. a la izquierda, Electrolit a la derecha. Pantalla dividida en la portada, en "ninguno de los dos vende lo que crees" y en el cierre; además, dos clips lado a lado en "cada una le habla a una persona distinta".
@@ -69,7 +78,7 @@ Se actualiza cada vez que se termina una versión o una tanda de correcciones. L
 - El cierre repite la imagen de la portada porque lo pide su guía; si prefiere que no, se cambia.
 
 ## Videos que faltan
-- 36 y 37: crudos en Drive (ids en SKILL.md) y guía lista (hasta el 38). Sin empezar.
+- 37: crudo bajado (71,3 s). En la guía, "VIDEO 37" está vacío y lo que sigue es "VIDEO 38 · Vació la cuenta (Gymshark)", con otro formato (pantalla dividida, videos reales de Ben Francis y Gymshark). Falta confirmar con Agus si el crudo 37 es el de Gymshark.
 
 ## 2026-11-15/16 · Video 31 "Suplementos Novia" · mini charla con tele
 - Entregada la v13. `referencias/gabriel.md` documenta hasta la v11 (secciones 0.a a 0.i); lo que cambió en v12 y v13 no está escrito.

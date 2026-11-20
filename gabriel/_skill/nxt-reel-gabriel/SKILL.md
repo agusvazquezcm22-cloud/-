@@ -42,6 +42,7 @@ Las frases textuales de Gabriel y cómo se resolvió cada una están en `referen
 
 - **Pantalla verde** (crudo con fondo verde; la guía dice que copia a Chase Chappell): todo lo de abajo. Es el formato de los videos 32 en adelante.
 - **Mini charla con tele** (video 31): reglas en `referencias/gabriel.md`, secciones 0.a a 0.i. Comparte el juego de subtítulos.
+- **Recorrido de un test** (video 36, Aluné): las pantallas del test se capturan una por una con `kit/web/test_por_pasos.js` (viewport 430×764, que ya es 9:16; guarda la captura y el rectángulo de cada texto). En el config, `pant(prefijo, n, marcas, foco='texto')` muestra la pantalla a todo el ancho y corre la vista para que el dato quede arriba de los subtítulos; `r_(prefijo, n, 'texto')` da el rectángulo para el recuadro. Plantilla: `kit/ejemplos/gabriel36_v01.py`.
 - **VS** (video 35, "Liquid I.V. vs Electrolit"): es el formato pantalla verde con dos marcas frente a frente. La primera marca del título va SIEMPRE a la izquierda y la otra a la derecha. Pantalla dividida solo para comparar las dos a la vez (portada, un momento a mitad y el cierre): `Mitades(fuente_izq, fuente_der)` para dos clips, o una imagen armada para la portada (los dos productos y un "VS"). El resto, una imagen a la vez, con la misma prueba para las dos (la misma vista de la Biblioteca). En los gráficos propios va arriba el logo de la marca de la que se habla (`G2(fn, CHIP_x)`), recortado de un anuncio suyo. Plantilla: `kit/ejemplos/gabriel35_v01.py`.
 
 ## Pantalla verde: cómo es
@@ -117,6 +118,8 @@ Agus: "los sonidos, clave". Van siempre, con el estilo del video 31.
 - El conector de Drive no baja archivos de más de 10 MB ni edita el contenido de archivos existentes. Los de hasta 10 MB los guarda en disco.
 - Se interpretó la referencia de Agus al pie de la letra (persona abajo a la izquierda) y él quería a Gabriel al centro como ya estaba en el 34 v01: ante un cambio de encuadre, mandar un cuadro de muestra antes de renderizar todo.
 - Al cambiar a Gabriel de lugar, lo que estaba pensado para ese rincón quedó detrás de él (una etiqueta, el cuarto ítem de una lista): revisar todas las tomas después de cambiar el lugar, y si una lista no entra, que la captura baje por ella.
+- Un sitio reparte variantes distintas de la misma página (el test de Aluné tiene dos portadas y dos páginas de oferta): reintentar con contexto nuevo hasta que salga la que describe la guía, y capturar todo el recorrido en una misma corrida.
+- Cuando un script de exploración imprime cada pantalla, limitar la salida (pocos caracteres por paso): una corrida larga llenó la conversación.
 - Los recuadros de una página cayeron 30–40 px corridos: se midieron los elementos y después se hizo scroll y la página se acomodó. Medir en el mismo momento de la captura (`kit/web/ejemplo_pasos_liquid.js`).
 - Videos de anuncios que no son 9:16 (cuadrados, 4:5, apaisados): al llenarlos a pantalla se les corta el texto de los costados. Van enteros con `clip(id, ss, entero=150)`; si traen franjas negras o interesa una zona, `recorte=(w, h, x, y)`.
 - Un sitio con verificación anti-bots (bevnet.com) no dejó capturar la cifra: va un gráfico propio con la cifra de la guía y "Fuente: …", y se avisa.
