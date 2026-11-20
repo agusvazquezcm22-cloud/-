@@ -4,6 +4,7 @@ Se actualiza cada vez que se termina una versión o una tanda de correcciones. L
 
 ## 2026-11-20 · Video 32 "Las 6 piezas del sistema" (IM8) · pantalla verde
 
+- **v04** = imagen de la v03 + sonidos (pedido de Agus: "el 32 está muy bueno, pero necesito que agregues los sonidos"; solo del paquete de Naza, nada sintetizado). 44 sonidos de 20 archivos, entre 15,9 y 19,7 dB bajo el pico de la voz, sin pitidos; mezcla −14,2 LUFS. **Falta que Agus lo escuche**: la cantidad y los niveles no están aprobados.
 - **v03** (correcciones de Gabriel sobre la v02; estilo aprobado: "de resto está brutal").
   1. Portada: foto de Beckham entera, título arriba, fijo desde el cuadro 0, sin logo.
   2. Gráfico "lo contrario": el logo de IM8 queda una sola vez arriba. El gráfico del sobre va sin logo arriba.

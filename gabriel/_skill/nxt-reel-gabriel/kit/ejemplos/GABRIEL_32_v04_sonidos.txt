@@ -1,0 +1,51 @@
+  1.56s transicion 17.1 dB bajo la voz ( -18.6 dBFS)  slow woosh.mp3 + Botanical Whoosh (1).wav | entra el comunicado (primera prueba)
+  2.06s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (13).wav | recuadro en los 23,7 M
+  4.06s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | grafico: linea de tiempo
+  8.29s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _1.wav | aparece el sobre (16 -> 1)
+  8.88s foto       17.2 dB bajo la voz ( -18.7 dBFS)  camera shutter sfx (1).mp3 | rafaga de anuncios
+ 11.44s transicion 16.9 dB bajo la voz ( -18.4 dBFS)  Momo WOOSH 3.mp3 + Botanical Whoosh (1).wav | capitulo: Empecemos con sus anuncios
+ 15.16s glitch     16.7 dB bajo la voz ( -18.2 dBFS)  Fast Glitch 1.mp3 | se tacha "Su producto"
+ 15.74s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot).wav | lista: articulaciones
+ 16.92s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot)_2.wav | lista: cansancio
+ 17.48s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _2.wav | lista: digestion
+ 17.92s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _1.wav | lista: menopausia
+ 18.40s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Deep, Mini, Whoosh (11).wav | tarjeta del anuncio para escepticos
+ 20.80s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (7).wav | recuadro en el contador de la Biblioteca
+ 23.86s transicion 15.9 dB bajo la voz ( -17.4 dBFS)  Momo WOOSH 3.mp3 + Deep, Mini, Whoosh (11).wav | capitulo: Pero por que hacen esto
+ 25.44s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Button, Cursor, Select (5).wav | flecha al boton Shop Now
+ 28.14s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | entra la pagina
+ 29.20s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Granular, Button, Select (1).wav | recuadro: estudios
+ 29.88s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (10).wav | recuadro: ingredientes
+ 30.38s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Granular, Button, Select (6).wav | recuadro: famosos
+ 30.90s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (13).wav | recuadro: comparacion
+ 32.40s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (7).wav | recuadro: garantia
+ 36.24s transicion 16.1 dB bajo la voz ( -17.6 dBFS)  slow woosh.mp3 + Deep, Mini, Whoosh (11).wav | capitulo: Pero aqui viene lo interesante
+ 38.70s golpe      16.0 dB bajo la voz ( -17.5 dBFS)  Botanical Whoosh (1).wav + Hit Impact (No FX) (4).wav + Magnetic, Button (13).wav | golpe clave 1 de 2: recuadro en los 285 dolares
+ 41.20s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (10).wav | recuadro: about six months
+ 41.98s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Countdown, List, Numbers (5).wav | se llenan los meses del calendario
+ 44.32s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | moneda en la primera compra
+ 46.43s golpe      16.0 dB bajo la voz ( -17.5 dBFS)  Deep, Mini, Whoosh (11).wav + Hit Impact (No FX) (4).wav + Magnetic, Button (7).wav | golpe clave 2 de 2: lo contrario
+ 47.24s transicion 17.1 dB bajo la voz ( -18.6 dBFS)  slow woosh.mp3 + Botanical Whoosh (1).wav | capitulo: mira como suben el ticket
+ 48.52s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot).wav | lista: plan de 3 meses
+ 49.96s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot)_2.wav | lista: kit de regalo
+ 50.64s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _2.wav | lista: envio gratis
+ 51.38s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _1.wav | lista: garantia
+ 51.94s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | entra la clienta con su pedido
+ 56.16s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Granular, Button, Select (6).wav | aparece "1 cliente"
+ 58.70s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | monedas: cobrarte cada 3 meses
+ 62.02s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (13).wav | recuadro en 4.1x
+ 64.10s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | entra el clip de la caja
+ 67.90s transicion 16.1 dB bajo la voz ( -17.6 dBFS)  slow woosh.mp3 + Deep, Mini, Whoosh (11).wav | sube la flecha del costo
+ 69.24s transicion 16.9 dB bajo la voz ( -18.4 dBFS)  Momo WOOSH 3.mp3 + Botanical Whoosh (1).wav | cierre: muro de anuncios
+ 71.10s foto       17.2 dB bajo la voz ( -18.7 dBFS)  camera shutter sfx (1).mp3 | cierre: anuncios en video
+ 72.78s foco       18.7 dB bajo la voz ( -20.2 dBFS)  Camera_Focusing_sound_effect_non_(getmp3.pro).mp3 | cierre: su oferta
+ 73.55s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Button, Cursor, Select (5).wav | recuadro: solo suscriptores
+ 75.00s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (7).wav | aparece BECKHAM
+ 75.22s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _1.wav | vuelve la portada
+
+Sonidos: 44 · archivos distintos: 20 (todos del paquete de Naza)
+Veces que se usa cada archivo: Botanical Whoosh (1).wav x9, Deep, Mini, Whoosh (11).wav x5, slow woosh.mp3 x4, Magnetic, Button (13).wav x4, Mini list down _1.wav x4, Magnetic, Button (7).wav x4, Momo WOOSH 3.mp3 x3, camera shutter sfx (1).mp3 x2, Mini list (one shot).wav x2, Mini list (one shot)_2.wav x2, Mini list down _2.wav x2, Button, Cursor, Select (5).wav x2, Magnetic, Button (10).wav x2, Granular, Button, Select (6).wav x2, Hit Impact (No FX) (4).wav x2, Coin Flip (Spin, Rotation) (1).wav x2, Fast Glitch 1.mp3 x1, Granular, Button, Select (1).wav x1, Countdown, List, Numbers (5).wav x1, Camera_Focusing_sound_effect_non_(getmp3.pro).mp3 x1
+Voz: -14.2 LUFS, pico -1.5 dBFS
+Pico de toda la pista de efectos: -16.3 dBFS (14.8 dB bajo el pico de la voz)
+Mezcla final: -14.2 LUFS, pico -1.5 dBFS
+Tonos sostenidos (pitidos) entre 300 Hz y 6 kHz: ninguno

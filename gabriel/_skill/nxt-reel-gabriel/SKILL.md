@@ -13,7 +13,8 @@ description: "Edita reels de NXT Media para Gabriel Monsalve (@gabriel.growthp, 
 - Preguntar solo lo necesario y avanzar con lo que hay. Cada decisión de edición tiene un motivo (Agus descartó una edición "sin criterio").
 - Cuando Gabriel manda correcciones y dice que el resto está bien, se toca **solo** lo pedido. Lo único que se suma es lo que exige el control de abajo.
 - Entrega: `GABRIEL_<n>_vNN.mp4`, 1080×1920, por `SendUserFile`. Nunca pisar versiones. No subir nada a la carpeta de Drive del cliente ni publicar si Agus no lo pide.
-- Música: la pone Gabriel desde Instagram; no se baja de YouTube. El 32 se aprobó sin música y sin efectos de sonido: no agregarlos salvo pedido.
+- **Sonidos: solo los del paquete de Naza** (o los que ya trae esta skill). Nunca sonidos sintetizados ni "predeterminados": Agus lo pidió expreso. Ver la sección Sonido.
+- Música: la pone Gabriel desde Instagram; no se baja de YouTube.
 - Si un número en pantalla ya no coincide con lo que dice Gabriel, avisar antes de exportar (lo pide su guía).
 
 ## Las 6 reglas de Gabriel (2026-11-20) · valen para todos sus videos
@@ -53,6 +54,23 @@ Las frases textuales de Gabriel y cómo se resolvió cada una están en `referen
 - **Qué no se muestra**: cada guía trae su lista (en IM8: anuncios de peso o GLP-1, porcentajes de resultados del estudio clínico, antes y después, testimonios con nombre, avisos de Black Friday, precios resaltados). Se tapa en la captura (ocultar el elemento antes de capturar) o se elige otro material.
 - **Audio**: voz a −14 LUFS, pico −1,5 dBFS.
 
+## Sonido
+
+Agus: "los sonidos, clave". Van siempre, con el estilo del video 31.
+
+- **De dónde salen**: carpeta de Drive "sonidos" de Naza (id `1J3lIkZN-0oNCYm2UVprYrfAQUsbiLDVS`, dentro de "recursos"), 33 archivos. Es el mismo paquete del 31. Se bajan con `download_file_content` del conector de Drive, que deja el archivo en disco (hasta 10 MB cada uno). La carpeta es privada: no sirve `curl`.
+- **Motor**: `kit/nxt_sonido.py`, el mismo del 31, sin cambios. Ejemplo completo: `kit/ejemplos/sonido32_v04.py` y su informe `GABRIEL_32_v04_sonidos.txt`. La pista de efectos se mezcla con la voz y se monta sobre el video ya renderizado sin volver a renderizar la imagen.
+- **Receta** (de la skill `nxt-reel-agus`): cada efecto con el pico entre 12,5 y 18 dB por debajo del pico de la voz, nunca arriba; los graves (Momo WOOSH, slow woosh, Hit Impact) siempre con una capa de aire (Botanical Whoosh con pasa-bajos o Deep Mini Whoosh), porque solos no se oyen en el celular; nunca pitidos; nunca el mismo sonido muchas veces seguidas; sin risers.
+- **Qué va dónde** (como quedó en el 32):
+  - Cambio de capítulo → transición: `Momo WOOSH 3` o `slow woosh` + capa de aire, alternando las cuatro combinaciones.
+  - Entrada de un gráfico, una tarjeta o un clip → whoosh suave solo (`Botanical` recortado o `Deep Mini`), no en todos los cortes.
+  - Recuadro rojo sobre una cifra → clic (`Magnetic, Button` 7, 10, 13; `Granular, Button, Select`; `Button, Cursor, Select`), rotando archivos.
+  - Enumeraciones (lista de anuncios, partes de la oferta) → un `Mini list` distinto por ítem.
+  - Dos golpes clave por video, en las dos frases más fuertes → whoosh que termina en el golpe + `Hit Impact` + `Magnetic, Button`.
+  - Tachado o negación → `Fast Glitch 1`. Ráfaga de anuncios → `camera shutter sfx`. Monedas → `Coin Flip`. Calendario → `Countdown, List, Numbers`.
+- **Control**: el informe lista cada sonido con su tiempo y nivel, cuántas veces se usa cada archivo, el pico de la pista y si hay tonos sostenidos. Mezcla final a −14 LUFS, pico −1,5 dBFS.
+- En el 31 la versión final llevó además la canción que pidió Gabriel, 19 dB bajo la voz. En el 32 no se pidió.
+
 ## Flujo
 
 1. Leer la sección del video en la guía y, si hay, las correcciones pendientes. Elegir el entorno "gabriel-edicion".
@@ -65,7 +83,8 @@ Las frases textuales de Gabriel y cómo se resolvió cada una están en `referen
 4. Escribir la lista de tomas copiando `kit/ejemplos/gabriel32_v03.py`: cada `toma(id, t0, t1, fondo, lugar_de_Gabriel)` con los tiempos de la transcripción, y el `GUION` de subtítulos (una palabra del guion por cada palabra transcrita; `*` marca la clave; `~` oculta una palabra).
 5. Hoja de cuadros: `python3 kit/render_verde.py config.py --prev t1,t2,… --out hoja.jpg`. Mirar todas las tomas antes de renderizar.
 6. Control (abajo). Render: `python3 kit/render_verde.py config.py --out GABRIEL_<n>_vNN.mp4` (unos 8 minutos por 76 s; correrlo en segundo plano).
-7. Verificar el archivo (duración, LUFS, cuadros negros o congelados) y mirar una hoja de cuadros del mp4 final. Entregar y actualizar esta skill.
+7. Sonidos: copiar `kit/ejemplos/sonido32_v04.py`, poner cada evento en el tiempo del corte o de la marca, y correrlo sobre el mp4 renderizado.
+8. Verificar el archivo (duración, LUFS, cuadros negros o congelados) y mirar una hoja de cuadros del mp4 final. Entregar y actualizar esta skill.
 
 ## Control antes de entregar
 
@@ -85,7 +104,8 @@ Las frases textuales de Gabriel y cómo se resolvió cada una están en `referen
 - Recuadro rojo sobre fondo rojo: no se ve.
 - El texto propio de un anuncio quedó detrás de Gabriel: usar `Clip(..., subir=px)` o cambiar el lugar de Gabriel.
 - Una pregunta sobre Black Friday quedó visible en una lista de preguntas frecuentes: revisar también el texto chico de las capturas.
-- El conector de Drive no baja archivos de más de 10 MB ni edita el contenido de archivos existentes.
+- El conector de Drive no baja archivos de más de 10 MB ni edita el contenido de archivos existentes. Los de hasta 10 MB los guarda en disco.
+- La v03 del 32 se entregó sin sonidos y Agus los tuvo que pedir: los sonidos van desde la primera versión.
 
 ## Historial y pendientes
 
