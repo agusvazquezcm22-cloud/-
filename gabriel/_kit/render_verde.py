@@ -3,7 +3,7 @@
 Gabriel recortado del verde, pegado abajo, sobre imagen/video/grafico a pantalla
 completa. Corte seco, marcas rojas, sin subtitulos propios.
 
-Uso:  python3 render_verde.py <config.py> [--prev t1,t2,...] [--out archivo.mp4]
+Uso:  python3 render_verde.py <config.py> [--prev t1,t2,... [--cols 4 --ancho 540]] [--out archivo.mp4]
 El config define RAW, DUR y SHOTS (ver gabriel/32/gabriel32_v01.py).
 """
 import subprocess, sys, math, os, importlib.util
@@ -46,6 +46,7 @@ LAYOUT = {
     'MR': (0.76, W - int(W * 0.76), 1150, 'l'),
     'PL': (0.50, 0, 1400, 'r'),       # pequeno, esquina izquierda
     'PR': (0.50, W - W // 2, 1400, 'l'),
+    'C':  (0.74, (W - int(W * 0.74)) // 2, 1300, 'ambos'),   # fijo abajo al centro (pedido de Agus: siempre en el mismo lugar)
 }
 
 
@@ -75,6 +76,8 @@ def poner_gabriel(dst, fr, lay):
         ramp = np.clip(np.arange(nw, dtype=np.float32) / 46.0, 0, 1)
         if lado == 'r':
             ramp = ramp[::-1]
+        elif lado == 'ambos':
+            ramp = np.minimum(ramp, ramp[::-1])
         a = a * ramp[None, :]
     y = ytop - int(round((CABEZA - Y0) * s))
     h = min(nh, H - y)
@@ -347,8 +350,8 @@ def armar_tarjetas(palabras, guion, dur=None, min_tarjeta=0.7, min_clave=0.8, ma
     for tj in guion:
         toks = tj.split(' ')
         ws = palabras[i:i + len(toks)]; i += len(toks)
-        clave = toks[-1][1:] if toks[-1].startswith('*') else None
-        simples = ' '.join(x for x in (toks[:-1] if clave else toks) if x != '~')
+        clave = toks[-1][1:].replace('_', ' ') if toks[-1].startswith('*') else None      # '_' = espacio dentro de una misma palabra del guion
+        simples = ' '.join(x for x in (toks[:-1] if clave else toks) if x != '~').replace('_', ' ')
         out.append(dict(t0=ws[0]['s'], fin=ws[-1]['e'], simples=simples, clave=clave, t_clave=ws[-1]['s'],
                         minimo=min_clave if clave else min_tarjeta))
     assert i == len(palabras), (i, len(palabras))
@@ -477,6 +480,8 @@ def leer_crudo(raw, ss=None, n=None):
 
 def main():
     cfg = cargar(sys.argv[1])
+    for k in ('CABEZA', 'Y0'):            # cada crudo tiene a Gabriel a otra altura: el config puede fijar la fila de su cabeza
+        if hasattr(cfg, k): globals()[k] = getattr(cfg, k)
     shots = cfg.SHOTS
     for a, b in zip(shots, shots[1:]):
         assert abs(a['t1'] - b['t0']) < 1e-6, (a['id'], b['id'])
@@ -485,8 +490,9 @@ def main():
     if '--prev' in sys.argv:
         ts = [float(x) for x in sys.argv[sys.argv.index('--prev') + 1].split(',')]
         out = sys.argv[sys.argv.index('--out') + 1] if '--out' in sys.argv else 'prev.jpg'
-        cols = min(len(ts), 8); filas = (len(ts) + cols - 1) // cols
-        tw, th = 270, 480
+        arg = lambda k, d: int(sys.argv[sys.argv.index(k) + 1]) if k in sys.argv else d
+        cols = min(len(ts), arg('--cols', 8)); filas = (len(ts) + cols - 1) // cols
+        tw = arg('--ancho', 270); th = tw * 16 // 9          # --cols 4 --ancho 540: hoja grande para revisar de cerca
         hoja = Image.new('RGB', (cols * tw, filas * th))
         for i, t in enumerate(ts):
             sh = [s for s in shots if s['t0'] <= t < s['t1']][0]

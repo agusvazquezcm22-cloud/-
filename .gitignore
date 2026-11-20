@@ -1,2 +1,4 @@
 gabriel/32/salida/*.mp4
 gabriel/33/salida/*.mp4
+gabriel/*/salida/*.mp4
+__pycache__/

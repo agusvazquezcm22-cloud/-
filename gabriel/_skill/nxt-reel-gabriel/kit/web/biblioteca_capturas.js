@@ -5,7 +5,7 @@
 //   filtro:  parte final de la URL. Por defecto "&search_type=page&media_type=all".
 //            Solo videos: "&search_type=page&media_type=video".  Por texto: "&search_type=keyword_unordered&media_type=all&q=Sold%20out"
 //   prefijo: para no pisar capturas de otra corrida (por defecto "").
-// Sale: <prefijo>fbg0..3.png (grilla), <prefijo>card_<id>.png y <prefijo>fbmeta.json con: contador de resultados,
+// Sale: <prefijo>fbg0..3.png (grilla), <prefijo>card_<id>.png y <prefijo>fbmeta.json con: contador de resultados, fechas de inicio,
 //       y por tarjeta la frase, el boton y el encabezado ("Fulano with Marca").
 // Ojo: la barra de busqueda es fija y se repite arriba de fbg1..3, y la grilla puede terminar antes de fbg3.
 const { chromium } = require('playwright');
@@ -32,6 +32,8 @@ const fs = require('fs');
   const meta = { cards: {} };
   meta.results = await p.evaluate(() => { const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); let n; while (n = w.nextNode()) if (/results?$/.test(n.textContent.trim())) { const r = n.parentElement.getBoundingClientRect(); return [r.left, r.top + scrollY, r.width, r.height, n.textContent.trim()]; } });
   meta.alto = await p.evaluate(() => document.documentElement.scrollHeight);
+  // fechas de inicio de cada anuncio (para subrayarlas en la grilla): [x, y de pagina, ancho, alto, texto]
+  meta.fechas = await p.evaluate(() => { const out = []; const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); let n; while (n = w.nextNode()) if (/^Started running on/.test(n.textContent.trim())) { const r = n.parentElement.getBoundingClientRect(); if (r.width > 5) out.push([r.left, r.top + scrollY, r.width, r.height, n.textContent.trim()]); } return out; });
   for (let k = 0; k < 4; k++) { await p.evaluate(y => window.scrollTo(0, y), k * 2400); await p.waitForTimeout(2500); await p.screenshot({ path: `${dir}/${pref}fbg${k}.png` }); }
   let lista = Object.entries(want).filter(([k]) => k != '*' && k != 'max');
   if (want['*']) {

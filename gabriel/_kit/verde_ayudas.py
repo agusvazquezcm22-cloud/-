@@ -64,11 +64,17 @@ def img(path):
 
 
 # ------------------------------------------------------------ fondos
-def anuncio(i, z=0.03, marcas_rel=(), nombre=None):
+def anuncio(i, z=0.03, marcas_rel=(), nombre=None, encaje=None):
     """Anuncio en imagen a pantalla completa. Si no es 9:16 va entero sobre su version desenfocada.
     marcas_rel: [(tipo, (x, y, w, h) en fraccion de la imagen original, t0[, t1])]."""
     usar(nombre or f'anuncio-imagen:{i}')
     im = Image.open(ad(i)).convert('RGB')
+    if encaje:            # (escala, y): la imagen entera, mas chica, sobre su version desenfocada (portada con titulo arriba)
+        k, y = encaje; c = Image.fromarray(cubrir(im)).filter(ImageFilter.GaussianBlur(42)).point(lambda v: int(v * 0.62))
+        ch = Image.fromarray(cubrir(im)).resize((int(W * k), int(H * k)), Image.LANCZOS); x0 = (W - ch.width) // 2; c.paste(ch, (x0, y))
+        s = max(W / im.width, H / im.height) * k; ox = (im.width * s - ch.width) / 2; oy = (im.height * s - ch.height) / 2
+        ms = [(m[0], (x0 + m[1][0] * im.width * s - ox, y + m[1][1] * im.height * s - oy, m[1][2] * im.width * s, m[1][3] * im.height * s), *m[2:]) for m in marcas_rel]
+        return Lienzo(c, (0, 0, W), (W * z / 2, H * z * 0.35, W * (1 - z)), ms)
     if im.height / im.width >= 1.7:
         s = max(W / im.width, H / im.height); ox = (im.width * s - W) / 2; oy = (im.height * s - H) / 2
         c = Image.fromarray(cubrir(im))
