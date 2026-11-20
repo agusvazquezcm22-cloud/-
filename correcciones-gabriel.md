@@ -1,6 +1,6 @@
 # Gabriel Monsalve — correcciones y reglas del estilo
 
-Video: "La estrategia de 23,7M en un mes de IM8"
+Video: "La estrategia de 23,7M en un mes de IM8" (crudo: parece ser el de la carpeta "37." que subió Gabriel a Drive el 20/11)
 Feedback recibido por WhatsApp (grupo EDICIÓN | GABRIEL), 20/11/2026.
 
 ## Estilo aprobado
@@ -25,3 +25,9 @@ Feedback recibido por WhatsApp (grupo EDICIÓN | GABRIEL), 20/11/2026.
 | 4 | Captura del comunicado de Prenetics ($285 marcado), subtítulo "pagar tanto" | "Este creo que lo usamos dos veces, ¿cierto? ¿o 3?" | Dejarla una sola vez y reemplazar las repeticiones por otros visuales |
 | 5 | Final: "si quieres que te muestre la estrategia completa" | "Podemos buscar quizás imágenes o videos más visuales que representen eso" | Agregar imágenes o videos que representen la estrategia completa |
 | 6 | Todo el video | (indicación de Agus) Subtítulos muy rápidos | Dar más tiempo de lectura a cada subtítulo |
+
+## Nota sobre la velocidad de los subtítulos
+En `gabriel.md` (sección 0.h, video 31) ya figuraba este mismo pedido: tarjetas de 4-5 palabras, mediana 0,80 s, palabra clave al menos 0,6 s. En el video de IM8 volvió a pasar, así que esos mínimos se suben y pasan a ser control obligatorio antes de entregar:
+- Ninguna tarjeta menos de 0,7 s en pantalla; ideal 1,0 s.
+- Palabra clave grande: al menos 0,8 s visible.
+- Si una animación de subtítulo no deja leer el texto, se simplifica la animación, no se acorta el tiempo.
