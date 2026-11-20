@@ -1,0 +1,54 @@
+  1.96s transicion 17.2 dB bajo la voz ( -18.7 dBFS)  slow woosh.mp3 + Botanical Whoosh (1).wav | entra la nota de Entrepreneur
+  3.26s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (13).wav | recuadro en los 1.000 millones
+  4.64s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | grafico: ventas de Electrolit
+  5.39s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | aparece la cifra de 617 millones
+  7.94s transicion 16.0 dB bajo la voz ( -17.5 dBFS)  Momo WOOSH 3.mp3 + Deep, Mini, Whoosh (11).wav | pantalla dividida: cada una le habla a otra persona
+ 10.50s transicion 16.2 dB bajo la voz ( -17.7 dBFS)  slow woosh.mp3 + Deep, Mini, Whoosh (11).wav | ronda 1: sus anuncios
+ 11.76s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (7).wav | recuadro en los 200 anuncios de Liquid
+ 13.36s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Granular, Button, Select (1).wav | recuadro en el boton Subscribe
+ 14.22s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot).wav | subrayado: cuando te suscribes
+ 15.21s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot)_2.wav | subrayado: suscribete y ahorra
+ 15.86s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Deep, Mini, Whoosh (11).wav | Biblioteca de Electrolit
+ 17.36s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (10).wav | recuadro en los 80 anuncios de Electrolit
+ 18.69s glitch     16.7 dB bajo la voz ( -18.2 dBFS)  Fast Glitch 1.mp3 | no hay boton de compra
+ 20.04s foto       17.2 dB bajo la voz ( -18.7 dBFS)  camera shutter sfx (1).mp3 | rafaga: a quien patrocina
+ 21.82s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _2.wav | Cruz Azul
+ 22.48s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _1.wav | Pumas
+ 23.22s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot).wav | Pato O'Ward
+ 24.22s transicion 17.0 dB bajo la voz ( -18.5 dBFS)  Momo WOOSH 3.mp3 + Botanical Whoosh (1).wav | ronda 2: a donde te llevan
+ 26.10s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | pagina de suscripcion de Liquid
+ 26.84s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (13).wav | recuadro: arma tu suscripcion
+ 28.62s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Granular, Button, Select (6).wav | paso 1: para que la quieres
+ 29.20s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (7).wav | paso 2: el sabor
+ 30.36s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (10).wav | paso 3: cuantos sobres
+ 31.70s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | beneficios de la suscripcion
+ 32.28s golpe      16.0 dB bajo la voz ( -17.5 dBFS)  Botanical Whoosh (1).wav + Hit Impact (No FX) (4).wav + Magnetic, Button (13).wav | golpe clave 1 de 2: 30 % menos en cada pedido
+ 34.16s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot)_2.wav | subrayado: muestras gratis
+ 35.46s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _2.wav | subrayado: regalos sorpresa
+ 36.36s transicion 17.2 dB bajo la voz ( -18.7 dBFS)  slow woosh.mp3 + Botanical Whoosh (1).wav | Electrolit hace lo contrario
+ 40.40s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | botella gigante en la cancha
+ 42.28s foto       17.2 dB bajo la voz ( -18.7 dBFS)  camera shutter sfx (1).mp3 | en tu equipo, en las carreras
+ 43.59s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Countdown, List, Numbers (5).wav | entran las cadenas donde se compra
+ 44.98s transicion 16.0 dB bajo la voz ( -17.5 dBFS)  Momo WOOSH 3.mp3 + Deep, Mini, Whoosh (11).wav | ronda 3: vuelve la pantalla dividida
+ 48.16s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | sobre de Liquid
+ 51.58s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Button, Cursor, Select (5).wav | recuadro en las cuatro ocasiones
+ 53.18s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot).wav | fiesta
+ 54.32s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _2.wav | gym
+ 54.84s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _1.wav | avion
+ 55.58s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot)_2.wav | calor
+ 55.84s foto       17.2 dB bajo la voz ( -18.7 dBFS)  camera shutter sfx (1).mp3 | rafaga de creadores
+ 58.72s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Granular, Button, Select (1).wav | recuadro en los microinfluencers
+ 60.42s transicion 16.2 dB bajo la voz ( -17.7 dBFS)  slow woosh.mp3 + Deep, Mini, Whoosh (11).wav | Electrolit usa Meta como tele
+ 60.62s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot).wav | aparece la tele
+ 62.56s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Deep, Mini, Whoosh (11).wav | anuncio con el equipo
+ 66.92s foto       17.2 dB bajo la voz ( -18.7 dBFS)  camera shutter sfx (1).mp3 | rafaga alternando las dos marcas
+ 70.18s golpe      16.0 dB bajo la voz ( -17.5 dBFS)  Deep, Mini, Whoosh (11).wav + Hit Impact (No FX) (4).wav + Magnetic, Button (7).wav | golpe clave 2 de 2: no compiten en precio
+ 70.44s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | vuelve la pantalla dividida
+ 73.56s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (7).wav | aparece "comentarios"
+
+Sonidos: 47 en 74.1 s · archivos distintos: 19 (todos del paquete de Naza)
+Veces que se usa cada archivo: Botanical Whoosh (1).wav x10, Deep, Mini, Whoosh (11).wav x7, slow woosh.mp3 x4, Magnetic, Button (7).wav x4, Mini list (one shot).wav x4, camera shutter sfx (1).mp3 x4, Magnetic, Button (13).wav x3, Momo WOOSH 3.mp3 x3, Mini list (one shot)_2.wav x3, Mini list down _2.wav x3, Granular, Button, Select (1).wav x2, Magnetic, Button (10).wav x2, Mini list down _1.wav x2, Hit Impact (No FX) (4).wav x2, Coin Flip (Spin, Rotation) (1).wav x1, Fast Glitch 1.mp3 x1, Granular, Button, Select (6).wav x1, Countdown, List, Numbers (5).wav x1, Button, Cursor, Select (5).wav x1
+Voz: -14.3 LUFS, pico -1.5 dBFS
+Pico de toda la pista de efectos: -16.1 dBFS (14.6 dB bajo el pico de la voz)
+Mezcla final: -14.3 LUFS, pico -1.5 dBFS
+Tonos sostenidos (pitidos) entre 300 Hz y 6 kHz: ninguno

@@ -141,14 +141,21 @@ class Lienzo:
 class Clip:
     """Video a pantalla completa (cover), lectura secuencial."""
 
-    def __init__(self, path, ss=0.0, ancla=0.5, vel=1.0, subir=0, encaje=None):
+    def __init__(self, path, ss=0.0, ancla=0.5, vel=1.0, subir=0, encaje=None, entero=None, recorte=None):
         # subir=px: corre el video hacia arriba (su texto queda sobre Gabriel).  encaje=(escala, y): el video entero, mas chico,
         # sobre su propia version desenfocada (portada: deja lugar arriba para el titulo sin tapar el anuncio).
+        # entero=y: el video ENTERO a todo el ancho (no 9:16: cuadrado, 4:5, apaisado) desde y px, sobre su version desenfocada,
+        # para no cortarle el texto de los costados.  recorte=(w, h, x, y): recorta el original antes (franjas negras, una zona).
         self.path, self.ss, self.ancla, self.vel, self.subir, self.encaje = path, ss, ancla, vel, subir, encaje
+        self.entero, self.recorte = entero, recorte
         self.p = None; self.n = -1; self.last = None
 
     def _cmd(self, ss, n=None):
-        vf = f"setpts=PTS/{self.vel},fps={FPS},scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H}:(iw-{W})/2:(ih-{H})*{self.ancla}"
+        pre = "crop=%d:%d:%d:%d," % tuple(self.recorte) if self.recorte else ""
+        vf = f"{pre}setpts=PTS/{self.vel},fps={FPS},scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H}:(iw-{W})/2:(ih-{H})*{self.ancla}"
+        if self.entero is not None:
+            vf = (f"{pre}setpts=PTS/{self.vel},fps={FPS},split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
+                  f"gblur=sigma=34,eq=brightness=-0.14[bg];[b]scale={W}:-2[fg];[bg][fg]overlay=0:{int(self.entero)}")
         c = ['ffmpeg', '-v', 'error', '-ss', f'{ss:.3f}', '-i', self.path, '-vf', vf, '-an']
         if n: c += ['-frames:v', str(n)]
         return c + ['-f', 'rawvideo', '-pix_fmt', 'rgb24', '-']

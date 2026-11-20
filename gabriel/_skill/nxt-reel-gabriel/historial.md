@@ -2,6 +2,15 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-20 · Video 35 "Liquid I.V. vs Electrolit: ¿quién lo hace mejor?" · formato VS
+
+- **v01** (74,1 s; sin feedback todavía). Gabriel fijo abajo al centro en las 24 tomas. Liquid I.V. a la izquierda, Electrolit a la derecha. Pantalla dividida en la portada, en "ninguno de los dos vende lo que crees" y en el cierre; además, dos clips lado a lado en "cada una le habla a una persona distinta".
+  - Control: 80 tarjetas, la más corta 0,70 s, clave mínima 0,80 s; 44 fuentes en 24 tomas, ninguna repetida salvo la pantalla dividida de la portada (vuelve a mitad y en el cierre, como pide la guía); 47 sonidos del paquete de Naza, entre 16,0 y 19,7 dB bajo el pico de la voz, sin pitidos; mezcla −14,3 LUFS; sin cuadros negros ni congelados.
+  - Material: 25 anuncios de Liquid I.V. (página 609555915738248, "~200 results") y 36 de Electrolit México (página 115583038462809, "~79 results"), los de Pumas buscados por palabra; la página de suscripción de liquid-iv.com (armador por pasos, con el paso de sabores abierto, y los beneficios) y la nota de Entrepreneur (US$1.000 M, cuatro ocasiones, microinfluencers).
+  - Lo que no se pudo conseguir: **BevNET** (los US$617 M de Electrolit) tiene verificación anti-bots; va un gráfico propio con la cifra de la guía y "Fuente: BevNET". Si Agus manda la captura, se cambia.
+  - Para avisar: Gabriel dice "unos 200" y "unos 80" y la Biblioteca mostraba "~200" y "~79" (coincide). En 60,4 s la transcripción entiende "De las que Electrolit usa Meta…": esas tres palabras no salen en el subtítulo; si dice otra cosa, se agrega. La página de Liquid tenía arriba un cartel de Black Friday que no entra en ninguna captura.
+  - "Donde tú prefieras": los logos de Alsuper, H-E-B, Benavides y Soriana salen de las promos reales de Electrolit (sin el precio).
+
 ## 2026-11-20 · Ubicación de Gabriel: decisión final de Agus
 - Después de ver las v02 (Gabriel abajo a la izquierda, como la referencia de Chase) mandó una captura del 34 v01 en el segundo 9 y dijo: "Tiene que estar en esa ubicación, no más abajo, el chico. Haz la última versión". Es el lugar `C`: abajo al centro, escala 0,74, cabeza en y 1300, en todo el video.
 - **33 v03**: la v01 con Gabriel en `C` en las 26 tomas (la etiqueta "Claude" va justo arriba de su cabeza). Mismos 40 sonidos, 58,1 s, sin cuadros negros ni congelados.
@@ -60,8 +69,7 @@ Se actualiza cada vez que se termina una versión o una tanda de correcciones. L
 - El cierre repite la imagen de la portada porque lo pide su guía; si prefiere que no, se cambia.
 
 ## Videos que faltan
-- 35 a 37: crudos subidos a Drive el 2026-11-20 y guía lista (hasta el 38).
-- 35 es formato **VS** ("Liquid I.V. vs Electrolit"): pantalla dividida para comparar las dos marcas, Liquid I.V. siempre a la izquierda y Electrolit a la derecha. Crudo bajado (74,2 s). Hace falta sumar al entorno los sitios de la guía (liquid-iv.com, entrepreneur.com, bevnet.com).
+- 36 y 37: crudos en Drive (ids en SKILL.md) y guía lista (hasta el 38). Sin empezar.
 
 ## 2026-11-15/16 · Video 31 "Suplementos Novia" · mini charla con tele
 - Entregada la v13. `referencias/gabriel.md` documenta hasta la v11 (secciones 0.a a 0.i); lo que cambió en v12 y v13 no está escrito.
