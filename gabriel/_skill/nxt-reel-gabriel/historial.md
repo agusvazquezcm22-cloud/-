@@ -2,6 +2,17 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-20 · Video 34 "La estrategia de recompra de The Everyday Lab" · pantalla verde
+
+- **v01** (62,8 s; sin feedback todavía). Primer video con **Gabriel fijo**: abajo al centro, mismo tamaño en las 23 tomas (`GAB = 'C'`). El link de referencia de Agus no había llegado: el encuadre es una propuesta y se ajusta cuando lo pase.
+  - Control: 64 tarjetas, la más corta 0,70 s, clave mínima 0,80 s, corte más corrido 0,20 s; 33 fuentes en 23 tomas, ninguna repetida salvo la portada en el cierre. SONIDOS_34
+  - Portada: anuncio real de la marca (animación del producto) entero, con el título arriba.
+  - Material: 34 anuncios de la Biblioteca (página 297987933391943, "~77 results"), el artículo patrocinado completo, la página del producto (paquetes y suscripción) y la página de suscripciones del sitio.
+  - Cifras a la vista con su fuente: "Más de 11,000 mexicanas ya eligieron" (artículo), "~77 results" (Biblioteca), $899 y 5/10/15 % (página del producto), −11/−13/−15 % según frecuencia y "Mínimo 2 entregas para poder cancelar" (suscripciones).
+  - En el cierre, las reseñas marcadas dicen "es el segundo bote que uso" y "ya estoy en el tercer insumo": recompra con palabras de clientas.
+  - Lo que se corrigió antes de entregar (para no repetirlo): los subtítulos tapaban los precios de los paquetes (se reencuadró); seis anuncios tenían su propio texto justo detrás del nuestro (se eligió otro tramo u otro anuncio); el encabezado del sitio se repetía al recorrer el artículo (captura con tramos solapados).
+  - Para avisar: Gabriel dice "más de 70 anuncios" y la Biblioteca mostraba "~77 results" (coincide). En el artículo los combos son de otro producto de la marca (desde $1,499) y en la tienda el frasco cuesta $899: cada precio aparece cuando Gabriel habla de esa página. Las fechas de la Biblioteca dicen "Oct 18, 2026" y él dice "de las últimas semanas".
+
 ## 2026-11-20 · Pedido de Agus para los próximos videos (34 en adelante)
 - Sobre el 33 dijo "Top". Para los próximos: Gabriel casi siempre en el mismo lugar, cambiarlo solo cada tanto. Va a pasar un link de referencia de cómo se ve; **todavía no llegó**.
 
@@ -39,7 +50,8 @@ Se actualiza cada vez que se termina una versión o una tanda de correcciones. L
 - El cierre repite la imagen de la portada porque lo pide su guía; si prefiere que no, se cambia.
 
 ## Videos que faltan
-- 34 a 37: crudos subidos a Drive el 2026-11-20 y guía lista (hasta el 38). Sin empezar.
+- 35 a 37: crudos subidos a Drive el 2026-11-20 y guía lista (hasta el 38).
+- 35 es formato **VS** ("Liquid I.V. vs Electrolit"): pantalla dividida para comparar las dos marcas, Liquid I.V. siempre a la izquierda y Electrolit a la derecha. Crudo bajado (74,2 s). Hace falta sumar al entorno los sitios de la guía (liquid-iv.com, entrepreneur.com, bevnet.com).
 
 ## 2026-11-15/16 · Video 31 "Suplementos Novia" · mini charla con tele
 - Entregada la v13. `referencias/gabriel.md` documenta hasta la v11 (secciones 0.a a 0.i); lo que cambió en v12 y v13 no está escrito.
