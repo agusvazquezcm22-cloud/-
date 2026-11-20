@@ -5,7 +5,7 @@ Se actualiza cada vez que se termina una versión o una tanda de correcciones. L
 ## 2026-11-20 · Video 34 "La estrategia de recompra de The Everyday Lab" · pantalla verde
 
 - **v01** (62,8 s; sin feedback todavía). Primer video con **Gabriel fijo**: abajo al centro, mismo tamaño en las 23 tomas (`GAB = 'C'`). El link de referencia de Agus no había llegado: el encuadre es una propuesta y se ajusta cuando lo pase.
-  - Control: 64 tarjetas, la más corta 0,70 s, clave mínima 0,80 s, corte más corrido 0,20 s; 33 fuentes en 23 tomas, ninguna repetida salvo la portada en el cierre. SONIDOS_34
+  - Control: 64 tarjetas, la más corta 0,70 s, clave mínima 0,80 s, corte más corrido 0,20 s; 33 fuentes en 23 tomas, ninguna repetida salvo la portada en el cierre. Sonidos: 44 del paquete de Naza (19 archivos), entre 15,9 y 19,7 dB bajo el pico de la voz, sin pitidos; mezcla −14,1 LUFS. Sin cuadros negros ni congelados.
   - Portada: anuncio real de la marca (animación del producto) entero, con el título arriba.
   - Material: 34 anuncios de la Biblioteca (página 297987933391943, "~77 results"), el artículo patrocinado completo, la página del producto (paquetes y suscripción) y la página de suscripciones del sitio.
   - Cifras a la vista con su fuente: "Más de 11,000 mexicanas ya eligieron" (artículo), "~77 results" (Biblioteca), $899 y 5/10/15 % (página del producto), −11/−13/−15 % según frecuencia y "Mínimo 2 entregas para poder cancelar" (suscripciones).

@@ -1,0 +1,51 @@
+  2.06s transicion 17.1 dB bajo la voz ( -18.6 dBFS)  slow woosh.mp3 + Botanical Whoosh (1).wav | entra el articulo de la marca
+  2.96s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (13).wav | recuadro en las 11.000 mexicanas
+  4.50s foto       17.2 dB bajo la voz ( -18.7 dBFS)  camera shutter sfx (1).mp3 | rafaga de anuncios
+  5.92s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | anuncio: colageno sublingual
+  7.16s transicion 16.9 dB bajo la voz ( -18.4 dBFS)  Momo WOOSH 3.mp3 + Botanical Whoosh (1).wav | capitulo: sus anuncios en Meta
+  8.06s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (7).wav | recuadro en el contador de anuncios
+  9.99s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot).wav | subrayado en las fechas
+ 12.84s foto       17.2 dB bajo la voz ( -18.7 dBFS)  camera shutter sfx (1).mp3 | rafaga: la fundadora
+ 16.22s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Deep, Mini, Whoosh (11).wav | tarjeta de la Biblioteca
+ 16.72s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot)_2.wav | subrayado en el texto del anuncio
+ 17.94s foco       18.7 dB bajo la voz ( -20.2 dBFS)  Camera_Focusing_sound_effect_non_(getmp3.pro).mp3 | frasco de polvo: absorcion 15-30 %
+ 20.23s glitch     16.7 dB bajo la voz ( -18.2 dBFS)  Fast Glitch 1.mp3 | ya no funciona como antes
+ 21.48s transicion 15.9 dB bajo la voz ( -17.4 dBFS)  Momo WOOSH 3.mp3 + Deep, Mini, Whoosh (11).wav | capitulo: la estrategia
+ 24.56s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot).wav | aparece "Tienda"
+ 25.26s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot)_2.wav | aparece "Articulo"
+ 25.80s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | entra el articulo
+ 28.68s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Granular, Button, Select (1).wav | recuadro en los combos
+ 30.64s golpe      16.0 dB bajo la voz ( -17.5 dBFS)  Botanical Whoosh (1).wav + Hit Impact (No FX) (4).wav + Magnetic, Button (13).wav | golpe clave 1 de 2: publirreportaje
+ 31.58s transicion 16.1 dB bajo la voz ( -17.6 dBFS)  slow woosh.mp3 + Deep, Mini, Whoosh (11).wav | capitulo: como suben el ticket
+ 32.46s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | ticket
+ 33.22s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Granular, Button, Select (1).wav | recuadro: 1 frasco
+ 34.70s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (10).wav | recuadro: 2 frascos
+ 36.14s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Granular, Button, Select (6).wav | recuadro: 3 frascos
+ 37.08s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (13).wav | recuadro: 4 frascos
+ 38.14s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | sube a la suscripcion
+ 39.04s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (7).wav | recuadro en la suscripcion
+ 40.40s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | tabla de descuentos por frecuencia
+ 40.65s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot)_2.wav | frecuencia 1
+ 41.25s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _2.wav | frecuencia 2
+ 41.85s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _1.wav | frecuencia 3
+ 42.76s transicion 16.9 dB bajo la voz ( -18.4 dBFS)  Momo WOOSH 3.mp3 + Botanical Whoosh (1).wav | capitulo: cancelar la suscripcion
+ 44.86s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | pagina de suscripciones
+ 46.02s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Button, Cursor, Select (5).wav | recuadro en "minimo 2 entregas"
+ 48.02s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _2.wav | 1a entrega
+ 48.47s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _1.wav | 2a entrega
+ 49.38s golpe      16.0 dB bajo la voz ( -17.5 dBFS)  Deep, Mini, Whoosh (11).wav + Hit Impact (No FX) (4).wav + Magnetic, Button (7).wav | golpe clave 2 de 2: asegurada
+ 49.86s transicion 17.1 dB bajo la voz ( -18.6 dBFS)  slow woosh.mp3 + Botanical Whoosh (1).wav | capitulo: la conclusion
+ 52.64s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (10).wav | recuadro en la semana (el habito)
+ 54.00s foto       17.2 dB bajo la voz ( -18.7 dBFS)  camera shutter sfx (1).mp3 | comentario y resenas de clientas
+ 54.88s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Granular, Button, Select (6).wav | recuadro: el segundo bote
+ 55.33s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (13).wav | recuadro: el tercer insumo
+ 56.23s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot).wav | aparece el avion de enviar
+ 59.94s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Deep, Mini, Whoosh (11).wav | vuelve la portada
+ 62.40s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (7).wav | aparece "vez?"
+
+Sonidos: 44 en 62.8 s · archivos distintos: 19 (todos del paquete de Naza)
+Veces que se usa cada archivo: Botanical Whoosh (1).wav x10, Deep, Mini, Whoosh (11).wav x5, Magnetic, Button (13).wav x4, Magnetic, Button (7).wav x4, slow woosh.mp3 x3, camera shutter sfx (1).mp3 x3, Momo WOOSH 3.mp3 x3, Mini list (one shot).wav x3, Mini list (one shot)_2.wav x3, Granular, Button, Select (1).wav x2, Hit Impact (No FX) (4).wav x2, Magnetic, Button (10).wav x2, Granular, Button, Select (6).wav x2, Mini list down _2.wav x2, Mini list down _1.wav x2, Camera_Focusing_sound_effect_non_(getmp3.pro).mp3 x1, Fast Glitch 1.mp3 x1, Coin Flip (Spin, Rotation) (1).wav x1, Button, Cursor, Select (5).wav x1
+Voz: -14.2 LUFS, pico -1.5 dBFS
+Pico de toda la pista de efectos: -16.2 dBFS (14.7 dB bajo el pico de la voz)
+Mezcla final: -14.1 LUFS, pico -1.5 dBFS
+Tonos sostenidos (pitidos) entre 300 Hz y 6 kHz: ninguno
