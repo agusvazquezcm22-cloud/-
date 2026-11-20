@@ -8,7 +8,7 @@ El config define RAW, DUR y SHOTS (ver gabriel/32/gabriel32_v01.py).
 """
 import subprocess, sys, math, os, importlib.util
 import numpy as np, cv2
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 W, H, FPS = 1080, 1920, 30
 ROJO = (227, 38, 46)
@@ -295,6 +295,75 @@ def etiqueta(pil, lineas, cy, tam=74, tl=1.0, clave=None, fondo=TINTA, color=(25
     pil.paste(capa, (int((W - capa.width) / 2), int(cy - capa.height / 2)), capa)
 
 
+# ---------------------------------------------------------------- subtitulos (juego aprobado en el video 31)
+# Palabra simple: Inter Display SemiBold blanca. Palabra clave: ExtraBold verde menta, mas grande,
+# debajo y tocandose con la blanca, siempre encima. Lugar fijo. La clave entra cuando se dice.
+SUB = dict(tam=86, tam_clave=180, y_sola=850, y_clave=880, ancho=940, solape=8)
+_sub_cache = {}
+
+
+def _capa_texto(s, f, color):
+    bb = f.getbbox(s); w = bb[2] - bb[0] + 120; h = bb[3] - bb[1] + 120
+    t = Image.new('L', (w, h), 0); ImageDraw.Draw(t).text((60 - bb[0], 60 - bb[1]), s, font=f, fill=255)
+    halo = t.filter(ImageFilter.GaussianBlur(22)).point(lambda v: int(min(255, v * 1.8) * 0.7))
+    corta = t.filter(ImageFilter.GaussianBlur(4)).point(lambda v: int(min(255, v * 2.2) * 0.9))
+    capa = Image.new('RGBA', (w, h), (0, 0, 0, 0))
+    capa.paste((0, 0, 0), (0, 0), halo); capa.paste((0, 0, 0), (0, 3), corta); capa.paste(color, (0, 0), t)
+    return capa, bb[3] - bb[1]
+
+
+def _ajustada(s, tam, peso, color):
+    k = (s, tam, peso)
+    if k not in _sub_cache:
+        f = font(tam, peso)
+        while f.getlength(s) > SUB['ancho'] and tam > 40:
+            tam -= 4; f = font(tam, peso)
+        _sub_cache[k] = _capa_texto(s, f, color)
+    return _sub_cache[k]
+
+
+def armar_tarjetas(palabras, guion):
+    """guion: lista de tarjetas; cada palabra corresponde a una de la transcripcion ('~' = no se muestra,
+    '*' delante = palabra clave, que tiene que ser la ultima de la tarjeta)."""
+    out = []; i = 0
+    for tj in guion:
+        toks = tj.split(' ')
+        ws = palabras[i:i + len(toks)]; i += len(toks)
+        clave = toks[-1][1:] if toks[-1].startswith('*') else None
+        simples = ' '.join(x for x in (toks[:-1] if clave else toks) if x != '~')
+        out.append(dict(t0=ws[0]['s'], fin=ws[-1]['e'], simples=simples, clave=clave, t_clave=ws[-1]['s']))
+    assert i == len(palabras), (i, len(palabras))
+    for a, b in zip(out, out[1:]):
+        a['t1'] = b['t0'] if b['t0'] - a['fin'] < 0.45 else a['fin'] + 0.12
+    out[-1]['t1'] = out[-1]['fin'] + 0.3
+    out[0]['t0'] = 0.0
+    return out
+
+
+def subtitulos(pil, t, tarjetas):
+    for c in tarjetas:
+        if not (c['t0'] <= t < c['t1']): continue
+        if c['clave']:
+            kc, hk = _ajustada(c['clave'], SUB['tam_clave'], 'ExtraBold', VERDE)
+            top_clave = SUB['y_clave'] - hk / 2
+            if c['simples']:
+                sc, hs = _ajustada(c['simples'], SUB['tam'], 'SemiBold', (255, 255, 255))
+                cy = top_clave + SUB['solape'] - hs / 2
+                pil.paste(sc, (int((W - sc.width) / 2), int(cy - sc.height / 2)), sc)
+            tk = min(c['t_clave'], c['t1'] - 0.6)      # se ve al menos 0,6 s
+            tk = max(tk, c['t0'])
+            if t >= tk:
+                a = min(1.0, (t - tk) / 0.07); e = lerp(0.88, 1.0, ease((t - tk) / 0.11))
+                capa = kc
+                if e < 0.999: capa = kc.resize((int(kc.width * e), int(kc.height * e)), Image.LANCZOS)
+                if a < 1: capa = capa.copy(); capa.putalpha(capa.getchannel('A').point(lambda v: int(v * a)))
+                pil.paste(capa, (int((W - capa.width) / 2), int(SUB['y_clave'] - capa.height / 2)), capa)
+        else:
+            sc, hs = _ajustada(c['simples'], SUB['tam'], 'SemiBold', (255, 255, 255))
+            pil.paste(sc, (int((W - sc.width) / 2), int(SUB['y_sola'] - sc.height / 2)), sc)
+        return
+
+
 # ---------------------------------------------------------------- render
 def cargar(path):
     spec = importlib.util.spec_from_file_location('cfg', path)
@@ -323,8 +392,12 @@ def componer(cfg, shot, t, crudo, seq=True):
         fr = np.asarray(pil).copy()
     lay = shot['gab'](tl) if callable(shot['gab']) else shot['gab']
     if lay: poner_gabriel(fr, crudo, lay)
-    if shot.get('texto'):
-        pil = Image.fromarray(fr); shot['texto'](pil, tl, T); fr = np.asarray(pil)
+    subs = getattr(cfg, 'SUBS', None)
+    if shot.get('texto') or subs:
+        pil = Image.fromarray(fr)
+        if shot.get('texto'): shot['texto'](pil, tl, T)
+        if subs: subtitulos(pil, t, subs)
+        fr = np.asarray(pil)
     return fr
 
 
