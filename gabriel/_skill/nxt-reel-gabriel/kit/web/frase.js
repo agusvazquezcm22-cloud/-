@@ -1,5 +1,7 @@
 // Captura una pagina web con una frase a la vista y devuelve donde quedo la frase (para el recuadro rojo).
 // Uso:  node frase.js <url> <carpeta_salida> <prefijo> '{"cac":"$285","x41":"approximately 4.1x"}'
+//       Una clave puede traer varias frases: {"eps":["almost 11,000 episodes","over 700 different podcasts"]}.
+//       Se captura con la primera a la vista y las demas se miden en esa misma captura (meta: eps, eps_1, ...).
 // Sale: <carpeta>/<prefijo>_<clave>.png (2460x4374, 9:16, 3 px por px CSS) y <carpeta>/<prefijo>meta.json
 //       con los rectangulos de cada frase en px CSS de la captura.
 // Solo acepta una coincidencia que este realmente visible: las paginas repiten texto en bloques ocultos
@@ -19,7 +21,8 @@ const fs = require('fs');
   await p.evaluate(() => document.querySelectorAll('details').forEach(d => d.open = true));
   const mf = `${dir}/${pref}meta.json`;
   const meta = fs.existsSync(mf) ? JSON.parse(fs.readFileSync(mf)) : {};
-  for (const [k, phrase] of Object.entries(want)) {
+  for (const [k, valor] of Object.entries(want)) {
+    const phrase = Array.isArray(valor) ? valor[0] : valor;
     const r = await p.evaluate(async (phrase) => {
       const norm = s => s.replace(/[ \s]+/g, ' ');
       const cands = [];
@@ -42,6 +45,12 @@ const fs = require('fs');
     }, phrase);
     if (!r) { console.log('NO ENCONTRADA (visible):', k, phrase); continue; }
     await p.screenshot({ path: `${dir}/${pref}_${k}.png` }); meta[k] = r;
+    for (const [n, extra] of (Array.isArray(valor) ? valor.slice(1) : []).entries()) {
+      meta[`${k}_${n + 1}`] = await p.evaluate((f) => { const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); let nd;
+        while (nd = w.nextNode()) { const i = nd.textContent.replace(/\u00a0/g, ' ').indexOf(f); if (i < 0) continue; const rg = document.createRange(); rg.setStart(nd, i); rg.setEnd(nd, i + f.length);
+          const r0 = rg.getBoundingClientRect(); if (r0.height < 5 || r0.top < 0 || r0.top > innerHeight) continue; return [...rg.getClientRects()].map(q => [q.left, q.top, q.width, q.height]); }
+        return null; }, extra);
+    }
     console.log(k, JSON.stringify(r.map(q => q.map(Math.round))));
   }
   fs.writeFileSync(mf, JSON.stringify(meta));

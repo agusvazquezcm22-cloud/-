@@ -133,8 +133,10 @@ class Lienzo:
 class Clip:
     """Video a pantalla completa (cover), lectura secuencial."""
 
-    def __init__(self, path, ss=0.0, ancla=0.5, vel=1.0, subir=0):
-        self.path, self.ss, self.ancla, self.vel, self.subir = path, ss, ancla, vel, subir
+    def __init__(self, path, ss=0.0, ancla=0.5, vel=1.0, subir=0, encaje=None):
+        # subir=px: corre el video hacia arriba (su texto queda sobre Gabriel).  encaje=(escala, y): el video entero, mas chico,
+        # sobre su propia version desenfocada (portada: deja lugar arriba para el titulo sin tapar el anuncio).
+        self.path, self.ss, self.ancla, self.vel, self.subir, self.encaje = path, ss, ancla, vel, subir, encaje
         self.p = None; self.n = -1; self.last = None
 
     def _cmd(self, ss, n=None):
@@ -157,6 +159,12 @@ class Clip:
         return self._subido(self.last.copy()), None
 
     def _subido(self, fr):
+        if self.encaje:
+            k, y = self.encaje; w, h = int(W * k), int(H * k)
+            ch = cv2.resize(fr, (w, h), interpolation=cv2.INTER_AREA)
+            fondo = (cv2.GaussianBlur(fr, (0, 0), 42).astype(np.float32) * 0.62).astype(np.uint8)
+            x = (W - w) // 2; h2 = min(h, H - y); fondo[y:y + h2, x:x + w] = ch[:h2]
+            return fondo
         if not self.subir: return fr
         g = cv2.copyMakeBorder(fr, 0, self.subir, 0, 0, cv2.BORDER_REFLECT)[self.subir:self.subir + H]
         g[H - self.subir:] = cv2.GaussianBlur(g[H - self.subir:], (0, 0), 28)

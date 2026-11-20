@@ -2,7 +2,9 @@
 
 - `render_verde.py`: motor. `python3 render_verde.py <config.py> --prev t1,t2 --out hoja.jpg` (hoja de cuadros),
   `--control` (tiempo de lectura y visuales repetidos), `--out video.mp4` (render).
-- `ejemplos/gabriel32_v03.py`: lista de tomas aprobada del video 32 (IM8). Plantilla para los siguientes.
+- `verde_ayudas.py`: constructores comunes para la lista de tomas (desde el 33). `sonido_verde.py`: recetas de sonido y montaje.
+- `ejemplos/gabriel33_v01.py` y `sonido33_v01.py`: video 33 (AG1). Plantilla para los siguientes.
+- `ejemplos/gabriel32_v03.py`: lista de tomas aprobada del video 32 (IM8), con sus ayudas adentro.
   Espera una carpeta de trabajo (variable `GAB_ASSETS`) con `dl/` (crudo, logo, foto de portada), `cap/` (capturas),
   `ads/` (anuncios) y `pal32.json` (transcripción). Ese material no viene en la skill: se vuelve a bajar.
 - `nxt_sonido.py`: motor de la pista de efectos (el del video 31). `ejemplos/sonido32_v04.py`: los sonidos del 32.
