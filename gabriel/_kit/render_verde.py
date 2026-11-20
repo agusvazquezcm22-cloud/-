@@ -133,8 +133,8 @@ class Lienzo:
 class Clip:
     """Video a pantalla completa (cover), lectura secuencial."""
 
-    def __init__(self, path, ss=0.0, ancla=0.5, vel=1.0):
-        self.path, self.ss, self.ancla, self.vel = path, ss, ancla, vel
+    def __init__(self, path, ss=0.0, ancla=0.5, vel=1.0, subir=0):
+        self.path, self.ss, self.ancla, self.vel, self.subir = path, ss, ancla, vel, subir
         self.p = None; self.n = -1; self.last = None
 
     def _cmd(self, ss, n=None):
@@ -147,14 +147,20 @@ class Clip:
         k = int(round(tl * FPS))
         if not seq:
             raw = subprocess.run(self._cmd(self.ss + tl * self.vel, 1), capture_output=True).stdout
-            return np.frombuffer(raw, np.uint8).reshape(H, W, 3).copy(), None
+            return self._subido(np.frombuffer(raw, np.uint8).reshape(H, W, 3).copy()), None
         if self.p is None:
             self.p = subprocess.Popen(self._cmd(self.ss), stdout=subprocess.PIPE)
         while self.n < k:
             raw = self.p.stdout.read(W * H * 3)
             if len(raw) < W * H * 3: break
             self.last = np.frombuffer(raw, np.uint8).reshape(H, W, 3); self.n += 1
-        return self.last.copy(), None
+        return self._subido(self.last.copy()), None
+
+    def _subido(self, fr):
+        if not self.subir: return fr
+        g = cv2.copyMakeBorder(fr, 0, self.subir, 0, 0, cv2.BORDER_REFLECT)[self.subir:self.subir + H]
+        g[H - self.subir:] = cv2.GaussianBlur(g[H - self.subir:], (0, 0), 28)
+        return np.ascontiguousarray(g)
 
     def cerrar(self):
         if self.p: self.p.kill(); self.p = None
@@ -322,21 +328,46 @@ def _ajustada(s, tam, peso, color):
     return _sub_cache[k]
 
 
-def armar_tarjetas(palabras, guion):
+def armar_tarjetas(palabras, guion, dur=None, min_tarjeta=0.7, min_clave=0.8, max_prestamo=0.30):
     """guion: lista de tarjetas; cada palabra corresponde a una de la transcripcion ('~' = no se muestra,
-    '*' delante = palabra clave, que tiene que ser la ultima de la tarjeta)."""
+    '*' delante = palabra clave, que tiene que ser la ultima de la tarjeta).
+
+    Tiempo de lectura (regla aprobada por Gabriel): ninguna tarjeta dura menos de min_tarjeta y la clave se ve
+    al menos min_clave. Si una tarjeta queda corta se le presta tiempo de las vecinas moviendo el corte entre
+    tarjetas (como mucho max_prestamo); si ni asi alcanza, falla: hay que unir tarjetas en el guion."""
     out = []; i = 0
     for tj in guion:
         toks = tj.split(' ')
         ws = palabras[i:i + len(toks)]; i += len(toks)
         clave = toks[-1][1:] if toks[-1].startswith('*') else None
         simples = ' '.join(x for x in (toks[:-1] if clave else toks) if x != '~')
-        out.append(dict(t0=ws[0]['s'], fin=ws[-1]['e'], simples=simples, clave=clave, t_clave=ws[-1]['s']))
+        out.append(dict(t0=ws[0]['s'], fin=ws[-1]['e'], simples=simples, clave=clave, t_clave=ws[-1]['s'],
+                        minimo=min_clave if clave else min_tarjeta))
     assert i == len(palabras), (i, len(palabras))
-    for a, b in zip(out, out[1:]):
-        a['t1'] = b['t0'] if b['t0'] - a['fin'] < 0.45 else a['fin'] + 0.12
-    out[-1]['t1'] = out[-1]['fin'] + 0.3
     out[0]['t0'] = 0.0
+    for a, b in zip(out, out[1:]):
+        a['pegada'] = b['t0'] - a['fin'] < 0.45
+        a['t1'] = b['t0'] if a['pegada'] else a['fin'] + 0.12
+    out[-1]['pegada'] = False
+    out[-1]['t1'] = min(out[-1]['fin'] + 0.3, dur) if dur else out[-1]['fin'] + 0.3
+    nat = [c['t1'] for c in out]
+    falta = lambda c: max(0.0, c['minimo'] - (c['t1'] - c['t0']))
+    for _ in range(4000):                       # relajacion: el corte se corre hacia la tarjeta a la que le sobra
+        mov = 0.0
+        for k in range(len(out) - 1):
+            a, b = out[k], out[k + 1]
+            if not a['pegada']: continue
+            paso = 0.5 * (falta(a) - falta(b))
+            nuevo = min(max(a['t1'] + paso, nat[k] - max_prestamo), nat[k] + max_prestamo)
+            mov = max(mov, abs(nuevo - a['t1'])); a['t1'] = nuevo; b['t0'] = nuevo
+        if mov < 1e-5: break
+    for k, c in enumerate(out):                 # a cuadros enteros
+        c['t0'] = round(c['t0'] * FPS) / FPS; c['t1'] = round(c['t1'] * FPS) / FPS
+        c['corrida'] = round(c['t1'] - nat[k], 3)
+    cortas = [(round(c['t1'] - c['t0'], 2), c['simples'], c['clave']) for c in out if c['t1'] - c['t0'] < c['minimo'] - 0.02]
+    assert not cortas, ('tarjetas sin tiempo de lectura; unirlas en el guion', cortas)
+    for c in out:
+        c['min_clave'] = min_clave
     return out
 
 
@@ -350,7 +381,7 @@ def subtitulos(pil, t, tarjetas):
                 sc, hs = _ajustada(c['simples'], SUB['tam'], 'SemiBold', (255, 255, 255))
                 cy = top_clave + SUB['solape'] - hs / 2
                 pil.paste(sc, (int((W - sc.width) / 2), int(cy - sc.height / 2)), sc)
-            tk = min(c['t_clave'], c['t1'] - 0.6)      # se ve al menos 0,6 s
+            tk = min(c['t_clave'], c['t1'] - c.get('min_clave', 0.8))      # la clave se ve al menos 0,8 s
             tk = max(tk, c['t0'])
             if t >= tk:
                 a = min(1.0, (t - tk) / 0.07); e = lerp(0.88, 1.0, ease((t - tk) / 0.11))
@@ -401,6 +432,33 @@ def componer(cfg, shot, t, crudo, seq=True):
     return fr
 
 
+def control(cfg):
+    """Control antes de entregar: tiempo de lectura, visuales repetidos, tamanos de letra."""
+    subs = getattr(cfg, 'SUBS', [])
+    if subs:
+        d = sorted((round(c['t1'] - c['t0'], 2), c['simples'], c['clave'] or '') for c in subs)
+        print('TARJETA MAS CORTA: %.2f s  "%s %s"' % d[0]); print('  las 5 mas cortas:', [x[0] for x in d[:5]])
+        kv = sorted((round(c['t1'] - max(c['t0'], min(c['t_clave'], c['t1'] - c.get('min_clave', 0.8))), 2), c['clave']) for c in subs if c['clave'])
+        print('CLAVE QUE MENOS SE VE: %.2f s  "%s"   (claves: %d)' % (kv[0][0], kv[0][1], len(kv)))
+        print('CORTE MAS CORRIDO respecto de la voz: %.2f s' % max(abs(c['corrida']) for c in subs))
+        ch = []
+        for c in subs:
+            if not c['simples']: continue
+            f = font(SUB['tam'], 'SemiBold'); w = f.getlength(c['simples'])
+            if w > SUB['ancho']: ch.append((int(SUB['tam'] * SUB['ancho'] / w), c['simples']))
+        print('LINEAS ACHICADAS (px de %d):' % SUB['tam'], sorted(ch)[:12])
+    usos = {}
+    for sh in cfg.SHOTS:
+        for f in set(sh.get('fuentes', [])): usos.setdefault(f, []).append(sh['id'])
+    perm = getattr(cfg, 'REPETICION_PERMITIDA', {})
+    rep = {f: t for f, t in usos.items() if len(t) > 1 and f not in perm}
+    print('VISUALES REPETIDOS:', rep or 'ninguno')
+    for f, t in usos.items():
+        if len(t) > 1 and f in perm: print('  repeticion permitida:', f, t, '-', perm[f])
+    print('fuentes distintas:', len(usos), ' tomas:', len(cfg.SHOTS))
+    return not rep
+
+
 def leer_crudo(raw, ss=None, n=None):
     c = ['ffmpeg', '-v', 'error']
     if ss is not None: c += ['-ss', f'{ss:.3f}']
@@ -414,6 +472,8 @@ def main():
     shots = cfg.SHOTS
     for a, b in zip(shots, shots[1:]):
         assert abs(a['t1'] - b['t0']) < 1e-6, (a['id'], b['id'])
+    if '--control' in sys.argv:
+        sys.exit(0 if control(cfg) else 1)
     if '--prev' in sys.argv:
         ts = [float(x) for x in sys.argv[sys.argv.index('--prev') + 1].split(',')]
         out = sys.argv[sys.argv.index('--out') + 1] if '--out' in sys.argv else 'prev.jpg'
