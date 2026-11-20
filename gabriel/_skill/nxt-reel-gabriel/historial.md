@@ -2,6 +2,12 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-20 · Ubicación de Gabriel: decisión final de Agus
+- Después de ver las v02 (Gabriel abajo a la izquierda, como la referencia de Chase) mandó una captura del 34 v01 en el segundo 9 y dijo: "Tiene que estar en esa ubicación, no más abajo, el chico. Haz la última versión". Es el lugar `C`: abajo al centro, escala 0,74, cabeza en y 1300, en todo el video.
+- **33 v03**: la v01 con Gabriel en `C` en las 26 tomas (la etiqueta "Claude" va justo arriba de su cabeza). Mismos 40 sonidos, 58,1 s, sin cuadros negros ni congelados.
+- **34 v03**: es el mismo archivo que la v01, que ya lo tenía en `C` de punta a punta.
+- Las v02 de los dos (lugar `R`) quedan descartadas. Sin feedback todavía sobre las v03.
+
 ## 2026-11-20 · Video 34 "La estrategia de recompra de The Everyday Lab" · pantalla verde
 
 - **v02** = v01 con el recorte de la referencia. Agus pasó el link (reel de Chase Chappell, `instagram.com/reel/Df-d9U5y4nh`) y pidió: "mismo formato como venimos haciendo, pero que el recorte de Gabriel no pase de un lugar a otro, sino que se vea así… subtítulo, dinamismo y demás, venimos re bien". Gabriel va abajo a la izquierda (`R`) en las tomas 01 a 17 y pasa una sola vez al plano más grande al centro (`C`) en el cierre, desde "la segunda compra ya está asegurada" (47,94 s). Tomas, subtítulos y los 44 sonidos son los de la v01. Sin feedback todavía.

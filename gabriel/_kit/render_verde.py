@@ -197,9 +197,29 @@ class Serie:
         act = [(t0, f) for t0, f in self.partes if tl >= t0 - 1e-6][-1]
         i = self.partes.index(act)
         t1 = self.partes[i + 1][0] if i + 1 < len(self.partes) else T
-        fr, tr = act[1].frame(tl - act[0], t1 - act[0], **kw) if isinstance(act[1], Clip) else act[1].frame(tl - act[0], t1 - act[0])
+        fr, tr = act[1].frame(tl - act[0], t1 - act[0], **kw) if isinstance(act[1], (Clip, Mitades)) else act[1].frame(tl - act[0], t1 - act[0])
         self.actual = act[1]; self.tl_act = tl - act[0]
         return fr, tr
+
+
+class Mitades:
+    """Pantalla dividida (formato VS): dos fuentes lado a lado, la primera a la IZQUIERDA. Cada una se ve entera, a medio
+    ancho, sobre su propia version desenfocada; linea blanca al medio. y = donde empieza cada mitad (px)."""
+
+    def __init__(self, izq, der, y=170, linea=True):
+        self.izq, self.der, self.y, self.linea = izq, der, y, linea
+
+    def frame(self, tl, T, seq=True):
+        out = np.zeros((H, W, 3), np.uint8); m = W // 2
+        for n, f in enumerate((self.izq, self.der)):
+            fr, _ = f.frame(tl, T, seq=seq) if isinstance(f, (Clip, Serie)) else f.frame(tl, T)
+            fr = np.asarray(fr)
+            bg = (cv2.GaussianBlur(fr[:, W // 4: W // 4 + m], (0, 0), 30).astype(np.float32) * 0.5).astype(np.uint8)
+            ch = cv2.resize(fr, (m, H // 2), interpolation=cv2.INTER_AREA)
+            bg[self.y:self.y + H // 2] = ch
+            out[:, n * m:(n + 1) * m] = bg
+        if self.linea: out[:, m - 3:m + 3] = 255
+        return out, None
 
 
 # ---------------------------------------------------------------- marcas rojas
@@ -418,10 +438,18 @@ def cargar(path):
     return m
 
 
+def _clips(f):
+    """Todos los Clip que hay dentro de una fuente (para cerrar sus lectores al terminar la toma)."""
+    if isinstance(f, Clip): return [f]
+    if isinstance(f, Serie): return [c for _, g in f.partes for c in _clips(g)]
+    if isinstance(f, Mitades): return _clips(f.izq) + _clips(f.der)
+    return []
+
+
 def componer(cfg, shot, t, crudo, seq=True):
     tl = t - shot['t0']; T = shot['t1'] - shot['t0']
     src = shot['fondo']
-    if isinstance(src, (Clip, Serie)):
+    if isinstance(src, (Clip, Serie, Mitades)):
         fr, tr = src.frame(tl, T, seq=seq)
     else:
         fr, tr = src.frame(tl, T)
@@ -525,7 +553,7 @@ def main():
         if len(raw) == W * H * 3: crudo = np.frombuffer(raw, np.uint8).reshape(H, W, 3)
         while si + 1 < len(shots) and t >= shots[si]['t1'] - 1e-6:
             f = shots[si]['fondo']
-            for c in ([f] if isinstance(f, Clip) else [p[1] for p in f.partes if isinstance(p[1], Clip)] if isinstance(f, Serie) else []): c.cerrar()
+            for c in _clips(f): c.cerrar()
             si += 1
         fr = componer(cfg, shots[si], t, crudo)
         wr.stdin.write(fr.tobytes())

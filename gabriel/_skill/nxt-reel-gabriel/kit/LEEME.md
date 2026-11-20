@@ -3,9 +3,9 @@
 - `render_verde.py`: motor. `python3 render_verde.py <config.py> --prev t1,t2 --cols 4 --ancho 540 --out hoja.jpg`
   (hoja de cuadros grande), `--control` (tiempo de lectura y visuales repetidos), `--out video.mp4` (render).
 - `verde_ayudas.py`: constructores comunes para la lista de tomas (desde el 33). `sonido_verde.py`: recetas de sonido y montaje.
-- `ejemplos/gabriel34_v02.py` y `sonido34_v01.py`: video 34 (The Everyday Lab). PLANTILLA para los siguientes:
-  Gabriel fijo abajo a la izquierda (`GAB = 'R'`, referencia de Agus) y el cierre en `C`; lo señalado arriba de los subtítulos.
-- `ejemplos/gabriel33_v02.py`: el 33 pasado al recorte fijo (sobre-escribe el lugar de todas las tomas al final de la lista).
+- `ejemplos/gabriel34_v03.py` y `sonido34_v01.py`: video 34 (The Everyday Lab). PLANTILLA para los siguientes:
+  Gabriel fijo abajo al centro (`GAB = 'C'`) en todas las tomas; lo señalado arriba de los subtítulos.
+- `ejemplos/gabriel33_v03.py`: el 33 pasado al lugar fijo (sobre-escribe el lugar de todas las tomas al final de la lista).
 - `ejemplos/gabriel33_v01.py` y `sonido33_v01.py`: video 33 (AG1) como se hizo primero, con Gabriel cambiando de lado (ya no se hace así).
 - `ejemplos/gabriel32_v03.py`: lista de tomas aprobada del video 32 (IM8), con sus ayudas adentro.
   Espera una carpeta de trabajo (variable `GAB_ASSETS`) con `dl/` (crudo, logo, foto de portada), `cap/` (capturas),

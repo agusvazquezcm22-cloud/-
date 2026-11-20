@@ -1,7 +1,6 @@
-"""Video 34 · "La estrategia de recompra de The Everyday Lab" · v02
-Formato pantalla verde aprobado. Recorte de Gabriel segun la referencia de Agus (reel de Chase Chappell,
-instagram.com/reel/Df-d9U5y4nh): SIEMPRE abajo a la izquierda, mismo tamano ('R'). Solo en el cierre pasa al plano
-mas grande al centro ('C'), una vez y sin volver. Tiempos de la transcripcion del crudo (62,8 s).
+"""Video 34 · "La estrategia de recompra de The Everyday Lab" · v03 (= v01: Gabriel fijo abajo al centro, la ubicacion que Agus marco con su captura)
+Formato pantalla verde aprobado. Novedad (pedido de Agus, 2026-11-20): Gabriel SIEMPRE en el mismo lugar
+(abajo al centro, mismo tamano). Tiempos de la transcripcion del crudo (62,8 s).
 """
 import os, sys, json
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
@@ -12,9 +11,7 @@ RAW = f'{A}/dl/crudo34.mp4'
 DUR = 62.8
 CABEZA = 720                 # fila del crudo donde esta el tope de la cabeza de Gabriel (medido: 696-754)
 AUDIO_FILTRO = 'highpass=f=70,loudnorm=I=-14:TP=-1.5:LRA=11'
-CENTRO = 520                 # columna del crudo donde esta el centro de su cabeza (medido: 492-546)
-GAB = 'R'                    # lugar fijo de Gabriel (referencia): abajo a la izquierda
-FIN = 'C'                    # cierre: mas grande al centro (desde "la segunda compra ya esta asegurada")
+GAB = 'C'                    # lugar fijo de Gabriel en todo el video
 
 # logo de la marca: encabezado de su sitio
 _lg = Image.open(f'{A}/cap/prod_top.png').convert('RGB').crop((96, 138, 866, 262))
@@ -128,17 +125,17 @@ _f = lambda y: (20, y - 12, 380, 60)
 toma('16', 40.40, 42.76, captura(f'{A}/cap/sus_frec.png', [([_f(520)], 0.25, 0.85, None), ([_f(423)], 0.85, 1.45, None), ([_f(326)], 1.45, None, None)], w0=2460, w1=2200, yrel=0.33, nombre='suscripciones:frecuencias'), GAB)
 toma('17', 42.76, 47.94, Serie([(0, clip('2164872967459312', 1.0)),
                                 (2.10, captura(f'{A}/cap/sus_min2.png', [(SUSM['min2'], 1.16, None, 'flecha_ai')], nombre='suscripciones:minimo 2'))]), GAB)
-toma('18', 47.94, 49.86, G(g_segunda, k=0.92), FIN)
-toma('19', 49.86, 52.34, anuncio('2252390632322718', 0.06), FIN)
+toma('18', 47.94, 49.86, G(g_segunda, k=0.92), GAB)
+toma('19', 49.86, 52.34, anuncio('2252390632322718', 0.06), GAB)
 toma('20', 52.34, 56.18, Serie([
     (0.00, anuncio('28935788239456073', 0.02, [('caja', (0.05, 0.535, 0.55, 0.09), 0.3)], encaje=(0.62, 40))),               # "el habito": GLOW todos los dias + la semana
     (0.96, clip('28751467064464376', 9.3)),                                                                                # "3 meses de usarlo y me siento otra"
     (1.66, anuncio('1049972658093063', 0)),                                                                                # comentario de una clienta
     (2.39, anuncio('1516075690337129', 0.02, [('caja', (0.465, 0.268, 0.478, 0.07), 0.15), ('caja', (0.534, 0.578, 0.44, 0.07), 0.6)])),   # "el segundo bote", "el tercer insumo"
-]), FIN)
-toma('21', 56.18, 57.98, G(g_enviar, k=0.92), FIN)
-toma('22', 57.98, 59.94, clip('1630625931987533', 20.2), FIN)
-toma('23', 59.94, 62.80, PORTADA(), FIN)
+]), GAB)
+toma('21', 56.18, 57.98, G(g_enviar, k=0.92), GAB)
+toma('22', 57.98, 59.94, clip('1630625931987533', 20.2), GAB)
+toma('23', 59.94, 62.80, PORTADA(), GAB)
 SHOTS = S
 REPETICION_PERMITIDA = {'portada': 'regla 10 de la guia de Gabriel: el cierre vuelve a la imagen del inicio'}
 

@@ -1,7 +1,7 @@
-"""Video 33 · "La estrategia de anuncios de 600M de AG1" · v02
-Igual que la v01 (aprobada por Agus: "Top") con UN cambio pedido por el: el recorte de Gabriel ya no salta de lugar.
-Va siempre abajo a la izquierda, como en su referencia (reel de Chase Chappell, instagram.com/reel/Df-d9U5y4nh),
-y solo en el cierre pasa al plano mas grande al centro. Tomas, subtitulos y sonidos son los de la v01.
+"""Video 33 · "La estrategia de anuncios de 600M de AG1" · v03
+Igual que la v01 (aprobada por Agus: "Top") con el recorte de Gabriel FIJO donde Agus lo marco con una captura del 34 v01
+(2026-11-20): "Tiene que estar en esa ubicacion, no mas abajo". Abajo al centro, mismo tamano y altura en todo el video ('C').
+Tomas, subtitulos y sonidos son los de la v01.
 """
 import os, sys, json
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
@@ -101,7 +101,7 @@ def g_guardar(tl, T):                 # "guarda este video"
 
 def chip_claude(pil, tl, T):
     k = pop(tl, 0.68)                 # aparece cuando lo nombra, chico, arriba de Gabriel
-    if k > 0 and tl < 1.60: pegar(pil, _CLAUDE, 790, 1300, lerp(0.85, 1, k))     # a la derecha: a la izquierda esta Gabriel
+    if k > 0 and tl < 1.60: pegar(pil, _CLAUDE, 540, 1172, lerp(0.85, 1, k))     # justo arriba de la cabeza de Gabriel
 _CLAUDE = pastilla('Claude', 58, fondo=(217, 119, 87))
 
 
@@ -144,7 +144,7 @@ toma('24', 52.04, 53.92, Serie([(0, clip('1884119762755431', 7.5)), (0.62, clip(
      lambda tl: 'PL' if tl < 0.62 else ('PR' if tl < 1.24 else 'PL'))
 toma('25', 53.92, 55.98, G(g_guardar, k=0.84), 'G')
 toma('26', 55.98, 58.10, PORTADA(), 'PL')
-for _s in S: _s['gab'] = 'R' if _s['t0'] < T_FIN - 0.01 else 'C'      # Gabriel fijo (referencia); una sola vez cambia, en el cierre
+for _s in S: _s['gab'] = 'C'                                          # Gabriel fijo: abajo al centro en TODAS las tomas
 SHOTS = S
 REPETICION_PERMITIDA = {'portada': 'regla 10 de la guia de Gabriel: el cierre vuelve a la imagen del inicio',
                         'fortune:episodios': 'misma captura, la toma sigue: el recuadro pasa de 11.000 episodios a 700 podcasts'}
