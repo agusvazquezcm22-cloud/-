@@ -2,6 +2,9 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-20 · Pedido de Agus para los próximos videos (34 en adelante)
+- Sobre el 33 dijo "Top". Para los próximos: Gabriel casi siempre en el mismo lugar, cambiarlo solo cada tanto. Va a pasar un link de referencia de cómo se ve; **todavía no llegó**.
+
 ## 2026-11-20 · Video 33 "La estrategia de anuncios de 600M de AG1" · pantalla verde
 
 - **v01** (58,1 s; sin feedback todavía). Mismo estilo aprobado en el 32, con subtítulos y sonidos desde la primera versión.
