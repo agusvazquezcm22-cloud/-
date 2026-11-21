@@ -1,12 +1,13 @@
 """Video 37 (Lemme vs IM8) · sonidos. Mismo paquete (Naza) y misma receta que el 31 al 36.
-Uso: python3 sonido37_v01.py <video_sin_sonido.mp4> <salida.mp4>"""
+v02: receta 2 (sin el sonido 'angelical', 3 dB mas bajo) y cierre con cola.
+Uso: python3 sonido37_v02.py <video_sin_sonido.mp4> <salida.mp4>"""
 import os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
 from sonido_verde import *
 
 A = os.environ.get('GAB_ASSETS', '/tmp/claude-0/-home-user--/5179dee2-39cd-5dce-b326-2d7a39fe506b/scratchpad/v37')
 SON = os.environ.get('GAB_SONIDOS', os.path.join(A, '..', 'sonidos'))
-DUR = 71.0
+DUR = 72.15
 EVENTOS = [
     tr(3.84, SLOW, AIRE_BOT, 'ronda 1: los anuncios de Lemme'),
     clic(4.64, MG13, 'recuadro en los 580 anuncios de Lemme'),
@@ -45,6 +46,7 @@ EVENTOS = [
     bop(63.87, L1, 'pagina 1'), bop(64.37, L2, 'pagina 2'), bop(64.87, O1, 'pagina 3'),
     golpe(66.36, 'golpe clave 2 de 2: la pregunta final'),
     clic(70.66, MG7, 'aparece "comentarios"'),
+    tr(71.25, SLOW, AIRE_DEEP, 'cierre: sale con el ultimo cuadro'),
 ]
 if __name__ == '__main__':
-    print('\n'.join(montar(f'{A}/dl/crudo37.mp4', sys.argv[1], sys.argv[2], EVENTOS, DUR, SON)[-6:]))
+    print('\n'.join(montar(f'{A}/dl/crudo37.mp4', sys.argv[1], sys.argv[2], EVENTOS, DUR, SON, fundido=0.35)[-6:]))

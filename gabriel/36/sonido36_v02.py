@@ -1,12 +1,13 @@
 """Video 36 (el test de Aluné) · sonidos. Mismo paquete (Naza) y misma receta que el 31 al 35.
-Uso: python3 sonido36_v01.py <video_sin_sonido.mp4> <salida.mp4>"""
+v02: mismo listado; el audio sigue hasta que termina el ultimo sonido y se apaga en 0,35 s.
+Uso: python3 sonido36_v02.py <video_sin_sonido.mp4> <salida.mp4>"""
 import os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
 from sonido_verde import *
 
 A = os.environ.get('GAB_ASSETS', '/tmp/claude-0/-home-user--/5179dee2-39cd-5dce-b326-2d7a39fe506b/scratchpad/v36')
 SON = os.environ.get('GAB_SONIDOS', os.path.join(A, '..', 'sonidos'))
-DUR = 84.3
+DUR = 85.4
 EVENTOS = [
     plano(1.04, 'Biblioteca de Anuncios'),
     clic(1.16, MG13, 'recuadro en los 58 anuncios'),
@@ -55,6 +56,7 @@ EVENTOS = [
     plano(78.90, 'anuncio del producto'),
     plano(81.52, 'vuelve la portada'),
     clic(83.96, MG7, 'aparece "comentarios"'),
+    tr(84.50, SLOW, AIRE_DEEP, 'cierre: sale con el ultimo cuadro'),
 ]
 if __name__ == '__main__':
-    print('\n'.join(montar(f'{A}/dl/crudo36.mp4', sys.argv[1], sys.argv[2], EVENTOS, DUR, SON)[-6:]))
+    print('\n'.join(montar(f'{A}/dl/crudo36.mp4', sys.argv[1], sys.argv[2], EVENTOS, DUR, SON, fundido=0.35)[-6:]))

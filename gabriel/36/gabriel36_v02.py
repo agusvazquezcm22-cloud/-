@@ -1,7 +1,8 @@
-"""Video 36 · "La estrategia del test de Aluné" · v01
+"""Video 36 · "La estrategia del test de Aluné" · v02
 Formato pantalla verde, una marca. El centro del video es el test de piel de quiz.alune.com.co: cada pantalla es una
 captura real del recorrido (430x764 px CSS, 3 px por px = 9:16). Gabriel fijo abajo al centro en todas las tomas.
-Tiempos de la transcripcion del crudo (84,5 s; se corta en 84,3: lo ultimo que dice es "comentarios").
+v02 (pedido de Agus: "cuando termina lo cortas. Dale tiempo a que termine todo. Dale un buen cierre"): el crudo corre ENTERO
+(84,53 s: Gabriel termina la frase y sonrie) y queda una cola de 0,9 s con su ultimo cuadro sobre la portada, que sigue en movimiento.
 """
 import os, sys, json
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
@@ -10,7 +11,7 @@ import verde_ayudas as _va
 
 A = os.environ.get('GAB_ASSETS', '/tmp/claude-0/-home-user--/5179dee2-39cd-5dce-b326-2d7a39fe506b/scratchpad/v36')
 RAW = f'{A}/dl/crudo36.mp4'
-DUR = 84.3
+DUR = 85.4                   # 84,53 del crudo + 0,87 de cola
 CABEZA = 620                 # fila del crudo donde esta el tope de su cabeza (medido: 592-670)
 AUDIO_FILTRO = 'highpass=f=70,loudnorm=I=-14:TP=-1.5:LRA=11'
 GAB = 'C'                    # lugar fijo de Gabriel en todo el video
@@ -205,7 +206,7 @@ toma('28', 70.04, 74.40, Serie([(0, pant('q', 10)),
                                 (1.92, pant('q', 9, [('caja', r_('q', 9, '$2.880.000', 30, 18), 0.9), ('flecha_ai', r_('q', 9, '$2.880.000', 30, 18), 0.9)], foco='$2.880.000', a=420, nombre='test:lo que lleva gastado'))]), GAB)
 toma('29', 74.40, 78.90, pant('q', 7, [('caja', r_('q', 7, 'Esos 5 años no son tuyos', 20, 14), 2.9)], foco='Tienes 44', a=430), GAB)
 toma('30', 78.90, 81.52, anuncio(AD['medida'], 0.04), GAB)
-toma('31', 81.52, 84.30, PORTADA(), GAB, T_(['¿Funcionaría para', 'cualquier marca?'], 196, 66, t0=0.25, emo='👇'))
+toma('31', 81.52, 85.40, PORTADA(), GAB, T_(['¿Funcionaría para', 'cualquier marca?'], 196, 66, t0=0.25, emo='👇'))
 SHOTS = S
 REPETICION_PERMITIDA = {'portada': 'regla 10 de la guia de Gabriel: el cierre vuelve a la imagen del inicio',
                         'test:pregunta 8': 'la misma pregunta antes y despues de contestar (asi la pide la guia: tomas 17 y 19)'}

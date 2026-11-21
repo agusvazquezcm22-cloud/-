@@ -392,7 +392,7 @@ def armar_tarjetas(palabras, guion, dur=None, min_tarjeta=0.7, min_clave=0.8, ma
         a['pegada'] = b['t0'] - a['fin'] < 0.45
         a['t1'] = b['t0'] if a['pegada'] else a['fin'] + 0.12
     out[-1]['pegada'] = False
-    out[-1]['t1'] = min(out[-1]['fin'] + 0.3, dur) if dur else out[-1]['fin'] + 0.3
+    out[-1]['t1'] = dur if dur else out[-1]['fin'] + 0.3       # con `dur`, la ultima tarjeta queda en pantalla hasta el final (cierre con cola)
     nat = [c['t1'] for c in out]
     falta = lambda c: max(0.0, c['minimo'] - (c['t1'] - c['t0']))
     for _ in range(4000):                       # relajacion: el corte se corre hacia la tarjeta a la que le sobra

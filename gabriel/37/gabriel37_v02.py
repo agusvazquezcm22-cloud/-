@@ -1,7 +1,8 @@
-"""Video 37 · "Lemme vs IM8: ¿quién tiene mejor estrategia?" · v01
+"""Video 37 · "Lemme vs IM8: ¿quién tiene mejor estrategia?" · v02
 Formato VS (como el 35). Lemme SIEMPRE a la izquierda, IM8 a la derecha. Gabriel fijo abajo al centro en todas las tomas.
 OJO: la guia de Gabriel no trae este video ("VIDEO 37" esta vacio en el documento): la lista de tomas sale de lo que dice
-en el crudo y de las reglas del 35. Tiempos de la transcripcion del crudo (71,3 s).
+en el crudo y de las reglas del 35. Tiempos de la transcripcion del crudo (71,27 s).
+v02 (pedido de Agus): cierre con cola (el crudo entero + 0,9 s sobre la portada) y sonidos nuevos (ver sonido37_v02.py).
 """
 import os, sys, json
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
@@ -11,7 +12,7 @@ import verde_ayudas as _va
 A = os.environ.get('GAB_ASSETS', '/tmp/claude-0/-home-user--/5179dee2-39cd-5dce-b326-2d7a39fe506b/scratchpad/v37')
 I8 = os.environ.get('GAB_IM8', os.path.join(A, '..'))          # material de IM8 juntado para el video 32 (cap/im8, dl/)
 RAW = f'{A}/dl/crudo37.mp4'
-DUR = 71.0
+DUR = 72.15                  # 71,27 del crudo + 0,88 de cola
 CABEZA = 615                 # fila del crudo donde esta el tope de su cabeza (medido: 599-634)
 AUDIO_FILTRO = 'highpass=f=70,loudnorm=I=-14:TP=-1.5:LRA=11'
 GAB = 'C'
@@ -162,7 +163,7 @@ toma('15', 51.18, 57.00, Serie([(0, clip(I['v_giannis'], 2.0)), (0.80, clip(I['v
 toma('16', 57.00, 60.52, PORTADA(), GAB)
 toma('17', 60.52, 62.82, G2(g_llevar, CHIP_L), GAB)
 toma('18', 62.82, 66.36, G2(g_avatar, CHIP_I), GAB)
-toma('19', 66.36, 71.00, PORTADA(), GAB, T_(['¿Cuál es más efectiva?'], 196, 68, t0=0.25, emo='👇'))
+toma('19', 66.36, 72.15, PORTADA(), GAB, T_(['¿Cuál es más efectiva?'], 196, 68, t0=0.25, emo='👇'))
 SHOTS = S
 REPETICION_PERMITIDA = {'portada': 'formato VS: la pantalla dividida del inicio vuelve a mitad y en el cierre (como en la guia del 35)'}
 
