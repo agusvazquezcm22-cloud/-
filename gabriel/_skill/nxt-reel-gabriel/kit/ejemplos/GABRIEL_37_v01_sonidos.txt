@@ -1,0 +1,52 @@
+  3.84s transicion 17.4 dB bajo la voz ( -18.9 dBFS)  slow woosh.mp3 + Botanical Whoosh (1).wav | ronda 1: los anuncios de Lemme
+  4.64s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (13).wav | recuadro en los 580 anuncios de Lemme
+  6.80s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot).wav | productos
+  7.44s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _2.wav | beneficios
+  8.20s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _1.wav | descuentos
+  8.66s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | Biblioteca de IM8
+  9.82s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (7).wav | recuadro en los 1.900 anuncios de IM8
+ 11.86s foto       17.2 dB bajo la voz ( -18.7 dBFS)  camera shutter sfx (1).mp3 | rafaga: creadores, estudios, Beckham
+ 14.28s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Deep, Mini, Whoosh (11).wav | anuncio que arranca con el problema
+ 17.70s transicion 16.2 dB bajo la voz ( -17.7 dBFS)  Momo WOOSH 3.mp3 + Deep, Mini, Whoosh (11).wav | ronda 2: a donde te llevan
+ 19.06s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | grafico: una pagina por producto
+ 19.66s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot)_2.wav | pagina 1
+ 20.16s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _2.wav | pagina 2
+ 20.61s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _1.wav | pagina 3
+ 21.50s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | anuncio de Debloat
+ 23.00s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | pagina de Debloat
+ 24.95s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Granular, Button, Select (1).wav | recuadro en los jeans apretados
+ 26.40s transicion 16.4 dB bajo la voz ( -17.9 dBFS)  slow woosh.mp3 + Deep, Mini, Whoosh (11).wav | IM8 hace lo contrario
+ 29.20s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | pagina de IM8
+ 31.72s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (10).wav | recuadro en el plan de 3 meses
+ 34.18s golpe      16.0 dB bajo la voz ( -17.5 dBFS)  Botanical Whoosh (1).wav + Hit Impact (No FX) (4).wav + Magnetic, Button (13).wav | golpe clave 1 de 2: te regala el kit de bienvenida
+ 35.24s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Deep, Mini, Whoosh (11).wav | anuncio del kit
+ 36.16s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Granular, Button, Select (6).wav | recuadro: con tu primer pedido trimestral
+ 37.52s transicion 17.2 dB bajo la voz ( -18.7 dBFS)  Momo WOOSH 3.mp3 + Botanical Whoosh (1).wav | ronda 3: los creadores
+ 38.74s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | grafico: TikTok Shop
+ 39.56s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | aparecen los 13 millones
+ 42.12s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Countdown, List, Numbers (5).wav | entran los creadores
+ 43.46s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Button, Cursor, Select (5).wav | comision por venta
+ 44.66s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | grilla de anuncios de Lemme
+ 49.38s glitch     16.7 dB bajo la voz ( -18.2 dBFS)  Fast Glitch 1.mp3 | contenido sin usar
+ 49.76s transicion 17.4 dB bajo la voz ( -18.9 dBFS)  slow woosh.mp3 + Botanical Whoosh (1).wav | IM8 va por otro camino
+ 51.18s foto       17.2 dB bajo la voz ( -18.7 dBFS)  camera shutter sfx (1).mp3 | Giannis
+ 51.98s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot).wav | Sabalenka
+ 53.00s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot)_2.wav | Inter de Miami
+ 54.48s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | grafico: si la marca crece
+ 56.20s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _2.wav | ellos tambien ganan
+ 57.00s transicion 16.2 dB bajo la voz ( -17.7 dBFS)  Momo WOOSH 3.mp3 + Deep, Mini, Whoosh (11).wav | cierre: vuelve la pantalla dividida
+ 60.52s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Botanical Whoosh (1).wav | grafico: de TikTok Shop a Meta
+ 62.08s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (13).wav | aparece Meta
+ 62.82s plano      19.0 dB bajo la voz ( -20.5 dBFS)  Deep, Mini, Whoosh (11).wav | grafico: una pagina por avatar
+ 63.87s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _1.wav | pagina 1
+ 64.37s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list down _2.wav | pagina 2
+ 64.87s bop        19.7 dB bajo la voz ( -21.2 dBFS)  Mini list (one shot).wav | pagina 3
+ 66.36s golpe      16.0 dB bajo la voz ( -17.5 dBFS)  Deep, Mini, Whoosh (11).wav + Hit Impact (No FX) (4).wav + Magnetic, Button (7).wav | golpe clave 2 de 2: la pregunta final
+ 70.66s clic       17.2 dB bajo la voz ( -18.7 dBFS)  Magnetic, Button (7).wav | aparece "comentarios"
+
+Sonidos: 45 en 71.0 s · archivos distintos: 19 (todos del paquete de Naza)
+Veces que se usa cada archivo: Botanical Whoosh (1).wav x13, Deep, Mini, Whoosh (11).wav x7, Mini list down _2.wav x4, slow woosh.mp3 x3, Magnetic, Button (13).wav x3, Mini list (one shot).wav x3, Mini list down _1.wav x3, Magnetic, Button (7).wav x3, Momo WOOSH 3.mp3 x3, camera shutter sfx (1).mp3 x2, Mini list (one shot)_2.wav x2, Hit Impact (No FX) (4).wav x2, Granular, Button, Select (1).wav x1, Magnetic, Button (10).wav x1, Granular, Button, Select (6).wav x1, Coin Flip (Spin, Rotation) (1).wav x1, Countdown, List, Numbers (5).wav x1, Button, Cursor, Select (5).wav x1, Fast Glitch 1.mp3 x1
+Voz: -14.5 LUFS, pico -1.5 dBFS
+Pico de toda la pista de efectos: -16.3 dBFS (14.8 dB bajo el pico de la voz)
+Mezcla final: -14.5 LUFS, pico -1.5 dBFS
+Tonos sostenidos (pitidos) entre 300 Hz y 6 kHz: ninguno

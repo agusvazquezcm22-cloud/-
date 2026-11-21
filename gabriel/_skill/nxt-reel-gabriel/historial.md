@@ -2,6 +2,15 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-21 · Video 37 "Lemme vs IM8: ¿quién tiene mejor estrategia?" · formato VS, SIN guía
+
+- **v01** (71,0 s; sin feedback todavía). **La guía de Gabriel no trae este video** ("VIDEO 37" está vacío en el documento; se revisó de nuevo el 2026-11-21). La lista de tomas sale de lo que dice en el crudo y de las reglas del VS del 35: Lemme a la izquierda, IM8 a la derecha, pantalla dividida en la portada, a mitad y en el cierre. Gabriel fijo abajo al centro. Si después llega la guía, se compara y se corrige.
+  - Control: 85 tarjetas, la más corta 0,70 s, clave mínima 0,80 s; 30 fuentes en 19 tomas, ninguna repetida salvo la pantalla dividida de la portada; 45 sonidos del paquete de Naza, entre 16,0 y 19,7 dB bajo el pico de la voz, sin pitidos; mezcla −14,5 LUFS; sin cuadros negros ni congelados.
+  - Material: 13 anuncios de Lemme (página 104409665708196, "~580 results"), sus páginas de destino (una por producto: Debloat, Purr, Sleep) con el titular "Jeans Tight After Dinner?"; de IM8, los anuncios y las capturas juntados para el 32 (caja de compra con el plan de 90 días ya marcado y el kit de bienvenida, sección "not ambassadors, co-owners" con Inter Miami, Giannis y Sabalenka) y la Biblioteca de hoy ("~1,900 results").
+  - Para avisar: Gabriel dice "unos 500" y "unos 1.500" y la Biblioteca muestra "~580" y "~1,900". Los US$13 M en TikTok Shop no tienen fuente a la vista (no hay link): va un gráfico propio con la cifra que él dice. No había archivo del logo de Lemme: va el nombre en una pastilla lila. Varios anuncios de las dos marcas son de Black Friday.
+  - No se muestran: el anuncio de IM8 con "80% of participants…" (porcentaje de resultados), antes y después, GLP-1.
+- **Agus pidió frenar al terminar el 37** (2026-11-21). Queda pendiente su feedback de 33 v03, 34 v03, 35, 36 y 37.
+
 ## 2026-11-20 · Video 36 "La estrategia del test de Aluné" · pantalla verde, una marca
 
 - **v01** (84,3 s; sin feedback todavía). Gabriel fijo abajo al centro en las 31 tomas. El cuerpo del video son las pantallas reales del test de piel (quiz.alune.com.co/piel), recorrido completo hasta la oferta.
@@ -78,7 +87,7 @@ Se actualiza cada vez que se termina una versión o una tanda de correcciones. L
 - El cierre repite la imagen de la portada porque lo pide su guía; si prefiere que no, se cambia.
 
 ## Videos que faltan
-- 37: crudo bajado (71,3 s). En la guía, "VIDEO 37" está vacío y lo que sigue es "VIDEO 38 · Vació la cuenta (Gymshark)", con otro formato (pantalla dividida, videos reales de Ben Francis y Gymshark). Falta confirmar con Agus si el crudo 37 es el de Gymshark.
+- Ninguno: del 32 al 37 están entregados. El 38 (Gymshark, "Vació la cuenta") tiene guía pero no hay crudo; es otro formato (pantalla dividida con videos reales de Ben Francis).
 
 ## 2026-11-15/16 · Video 31 "Suplementos Novia" · mini charla con tele
 - Entregada la v13. `referencias/gabriel.md` documenta hasta la v11 (secciones 0.a a 0.i); lo que cambió en v12 y v13 no está escrito.
