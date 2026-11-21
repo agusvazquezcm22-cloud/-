@@ -1,0 +1,463 @@
+{
+ "_nota": "Recreación de la referencia 'T2 V8 Amy.mp4'. Poner ese video al lado de este JSON como T2_V8.mp4. Los cuadros (f0/f1/f_ver) son a 30 fps. limpiar_original=true borra el texto que ya trae la referencia; con tomas en bruto va en false.",
+ "video": "T2_V8.mp4",
+ "salida": "AMY_recreacion_T2V8.mp4",
+ "limpiar_original": true,
+ "fuentes": {
+  "light": "fuentes/Montserrat-Light.ttf",
+  "black": "fuentes/Montserrat-Black.ttf",
+  "extrabold": "fuentes/Montserrat-ExtraBold.ttf"
+ },
+ "estilo": {
+  "subtitulo": {
+   "fuente": "light",
+   "tam": 52.5,
+   "tracking": -0.07,
+   "x_centro": 540,
+   "base": 1081,
+   "sombra_op": 0.5,
+   "sombra_sigma": 5,
+   "sombra_dy": 2,
+   "limpiar_dilat": 6
+  },
+  "titulo_fino": {
+   "glow_op": 0.28,
+   "glow_sigma": 9,
+   "glow_gan": 1.5,
+   "sombra_op": 0.25,
+   "sombra_sigma": 12,
+   "limpiar_dilat": 12,
+   "fade_cuadros": 10
+  },
+  "titulo_fuerte": {
+   "glow_op": 0.32,
+   "glow_sigma": 9,
+   "glow_gan": 1.4,
+   "sombra_op": 0.25,
+   "sombra_sigma": 14,
+   "limpiar_dilat": 16
+  },
+  "rotulo": {
+   "glow_op": 0.55,
+   "glow_sigma": 13,
+   "glow_gan": 1.5,
+   "limpiar_dilat": 26
+  },
+  "nota": {
+   "cursiva_falsa": 0.18,
+   "glow_op": 0.5,
+   "glow_sigma": 7,
+   "glow_gan": 1.6,
+   "limpiar_dilat": 12
+  }
+ },
+ "subtitulos": [
+  {
+   "f0": 56,
+   "f1": 75,
+   "texto": "si sientes que"
+  },
+  {
+   "f0": 75,
+   "f1": 90,
+   "texto": "las semanas"
+  },
+  {
+   "f0": 90,
+   "f1": 99,
+   "texto": "antes de"
+  },
+  {
+   "f0": 99,
+   "f1": 111,
+   "texto": "la regla"
+  },
+  {
+   "f0": 111,
+   "f1": 128,
+   "texto": "te comerías"
+  },
+  {
+   "f0": 128,
+   "f1": 152,
+   "texto": "la nevera entera"
+  },
+  {
+   "f0": 190,
+   "f1": 205,
+   "texto": "esa hambre"
+  },
+  {
+   "f0": 205,
+   "f1": 227,
+   "texto": "no es ansiedad"
+  },
+  {
+   "f0": 227,
+   "f1": 242,
+   "texto": "ni falta"
+  },
+  {
+   "f0": 242,
+   "f1": 259,
+   "texto": "de voluntad"
+  },
+  {
+   "f0": 285,
+   "f1": 318,
+   "texto": "en esa fase sube"
+  },
+  {
+   "f0": 318,
+   "f1": 342,
+   "texto": "la progesterona"
+  },
+  {
+   "f0": 342,
+   "f1": 364,
+   "texto": "tu cuerpo gasta"
+  },
+  {
+   "f0": 364,
+   "f1": 376,
+   "texto": "un poquito"
+  },
+  {
+   "f0": 376,
+   "f1": 397,
+   "texto": "más energía"
+  },
+  {
+   "f0": 397,
+   "f1": 417,
+   "texto": "y el apetito"
+  },
+  {
+   "f0": 417,
+   "f1": 433,
+   "texto": "aumenta"
+  },
+  {
+   "f0": 433,
+   "f1": 456,
+   "texto": "mi recomendación"
+  },
+  {
+   "f0": 456,
+   "f1": 480,
+   "texto": "para esta semana"
+  },
+  {
+   "f0": 480,
+   "f1": 501,
+   "texto": "es que"
+  },
+  {
+   "f0": 540,
+   "f1": 566,
+   "texto": "comas alimentos"
+  },
+  {
+   "f0": 608,
+   "f1": 646,
+   "texto": "y así te sientes"
+  },
+  {
+   "f0": 646,
+   "f1": 672,
+   "texto": "más saciada"
+  },
+  {
+   "f0": 673,
+   "f1": 696,
+   "texto": "y no aprietes"
+  },
+  {
+   "f0": 696,
+   "f1": 710,
+   "texto": "la dieta"
+  },
+  {
+   "f0": 710,
+   "f1": 738,
+   "texto": "justo esa semana"
+  },
+  {
+   "f0": 738,
+   "f1": 747,
+   "texto": "porque"
+  },
+  {
+   "f0": 747,
+   "f1": 762,
+   "texto": "vas a acabar"
+  },
+  {
+   "f0": 762,
+   "f1": 783,
+   "texto": "saltándotelo"
+  },
+  {
+   "f0": 783,
+   "f1": 798,
+   "texto": "todo"
+  },
+  {
+   "f0": 816,
+   "f1": 827,
+   "texto": "para tu"
+  },
+  {
+   "f0": 827,
+   "f1": 848,
+   "texto": "próxima fase"
+  },
+  {
+   "f0": 848,
+   "f1": 866,
+   "texto": "lútea y"
+  },
+  {
+   "f0": 866,
+   "f1": 890,
+   "texto": "en la parte dos"
+  },
+  {
+   "f0": 890,
+   "f1": 917,
+   "texto": "te voy a contar"
+  },
+  {
+   "f0": 917,
+   "f1": 932,
+   "texto": "por qué tu"
+  },
+  {
+   "f0": 932,
+   "f1": 944,
+   "texto": "báscula"
+  },
+  {
+   "f0": 944,
+   "f1": 956,
+   "texto": "te miente"
+  },
+  {
+   "f0": 956,
+   "f1": 979,
+   "texto": "esa semana"
+  }
+ ],
+ "titulos": [
+  {
+   "f0": 5,
+   "f1": 34,
+   "lineas": [
+    {
+     "texto": "Reina",
+     "fuente": "light",
+     "tam": 174,
+     "tracking": -0.07,
+     "x": 242,
+     "base": 1138
+    },
+    {
+     "texto": "no eres",
+     "fuente": "light",
+     "tam": 178,
+     "tracking": -0.05,
+     "x": 246,
+     "base": 1250,
+     "f_ver": 12
+    },
+    {
+     "texto": "tú",
+     "fuente": "black",
+     "tam": 178,
+     "tracking": -0.12,
+     "x": 249,
+     "base": 1389,
+     "f_ver": 24
+    }
+   ]
+  },
+  {
+   "f0": 38,
+   "f1": 56,
+   "lineas": [
+    {
+     "texto": "son las",
+     "fuente": "light",
+     "tam": 188,
+     "tracking": -0.05,
+     "x": 173,
+     "base": 1142
+    },
+    {
+     "texto": "hormonas",
+     "fuente": "black",
+     "tam": 160,
+     "tracking": -0.12,
+     "x": 167,
+     "base": 1242,
+     "f_ver": 44
+    }
+   ]
+  },
+  {
+   "f0": 157,
+   "f1": 185,
+   "lineas": [
+    {
+     "texto": "entonces...",
+     "fuente": "light",
+     "tam": 116,
+     "tracking": -0.07,
+     "x": 165,
+     "base": 1112
+    },
+    {
+     "texto": "escucha esto",
+     "fuente": "black",
+     "tam": 112,
+     "tracking": -0.07,
+     "x": 170,
+     "base": 1184,
+     "f_ver": 164
+    }
+   ]
+  },
+  {
+   "f0": 264,
+   "f1": 285,
+   "lineas": [
+    {
+     "texto": "es",
+     "fuente": "light",
+     "tam": 134,
+     "tracking": -0.06,
+     "x": 250,
+     "base": 1120
+    },
+    {
+     "texto": "fisiología",
+     "fuente": "black",
+     "tam": 132,
+     "tracking": -0.07,
+     "x": 250,
+     "base": 1223,
+     "f_ver": 268
+    }
+   ]
+  },
+  {
+   "f0": 506,
+   "f1": 540,
+   "lineas": [
+    {
+     "texto": "priorices",
+     "fuente": "light",
+     "tam": 98,
+     "tracking": -0.07,
+     "x": 220,
+     "base": 1075
+    },
+    {
+     "texto": "proteína",
+     "fuente": "black",
+     "tam": 160,
+     "tracking": -0.07,
+     "x": 212,
+     "base": 1180,
+     "f_ver": 519
+    }
+   ]
+  },
+  {
+   "f0": 571,
+   "f1": 608,
+   "lineas": [
+    {
+     "texto": "que aporten",
+     "fuente": "light",
+     "tam": 94,
+     "tracking": -0.06,
+     "x": 287,
+     "base": 1034
+    },
+    {
+     "texto": "mucha mas",
+     "fuente": "light",
+     "tam": 96,
+     "tracking": -0.07,
+     "x": 283,
+     "base": 1107,
+     "f_ver": 581
+    },
+    {
+     "texto": "fibra",
+     "fuente": "black",
+     "tam": 164,
+     "tracking": -0.08,
+     "x": 281,
+     "base": 1226,
+     "f_ver": 592
+    }
+   ]
+  },
+  {
+   "f0": 800,
+   "f1": 979,
+   "anim": "corte",
+   "lineas": [
+    {
+     "texto": "Parte 1",
+     "fuente": "black",
+     "tam": 124,
+     "tracking": -0.07,
+     "x": 348,
+     "base": 374,
+     "estilo": "rotulo"
+    }
+   ]
+  }
+ ],
+ "notas": [
+  {
+   "f0": 56,
+   "f1": 152,
+   "lineas": [
+    {
+     "texto": "¿Te pasa?",
+     "fuente": "light",
+     "tam": 54,
+     "tracking": -0.04,
+     "x": 420,
+     "base": 877
+    }
+   ]
+  },
+  {
+   "f0": 800,
+   "f1": 979,
+   "lineas": [
+    {
+     "texto": "Parte 2:",
+     "fuente": "light",
+     "tam": 54,
+     "tracking": -0.07,
+     "x": 286,
+     "base": 1476
+    },
+    {
+     "texto": "\"la báscula te miente\"",
+     "fuente": "light",
+     "tam": 54,
+     "tracking": -0.07,
+     "x": 283,
+     "base": 1524
+    }
+   ]
+  }
+ ]
+}
