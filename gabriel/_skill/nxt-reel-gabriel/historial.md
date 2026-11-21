@@ -2,6 +2,12 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-21 · Correcciones de Gabriel (WhatsApp, capturas que pasó Agus)
+
+- **AG1 (33) → v04** (59,0 s). Él lo llamó "35". (1) Segundo 21: después de la captura de la Biblioteca va el video real de la creadora (anuncio 1124980317094382) en vez de otra captura. (2) Clip de podcast: no se encontró ninguno en la Biblioteca (la búsqueda por "podcast", "Huberman", "episode" no devolvió anuncios) y no se baja de YouTube; quedó el gráfico, como él aceptó ("si no, igual está bien así"). Además: cierre con cola y receta 2 de sonido.
+- **Lemme vs IM8 (37) → v03** (72,15 s). Él lo llamó "38". (1) Portada con los fundadores: cuadro del video oficial de Lemme con su fundadora en la tienda + foto oficial de Beckham con IM8, cada uno con el logo de su marca. (2) "Sino de 3": anuncio "The Beckham Stack · Quarterly subscription" con el recuadro en "Quarterly subscription". (3) "Esos lives": video de una creadora que nombra TikTok ("You HAVE to try TikTok's viral debloating product") y otra creadora, en vez de la grilla. (4) "Dos marcas muy exitosas" y (5) el cierre: videos de las dos marcas lado a lado; la portada ya no se repite. Los videos de Lemme salen de lemmelive.com (portada y página de embajadoras): no son los lives de TikTok.
+- Sin feedback todavía sobre estas versiones.
+
 ## 2026-11-21 · Video 37 "Lemme vs IM8: ¿quién tiene mejor estrategia?" · formato VS, SIN guía
 
 - **v02** (72,15 s). Pedidos de Agus sobre la v01: el mismo cierre con cola que el 36, sacar "el sonido que se escucha como angelical, de fondo" y reemplazarlo, y "que los sonidos se escuchen un poco más bajitos, que acompañen". Hecho: cierre con cola (crudo entero + 0,9 s, último subtítulo hasta el final, sonido suave de cierre, audio que se apaga), receta 2 de sonido (sin Botanical ni Deep, textura de Granular Combo (13), todo 3 dB más bajo). Misma imagen que la v01 salvo el final.

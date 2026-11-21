@@ -1,7 +1,9 @@
-"""Video 37 · "Lemme vs IM8: ¿quién tiene mejor estrategia?" · v02
+"""Video 37 · "Lemme vs IM8: ¿quién tiene mejor estrategia?" · v03
 Formato VS (como el 35). Lemme SIEMPRE a la izquierda, IM8 a la derecha. Gabriel fijo abajo al centro en todas las tomas.
 OJO: la guia de Gabriel no trae este video ("VIDEO 37" esta vacio en el documento): la lista de tomas sale de lo que dice
 en el crudo y de las reglas del 35. Tiempos de la transcripcion del crudo (71,27 s).
+v03: correcciones de Gabriel (2026-11-21): portada con los fundadores; "sino de 3" con un anuncio que dice suscripcion trimestral;
+en "esos lives", en "dos marcas muy exitosas" y en el cierre van VIDEOS de las marcas (la portada ya no se repite).
 v02 (pedido de Agus): cierre con cola (el crudo entero + 0,9 s sobre la portada) y sonidos nuevos (ver sonido37_v02.py).
 """
 import os, sys, json
@@ -18,9 +20,11 @@ AUDIO_FILTRO = 'highpass=f=70,loudnorm=I=-14:TP=-1.5:LRA=11'
 GAB = 'C'
 configurar(A, logo=None)
 
-L = dict(purr_mano='4656954237957048', todo25='1784818685904862', debloat_mano='2771485959914179', hinchada='1415643273607782', torta='1162548296330796',
+L = dict(v_cafe='lv0', v_caja='lv1', v_creadora='lv3', v_tiktok='lv4', v_rutina='lv7',      # videos oficiales de lemmelive.com (portada y pagina de embajadoras)
+         purr_mano='4656954237957048', todo25='1784818685904862', debloat_mano='2771485959914179', hinchada='1415643273607782', torta='1162548296330796',
          frasco='1762866821460385', brunch='1546668280292013')
-I = dict(medicos='2165878043993348', kit='2184389968845356', sueno='2017776215600223', botella='1636883441125367', prueba='1030426816693865', beckham='961654143231799',
+I = dict(trimestral='1810242556685796', v_caja='28878752765118956', v_clienta='2124311054827021', v_cancha='39553911627540676',
+         medicos='2165878043993348', kit='2184389968845356', sueno='2017776215600223', botella='1636883441125367', prueba='1030426816693865', beckham='961654143231799',
          articulaciones='1134488486192618', almuerzo='996683953451195',
          v_sabalenka='2370251763783969', v_creador='2115444616000712', v_famosos='2302752947125995', v_vaso='1737856330622361', v_creadora='1096216096310988',
          v_rodillas='29066418076358871', v_giannis='997930503365973')
@@ -43,18 +47,23 @@ def G2(fn, chip=None, y1=1100, k=0.86, y=196):
 
 
 # ------------------------------------------------------------ portada: los dos productos
-def _producto(im, caja, alto):
-    fondo = Image.fromarray(cubrir(im, W // 2, H)).filter(ImageFilter.GaussianBlur(46)); w0, h0 = im.size
-    p = im.crop((int(caja[0] * w0), int(caja[1] * h0), int(caja[2] * w0), int(caja[3] * h0))); p = p.resize((int(p.width * alto / p.height), alto), Image.LANCZOS)
-    m = Image.new('L', p.size, 0); ImageDraw.Draw(m).rounded_rectangle([14, 14, p.width - 15, p.height - 15], radius=40, fill=255); m = m.filter(ImageFilter.GaussianBlur(12))
-    fondo.paste(p, ((W // 2 - p.width) // 2, 312), m); return fondo
+def _persona_foto(im, caja, chip, w=500, h=430):
+    """Media portada: la foto de la persona (recorte `caja` en px) sobre su version desenfocada, con el logo de su marca abajo."""
+    fondo = Image.fromarray(cubrir(im, W // 2, H)).filter(ImageFilter.GaussianBlur(46))
+    p = im.crop(caja).resize((w, h), Image.LANCZOS)
+    m = Image.new('L', p.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, w - 1, h - 1], radius=34, fill=255)
+    fondo.paste(p, ((W // 2 - w) // 2, 292), m)
+    ch = chip.resize((int(chip.width * 64 / chip.height), 64), Image.LANCZOS); fondo.paste(ch, ((W // 2 - ch.width) // 2, 292 + h - 84), ch)
+    return fondo
 
 
 def _vs():
-    lem = Image.open(f'{A}/cap/lps_00.png').convert('RGB').crop((0, 430, 1640, 1730))
-    c = Image.new('RGB', (W, H)); c.paste(_producto(lem, (0.20, 0.03, 0.80, 0.97), 468), (0, 0)); c.paste(_producto(Image.open(ad(I['prueba'])).convert('RGB'), (0.20, 0.09, 0.80, 0.47), 468), (W // 2, 0))
+    """Portada (correccion de Gabriel): los FUNDADORES. Izquierda: la fundadora en el video oficial de Lemme (lemmelive.com);
+    derecha: la foto oficial de David Beckham con IM8 (la del video 32)."""
+    kk = Image.open(f'{A}/cap/kourtney_tienda.png').convert('RGB'); bk = Image.open(f'{I8}/dl/beckham.jpg').convert('RGB')
+    c = Image.new('RGB', (W, H)); c.paste(_persona_foto(kk, (144, 0, 1094, 817), CHIP_L), (0, 0)); c.paste(_persona_foto(bk, (0, 20, 692, 615), CHIP_I), (W // 2, 0))
     d = ImageDraw.Draw(c); d.rectangle([W // 2 - 3, 0, W // 2 + 2, H], fill=(255, 255, 255))
-    d.ellipse([W // 2 - 62, 484, W // 2 + 62, 608], fill=TINTA, outline=(255, 255, 255), width=6); d.text((W // 2, 546), 'VS', font=font(60), fill=(255, 255, 255), anchor='mm')
+    d.ellipse([W // 2 - 56, 450, W // 2 + 56, 562], fill=TINTA, outline=(255, 255, 255), width=6); d.text((W // 2, 506), 'VS', font=font(54), fill=(255, 255, 255), anchor='mm')
     return c
 VS = _vs()
 PORTADA = lambda: lienzo(VS, (0, 0, W), (16, 20, W - 32), nombre='portada')
@@ -153,19 +162,20 @@ toma('07', 21.50, 26.40, Serie([(0, anuncio(L['brunch'], 0.03)),
 toma('08', 26.40, 29.20, Serie([(0, anuncio(I['almuerzo'], 0)), (1.40, anuncio(I['articulaciones'], 0))]), GAB)
 toma('09', 29.20, 35.24, Serie([(0, lienzo(BUYP, P3((620, 20, 660)), P3(V_BUY), nombre='im8health.com:caja de compra', dur_mov=0.6)),
                                 (2.40, Lienzo(BUYP, P3(V_BUY), None, [('caja', P3(BUY['plan']), 0.1, 2.5), ('caja', P3(BUY['kit']), 2.5), ('flecha_ad', P3(BUY['kit']), 2.5)]))]), GAB)
-toma('10', 35.24, 37.52, anuncio(I['kit'], 0.03, [('caja', (0.17, 0.222, 0.66, 0.045), 0.9)]), GAB)
+toma('10', 35.24, 37.52, anuncio(I['trimestral'], 0.03, [('caja', (0.22, 0.252, 0.56, 0.05), 1.3)]), GAB)                  # "sino de 3": suscripcion trimestral
 toma('11', 37.52, 38.74, Mitades(anuncio(L['purr_mano'], 0), clip(I['v_creador'], 2.0)), GAB)
 toma('12', 38.74, 44.66, G2(g_tiktok, CHIP_L), GAB)
-toma('13', 44.66, 49.76, lienzo(LG, (0, 560, 1700), (0, 1500, 1700), nombre='biblioteca Lemme:grilla', dur_mov=4.6), GAB)
+toma('13', 44.66, 49.76, Serie([(0, clip(L['v_tiktok'], 0.4, entero=150)), (2.96, clip(L['v_creadora'], 3.0))]), GAB)       # videos de creadoras (el primero nombra TikTok)
 toma('14', 49.76, 51.18, clip(I['v_famosos'], 2.0), GAB)
 toma('15', 51.18, 57.00, Serie([(0, clip(I['v_giannis'], 2.0)), (0.80, clip(I['v_sabalenka'], 3.0, subir=220)),
                                 (1.82, lienzo(TIRA, (210, 1425, 1500), (210, 1990, 1500), nombre='im8health.com:ligas y socios', dur_mov=1.4)), (3.30, G2(g_crece, CHIP_I))]), GAB)
-toma('16', 57.00, 60.52, PORTADA(), GAB)
+toma('16', 57.00, 60.52, Mitades(clip(L['v_cafe'], 3.6), clip(I['v_caja'], 1.6)), GAB)
 toma('17', 60.52, 62.82, G2(g_llevar, CHIP_L), GAB)
 toma('18', 62.82, 66.36, G2(g_avatar, CHIP_I), GAB)
-toma('19', 66.36, 72.15, PORTADA(), GAB, T_(['¿Cuál es más efectiva?'], 196, 68, t0=0.25, emo='👇'))
+toma('19', 66.36, 72.15, Mitades(Serie([(0, clip(L['v_rutina'], 4.6)), (2.32, clip(L['v_caja'], 1.0))]),
+                                  Serie([(0, clip(I['v_clienta'], 1.6)), (2.32, clip(I['v_cancha'], 4.55, vel=0.42))])), GAB, T_(['¿Cuál es más efectiva?'], 196, 68, t0=0.25, emo='👇'))
 SHOTS = S
-REPETICION_PERMITIDA = {'portada': 'formato VS: la pantalla dividida del inicio vuelve a mitad y en el cierre (como en la guia del 35)'}
+REPETICION_PERMITIDA = {}
 
 GUION = [
  '¿Quién tiene mejor *estrategia?', 'Lemme de Kourtney Kardashian', 'o IM8 ~ de David Beckham',

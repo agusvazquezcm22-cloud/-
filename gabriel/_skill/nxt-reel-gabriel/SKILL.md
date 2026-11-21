@@ -28,6 +28,18 @@ description: "Edita reels de NXT Media para Gabriel Monsalve (@gabriel.growthp, 
 
 Las frases textuales de Gabriel y cómo se resolvió cada una están en `referencias/gabriel.md`, sección 0.k.
 
+## Correcciones de Gabriel del 2026-11-21 (AG1 y Lemme vs IM8) · valen para todos
+
+Dijo "de resto está brutal". Lo que pidió, textual, y la regla que deja:
+
+- "En vez de poner dos seguidas del administrador, pondría la anterior que es un pantallazo de administrador y **el video de esa creadora, como tal el anuncio y no el pantallazo**, para que el corte sea más dopamínico." → nunca dos capturas de la Biblioteca seguidas: después de una captura va el anuncio real en video.
+- "Aquí en vez de eso, pondría **contenido en video** que tienen en TikTok de fondo." / "Aquí se repite la imagen del comienzo, usaría mejor **videos de las dos marcas**." / "Y aquí al final nuevamente la misma imagen. También cambiarlo por algo de video." → **la portada no se repite** ni a mitad ni en el cierre (reemplaza la regla 10 de su guía): ahí van videos de la marca (en un VS, `Mitades` con un video de cada una). Siempre que haya video real, va video antes que grilla o captura.
+- "En la foto de la comparación me gustaría que se vieran **los fundadores**." → en un VS de marcas con cara conocida, la portada son las dos personas (con el logo de su marca), no los productos.
+- "Creo que no está alineado con lo que se viene hablando o se puso el cuadrado en un punto que no es." → el recuadro va exactamente sobre las palabras que prueban la frase (se dijo "ya no es de un mes, sino de 3" → recuadro en "Quarterly subscription"); ampliar y leer cada recuadro antes de renderizar.
+- "Cuando hablamos de los podcast si podemos mostrar un cortico de algún podcast estaría top, solo si lo encuentran." → opcional; no se baja de YouTube.
+- Dónde hay video de una marca además de la Biblioteca: su propio sitio. `node kit/web/imagenes_y_videos.js <url>` lista las imágenes grandes y los videos que carga cada página (en lemmelive.com: la portada y /pages/ambassador).
+- Ojo con los números: Gabriel llamó "35" al de AG1 (el 33) y "38" al de Lemme vs IM8 (el 37). Identificar el video por lo que se ve en su captura, no por el número.
+
 ## Dónde está todo
 
 - **Guía de edición de Gabriel** (Drive, Google Doc "Copy of Guia edición ", id `1Z2lnrdt8l47JapJRDTL_IfXKpdcrakfHOdmBtGiphEs`): una sección por video ("VIDEO 32", "VIDEO 33"…) con cómo quiere la edición, reglas, lista de tomas con tiempos y links. Es larga: leerla por sección.
@@ -43,7 +55,7 @@ Las frases textuales de Gabriel y cómo se resolvió cada una están en `referen
 - **Pantalla verde** (crudo con fondo verde; la guía dice que copia a Chase Chappell): todo lo de abajo. Es el formato de los videos 32 en adelante.
 - **Mini charla con tele** (video 31): reglas en `referencias/gabriel.md`, secciones 0.a a 0.i. Comparte el juego de subtítulos.
 - **Recorrido de un test** (video 36, Aluné): las pantallas del test se capturan una por una con `kit/web/test_por_pasos.js` (viewport 430×764, que ya es 9:16; guarda la captura y el rectángulo de cada texto). En el config, `pant(prefijo, n, marcas, foco='texto')` muestra la pantalla a todo el ancho y corre la vista para que el dato quede arriba de los subtítulos; `r_(prefijo, n, 'texto')` da el rectángulo para el recuadro. Plantilla: `kit/ejemplos/gabriel36_v02.py`.
-- **VS** (video 35, "Liquid I.V. vs Electrolit"): es el formato pantalla verde con dos marcas frente a frente. La primera marca del título va SIEMPRE a la izquierda y la otra a la derecha. Pantalla dividida solo para comparar las dos a la vez (portada, un momento a mitad y el cierre): `Mitades(fuente_izq, fuente_der)` para dos clips, o una imagen armada para la portada (los dos productos y un "VS"). El resto, una imagen a la vez, con la misma prueba para las dos (la misma vista de la Biblioteca). En los gráficos propios va arriba el logo de la marca de la que se habla (`G2(fn, CHIP_x)`), recortado de un anuncio suyo. Plantilla: `kit/ejemplos/gabriel35_v01.py` (y `gabriel37_v02.py`, hecho sin guía).
+- **VS** (video 35, "Liquid I.V. vs Electrolit"): es el formato pantalla verde con dos marcas frente a frente. La primera marca del título va SIEMPRE a la izquierda y la otra a la derecha. Pantalla dividida solo para comparar las dos a la vez (portada, un momento a mitad y el cierre): `Mitades(fuente_izq, fuente_der)` para dos clips, o una imagen armada para la portada (los dos productos y un "VS"). El resto, una imagen a la vez, con la misma prueba para las dos (la misma vista de la Biblioteca). En los gráficos propios va arriba el logo de la marca de la que se habla (`G2(fn, CHIP_x)`), recortado de un anuncio suyo. Plantilla: `kit/ejemplos/gabriel35_v01.py` (y `gabriel37_v03.py`, hecho sin guía).
 
 ## Pantalla verde: cómo es
 

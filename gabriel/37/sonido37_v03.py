@@ -1,6 +1,6 @@
 """Video 37 (Lemme vs IM8) · sonidos. Mismo paquete (Naza) y misma receta que el 31 al 36.
-v02: receta 2 (sin el sonido 'angelical', 3 dB mas bajo) y cierre con cola.
-Uso: python3 sonido37_v02.py <video_sin_sonido.mp4> <salida.mp4>"""
+v03: correcciones de Gabriel (mismos sonidos, tres ajustados a los cortes nuevos). v02: receta 2 (sin el sonido 'angelical', 3 dB mas bajo) y cierre con cola.
+Uso: python3 sonido37_v03.py <video_sin_sonido.mp4> <salida.mp4>"""
 import os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
 from sonido_verde import *
@@ -27,13 +27,14 @@ EVENTOS = [
     clic(31.72, MG10, 'recuadro en el plan de 3 meses'),
     golpe(34.18, 'golpe clave 1 de 2: te regala el kit de bienvenida'),
     plano(35.24, 'anuncio del kit'),
-    clic(36.16, GR6, 'recuadro: con tu primer pedido trimestral'),
+    clic(36.56, GR6, 'recuadro: suscripcion trimestral'),
     tr(37.52, MOMO, AIRE_BOT, 'ronda 3: los creadores'),
     plano(38.74, 'grafico: TikTok Shop'),
     bop(39.56, MONEDA, 'aparecen los 13 millones'),
     bop(42.12, CUENTA, 'entran los creadores'),
     clic(43.46, CUR, 'comision por venta'),
-    plano(44.66, 'grilla de anuncios de Lemme'),
+    plano(44.66, 'video de una creadora de Lemme'),
+    foto(47.62, 'otra creadora'),
     glitch(49.38, 'contenido sin usar'),
     tr(49.76, SLOW, AIRE_BOT, 'IM8 va por otro camino'),
     foto(51.18, 'Giannis'), bop(51.98, O1, 'Sabalenka'), bop(53.00, O2, 'Inter de Miami'),
@@ -45,6 +46,7 @@ EVENTOS = [
     plano(62.82, 'grafico: una pagina por avatar'),
     bop(63.87, L1, 'pagina 1'), bop(64.37, L2, 'pagina 2'), bop(64.87, O1, 'pagina 3'),
     golpe(66.36, 'golpe clave 2 de 2: la pregunta final'),
+    plano(68.68, 'cambian los dos videos'),
     clic(70.66, MG7, 'aparece "comentarios"'),
     tr(71.25, SLOW, AIRE_DEEP, 'cierre: sale con el ultimo cuadro'),
 ]

@@ -1,7 +1,9 @@
-"""Video 33 · "La estrategia de anuncios de 600M de AG1" · v03
+"""Video 33 · "La estrategia de anuncios de 600M de AG1" · v04
 Igual que la v01 (aprobada por Agus: "Top") con el recorte de Gabriel FIJO donde Agus lo marco con una captura del 34 v01
 (2026-11-20): "Tiene que estar en esa ubicacion, no mas abajo". Abajo al centro, mismo tamano y altura en todo el video ('C').
 Tomas, subtitulos y sonidos son los de la v01.
+v04: correcciones de Gabriel (2026-11-21): en el segundo 21, en vez de una segunda captura de la Biblioteca va el VIDEO real de esa
+creadora (el anuncio 1124980317094382). Cierre con cola y receta 2 de sonido (reglas de Agus). Lo demas, igual.
 """
 import os, sys, json
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
@@ -9,7 +11,7 @@ from verde_ayudas import *
 
 A = os.environ.get('GAB_ASSETS', '/tmp/claude-0/-home-user--/5179dee2-39cd-5dce-b326-2d7a39fe506b/scratchpad/v33')
 RAW = f'{A}/dl/crudo33.mp4'
-DUR = 58.1
+DUR = 59.0                   # 58,13 del crudo + 0,87 de cola
 CABEZA = 735                 # fila del crudo donde esta el tope de su cabeza (medido: 716-753)
 CENTRO = 528                 # columna del centro de su cabeza (medido: 503-546)
 T_FIN = 53.92                # desde aca (cierre) va el plano mas grande al centro
@@ -122,7 +124,7 @@ toma('08', 11.30, 14.52, Serie([(0, clip('1728922928202874', 1.0)), (1.60, lienz
 toma('09', 14.52, 18.04, Lienzo(MOS, (0, 0, W), (20, 16, W - 40), SUBRAYADOS), 'PR')
 toma('10', 18.04, 19.80, Lienzo(MOS, (0, 70, 800), (0, 285, 780), NOMBRES, dur_mov=1.0), 'PR')
 toma('11', 19.80, 22.98, Serie([(0, tarjeta(CARD('1451810420413126'), [('caja', NOMBRE, 0.2)])),
-                                (1.59, tarjeta(CARD('1124980317094382'), [('caja', NOMBRE, 0.2)]))]), lambda tl: 'PL' if tl < 1.59 else 'PR')
+                                (1.59, clip('1124980317094382', 31.0))]), lambda tl: 'PL' if tl < 1.59 else 'PR')
 toma('12', 22.98, 24.14, tarjeta(CARD('3459371154253454'), [('caja', FRASE, 0.15)]), 'PL')
 toma('13', 24.14, 25.54, Serie([(0, clip('1770995120621934', 1.0)), (0.35, clip('1131363089942395', 1.0)), (0.70, clip('2124813031574283', 5.0)), (1.05, clip('1409776720886079', 1.0))]), 'PR')
 toma('14', 25.54, 28.18, Serie([(0, clip('1461710955927501', 1.0)), (1.06, anuncio('1596436251777812', 0)), (1.86, anuncio('2347218269151991', 0))]),
@@ -143,7 +145,7 @@ toma('23', 49.62, 52.04, G(g_publicos, logo=True, k=0.86), 'G')
 toma('24', 52.04, 53.92, Serie([(0, clip('1884119762755431', 7.5)), (0.62, clip('2448516895887382', 4.0)), (1.24, clip('2704233700026537', 2.0))]),
      lambda tl: 'PL' if tl < 0.62 else ('PR' if tl < 1.24 else 'PL'))
 toma('25', 53.92, 55.98, G(g_guardar, k=0.84), 'G')
-toma('26', 55.98, 58.10, PORTADA(), 'PL')
+toma('26', 55.98, 59.00, PORTADA(), 'PL')
 for _s in S: _s['gab'] = 'C'                                          # Gabriel fijo: abajo al centro en TODAS las tomas
 SHOTS = S
 REPETICION_PERMITIDA = {'portada': 'regla 10 de la guia de Gabriel: el cierre vuelve a la imagen del inicio',

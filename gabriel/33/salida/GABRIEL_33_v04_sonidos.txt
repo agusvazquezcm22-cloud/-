@@ -1,0 +1,49 @@
+  1.10s transicion 19.9 dB bajo la voz ( -21.4 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | entra la nota de Fortune
+  1.40s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (13).wav | recuadro en los 600 millones
+  2.54s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | rafaga de anuncios de creadores
+  5.50s transicion 21.8 dB bajo la voz ( -23.3 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | capitulo: primero, sus anuncios
+  9.14s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | recuadro en el contador de videos
+ 10.20s transicion 21.0 dB bajo la voz ( -22.5 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | capitulo: pero aqui viene lo interesante
+ 11.98s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | aparece Claude
+ 12.90s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grilla de los anuncios con el mismo texto
+ 14.52s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | entra el mosaico de creadores
+ 14.97s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot)_2.wav | subrayado 1
+ 15.25s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | subrayado 2
+ 15.53s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | subrayado 3
+ 15.81s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | subrayado 4
+ 16.17s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (13).wav | golpe clave 1 de 2: exactamente lo mismo
+ 18.16s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (1).wav | nombre 1
+ 18.46s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (10).wav | nombre 2
+ 18.76s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (6).wav | nombre 3
+ 19.06s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (13).wav | nombre 4
+ 21.39s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | entra el video de la creadora
+ 23.33s glitch     19.7 dB bajo la voz ( -21.2 dBFS)  Fast Glitch 1.mp3 | ya no estan probando el mensaje
+ 24.14s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | rafaga de caras
+ 25.54s transicion 19.3 dB bajo la voz ( -20.8 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | capitulo: cuando cambian el anuncio
+ 28.18s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | anuncio para militares
+ 32.16s foco       21.7 dB bajo la voz ( -23.2 dBFS)  Camera_Focusing_sound_effect_non_(getmp3.pro).mp3 | foto del kit de bienvenida
+ 33.38s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | anuncio del kit gratis
+ 34.84s transicion 21.8 dB bajo la voz ( -23.3 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | capitulo: lo que mas me sorprendio
+ 38.18s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (7).wav | golpe clave 2 de 2: recuadro en los 11.000 episodios
+ 39.84s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (13).wav | recuadro en los 700 podcasts
+ 41.12s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: cada podcast, su pagina
+ 41.40s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | entran los tres podcasts
+ 44.92s transicion 19.9 dB bajo la voz ( -21.4 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | capitulo: o sea
+ 45.82s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | recuadro en los 920 anuncios con el mismo texto
+ 48.32s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Button, Cursor, Select (5).wav | recuadro en el mensaje
+ 50.17s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot)_2.wav | publico 1
+ 50.47s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | publico 2
+ 50.77s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | publico 3
+ 52.04s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | rafaga final de anuncios
+ 53.97s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | aparece el icono de guardar
+ 54.34s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (10).wav | se marca guardar
+ 55.98s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | vuelve la portada
+ 57.30s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | aparece "necesitar"
+ 58.15s transicion 19.3 dB bajo la voz ( -20.8 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | cierre: sale con el ultimo cuadro
+
+Sonidos: 42 en 59.0 s · archivos distintos: 18 (todos del paquete de Naza)
+Veces que se usa cada archivo: Granular Combo (13).wav x13, slow woosh.mp3 x4, Magnetic, Button (13).wav x4, Magnetic, Button (7).wav x4, camera shutter sfx (1).mp3 x3, Momo WOOSH 3.mp3 x3, Mini list (one shot).wav x3, Mini list down _2.wav x3, Mini list (one shot)_2.wav x2, Mini list down _1.wav x2, Hit Impact (No FX) (4).wav x2, Magnetic, Button (10).wav x2, Granular, Button, Select (1).wav x1, Granular, Button, Select (6).wav x1, Fast Glitch 1.mp3 x1, Camera_Focusing_sound_effect_non_(getmp3.pro).mp3 x1, Countdown, List, Numbers (5).wav x1, Button, Cursor, Select (5).wav x1
+Voz: -14.3 LUFS, pico -1.5 dBFS
+Pico de toda la pista de efectos: -20.5 dBFS (19.0 dB bajo el pico de la voz)
+Mezcla final: -14.3 LUFS, pico -1.5 dBFS
+Tonos sostenidos (pitidos) entre 300 Hz y 6 kHz: ninguno

@@ -4,11 +4,11 @@
   (hoja de cuadros grande), `--control` (tiempo de lectura y visuales repetidos), `--out video.mp4` (render).
 - `verde_ayudas.py`: constructores comunes para la lista de tomas (desde el 33). `sonido_verde.py`: recetas de sonido y montaje.
 - `ejemplos/gabriel36_v02.py` y `sonido36_v02.py`: video 36, recorrido de un test (pantallas con `pant` y `r_`).
-- `ejemplos/gabriel37_v02.py` y `sonido37_v02.py`: video 37, otro VS (usa además material de IM8 del 32: variable `GAB_IM8`).
+- `ejemplos/gabriel37_v03.py` y `sonido37_v03.py`: video 37, otro VS (usa además material de IM8 del 32: variable `GAB_IM8`).
 - `ejemplos/gabriel35_v01.py` y `sonido35_v01.py`: video 35, formato VS (pantalla dividida con `Mitades`, logos por marca con `G2`).
 - `ejemplos/gabriel34_v03.py` y `sonido34_v01.py`: video 34 (The Everyday Lab). PLANTILLA para los siguientes:
   Gabriel fijo abajo al centro (`GAB = 'C'`) en todas las tomas; lo señalado arriba de los subtítulos.
-- `ejemplos/gabriel33_v03.py`: el 33 pasado al lugar fijo (sobre-escribe el lugar de todas las tomas al final de la lista).
+- `ejemplos/gabriel33_v04.py`: el 33 pasado al lugar fijo (sobre-escribe el lugar de todas las tomas al final de la lista).
 - `ejemplos/gabriel33_v01.py` y `sonido33_v01.py`: video 33 (AG1) como se hizo primero, con Gabriel cambiando de lado (ya no se hace así).
 - `ejemplos/gabriel32_v03.py`: lista de tomas aprobada del video 32 (IM8), con sus ayudas adentro.
   Espera una carpeta de trabajo (variable `GAB_ASSETS`) con `dl/` (crudo, logo, foto de portada), `cap/` (capturas),

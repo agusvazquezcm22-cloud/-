@@ -20,13 +20,14 @@
  31.72s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (10).wav | recuadro en el plan de 3 meses
  34.18s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (13).wav | golpe clave 1 de 2: te regala el kit de bienvenida
  35.24s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | anuncio del kit
- 36.16s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (6).wav | recuadro: con tu primer pedido trimestral
+ 36.56s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (6).wav | recuadro: suscripcion trimestral
  37.52s transicion 22.0 dB bajo la voz ( -23.5 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | ronda 3: los creadores
  38.74s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: TikTok Shop
  39.56s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | aparecen los 13 millones
  42.12s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | entran los creadores
  43.46s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Button, Cursor, Select (5).wav | comision por venta
- 44.66s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grilla de anuncios de Lemme
+ 44.66s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | video de una creadora de Lemme
+ 47.62s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | otra creadora
  49.38s glitch     19.7 dB bajo la voz ( -21.2 dBFS)  Fast Glitch 1.mp3 | contenido sin usar
  49.76s transicion 20.1 dB bajo la voz ( -21.6 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | IM8 va por otro camino
  51.18s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | Giannis
@@ -42,11 +43,12 @@
  64.37s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | pagina 2
  64.87s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | pagina 3
  66.36s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (7).wav | golpe clave 2 de 2: la pregunta final
+ 68.68s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | cambian los dos videos
  70.66s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | aparece "comentarios"
  71.25s transicion 19.5 dB bajo la voz ( -21.0 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | cierre: sale con el ultimo cuadro
 
-Sonidos: 46 en 72.2 s · archivos distintos: 18 (todos del paquete de Naza)
-Veces que se usa cada archivo: Granular Combo (13).wav x19, slow woosh.mp3 x4, Mini list down _2.wav x4, Magnetic, Button (13).wav x3, Mini list (one shot).wav x3, Mini list down _1.wav x3, Magnetic, Button (7).wav x3, Momo WOOSH 3.mp3 x3, camera shutter sfx (1).mp3 x2, Mini list (one shot)_2.wav x2, Hit Impact (No FX) (4).wav x2, Granular, Button, Select (1).wav x1, Magnetic, Button (10).wav x1, Granular, Button, Select (6).wav x1, Coin Flip (Spin, Rotation) (1).wav x1, Countdown, List, Numbers (5).wav x1, Button, Cursor, Select (5).wav x1, Fast Glitch 1.mp3 x1
+Sonidos: 48 en 72.2 s · archivos distintos: 18 (todos del paquete de Naza)
+Veces que se usa cada archivo: Granular Combo (13).wav x20, slow woosh.mp3 x4, Mini list down _2.wav x4, Magnetic, Button (13).wav x3, Mini list (one shot).wav x3, Mini list down _1.wav x3, Magnetic, Button (7).wav x3, camera shutter sfx (1).mp3 x3, Momo WOOSH 3.mp3 x3, Mini list (one shot)_2.wav x2, Hit Impact (No FX) (4).wav x2, Granular, Button, Select (1).wav x1, Magnetic, Button (10).wav x1, Granular, Button, Select (6).wav x1, Coin Flip (Spin, Rotation) (1).wav x1, Countdown, List, Numbers (5).wav x1, Button, Cursor, Select (5).wav x1, Fast Glitch 1.mp3 x1
 Voz: -14.5 LUFS, pico -1.5 dBFS
 Pico de toda la pista de efectos: -19.9 dBFS (18.4 dB bajo el pico de la voz)
 Mezcla final: -14.5 LUFS, pico -1.5 dBFS
