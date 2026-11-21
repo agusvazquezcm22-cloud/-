@@ -1,7 +1,10 @@
-"""Video 35 · "Liquid I.V. vs Electrolit: ¿quién lo hace mejor?" · v01
+"""Video 35 · "Liquid I.V. vs Electrolit: ¿quién lo hace mejor?" · v02
 Formato VS (guia de Gabriel): dos marcas frente a frente, Liquid I.V. SIEMPRE a la izquierda y Electrolit a la derecha.
 Pantalla dividida solo para comparar; fuera de eso, una imagen a la vez. Gabriel fijo en un solo lugar (pedido de Agus):
 aca al centro, porque es el arbitro entre las dos mitades. Tiempos de la transcripcion del crudo (74,2 s).
+v02: correccion de Gabriel (2026-11-21): "solo la ultima toma no me gusta porque es la misma del inicio, pondria algo mas visual y no
+solo el producto, alguien tomandolos". El cierre ya no repite la portada: va video de gente tomando cada bebida, lado a lado. Ademas,
+cierre con cola y receta 2 de sonido (reglas de Agus). Lo demas, igual que la v01.
 """
 import os, sys, json
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
@@ -10,7 +13,7 @@ import verde_ayudas as _va
 
 A = os.environ.get('GAB_ASSETS', '/tmp/claude-0/-home-user--/5179dee2-39cd-5dce-b326-2d7a39fe506b/scratchpad/v35')
 RAW = f'{A}/dl/crudo35.mp4'
-DUR = 74.1
+DUR = 75.1                   # 74,2 del crudo + 0,9 de cola
 CABEZA = 722                 # fila del crudo donde esta el tope de su cabeza (medido: 712-739)
 CENTRO = 535                 # columna del centro de su cabeza (medido: 520-552)
 AUDIO_FILTRO = 'highpass=f=70,loudnorm=I=-14:TP=-1.5:LRA=11'
@@ -179,9 +182,15 @@ toma('21', 60.42, 62.56, G2(g_tele, CHIP_E, k=0.9), GAB)
 toma('22', 62.56, 66.92, Serie([(0, clip(E['v_juego'], 24.0)), (1.44, clip(E['v_beis'], 5.2))]), GAB)
 toma('23', 66.92, 70.44, Serie([(0, anuncio(L['amazon1'], 0)), (0.58, anuncio(E['padel'], 0)), (1.16, anuncio(L['variety'], 0)), (1.74, anuncio(E['maraton'], 0)),
                                 (2.32, anuncio(L['reco'], 0)), (2.90, anuncio(E['patocita'], 0))]), GAB)
-toma('24', 70.44, 74.10, PORTADA(), GAB, T_(['¿Quién lo hace mejor?'], 196, 70, t0=0.25, emo='👇'))
+_SQ = 150        # los cuatro clips van recortados en cuadrado (sin el texto propio del anuncio) y a la misma altura en las dos mitades
+toma('24', 70.44, 75.10, Mitades(
+    Serie([(0, clip('2087115095261563', 21.3, recorte=(720, 720, 0, 440), entero=_SQ)),                 # Liquid I.V.: el sobre cae en la botella
+           (1.50, clip('1094155246768851', 10.62, vel=0.5, entero=_SQ))]),                               # ... y gente tomandolo
+    Serie([(0, clip('4099846183655900', 50.42, vel=0.8, recorte=(720, 720, 0, 80), entero=_SQ)),         # Electrolit: brindis y corredor tomando
+           (1.50, clip('874608659076389', 22.18, vel=0.4, recorte=(720, 720, 0, 40), entero=_SQ))])),    # ... y el jugador de Cruz Azul tomando
+    GAB, T_(['¿Quién lo hace mejor?'], 196, 70, t0=0.25, emo='👇'))
 SHOTS = S
-REPETICION_PERMITIDA = {'portada': 'regla 10 de la guia de Gabriel: la pantalla dividida del inicio vuelve en la toma 16 y en el cierre'}
+REPETICION_PERMITIDA = {'portada': 'regla 10 de la guia de Gabriel: la pantalla dividida del inicio vuelve en la toma 16 (Gabriel pidio cambiar solo el cierre)'}
 
 GUION = [
  '¿Quién lo hace mejor?', 'Liquid o *Electrolit?',

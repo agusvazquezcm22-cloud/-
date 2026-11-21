@@ -1,12 +1,13 @@
 """Video 35 (Liquid I.V. vs Electrolit) · sonidos. Mismo paquete (Naza) y misma receta que el 31 al 34.
-Uso: python3 sonido35_v01.py <video_sin_sonido.mp4> <salida.mp4>"""
+v02: receta 2 (sin el sonido 'angelical', 3 dB mas bajo), cierre con cola y el cierre nuevo.
+Uso: python3 sonido35_v02.py <video_sin_sonido.mp4> <salida.mp4>"""
 import os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
 from sonido_verde import *
 
 A = os.environ.get('GAB_ASSETS', '/tmp/claude-0/-home-user--/5179dee2-39cd-5dce-b326-2d7a39fe506b/scratchpad/v35')
 SON = os.environ.get('GAB_SONIDOS', os.path.join(A, '..', 'sonidos'))
-DUR = 74.1
+DUR = 75.1
 EVENTOS = [
     tr(1.96, SLOW, AIRE_BOT, 'entra la nota de Entrepreneur'),
     clic(3.26, MG13, 'recuadro en los 1.000 millones'),
@@ -44,8 +45,10 @@ EVENTOS = [
     plano(62.56, 'anuncio con el equipo'),
     foto(66.92, 'rafaga alternando las dos marcas'),
     golpe(70.18, 'golpe clave 2 de 2: no compiten en precio'),
-    plano(70.44, 'vuelve la pantalla dividida'),
+    plano(70.44, 'gente preparando y brindando'),
+    foto(71.94, 'gente tomando las dos bebidas'),
     clic(73.56, MG7, 'aparece "comentarios"'),
+    tr(74.20, SLOW, AIRE_DEEP, 'cierre: sale con el ultimo cuadro'),
 ]
 if __name__ == '__main__':
-    print('\n'.join(montar(f'{A}/dl/crudo35.mp4', sys.argv[1], sys.argv[2], EVENTOS, DUR, SON)[-6:]))
+    print('\n'.join(montar(f'{A}/dl/crudo35.mp4', sys.argv[1], sys.argv[2], EVENTOS, DUR, SON, fundido=0.35)[-6:]))

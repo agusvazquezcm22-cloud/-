@@ -2,6 +2,12 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-21 · Corrección de Gabriel sobre el 35 (Liquid I.V. vs Electrolit) → v02
+
+- Texto que pasó Agus: "El 35 está brutal, solo la última toma no me gusta porque es la misma del inicio, pondría de pronto algo más visual y no solo el producto, alguien tomándolos o algo así."
+- **v02** (75,1 s): el cierre ya no repite la portada. Van cuatro videos reales, recortados en cuadrado y lado a lado: Liquid I.V. (el sobre cae en la botella → gente tomándolo) y Electrolit (brindis y corredor tomando → jugador de Cruz Azul tomando). Además, cierre con cola y receta 2 de sonido. La pantalla dividida a mitad del video (toma 16) quedó igual: pidió cambiar solo la última.
+- Regla que confirma (ya van dos videos): **el cierre nunca repite la imagen del inicio**; va video de personas usando el producto, no el producto solo.
+
 ## 2026-11-21 · Correcciones de Gabriel (WhatsApp, capturas que pasó Agus)
 
 - **AG1 (33) → v04** (59,0 s). Él lo llamó "35". (1) Segundo 21: después de la captura de la Biblioteca va el video real de la creadora (anuncio 1124980317094382) en vez de otra captura. (2) Clip de podcast: no se encontró ninguno en la Biblioteca (la búsqueda por "podcast", "Huberman", "episode" no devolvió anuncios) y no se baja de YouTube; quedó el gráfico, como él aceptó ("si no, igual está bien así"). Además: cierre con cola y receta 2 de sonido.
