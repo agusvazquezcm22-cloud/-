@@ -1,7 +1,9 @@
-"""Video 37 · "Lemme vs IM8: ¿quién tiene mejor estrategia?" · v04
+"""Video 37 · "Lemme vs IM8: ¿quién tiene mejor estrategia?" · v05
 Formato VS (como el 35). Lemme SIEMPRE a la izquierda, IM8 a la derecha. Gabriel fijo abajo al centro en todas las tomas.
 OJO: la guia de Gabriel no trae este video ("VIDEO 37" esta vacio en el documento): la lista de tomas sale de lo que dice
 en el crudo y de las reglas del 35. Tiempos de la transcripcion del crudo (71,27 s).
+v05: correccion de Gabriel sobre la portada (2026-11-21): "queda un espacio gigante aqui... se esta perdiendo lo llamativo de la primera
+imagen y queda todo bien apretado arriba". Las fotos de los fundadores ahora son grandes (520 x 900) y llenan desde el titulo hasta Gabriel.
 v04: pasada final antes de entregar: el cierre usa un video de IM8 sin texto propio (no pisa el subtitulo), la frase
 "We're not ambassadors. We're co-owners." se ve entera y subrayada en "les dio acciones", y el video de la creadora sube para que su
 texto no quede detras de Gabriel.
@@ -50,23 +52,24 @@ def G2(fn, chip=None, y1=1100, k=0.86, y=196):
 
 
 # ------------------------------------------------------------ portada: los dos productos
-def _persona_foto(im, caja, chip, w=500, h=430):
-    """Media portada: la foto de la persona (recorte `caja` en px) sobre su version desenfocada, con el logo de su marca abajo."""
+def _persona_foto(im, caja, chip, w=520, h=900, y=270):
+    """Media portada: la foto de la persona (recorte `caja` en px) GRANDE, del titulo hasta la cabeza de Gabriel, sobre su version
+    desenfocada, con el logo de su marca abajo. (Gabriel: chica y arriba deja un hueco y la portada pierde fuerza.)"""
     fondo = Image.fromarray(cubrir(im, W // 2, H)).filter(ImageFilter.GaussianBlur(46))
     p = im.crop(caja).resize((w, h), Image.LANCZOS)
-    m = Image.new('L', p.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, w - 1, h - 1], radius=34, fill=255)
-    fondo.paste(p, ((W // 2 - w) // 2, 292), m)
-    ch = chip.resize((int(chip.width * 64 / chip.height), 64), Image.LANCZOS); fondo.paste(ch, ((W // 2 - ch.width) // 2, 292 + h - 84), ch)
+    m = Image.new('L', p.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, w - 1, h - 1], radius=36, fill=255)
+    fondo.paste(p, ((W // 2 - w) // 2, y), m)
+    ch = chip.resize((int(chip.width * 72 / chip.height), 72), Image.LANCZOS); fondo.paste(ch, ((W // 2 - ch.width) // 2, y + h - 98), ch)
     return fondo
 
 
 def _vs():
-    """Portada (correccion de Gabriel): los FUNDADORES. Izquierda: la fundadora en el video oficial de Lemme (lemmelive.com);
-    derecha: la foto oficial de David Beckham con IM8 (la del video 32)."""
-    kk = Image.open(f'{A}/cap/kourtney_tienda.png').convert('RGB'); bk = Image.open(f'{I8}/dl/beckham.jpg').convert('RGB')
-    c = Image.new('RGB', (W, H)); c.paste(_persona_foto(kk, (144, 0, 1094, 817), CHIP_L), (0, 0)); c.paste(_persona_foto(bk, (0, 20, 692, 615), CHIP_I), (W // 2, 0))
+    """Portada: los FUNDADORES, grandes. Izquierda: la fundadora en el video oficial de Lemme (lemmelive.com);
+    derecha: David Beckham en la pagina de IM8 (seccion de co-fundadores, capturada a 3 px por px CSS)."""
+    kk = Image.open(f'{A}/cap/kourtney_tienda.png').convert('RGB'); bk = Image.open(f'{A}/cap/beckham_grande.png').convert('RGB')
+    c = Image.new('RGB', (W, H)); c.paste(_persona_foto(kk, (150, 0, 774, 1080), CHIP_L), (0, 0)); c.paste(_persona_foto(bk, (290, 95, 1252, 1760), CHIP_I), (W // 2, 0))
     d = ImageDraw.Draw(c); d.rectangle([W // 2 - 3, 0, W // 2 + 2, H], fill=(255, 255, 255))
-    d.ellipse([W // 2 - 56, 450, W // 2 + 56, 562], fill=TINTA, outline=(255, 255, 255), width=6); d.text((W // 2, 506), 'VS', font=font(54), fill=(255, 255, 255), anchor='mm')
+    d.ellipse([W // 2 - 58, 502, W // 2 + 58, 618], fill=TINTA, outline=(255, 255, 255), width=6); d.text((W // 2, 560), 'VS', font=font(56), fill=(255, 255, 255), anchor='mm')
     return c
 VS = _vs()
 PORTADA = lambda: lienzo(VS, (0, 0, W), (16, 20, W - 32), nombre='portada')

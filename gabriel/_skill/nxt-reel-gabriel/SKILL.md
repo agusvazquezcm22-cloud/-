@@ -28,6 +28,23 @@ description: "Edita reels de NXT Media para Gabriel Monsalve (@gabriel.growthp, 
 
 Las frases textuales de Gabriel y cómo se resolvió cada una están en `referencias/gabriel.md`, sección 0.k.
 
+## Antes de mandarle CUALQUIER video a Gabriel: lo que él siempre corrige
+
+Agus (2026-11-21): "el cliente suele pedir muchos detalles, así que cada vez que mandamos un video acordate que va a mandar una corrección". Cada entrega vuelve con algo. Antes de enviar, mirar el video como lo mira él y pasar esta lista (sale de sus correcciones reales); lo que no cumpla se arregla antes, no después:
+
+1. **Primer cuadro / portada**: grande y llamativa. La imagen principal llena desde el título hasta la cabeza de Gabriel; nada chico "apretado arriba" con un hueco desenfocado debajo ("queda un espacio gigante aquí… se está perdiendo lo llamativo de la primera imagen"). Se ve la cara de la persona; el título no la tapa. En un VS con fundadores conocidos, van ellos (con el logo de su marca), no los productos.
+2. **Ningún hueco grande** en ninguna toma: si entre el subtítulo y Gabriel queda una franja vacía o desenfocada de más de ~250 px, agrandar o bajar el visual.
+3. **Nada repetido**: ninguna imagen dos veces, y la del inicio no vuelve ni a mitad ni al final.
+4. **Video antes que imagen fija**: dos capturas seguidas no; grilla de la Biblioteca como fondo no, si existe el video. En los momentos fuertes y en el cierre, video.
+5. **Cierre**: personas usando o tomando el producto, no el producto solo ni la portada. Termina con tiempo (cola) y sin corte seco.
+6. **Cada recuadro, flecha o subrayado** está sobre las palabras exactas que prueban la frase que suena.
+7. **Cada visual** muestra lo que se está diciendo en ese segundo (si habla de podcasts, de lives, de TikTok: eso mismo, o lo más cercano que exista y avisar).
+8. **Texto propio de los anuncios** fuera de la franja de subtítulos y no detrás de la cabeza de Gabriel.
+9. **Logos**: uno solo por cuadro.
+10. **Sonido**: sin el "angelical" (Botanical / Deep), efectos bajos que acompañan.
+
+Y al entregar: decir en dos líneas qué se hizo con cada cosa que pidió, y avisar lo que no se pudo conseguir. Gabriel numera los videos distinto que las carpetas: identificar el video por lo que se ve en su captura.
+
 ## Correcciones de Gabriel del 2026-11-21 (AG1 y Lemme vs IM8) · valen para todos
 
 Dijo "de resto está brutal". Lo que pidió, textual, y la regla que deja:
@@ -56,7 +73,7 @@ Dijo "de resto está brutal". Lo que pidió, textual, y la regla que deja:
 - **Pantalla verde** (crudo con fondo verde; la guía dice que copia a Chase Chappell): todo lo de abajo. Es el formato de los videos 32 en adelante.
 - **Mini charla con tele** (video 31): reglas en `referencias/gabriel.md`, secciones 0.a a 0.i. Comparte el juego de subtítulos.
 - **Recorrido de un test** (video 36, Aluné): las pantallas del test se capturan una por una con `kit/web/test_por_pasos.js` (viewport 430×764, que ya es 9:16; guarda la captura y el rectángulo de cada texto). En el config, `pant(prefijo, n, marcas, foco='texto')` muestra la pantalla a todo el ancho y corre la vista para que el dato quede arriba de los subtítulos; `r_(prefijo, n, 'texto')` da el rectángulo para el recuadro. Plantilla: `kit/ejemplos/gabriel36_v02.py`.
-- **VS** (video 35, "Liquid I.V. vs Electrolit"): es el formato pantalla verde con dos marcas frente a frente. La primera marca del título va SIEMPRE a la izquierda y la otra a la derecha. Pantalla dividida solo para comparar las dos a la vez (portada, un momento a mitad y el cierre): `Mitades(fuente_izq, fuente_der)` para dos clips, o una imagen armada para la portada (los dos productos y un "VS"). El resto, una imagen a la vez, con la misma prueba para las dos (la misma vista de la Biblioteca). En los gráficos propios va arriba el logo de la marca de la que se habla (`G2(fn, CHIP_x)`), recortado de un anuncio suyo. Plantilla: `kit/ejemplos/gabriel35_v02.py` (y `gabriel37_v04.py`, hecho sin guía).
+- **VS** (video 35, "Liquid I.V. vs Electrolit"): es el formato pantalla verde con dos marcas frente a frente. La primera marca del título va SIEMPRE a la izquierda y la otra a la derecha. Pantalla dividida solo para comparar las dos a la vez (portada, un momento a mitad y el cierre): `Mitades(fuente_izq, fuente_der)` para dos clips, o una imagen armada para la portada (los dos productos y un "VS"). El resto, una imagen a la vez, con la misma prueba para las dos (la misma vista de la Biblioteca). En los gráficos propios va arriba el logo de la marca de la que se habla (`G2(fn, CHIP_x)`), recortado de un anuncio suyo. Plantilla: `kit/ejemplos/gabriel35_v02.py` (y `gabriel37_v05.py`, hecho sin guía).
 
 ## Pantalla verde: cómo es
 

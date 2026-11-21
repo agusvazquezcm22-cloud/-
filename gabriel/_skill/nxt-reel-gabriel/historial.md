@@ -2,6 +2,13 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-21 · Corrección de Gabriel sobre la portada del 37 (Lemme vs IM8) → v05
+
+- Captura con un círculo sobre el hueco debajo de las fotos: "Y en este creo que queda un espacio gigante aquí, me gusta las fotos y todo el resto, solo creo que ahí se está perdiendo lo llamativo de la primera imagen y queda todo bien apretado arriba."
+- **v05** (72,15 s): las fotos de los fundadores pasan de 500×430 a 520×900 y llenan desde el título hasta la cabeza de Gabriel; el logo de cada marca va abajo de su foto y el "VS" entre las dos caras. La foto de Beckham ahora sale de la página de IM8 en alta resolución (la de 692 px se veía blanda al agrandarla). El resto, igual que la v04.
+- Agus: "el cliente suele pedir muchos detalles… cada vez que mandamos un video acordate que va a mandar una corrección". Quedó en SKILL.md la lista "lo que él siempre corrige" para pasarla antes de cada entrega.
+- **Pendiente de revisar con ese criterio**: la portada del 35 (Liquid I.V. vs Electrolit) tiene el mismo armado viejo (productos chicos arriba, hueco debajo) y repite la portada a mitad del video. Gabriel dijo que el 35 "está brutal" salvo la última toma, así que no se tocó.
+
 ## 2026-11-21 · Corrección de Gabriel sobre el 35 (Liquid I.V. vs Electrolit) → v02
 
 - Texto que pasó Agus: "El 35 está brutal, solo la última toma no me gusta porque es la misma del inicio, pondría de pronto algo más visual y no solo el producto, alguien tomándolos o algo así."
