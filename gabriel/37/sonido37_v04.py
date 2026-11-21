@@ -1,6 +1,6 @@
 """Video 37 (Lemme vs IM8) · sonidos. Mismo paquete (Naza) y misma receta que el 31 al 36.
-v03: correcciones de Gabriel (mismos sonidos, tres ajustados a los cortes nuevos). v02: receta 2 (sin el sonido 'angelical', 3 dB mas bajo) y cierre con cola.
-Uso: python3 sonido37_v03.py <video_sin_sonido.mp4> <salida.mp4>"""
+v04: pasada final (mismos sonidos). v03: correcciones de Gabriel (mismos sonidos, tres ajustados a los cortes nuevos). v02: receta 2 (sin el sonido 'angelical', 3 dB mas bajo) y cierre con cola.
+Uso: python3 sonido37_v04.py <video_sin_sonido.mp4> <salida.mp4>"""
 import os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
 from sonido_verde import *

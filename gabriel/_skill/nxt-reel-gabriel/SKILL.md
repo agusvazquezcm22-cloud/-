@@ -55,7 +55,7 @@ Dijo "de resto está brutal". Lo que pidió, textual, y la regla que deja:
 - **Pantalla verde** (crudo con fondo verde; la guía dice que copia a Chase Chappell): todo lo de abajo. Es el formato de los videos 32 en adelante.
 - **Mini charla con tele** (video 31): reglas en `referencias/gabriel.md`, secciones 0.a a 0.i. Comparte el juego de subtítulos.
 - **Recorrido de un test** (video 36, Aluné): las pantallas del test se capturan una por una con `kit/web/test_por_pasos.js` (viewport 430×764, que ya es 9:16; guarda la captura y el rectángulo de cada texto). En el config, `pant(prefijo, n, marcas, foco='texto')` muestra la pantalla a todo el ancho y corre la vista para que el dato quede arriba de los subtítulos; `r_(prefijo, n, 'texto')` da el rectángulo para el recuadro. Plantilla: `kit/ejemplos/gabriel36_v02.py`.
-- **VS** (video 35, "Liquid I.V. vs Electrolit"): es el formato pantalla verde con dos marcas frente a frente. La primera marca del título va SIEMPRE a la izquierda y la otra a la derecha. Pantalla dividida solo para comparar las dos a la vez (portada, un momento a mitad y el cierre): `Mitades(fuente_izq, fuente_der)` para dos clips, o una imagen armada para la portada (los dos productos y un "VS"). El resto, una imagen a la vez, con la misma prueba para las dos (la misma vista de la Biblioteca). En los gráficos propios va arriba el logo de la marca de la que se habla (`G2(fn, CHIP_x)`), recortado de un anuncio suyo. Plantilla: `kit/ejemplos/gabriel35_v01.py` (y `gabriel37_v03.py`, hecho sin guía).
+- **VS** (video 35, "Liquid I.V. vs Electrolit"): es el formato pantalla verde con dos marcas frente a frente. La primera marca del título va SIEMPRE a la izquierda y la otra a la derecha. Pantalla dividida solo para comparar las dos a la vez (portada, un momento a mitad y el cierre): `Mitades(fuente_izq, fuente_der)` para dos clips, o una imagen armada para la portada (los dos productos y un "VS"). El resto, una imagen a la vez, con la misma prueba para las dos (la misma vista de la Biblioteca). En los gráficos propios va arriba el logo de la marca de la que se habla (`G2(fn, CHIP_x)`), recortado de un anuncio suyo. Plantilla: `kit/ejemplos/gabriel35_v01.py` (y `gabriel37_v04.py`, hecho sin guía).
 
 ## Pantalla verde: cómo es
 
@@ -120,6 +120,15 @@ Agus: "los sonidos, clave". Van siempre, con el estilo del video 31.
 - **Recuadros**: ampliar cada captura marcada y leer qué quedó adentro del recuadro.
 - **Cada clip**: que lo que se ve sea lo que dice la frase y no tenga nada de la lista prohibida.
 - Lo que el control no ve: dos fuentes distintas que se parecen (dos zonas de la misma página, dos tramos del mismo anuncio).
+
+### Pasada final (antes de decir "listo para entregar")
+
+Sacar una hoja con **un cuadro por segundo del mp4 final** (`ffmpeg -ss N -t 24 -i video.mp4 -vf "fps=1,scale=270:480,tile=8x3" -frames:v 1 hoja.jpg`, de a 24 s) y mirarla entera. Lo que apareció en la pasada final del 37 y el control no ve:
+
+- **Pantalla dividida (`Mitades`)**: cada mitad ocupa y 170–1130, así que el texto propio de un anuncio (que suele ir al 60–70 % de su alto) cae justo en la franja de subtítulos. Para las mitades elegir videos sin texto en esa zona (tomas de producto) o revisar cuadro por cuadro.
+- **Primer cuadro de cada clip**: si el `ss` cae 0,1 s antes de un corte interno del anuncio, entra un destello de otra escena. Ubicar el corte exacto (color medio cuadro a cuadro) y arrancar después.
+- **Frases cortadas en una captura**: si la frase que prueba lo que se dice queda cortada por el borde, reencuadrar hasta que se lea entera.
+- **Texto del anuncio detrás de la cabeza de Gabriel** (x 390–690, de y 1300 para abajo): subir el video (`entero=30`) o elegir otro tramo.
 
 ## Errores que ya pasaron
 
