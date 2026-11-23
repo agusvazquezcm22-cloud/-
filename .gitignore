@@ -3,3 +3,4 @@ gabriel/33/salida/*.mp4
 gabriel/*/salida/*.mp4
 __pycache__/
 gabriel/entregas/*.mp4
+gabriel/*/salida/render.log
