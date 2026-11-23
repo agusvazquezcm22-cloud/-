@@ -70,7 +70,8 @@ Pasos (PC Windows de Agus, carpeta `NXT_CLIENTES\_REVISION\_local`; desde una se
 4. Verificar en vivo `nxt-revision.netlify.app/#gabriel`: que estén todos los videos (los viejos también) y que el nuevo cargue.
 5. Pasarle a Agus el link, listo para mandar.
 
-El número del título es el del video de Gabriel ("Video 38", "Video 39"…), igual que la carpeta.
+**Sin versión, solo el número** (Agus, 2026-11-23: "quiero que no tenga el version, solo video 38 y así"): en la web cada video se llama "Video 38", "Video 39"… con el número de su carpeta, sin "v01" ni subtítulo. En `entregas/gabriel.json` cada video es `{ "n": 38, "archivo": "videos/gabriel/38.mp4" }` (la web muestra "Video " + n; sin `titulo` ni `version`). En `publicar.py` usar `--titulo "Video 38"` y no pasar `--version` (si el script la exige, dejarla vacía). Una corrección reemplaza el archivo con el mismo número.
+- Desde una sesión en la nube sin la PC: no hay token de Netlify (Agus no lo pasa), así que se le mandan los mp4 livianos (`GABRIEL_NN_para_subir.mp4`, crf 27, ~13–20 MB) y el `gabriel.json` listo para que lo publique en la PC.
 
 **Feedback del cliente**: planilla de Google "Feedback NXT" (hoja "Feedback"): cliente, video, versión, segundo, nombre y texto. Cuando Agus pregunte "¿qué dijo Gabriel?", leerla y corregir con el segundo exacto.
 

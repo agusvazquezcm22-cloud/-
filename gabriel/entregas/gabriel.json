@@ -1,0 +1,11 @@
+{
+  "cliente": "Gabriel Monsalve",
+  "titulo": "Videos",
+  "fecha": "2026-11-23",
+  "videos": [
+    { "n": 31, "archivo": "videos/gabriel/31.mp4" },
+    { "n": 38, "archivo": "videos/gabriel/38.mp4" },
+    { "n": 39, "archivo": "videos/gabriel/39.mp4" },
+    { "n": 40, "archivo": "videos/gabriel/40.mp4" }
+  ]
+}
