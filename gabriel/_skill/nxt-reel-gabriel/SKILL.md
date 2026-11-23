@@ -70,10 +70,12 @@ Pasos (PC Windows de Agus, carpeta `NXT_CLIENTES\_REVISION\_local`; desde una se
 4. Verificar en vivo `nxt-revision.netlify.app/#gabriel`: que estén todos los videos (los viejos también) y que el nuevo cargue.
 5. Pasarle a Agus el link, listo para mandar.
 
-**Sin versión, solo el número** (Agus, 2026-11-23: "quiero que no tenga el version, solo video 38 y así"): en la web cada video se llama "Video 38", "Video 39"… con el número de su carpeta, sin "v01" ni subtítulo. En `entregas/gabriel.json` cada video es `{ "n": 38, "archivo": "videos/gabriel/38.mp4" }` (la web muestra "Video " + n; sin `titulo` ni `version`). En `publicar.py` usar `--titulo "Video 38"` y no pasar `--version` (si el script la exige, dejarla vacía). Una corrección reemplaza el archivo con el mismo número.
-- Desde una sesión en la nube sin la PC: no hay token de Netlify (Agus no lo pasa), así que se le mandan los mp4 livianos (`GABRIEL_NN_para_subir.mp4`, crf 27, ~13–20 MB) y el `gabriel.json` listo para que lo publique en la PC.
+La página de Gabriel (`entregas/gabriel.json` del sitio) lista los videos en orden: `{ "n": 8, "titulo": "Video 38", "version": "final", "archivo": "videos/gabriel/video-38-final.mp4" }`. **`n` es la posición en la página** (1 = Video 31, 2 = Video 32 … 8 = Video 38, 9 = Video 39, 10 = Video 40) y el feedback se guarda con ese número: nunca renumerar. El video nuevo va al final con el `n` siguiente; una corrección reemplaza el archivo y conserva su `n`.
+- Desde la nube no hay token de Netlify (Agus no lo pasa) ni la carpeta de la PC: Agus publica. Para pasarle videos, versiones livianas (`GABRIEL_NN_drive.mp4`, 720×1280, 2 pasadas a 760k, 7–9 MB). El conector de Drive no sube nada de más de ~3 MB por llamada. Si al subir al Drive le sale "file unreadable", el archivo está en una carpeta sincronizada (Escritorio) o no terminó de bajar: moverlo a Descargas.
 
-**Feedback del cliente**: planilla de Google "Feedback NXT" (hoja "Feedback"): cliente, video, versión, segundo, nombre y texto. Cuando Agus pregunte "¿qué dijo Gabriel?", leerla y corregir con el segundo exacto.
+**Feedback del cliente**: leerlo directo del Apps Script (devuelve JSON con video, segundo, versión, nombre, texto y tipo "nota" o "aprobado"):
+`curl -sL "https://script.google.com/macros/s/AKfycbxy3y2s_HGwFCr2RdDcZnq3SPUQ2V1h5dhdoRyP3d3L686rPyvlN0GGX-1nIecDlDftEg/exec?entrega=gabriel"`
+(hosts script.google.com y script.googleusercontent.com habilitados en el entorno). "video" es la posición en la página: Video NN = posición NN − 30. También queda en la planilla "Feedback NXT" (hoja "Feedback"). Cuando Agus pregunte "¿qué dijo Gabriel?", leerlo y corregir con el segundo exacto.
 
 ## Correcciones de Gabriel del 2026-11-21 (AG1 y Lemme vs IM8) · valen para todos
 
