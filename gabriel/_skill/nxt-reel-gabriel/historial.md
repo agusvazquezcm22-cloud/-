@@ -2,6 +2,14 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-23 · Video 38 "La estrategia del «No lo compres» de Mumu" · pantalla verde, una marca
+
+- **v01** (68,3 s; sin feedback todavía). Hecho con la guía (VIDEO 38) + la lista "lo que Gabriel siempre corrige". Gabriel fijo abajo al centro. Portada: el anuncio real «No lo compres» (video de la creadora) con el título arriba. El cierre NO repite la portada (va una clienta tomando su batido) y ninguna imagen se repite.
+  - Material: 30 anuncios de la Biblioteca (página 104587134270614; en la vista "todos los países" la Biblioteca respondía vacía, con el filtro **Colombia** sí: "~100 results"); mumucol.com: colección de kits (AHORRA 15/18/25 %), Kit Glow Up, Detox y Renueva, y la página de suscripción Close Friends.
+  - Lo que se ocultó por la regla 12: el Kit Desinflama y Fluye (sacado de la grilla de kits), las fotos de clientas del bloque de resultados de la página de suscripción, los testimonios de peso de la colección, el banner "pague 2 lleve 3 + mixer" y el número de clientas.
+  - Diferencias con la guía, para avisar: Gabriel dice "más de 50 anuncios" y la Biblioteca (Colombia) muestra "~100". En la página del Kit Glow Up no aparece el bloque "Suscríbete y ahorra 15 %" ni la frecuencia: lo mensual se marca en la página de suscripción ("débito automático mensual"). La lista de "Mejores amigos" de Instagram (toma 25) no se grabó en un celular: es un gráfico propio con esa estética, sin nombres ni fotos de personas. No hay anuncio que diga "un minuto cada uno": va una clienta con su batido y el texto "1 minuto cada uno".
+  - Subtítulos: Gabriel dice "que te elíjate" y "pesadades": se escribió "que te elija" y "pesadez".
+
 ## 2026-11-21 · Corrección de Gabriel sobre la portada del 37 (Lemme vs IM8) → v05
 
 - Captura con un círculo sobre el hueco debajo de las fotos: "Y en este creo que queda un espacio gigante aquí, me gusta las fotos y todo el resto, solo creo que ahí se está perdiendo lo llamativo de la primera imagen y queda todo bien apretado arriba."
