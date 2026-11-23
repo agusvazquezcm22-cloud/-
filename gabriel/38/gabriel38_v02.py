@@ -1,10 +1,12 @@
-"""Video 38 · "La estrategia del «No lo compres» de Mumu" · v01
+"""Video 38 · "La estrategia del «No lo compres» de Mumu" · v02
 Formato pantalla verde, una marca (guia de Gabriel, VIDEO 38) + todo lo que Gabriel y Agus fueron corrigiendo:
 Gabriel fijo abajo al centro en todas las tomas; portada grande; nada repetido (ni la imagen del inicio a mitad o al final);
 video antes que imagen fija; cierre con personas tomando el producto; recuadros sobre las palabras exactas; cierre con cola.
 Lo que no se muestra (regla 12 de la guia): kit "Desinflama y Fluye" ni la palabra "desinflama", testimonios de peso o tallas,
 antes y despues, numero de clientas, prensa, el termo de regalo y el "envio gratis hoy" de los anuncios.
 Tiempos de la transcripcion del crudo (67,4 s).
+v02 (pedido de Agus: "cuando marcas algo en rojo, que sea lo que dice"): todas las marcas de las tarjetas salen de rectangulos MEDIDOS
+(m2_fbmeta.json); el 15 % ya no queda tapado por el texto; en los kits va recuadro sobre el nombre.
 """
 import os, sys, json
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
@@ -150,11 +152,13 @@ def _card(png):
     """Tarjeta de la Biblioteca (2 px por px CSS) sobre el gris de la Biblioteca, como lona para zoom: (np, factor css->lona)."""
     card = Image.open(png).convert('RGB'); k = 980 / card.width; card = card.resize((980, int(card.height * k)), Image.LANCZOS)
     c = Image.new('RGB', (W, max(H, card.height + 400)), (240, 242, 245)); c.paste(card, (50, 110)); return np.asarray(c), 2 * k
-NLC, fN = _card(f'{A}/cap/m_card_{V["no_lo_compres"]}.png')
+M2 = json.load(open(f'{A}/cap/m2_fbmeta.json'))['cards']
+FR = lambda i, f, k=0: M2[V[i]]['frases'][f][k]                                    # rectangulo MEDIDO de la frase en la tarjeta (px CSS)
+NLC, fN = _card(f'{A}/cap/m2_card_{V["no_lo_compres"]}.png')
 cN = lambda x, y, w, h: (50 + x * fN, 110 + y * fN, w * fN, h * fN)
-PES, fP = _card(f'{A}/cap/m_card_{V["pesadez"]}.png')
+PES, fP = _card(f'{A}/cap/m2_card_{V["pesadez"]}.png')
 cP = lambda x, y, w, h: (50 + x * fP, 110 + y * fP, w * fP, h * fP)
-GLW, fG = _card(f'{A}/cap/m_card_{V["glow_card"]}.png')
+GLW, fG = _card(f'{A}/cap/m2_card_{V["glow_card"]}.png')
 cG = lambda x, y, w, h: (50 + x * fG, 110 + y * fG, w * fG, h * fG)
 MM = json.load(open(f'{A}/cap/m_fbmeta.json'))
 FBG = np.concatenate([img(f'{A}/cap/m_fbg{i}.png') for i in range(2)], 0)       # Biblioteca de Mumu (2 px por px CSS, pais: Colombia)
@@ -189,31 +193,31 @@ S[-1]['fuentes'] = ['logo de mumucol.com']
 toma('06', 9.42, 11.74, clip(V['glow_mesa'], 0.3), GAB)
 toma('07', 11.74, 16.90, Serie([
     (0.00, lienzo(NLC, (0, 0, W), (20, 20, W - 40), nombre='tarjeta:no lo compres')),                                          # "todo empieza con ese mismo anuncio"
-    (1.38, Lienzo(NLC, (20, 20, W - 40), (60, 300, 760), [('sub', cN(21, 233, 235, 14), 2.35)], dur_mov=0.45)),                 # "...dice no lo compres si lo que buscas..."
+    (1.38, Lienzo(NLC, (20, 20, W - 40), (60, 300, 760), [('sub', cN(*FR('no_lo_compres', 'No lo compres si lo que buscas es una dieta')), 2.35)], dur_mov=0.45)),                 # "...dice no lo compres si lo que buscas..."
 ]), GAB)
 toma('08', 16.90, 20.52, G2(g_calificar), GAB)
 toma('09', 20.52, 25.36, Serie([
     (0.00, lienzo(FBG, (0, 2400, 1900), (0, 300, 1700), nombre='biblioteca:grilla', dur_mov=3.0)),                               # "el resto de la pauta"
     (3.42, Lienzo(FBG, (0, 300, 1700), (0, 300, 1500), [('caja', _rf, 0.05), ('flecha_ad', _rf, 0.05)], dur_mov=0.4)),           # "mas de 50 anuncios activos"
 ]), GAB)
-toma('10', 25.36, 27.56, tarjeta(f'{A}/cap/m_card_{V["almuerzo"]}.png', [('sub', (21, 233, 124, 14), 0.3)], nombre='tarjeta:almuerzo'), GAB)
-toma('11', 27.56, 29.76, lienzo(PES, (0, 0, W), (30, 200, W - 60), [('sub', cP(21, 233, 125, 14), 0.1, 1.1), ('sub', cP(157, 233, 158, 14), 1.1)],
+toma('10', 25.36, 27.56, tarjeta(f'{A}/cap/m2_card_{V["almuerzo"]}.png', [('sub', tuple(FR('almuerzo', 'El almuerzo estuvo rico')), 0.3)], nombre='tarjeta:almuerzo'), GAB)
+toma('11', 27.56, 29.76, lienzo(PES, (0, 0, W), (30, 200, W - 60), [('sub', cP(*FR('pesadez', 'Esa pesadez de las tres')), 0.1, 1.1), ('sub', cP(*FR('pesadez', 'el botón del jean que aprieta')), 1.1)],
                                nombre='tarjeta:pesadez', dur_mov=0.4), GAB)
 toma('12', 29.76, 31.62, G2(g_suelto), GAB)
 toma('13', 31.62, 33.64, lienzo(KITS, (0, 2000, 1640), (0, 2600, 1640), nombre='mumucol.com:kits', dur_mov=2.0), GAB)
 _nom = lambda j, n: P2(json.load(open(f'{A}/cap/{j}.json'))['textos'][[t[0] for t in json.load(open(f'{A}/cap/{j}.json'))['textos']].index(n)][1:], 12, 8)
-toma('14', 33.64, 35.22, Serie([(0.00, lienzo(GLOW, (0, 1340, 1640), None, [('sub', _nom('glow', 'Kit Glow Up'), 0.05)], nombre='mumucol.com:kit glow up')),
-                                (0.66, lienzo(DETOX, (0, 1340, 1640), None, [('sub', _nom('detox', 'Kit Detox'), 0.05)], nombre='mumucol.com:kit detox')),
-                                (1.20, lienzo(RENUEVA, (0, 1340, 1640), None, [('sub', _nom('renueva', 'Kit Renueva'), 0.05)], nombre='mumucol.com:kit renueva'))]), GAB)
+toma('14', 33.64, 35.22, Serie([(0.00, lienzo(GLOW, (0, 1340, 1640), None, [('caja', _nom('glow', 'Kit Glow Up'), 0.05)], nombre='mumucol.com:kit glow up')),
+                                (0.66, lienzo(DETOX, (0, 1340, 1640), None, [('caja', _nom('detox', 'Kit Detox'), 0.05)], nombre='mumucol.com:kit detox')),
+                                (1.20, lienzo(RENUEVA, (0, 1340, 1640), None, [('caja', _nom('renueva', 'Kit Renueva'), 0.05)], nombre='mumucol.com:kit renueva'))]), GAB)
 toma('15', 35.22, 37.94, G2(g_mejorar), GAB)
 toma('16', 37.94, 40.28, clip(V['glow_card'], 9.5), GAB)                                                                          # los tres juntos en la mesa                                                                          # los tres juntos en la mesa
-toma('17', 40.28, 44.26, lienzo(GLW, (0, 0, W), (20, 330, 760), [('caja', cG(21, 317, 180, 15), 1.30, 2.20), ('caja', cG(21, 332, 190, 15), 2.20, 3.28),
-                                                                ('caja', cG(21, 347, 150, 15), 3.28)], nombre='tarjeta:glow up tres momentos', dur_mov=0.6), GAB)
+toma('17', 40.28, 44.26, lienzo(GLW, (0, 0, W), (20, 430, 760), [('caja', cG(*FR('glow_card', 'batido verde en la mañana')), 1.30, 2.20), ('caja', cG(*FR('glow_card', 'gomitas de manzana en el día')), 2.20, 3.28),
+                                                                ('caja', cG(*FR('glow_card', 'colágeno en la noche')), 3.28)], nombre='tarjeta:glow up tres momentos', dur_mov=0.6), GAB)
 toma('18', 44.26, 46.80, clip(V['vaso_verde'], 1.0), GAB, T_(['1 minuto cada uno'], 196, 64, t0=0.6))
-toma('19', 46.80, 48.82, Serie([(0.00, lienzo(KITS, (0, 2000, 1300), None, [('caja', kf('AHORRA 15%'), 0.1)], nombre='mumucol.com:kits descuentos')),
+toma('19', 46.80, 48.82, Serie([(0.00, lienzo(KITS, (0, 1900, 1300), None, [('caja', kf('AHORRA 15%'), 0.1)], nombre='mumucol.com:kits descuentos')),
                                 (0.68, Lienzo(KITS, (340, 2980, 1300), None, [('caja', kf('AHORRA 18%'), 0.05)])),
                                 (1.36, Lienzo(KITS, (0, 6378, 1000), None, [('caja', kf('AHORRA 25%'), 0.05)]))]), GAB,
-     T_(['2 = 15% · 3 = 18% · 4 = 25%'], 196, 56, t0=0.1))
+     T_(['2 = 15% · 3 = 18% · 4 = 25%'], 140, 56, t0=0.1))
 toma('20', 48.82, 52.00, lienzo(SUSC, (0, 0, 1640), (440, 0, 1200), [('caja', st('débito automático mensual'), 1.45, 1.95), ('sub', st('Close Friends para que tu Mumu'), 2.0)],
                                nombre='mumucol.com:suscripcion', dur_mov=0.5), GAB)
 toma('21', 52.00, 53.34, G2(g_mejores_amigos, k=0.8), GAB)

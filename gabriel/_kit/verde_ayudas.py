@@ -168,8 +168,12 @@ def pastilla(texto, tam=56, fondo=TINTA, color=(255, 255, 255), borde=None, pad=
 
 # ------------------------------------------------------------ textos por encima
 def T_(lineas, cy, tam=74, t0=0.0, **kw):
-    """Etiqueta en caja oscura. t0=-1 la deja fija desde el cuadro 0 (portada)."""
-    return lambda pil, tl, T: etiqueta(pil, lineas, cy, tam, tl - t0, **kw) if tl >= t0 else None
+    """Etiqueta en caja oscura. t0=-1 la deja fija desde el cuadro 0 (portada).
+    La funcion devuelta lleva `caja_titulo` (x0, y0, x1, y1 aproximados) para que revisar_marcas.py avise si tapa una marca."""
+    f = lambda pil, tl, T: etiqueta(pil, lineas, cy, tam, tl - t0, **kw) if tl >= t0 else None
+    alto = len(lineas) * tam * 1.25 + 60; ancho = max(font(tam).getlength(l) for l in lineas) + 120
+    f.caja_titulo = (W / 2 - ancho / 2, cy - alto / 2, W / 2 + ancho / 2, cy + alto / 2)
+    return f
 
 
 def varios(*fs):

@@ -1,5 +1,5 @@
 """Video 38 (Mumu, «No lo compres») · sonidos. Receta 2 (sin el sonido "angelical", efectos bajos) y cierre con cola.
-Uso: python3 sonido38_v01.py <video_sin_sonido.mp4> <salida.mp4>"""
+Uso: python3 sonido38_v02.py <video_sin_sonido.mp4> <salida.mp4>"""
 import os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
 from sonido_verde import *

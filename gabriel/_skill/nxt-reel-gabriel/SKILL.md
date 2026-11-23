@@ -37,7 +37,10 @@ Agus (2026-11-21): "el cliente suele pedir muchos detalles, así que cada vez qu
 3. **Nada repetido**: ninguna imagen dos veces, y la del inicio no vuelve ni a mitad ni al final.
 4. **Video antes que imagen fija**: dos capturas seguidas no; grilla de la Biblioteca como fondo no, si existe el video. En los momentos fuertes y en el cierre, video.
 5. **Cierre**: personas usando o tomando el producto, no el producto solo ni la portada. Termina con tiempo (cola) y sin corte seco.
-6. **Cada recuadro, flecha o subrayado** está sobre las palabras exactas que prueban la frase que suena.
+6. **Cada recuadro, flecha o subrayado** está sobre las palabras exactas que prueban la frase que suena (Agus, 2026-11-23: "cuando marcas algo en rojo, que sea lo que dice… hay veces que marcas las cosas erróneas… que no vuelva a pasar"). Reglas fijas:
+   - **Nunca ubicar una marca a ojo.** Cada rectángulo sale medido del texto en la página: `frase.js` (notas), `pagina_entera.js` con `FRASES='[...]'` (páginas), `biblioteca_capturas*.js` con `{"id": ["frase 1", "frase 2"]}` (tarjetas de la Biblioteca → `cards[id].frases[frase]`). En el config se usan esos rectángulos directo, sin sumar ni estimar.
+   - Para el nombre de un producto o un precio: recuadro, no subrayado (el subrayado cae sobre la línea de abajo).
+   - **Antes de renderizar: `python3 kit/revisar_marcas.py config.py hoja.jpg`.** Recorta cada marca en su segundo, con lo que dice el subtitulo debajo, y avisa si queda fuera de pantalla, bajo el título, en la franja de subtítulos o detrás de Gabriel. Mirar la hoja entera y leer cada recorte: tiene que decir lo mismo que el subtítulo. Cero avisos antes de renderizar.
 7. **Cada visual** muestra lo que se está diciendo en ese segundo (si habla de podcasts, de lives, de TikTok: eso mismo, o lo más cercano que exista y avisar).
 8. **Texto propio de los anuncios** fuera de la franja de subtítulos y no detrás de la cabeza de Gabriel.
 9. **Logos**: uno solo por cuadro.

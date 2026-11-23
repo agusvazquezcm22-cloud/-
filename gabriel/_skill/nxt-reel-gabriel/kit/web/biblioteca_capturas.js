@@ -1,6 +1,8 @@
 // Capturas de la Biblioteca de Anuncios de Meta (2 px por px CSS).
 // Uso:  node biblioteca_capturas.js <id_de_pagina> <carpeta> '<json>' [filtro] [prefijo]
 //   json:    {"<library id>": "frase exacta a subrayar"}  -> tarjeta de ese anuncio
+//            {"<library id>": ["frase 1", "frase 2", ...]}  -> idem, y en fbmeta.json cards[id].frases[frase] = rectangulos EXACTOS
+//            (usar SIEMPRE esto para cada recuadro o subrayado: nunca calcular la posicion de una frase a ojo)
 //            {"*": "frase", "max": 8}                     -> las primeras tarjetas que traen esa frase
 //   filtro:  parte final de la URL. Por defecto "&search_type=page&media_type=all".
 //            Solo videos: "&search_type=page&media_type=video".  Por texto: "&search_type=keyword_unordered&media_type=all&q=Sold%20out"
@@ -52,11 +54,14 @@ const fs = require('fs');
       for (let k = 0; k < 12 && card.parentElement; k++) { const rr = card.getBoundingClientRect(); if (rr.width > 380 && rr.height > 300) break; card = card.parentElement; }
       card.scrollIntoView({ block: 'center' }); await new Promise(r => setTimeout(r, 1500));
       card.setAttribute('data-pick', id);
-      const cr = card.getBoundingClientRect(); const out = { w: cr.width, h: cr.height, phr: [], cta: null, quien: null, nombre: '' };
+      const cr = card.getBoundingClientRect(); const out = { w: cr.width, h: cr.height, phr: [], frases: {}, cta: null, quien: null, nombre: '' };
+      const lista = Array.isArray(phrase) ? phrase : [phrase]; phrase = lista[0];
       const rel = q => [q.left - cr.left, q.top - cr.top, q.width, q.height];
       const w2 = document.createTreeWalker(card, NodeFilter.SHOW_TEXT);
       while (n = w2.nextNode()) { const t = n.textContent; const i = t.indexOf(phrase);
         if (i >= 0 && !out.phr.length) { const rg = document.createRange(); rg.setStart(n, i); rg.setEnd(n, i + phrase.length); for (const q of rg.getClientRects()) out.phr.push(rel(q)); }
+        for (const f of lista) { const j = t.indexOf(f); if (j < 0 || out.frases[f]) continue;                 // cada frase pedida, con su rectangulo exacto
+          const rg = document.createRange(); rg.setStart(n, j); rg.setEnd(n, j + f.length); out.frases[f] = [...rg.getClientRects()].filter(q => q.width > 1).map(rel); }
         if (/^(Shop now|Shop Now|Learn more|Learn More|Get offer|Sign up|Order now)$/i.test(t.trim())) out.cta = rel(n.parentElement.getBoundingClientRect());
         if (t.trim() == 'Sponsored' && !out.quien) { let h = n.parentElement; for (let k = 0; k < 4 && h.parentElement; k++) { h = h.parentElement; if ((h.innerText || '').trim().split('\n').length >= 2) break; }
           out.quien = rel(h.getBoundingClientRect()); out.nombre = (h.innerText || '').split('\n')[0].trim(); } }

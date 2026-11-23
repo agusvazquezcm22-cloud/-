@@ -4,6 +4,8 @@ Se actualiza cada vez que se termina una versión o una tanda de correcciones. L
 
 ## 2026-11-23 · Video 38 "La estrategia del «No lo compres» de Mumu" · pantalla verde, una marca
 
+- **v02** (68,3 s). Agus: "cuando marcas algo en rojo, que sea lo que dice, porque hay veces que marcas las cosas erróneas… que no vuelva a pasar". En la v01 había tres marcas mal: los recuadros de los tres momentos del Kit Glow Up estaban corridos (estimados a ojo), el del 15 % quedaba tapado por el texto de descuentos y el subrayado de "Kit Glow Up/Detox/Renueva" caía sobre el precio. Ahora todas salen de rectángulos medidos en la página, y `kit/revisar_marcas.py` las revisó una por una: 20 marcas, 0 avisos.
+
 - **v01** (68,3 s; sin feedback todavía). Hecho con la guía (VIDEO 38) + la lista "lo que Gabriel siempre corrige". Gabriel fijo abajo al centro. Portada: el anuncio real «No lo compres» (video de la creadora) con el título arriba. El cierre NO repite la portada (va una clienta tomando su batido) y ninguna imagen se repite.
   - Material: 30 anuncios de la Biblioteca (página 104587134270614; en la vista "todos los países" la Biblioteca respondía vacía, con el filtro **Colombia** sí: "~100 results"); mumucol.com: colección de kits (AHORRA 15/18/25 %), Kit Glow Up, Detox y Renueva, y la página de suscripción Close Friends.
   - Lo que se ocultó por la regla 12: el Kit Desinflama y Fluye (sacado de la grilla de kits), las fotos de clientas del bloque de resultados de la página de suscripción, los testimonios de peso de la colección, el banner "pague 2 lleve 3 + mixer" y el número de clientas.
