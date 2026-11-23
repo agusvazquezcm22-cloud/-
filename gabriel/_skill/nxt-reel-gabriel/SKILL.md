@@ -28,6 +28,17 @@ description: "Edita reels de NXT Media para Gabriel Monsalve (@gabriel.growthp, 
 
 Las frases textuales de Gabriel y cómo se resolvió cada una están en `referencias/gabriel.md`, sección 0.k.
 
+## Base para los próximos videos (Agus, 2026-11-23: "top, seguir así, el cliente va a renovar 30 videos más… quiero que sea una base")
+
+El enfoque del 38, 39 y 40 es la base: todo lo de esta skill se aplica igual en cada video nuevo, y se va mejorando de a poco.
+
+**Contador de dinero cuando dice una cifra de plata** ("cuando diga millones haya animaciones de contador de dinero"): cada vez que Gabriel dice millones, miles de dólares, ventas, facturación o una valuación, la cifra aparece como contador que sube de 0 al número y frena al llegar (con un rebote chico), sincronizado: arranca cuando empieza a decir la cifra y llega al número cuando termina de decirla.
+- Dentro de un gráfico propio: `c = contador(400, t0, dur=0.9, sufijo=' M')` y en el gráfico `c(im, tl, 540, 430)`.
+- Encima de una captura o un anuncio: `toma(..., texto=contador_toma(990, t0, cy=420, sufijo=' millones'))` (caja oscura detrás, número en verde).
+- Formato latino (1.000.000; decimales con coma, `dec=1`). Prefijo `US$` por defecto; para pesos u otra moneda, `prefijo='$'` o `'€'`.
+- Sonido: `bop(t0, CUENTA, ...)` al arrancar y `bop(t_fin, MONEDA, ...)` al llegar (del paquete de Naza).
+- La cifra es la que dice Gabriel; si la fuente dice otra (estimado, "casi"), va en un texto chico debajo ("estimado", "Fuente: …").
+
 ## Antes de mandarle CUALQUIER video a Gabriel: lo que él siempre corrige
 
 Agus (2026-11-21): "el cliente suele pedir muchos detalles, así que cada vez que mandamos un video acordate que va a mandar una corrección". Cada entrega vuelve con algo. Antes de enviar, mirar el video como lo mira él y pasar esta lista (sale de sus correcciones reales); lo que no cumpla se arregla antes, no después:

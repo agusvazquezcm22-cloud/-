@@ -183,3 +183,43 @@ def varios(*fs):
 
 
 def entre(t0, t1, fn): return lambda pil, tl, T: fn(pil, tl - t0, T) if t0 <= tl < t1 else None
+
+
+# ------------------------------------------------------------ contador de dinero (Agus, 2026-11-23: "cuando diga millones haya animaciones de contador")
+def _miles(v, dec=0):
+    s = f"{v:,.{dec}f}"
+    return s.replace(',', 'X').replace('.', ',').replace('X', '.')          # formato latino: 1.000.000 / 1,5
+
+
+def contador(valor, t0, dur=0.9, prefijo='US$', sufijo='', dec=0, tam=150, color=None, desde=0.0):
+    """Numero que sube de `desde` a `valor` entre t0 y t0+dur (segundos locales de la toma), con un pequeno rebote al llegar.
+    Devuelve fn(pil, tl, cx, cy) para dibujar dentro de un grafico, o usar `contador_toma` como texto encima de cualquier fondo.
+    Ej.: 400 millones -> contador(400, t, sufijo=' M'); casi mil millones -> contador(1000, t, sufijo=' M') o (990, ...)."""
+    color = color or VERDE_OSC
+    f = font(tam)
+    ancho = f.getlength(prefijo + _miles(valor, dec) + sufijo) + 60
+    def dibujar(pil, tl, cx, cy):
+        if tl < t0: return
+        p = min(1.0, max(0.0, (tl - t0) / dur)); p = 1 - (1 - p) ** 3                 # sale rapido y frena al llegar
+        v = desde + (valor - desde) * p
+        s = prefijo + _miles(v, dec) + sufijo
+        k = 1.0 + 0.10 * math.sin(math.pi * min(1, max(0, (tl - t0 - dur) / 0.22)))     # rebote al llegar
+        capa = Image.new('RGBA', (int(ancho * 1.15), int(tam * 1.6)), (0, 0, 0, 0)); d = ImageDraw.Draw(capa)
+        d.text((capa.width / 2, capa.height / 2), s, font=f, fill=color + (255,), anchor='mm')
+        if k != 1.0: capa = capa.resize((int(capa.width * k), int(capa.height * k)), Image.LANCZOS)
+        pil.paste(capa, (int(cx - capa.width / 2), int(cy - capa.height / 2)), capa)
+    dibujar.t_fin = t0 + dur
+    return dibujar
+
+
+def contador_toma(valor, t0, cy=420, caja=True, **kw):
+    """Contador como texto encima de cualquier toma (captura, anuncio, grafico): fn(pil, tl, T), con caja oscura detras."""
+    c = contador(valor, t0, color=kw.pop('color', VERDE), **kw); tam = kw.get('tam', 150)
+    def f(pil, tl, T):
+        if tl < t0: return
+        if caja:
+            d = ImageDraw.Draw(pil); w = font(tam).getlength(kw.get('prefijo', 'US$') + _miles(valor, kw.get('dec', 0)) + kw.get('sufijo', '')) + 100
+            d.rounded_rectangle([540 - w / 2, cy - tam * 0.75, 540 + w / 2, cy + tam * 0.75], radius=36, fill=TINTA)
+        c(pil, tl, 540, cy)
+    f.caja_titulo = (540 - 500, cy - tam, 540 + 500, cy + tam)
+    return f
