@@ -28,9 +28,15 @@ const { chromium } = require('playwright'); const fs = require('fs');
       if (r.width < 3 || r.height < 3 || s.visibility == 'hidden' || +s.opacity < 0.2) continue; out.push([t.slice(0, 100), Math.round(r.left), Math.round(r.top + scrollY), Math.round(r.width), Math.round(r.height)]); }
     return out; });
   const frases = {};                                                                                    // FRASES='["frase 1","frase 2"]': rectangulo de cada frase (puede ser parte de un texto)
-  for (const f of JSON.parse(process.env.FRASES || '[]')) frases[f] = await p.evaluate(f => { const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); let n;
-    while (n = w.nextNode()) { const i = n.textContent.indexOf(f); if (i < 0) continue; const rg = document.createRange(); rg.setStart(n, i); rg.setEnd(n, i + f.length);
-      const rs = [...rg.getClientRects()].filter(r => r.width > 2); if (!rs.length) continue; return rs.map(r => [Math.round(r.left), Math.round(r.top + scrollY), Math.round(r.width), Math.round(r.height)]); }
-    return null; }, f);
+  // cada frase: TODAS sus apariciones visibles (sin distinguir mayusculas); en frases[f] queda la de letra mas grande (el titulo, no el
+  // breadcrumb ni el menu) y en frases_todas[f] la lista completa, para elegir otra si hace falta.
+  const frases_todas = {};
+  for (const f of JSON.parse(process.env.FRASES || '[]')) { const occ = await p.evaluate(f => { const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); let n; const out = []; const F = f.toLowerCase();
+      while (n = w.nextNode()) { const T = n.textContent.toLowerCase(); let i = T.indexOf(F); while (i >= 0) { const rg = document.createRange(); rg.setStart(n, i); rg.setEnd(n, i + f.length);
+          const rs = [...rg.getClientRects()].filter(r => r.width > 2 && r.left >= -2 && r.right <= innerWidth + 2); const st = getComputedStyle(n.parentElement);
+          if (rs.length && st.visibility != 'hidden' && +st.opacity > 0.2) out.push(rs.map(r => [Math.round(r.left), Math.round(r.top + scrollY), Math.round(r.width), Math.round(r.height)]));
+          i = T.indexOf(F, i + 1); } }
+      return out; }, f);
+    frases_todas[f] = occ; frases[f] = occ.length ? occ.slice().sort((a, b) => b[0][3] - a[0][3])[0] : null; }
   await p.screenshot({ path: out, fullPage: true, clip: { x: 0, y: 0, width: 820, height: H } });
-  fs.writeFileSync(out.replace(/\.png$/, '.json'), JSON.stringify({ alto: H, textos, frases })); console.log('alto', H, 'textos', textos.length); await b.close(); })();
+  fs.writeFileSync(out.replace(/\.png$/, '.json'), JSON.stringify({ alto: H, textos, frases, frases_todas })); console.log('alto', H, 'textos', textos.length); await b.close(); })();

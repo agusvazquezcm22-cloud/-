@@ -2,6 +2,16 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-23 · Video 39 "¿Compras el producto o el marketing?" · pantalla verde, veredictos (5 marcas)
+
+- **v01** (85,43 s; sin feedback todavía). Guía (VIDEO 39) + todo lo que Gabriel fue corrigiendo: Gabriel fijo abajo al centro; portada grande con los cinco productos en cuadrícula (Bio.me, Grüns, Create, Blueprint, Goli) y título "¿Producto o marketing? 🤔"; al nombrar cada marca, su logo y debajo MARKETING o PRODUCTO, igual de tamaño y color para las cinco; cierre con personas tomando Blueprint y comiendo Grüns, con cola.
+  - **La guía pedía repetir la cuadrícula de la portada en la toma 25 y en el cierre**: no se repite (regla de Gabriel). En la 25 van los cinco veredictos en fila y el cierre es con personas usando los productos. Avisarle.
+  - Marcas rojas: 19, todas medidas (página, `FRASES`, o por píxeles), 0 avisos en `revisar_marcas.py`, y cada recorte leído contra el subtítulo. Se corrigió antes de entregar el recuadro de "fiber supplements" (el json de la captura estaba corrido 32 px) y el de las dosis de Blueprint (bajaba hasta los subtítulos: ahora marca las 6 primeras dosis).
+  - Material: Biblioteca de Anuncios de Grüns (15 videos), Blueprint (29) y Goli (26); Create no tiene anuncios activos que cargaran: van los videos oficiales de trycreate.co. Páginas: bio.me (inicio, tienda, Kids, GLP-1, Lemonade), gruns.co (inicio, producto y suscripción), trycreate.co, blueprint (inicio, ficha del Longevity Mix, certificados), goli.com. Prensa: fallo de NAD (bbbprograms.org) y NutraIngredients ("Goli acquired after securing stay of bankruptcy").
+  - Lo que no se pudo: la nota de Beauty Independent sobre Unilever y la de Fast Company sobre los US$400 M tienen verificación anti-bots → gráficos propios con "Fuente: …". Las demandas de Goli se muestran con el fallo de NAD (es lo que pide la guía como alternativa).
+  - Regla 12: las páginas de producto de Bio.me van como panel (foto, título, precio; sin la lista de beneficios), la ficha de Blueprint solo con nombres y dosis, la bolsa de Grüns sin el panel de beneficios, y se sacó un anuncio de Blueprint cuyo texto decía "mental energy". No aparece Ozempic (ni plumas ni cajas): solo la palabra en el subtítulo, porque Gabriel la dice.
+  - Subtítulos: la transcripción dice "Biomi", "Grooms", "Ocean Peak", "Keratina" y "Brian": se escribió Bio.me, Grüns, Ozempic, creatina y Bryan.
+
 ## 2026-11-23 · Video 38 "La estrategia del «No lo compres» de Mumu" · pantalla verde, una marca
 
 - **v02** (68,3 s). Agus: "cuando marcas algo en rojo, que sea lo que dice, porque hay veces que marcas las cosas erróneas… que no vuelva a pasar". En la v01 había tres marcas mal: los recuadros de los tres momentos del Kit Glow Up estaban corridos (estimados a ojo), el del 15 % quedaba tapado por el texto de descuentos y el subrayado de "Kit Glow Up/Detox/Renueva" caía sobre el precio. Ahora todas salen de rectángulos medidos en la página, y `kit/revisar_marcas.py` las revisó una por una: 20 marcas, 0 avisos.
@@ -120,7 +130,7 @@ Se actualiza cada vez que se termina una versión o una tanda de correcciones. L
 - El cierre repite la imagen de la portada porque lo pide su guía; si prefiere que no, se cambia.
 
 ## Videos que faltan
-- Ninguno: del 32 al 37 están entregados. El 38 (Gymshark, "Vació la cuenta") tiene guía pero no hay crudo; es otro formato (pantalla dividida con videos reales de Ben Francis).
+- Del 32 al 39 entregados. **40** (Ghost, "Lo prestado se devuelve"): crudo en Drive, en curso. **41** (Huel) y **42** (Gymshark, "Vació la cuenta"): tienen guía pero no hay crudo.
 
 ## 2026-11-15/16 · Video 31 "Suplementos Novia" · mini charla con tele
 - Entregada la v13. `referencias/gabriel.md` documenta hasta la v11 (secciones 0.a a 0.i); lo que cambió en v12 y v13 no está escrito.

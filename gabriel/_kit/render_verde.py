@@ -484,7 +484,18 @@ def componer(cfg, shot, t, crudo, seq=True):
 
 
 def control(cfg):
-    """Control antes de entregar: tiempo de lectura, visuales repetidos, tamanos de letra."""
+    """Control antes de entregar: clips que existen y alcanzan, tiempo de lectura, visuales repetidos, tamanos de letra."""
+    # 39 v01: un id de anuncio mal tipeado (el archivo no existia) corto el render a los 47 s sin que se viera el error.
+    faltan = []
+    for sh in cfg.SHOTS:
+        f = sh['fondo']; partes = f.partes if isinstance(f, Serie) else [(0.0, f)]
+        for n, (p0, g) in enumerate(partes):
+            p1 = partes[n + 1][0] if n + 1 < len(partes) else sh['t1'] - sh['t0']
+            for c in _clips(g):
+                if not os.path.exists(c.path): faltan.append(f"{sh['id']}: NO EXISTE {c.path}"); continue
+                dur = float(subprocess.run(['ffprobe', '-v', '0', '-show_entries', 'format=duration', '-of', 'csv=p=0', c.path], capture_output=True, text=True).stdout.strip() or 0)
+                if c.ss + (p1 - p0) * c.vel > dur + 0.05: faltan.append(f"{sh['id']}: {os.path.basename(c.path)} dura {dur:.1f} s y se pide hasta {c.ss + (p1 - p0) * c.vel:.1f} s")
+    print('CLIPS:', 'todos existen y alcanzan' if not faltan else '\n  ' + '\n  '.join(faltan))
     subs = getattr(cfg, 'SUBS', [])
     if subs:
         d = sorted((round(c['t1'] - c['t0'], 2), c['simples'], c['clave'] or '') for c in subs)
@@ -507,7 +518,7 @@ def control(cfg):
     for f, t in usos.items():
         if len(t) > 1 and f in perm: print('  repeticion permitida:', f, t, '-', perm[f])
     print('fuentes distintas:', len(usos), ' tomas:', len(cfg.SHOTS))
-    return not rep
+    return not rep and not faltan
 
 
 def leer_crudo(raw, ss=None, n=None):

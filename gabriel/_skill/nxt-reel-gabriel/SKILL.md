@@ -40,6 +40,9 @@ Agus (2026-11-21): "el cliente suele pedir muchos detalles, así que cada vez qu
 6. **Cada recuadro, flecha o subrayado** está sobre las palabras exactas que prueban la frase que suena (Agus, 2026-11-23: "cuando marcas algo en rojo, que sea lo que dice… hay veces que marcas las cosas erróneas… que no vuelva a pasar"). Reglas fijas:
    - **Nunca ubicar una marca a ojo.** Cada rectángulo sale medido del texto en la página: `frase.js` (notas), `pagina_entera.js` con `FRASES='[...]'` (páginas), `biblioteca_capturas*.js` con `{"id": ["frase 1", "frase 2"]}` (tarjetas de la Biblioteca → `cards[id].frases[frase]`). En el config se usan esos rectángulos directo, sin sumar ni estimar.
    - Para el nombre de un producto o un precio: recuadro, no subrayado (el subrayado cae sobre la línea de abajo).
+   - **El rectángulo medido puede no coincidir con la captura** (39: en bio.me la página cambió de letra después de medir y el recuadro de "fiber supplements" cayó sobre "wellness"). Por eso la hoja de `revisar_marcas.py` se mira siempre. Si no coincide, se vuelve a capturar o se mide sobre la misma imagen por píxeles (columnas y filas de texto oscuro en la banda de la frase) y se anota en el config cómo se midió.
+   - Imágenes sin texto medible por la página (fichas de producto en .webp, tablas en una foto): medir por píxeles la columna o la fila que se marca. Si la marca baja hasta la franja de subtítulos (y 735–1060), marcar solo la parte que entra (39: las 6 primeras dosis de la ficha de Blueprint), no achicar todo hasta que no se lea.
+   - En videos de anuncios no va marca: el texto del video no se puede medir.
    - **Antes de renderizar: `python3 kit/revisar_marcas.py config.py hoja.jpg`.** Recorta cada marca en su segundo, con lo que dice el subtitulo debajo, y avisa si queda fuera de pantalla, bajo el título, en la franja de subtítulos o detrás de Gabriel. Mirar la hoja entera y leer cada recorte: tiene que decir lo mismo que el subtítulo. Cero avisos antes de renderizar.
 7. **Cada visual** muestra lo que se está diciendo en ese segundo (si habla de podcasts, de lives, de TikTok: eso mismo, o lo más cercano que exista y avisar).
 8. **Texto propio de los anuncios** fuera de la franja de subtítulos y no detrás de la cabeza de Gabriel.
@@ -134,7 +137,7 @@ Agus: "los sonidos, clave". Van siempre, con el estilo del video 31.
 
 ## Control antes de entregar
 
-`python3 kit/render_verde.py config.py --control` informa la tarjeta más corta, cuánto se ve la clave que menos se ve, las líneas achicadas y los visuales repetidos; falla si hay alguno repetido que no esté declarado en `REPETICION_PERMITIDA`. Además, a ojo:
+`python3 kit/render_verde.py config.py --control` revisa primero que **cada clip exista y alcance** para el tramo pedido (39 v01: un id de anuncio mal tipeado cortó el render a los 47 s y el video salió congelado desde ahí), y después informa la tarjeta más corta, cuánto se ve la clave que menos se ve, las líneas achicadas y los visuales repetidos; falla si hay alguno repetido que no esté declarado en `REPETICION_PERMITIDA`. Además, a ojo:
 
 - **Portada**: sacar el cuadro 0 y mirarlo a tamaño completo. Cara visible, título arriba, sin logo repetido.
 - **Logos duplicados**: revisar cada gráfico propio y el título.
@@ -153,6 +156,9 @@ Sacar una hoja con **un cuadro por segundo del mp4 final** (`ffmpeg -ss N -t 24 
 
 ## Errores que ya pasaron
 
+- **Render cortado sin aviso** (39 v01): el error quedó escondido detrás de `| tail` y la mezcla de sonido rellenó el resto con el último cuadro. Renderizar siempre con `set -o pipefail`, el log completo a un archivo (`> salida/render.log 2>&1 || { tail -20 salida/render.log; exit 1; }`) y comprobar con `ffprobe` que la pista de video dure `DUR` antes de mezclar.
+- Un producto que la marca ya no vende (Ghost × Sour Patch Kids / Oreo, 40) no está en su tienda ni en su `products.json`: las fotos oficiales siguen en las notas de Stack3d (`https://www.stack3d.com/post-sitemap.xml` … `post-sitemap5.xml`, filtrar por marca y sabor; la imagen es el `og:image` de cada nota) y en el blog de la marca (`sitemap_articles_1.xml`). Amazon responde 503 a los bots y el archivo web (web.archive.org) no se pudo habilitar.
+- En una página con beneficios al lado del producto (Bio.me, Grüns, Blueprint), la captura entera muestra promesas de salud prohibidas por la guía: armar un panel (foto + título + precio, el resto tapado en blanco) o una ficha solo con las columnas que se necesitan, y revisar el texto chico.
 - El recuadro rojo cayó sobre otra frase: la página repetía el texto en un bloque oculto. `frase.js` ya exige que esté visible, pero igual se amplía y se lee.
 - Un clip elegido por la miniatura resultó ser un primer plano que no tenía nada que ver. Siempre sacar cuadros del tramo exacto.
 - La barra de búsqueda de la Biblioteca es fija y se repite en las capturas 2 a 4; la grilla real termina antes de lo que parece.
