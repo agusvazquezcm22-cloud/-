@@ -1,0 +1,71 @@
+  2.88s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | lata de Sour Patch Kids
+  5.34s transicion 19.9 dB bajo la voz ( -21.4 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | capitulo: los fundadores
+  5.94s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | 2016
+  6.64s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | 2 amigos
+  7.64s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | foto fisicoculturista
+  8.74s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | foto piloto
+  9.92s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | entrenando 1
+ 10.48s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | corte 2
+ 11.04s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | corte 3
+ 11.60s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | corte 4
+ 12.16s transicion 21.0 dB bajo la voz ( -22.5 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | el giro: los sabores
+ 12.16s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | fruta
+ 13.86s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | sabores inventados
+ 14.98s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | gomitas
+ 16.86s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | Sour Patch Kids
+ 18.92s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | Oreo
+ 21.92s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (13).wav | recuadro: OREO
+ 22.14s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | galleta
+ 25.32s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: x4
+ 27.00s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | x4
+ 28.32s transicion 19.9 dB bajo la voz ( -21.4 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | capitulo: la venta
+ 31.44s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | recuadro: US$990 M
+ 33.48s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (1).wav | recuadro: 60%
+ 34.94s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (13).wav | golpe clave 1 de 2: les estoy hablando de Ghost
+ 35.24s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | tarro Sour Patch Kids nitido
+ 37.02s transicion 21.0 dB bajo la voz ( -22.5 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | capitulo: la licencia
+ 37.98s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (10).wav | recuadro: Oreo
+ 39.68s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: la licencia
+ 41.18s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | KDP
+ 41.88s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot)_2.wav | Mondelez
+ 42.58s glitch     19.7 dB bajo la voz ( -21.2 dBFS)  Fast Glitch 1.mp3 | no venia incluida
+ 43.96s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | titular: demanda
+ 44.62s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (6).wav | subrayado: lawsuit
+ 45.26s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | titular: fin de la alianza
+ 46.28s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Button, Cursor, Select (5).wav | subrayado: come to an end
+ 47.04s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | sin sus sabores
+ 49.00s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | Yahoo: otra marca
+ 50.52s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (13).wav | recuadro: Applied Nutrition
+ 51.64s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | recuadro: colaboracion con Mondelez
+ 52.42s transicion 19.9 dB bajo la voz ( -21.4 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | la leccion
+ 52.42s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | anuncio de Ghost
+ 54.06s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: tu cliente
+ 57.30s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (7).wav | golpe clave 2 de 2: no es tu cliente
+ 57.60s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: tu tienda
+ 60.56s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | anuncio de Ghost
+ 62.72s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: prestado / tuyo
+ 63.40s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | vuelven a comprar
+ 64.98s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot)_2.wav | tuyo
+ 65.20s transicion 21.0 dB bajo la voz ( -22.5 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | Amazon y Mercado Libre
+ 67.54s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | Amazon
+ 68.04s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | Mercado Libre
+ 68.54s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | anuncio de Ghost
+ 70.30s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: datos
+ 70.46s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | sus datos
+ 71.84s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | comision
+ 72.24s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | anuncio de Ghost
+ 74.30s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: tuyo
+ 75.74s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (1).wav | tuyo
+ 76.36s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot)_2.wav | tienda
+ 76.90s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | WhatsApp
+ 77.50s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | correos
+ 77.94s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | sabor propio de Ghost
+ 80.16s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | clienta con Ghost
+ 82.46s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | aparece la pregunta
+
+Sonidos: 64 en 84.5 s · archivos distintos: 17 (todos del paquete de Naza)
+Veces que se usa cada archivo: Granular Combo (13).wav x27, camera shutter sfx (1).mp3 x9, Magnetic, Button (7).wav x4, slow woosh.mp3 x3, Coin Flip (Spin, Rotation) (1).wav x3, Mini list (one shot).wav x3, Momo WOOSH 3.mp3 x3, Magnetic, Button (13).wav x3, Mini list down _2.wav x3, Mini list (one shot)_2.wav x3, Mini list down _1.wav x3, Granular, Button, Select (1).wav x2, Hit Impact (No FX) (4).wav x2, Magnetic, Button (10).wav x1, Fast Glitch 1.mp3 x1, Granular, Button, Select (6).wav x1, Button, Cursor, Select (5).wav x1
+Voz: -14.3 LUFS, pico -1.5 dBFS
+Pico de toda la pista de efectos: -18.3 dBFS (16.8 dB bajo el pico de la voz)
+Mezcla final: -14.3 LUFS, pico -1.5 dBFS
+Tonos sostenidos (pitidos) entre 300 Hz y 6 kHz: ninguno

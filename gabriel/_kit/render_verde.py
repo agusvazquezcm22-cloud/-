@@ -47,9 +47,11 @@ LAYOUT = {
     'PL': (0.50, 0, 1400, 'r'),       # pequeno, esquina izquierda
     'PR': (0.50, W - W // 2, 1400, 'l'),
     'C':  (0.74, (W - int(W * 0.74)) // 2, 1300, 'ambos'),   # mas grande, abajo al centro (cierre y momentos puntuales)
+    'CI': (0.74, None, 1300, 'ambos'),  # mismo tamano que C, corrido a la izquierda (Gabriel 2026-11-23: "tengo que ir moviendome
+    'CD': (0.74, None, 1300, 'ambos'),  # por la pantalla, en algunas tomas a la derecha, en otras a la izquierda, en otras en el medio")
     'R':  (0.60, None, 1200, 'r'),    # EL FIJO (referencia de Agus, reel de Chase Chappell): abajo a la izquierda, tope de la cabeza
 }                                     # al 62 % del alto y centro de la cabeza al 25 % del ancho, en todo el video
-CX = {'R': 270}                       # lugares que se ubican por el centro de la cabeza (px de pantalla)
+CX = {'R': 270, 'CI': 290, 'CD': 790}                       # lugares que se ubican por el centro de la cabeza (px de pantalla)
 CENTRO = 540                          # columna del crudo donde esta el centro de la cabeza (el config puede pisarla)
 
 

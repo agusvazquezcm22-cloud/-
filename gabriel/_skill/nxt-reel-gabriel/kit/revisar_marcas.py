@@ -57,7 +57,8 @@ def main():
         tt = getattr(sh.get('texto'), 'caja_titulo', None)                                   # T_ guarda donde dibujo su caja
         if tt and not (y + h < tt[1] or y > tt[3] or x + w < tt[0] or x > tt[2]): prob.append('BAJO EL TITULO')
         if y + h > 735 and y < 1060: prob.append('EN LA FRANJA DE SUBTITULOS')
-        if cy > 1240 and 300 < cx < 780: prob.append('DETRAS DE GABRIEL')
+        gx = {'CI': 290, 'CD': 790}.get(sh.get('gab'), 540)                                # centro de la cabeza segun el lugar de Gabriel
+        if cy > 1240 and gx - 240 < cx < gx + 240: prob.append('DETRAS DE GABRIEL')
         mx = 140; x0, y0 = max(0, int(x - mx)), max(0, int(y - mx)); x1, y1 = min(rv.W, int(x + w + mx)), min(rv.H, int(y + h + mx))
         crop = Image.fromarray(fr).crop((x0, y0, max(x1, x0 + 40), max(y1, y0 + 40)))
         k = min(520 / crop.width, 300 / crop.height); crop = crop.resize((max(1, int(crop.width * k)), max(1, int(crop.height * k))))

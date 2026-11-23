@@ -2,6 +2,14 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-23 · Feedback de Gabriel en la web de revisión (38, 39 y 40) → 38 v03, 39 v02, 40 v02
+
+Leído del Apps Script (`?entrega=gabriel`). Aplicado tal cual:
+- **Los tres**: Gabriel cambia de lugar toma a toma (izquierda / derecha / centro; antes iba fijo al centro) y el video termina con su voz (sin la cola de 0,9 s).
+- **38 v03** (67,4 s): 37,9 s "variar el diseño del gráfico, que no quede simplemente tachar la palabra" → gráfico nuevo: los tres tarros ("¿Qué tomar?") pasan a una clienta con Glow Up / Detox / Renueva ("¿Qué mejorar?").
+- **39 v02** (84,53 s): hook 0–6 s con ráfaga de videos (Grüns, Create, Blueprint, Goli, ~1,5 s cada uno); 32,3 s lluvia de billetes sobre el gráfico de Unilever; 69,96–77,92 s anuncios reales de estilo de vida (Create, Goli) y de producto (Grüns, Blueprint) con "Estilo de vida → Marketing" / "Resuelve un problema → Producto" en vez del gráfico. **No se pudo**: video de Bio.me en 7,5 s (no tiene anuncios activos en la Biblioteca ni videos en su sitio): sigue la foto de su página.
+- **40 v02** (84,53 s): fotos de un fisicoculturista y de un piloto (Wikimedia Commons) en "fisicoculturista" / "instructor de vuelo"; cortes rápidos de gente entrenando en "suplementos deportivos"; video de la fruta con que se hace un sabor (trycreate.co) en "dejar de inventar sabores" (no hay video de una fábrica de suplementos: avisar); anuncios de Ghost intercalados con los gráficos de 52–78 s (ninguna racha de gráfico de más de ~3,5 s).
+
 ## 2026-11-23 · Video 40 "Lo prestado se devuelve" (Ghost) · pantalla verde, historia de una marca
 
 - **v01** (85,43 s; sin feedback todavía). Guía (VIDEO 40) + lo que Gabriel siempre corrige. Gabriel fijo abajo al centro. La marca se revela en "Les estoy hablando de Ghost" (34,94 s): antes, en las fotos de producto el logo de Ghost va desenfocado por zonas o queda fuera de cuadro, y en el comunicado de Keurig Dr Pepper cada "GHOST" va tapado (rectángulos medidos de todas las apariciones).
