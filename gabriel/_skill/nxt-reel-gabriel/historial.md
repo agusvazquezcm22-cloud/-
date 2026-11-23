@@ -2,6 +2,14 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-23 · Video 40 "Lo prestado se devuelve" (Ghost) · pantalla verde, historia de una marca
+
+- **v01** (85,43 s; sin feedback todavía). Guía (VIDEO 40) + lo que Gabriel siempre corrige. Gabriel fijo abajo al centro. La marca se revela en "Les estoy hablando de Ghost" (34,94 s): antes, en las fotos de producto el logo de Ghost va desenfocado por zonas o queda fuera de cuadro, y en el comunicado de Keurig Dr Pepper cada "GHOST" va tapado (rectángulos medidos de todas las apariciones).
+  - Marcas rojas: 8, todas medidas, 0 avisos: "OREO" en el tarro (por píxeles), "$990 million" y "60%" en el comunicado de KDP, Oreo en la página de marcas de Mondelēz, "lawsuit" en NutraIngredients, "come to an end" en Stack3d, "Applied Nutrition…" y "announced a collaboration with Mondelez" en Yahoo Finance.
+  - Material: los productos Ghost × Sour Patch Kids / Swedish Fish / Oreo ya no están en la tienda de Ghost: las fotos oficiales salen de las notas de Stack3d. Logo de Ghost del SVG de su sitio. Un sabor propio (Legend Blue Raspberry) de su tienda.
+  - Cambios respecto de la guía, para avisar: (1) la portada no vuelve al final (regla de Gabriel): el cierre es una clienta con Ghost (blog de Ghost) y un anuncio de Ghost con personas; (2) no hay foto verificada de los fundadores → gráfico "2016 · 2 amigos · Fisicoculturista · Instructor de vuelo"; (3) sin comercial de Oreo (no se baja de YouTube) → la galleta de la foto oficial; (4) Mercado Libre pide iniciar sesión y Amazon bloquea bots → gráficos propios para la farmacia / marketplace; (5) los anuncios activos de Ghost son de ropa: no hay clip de gente tomando Ghost; (6) el titular de NutraIngredients cambió a "Truce reached after Mondelēz haunts GHOST with lawsuit" (la guía dice "Agreement… with suit"): se subraya "lawsuit".
+  - Gabriel dice "Amazon o Mercado Libre" (la guía decía "farmacia o Mercado Libre"): los gráficos siguen lo que dice él. La transcripción repetía "Te leo en los comentarios" al final: se descartó la repetición.
+
 ## 2026-11-23 · Video 39 "¿Compras el producto o el marketing?" · pantalla verde, veredictos (5 marcas)
 
 - **v01** (85,43 s; sin feedback todavía). Guía (VIDEO 39) + todo lo que Gabriel fue corrigiendo: Gabriel fijo abajo al centro; portada grande con los cinco productos en cuadrícula (Bio.me, Grüns, Create, Blueprint, Goli) y título "¿Producto o marketing? 🤔"; al nombrar cada marca, su logo y debajo MARKETING o PRODUCTO, igual de tamaño y color para las cinco; cierre con personas tomando Blueprint y comiendo Grüns, con cola.
@@ -130,7 +138,7 @@ Se actualiza cada vez que se termina una versión o una tanda de correcciones. L
 - El cierre repite la imagen de la portada porque lo pide su guía; si prefiere que no, se cambia.
 
 ## Videos que faltan
-- Del 32 al 39 entregados. **40** (Ghost, "Lo prestado se devuelve"): crudo en Drive, en curso. **41** (Huel) y **42** (Gymshark, "Vació la cuenta"): tienen guía pero no hay crudo.
+- Del 32 al 40 entregados. **41** (Huel) y **42** (Gymshark, "Vació la cuenta"): tienen guía pero no hay crudo.
 
 ## 2026-11-15/16 · Video 31 "Suplementos Novia" · mini charla con tele
 - Entregada la v13. `referencias/gabriel.md` documenta hasta la v11 (secciones 0.a a 0.i); lo que cambió en v12 y v13 no está escrito.
