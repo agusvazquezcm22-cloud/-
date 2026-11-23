@@ -51,6 +51,29 @@ Agus (2026-11-21): "el cliente suele pedir muchos detalles, así que cada vez qu
 
 Y al entregar: decir en dos líneas qué se hizo con cada cosa que pidió, y avisar lo que no se pudo conseguir. Gabriel numera los videos distinto que las carpetas: identificar el video por lo que se ve en su captura.
 
+## Al terminar cada video: subirlo a la web de revisión (SIEMPRE, sin que Agus lo pida)
+
+Agus (2026-11-23). Le pasa al cliente un link propio de NXT donde ve sus videos y deja el feedback por segundo:
+**https://nxt-revision.netlify.app/#gabriel**
+
+Regla de oro: la página NUNCA queda vacía ni pierde videos. Cada video nuevo se SUMA (Video 1, 2, 3…). Una corrección del mismo video reemplaza solo ese video y conserva su número.
+
+Pasos (PC Windows de Agus, carpeta `NXT_CLIENTES\_REVISION\_local`; desde una sesión en la nube hay que pedir esa carpeta con `request_computer_folder`):
+1. Agregar el video (usar la versión liviana `_celular` / `_para_subir` si existe):
+   `python publicar.py agregar gabriel "<ruta al mp4>" --titulo "Video 32" --version v01 --nombre "Gabriel Monsalve"`
+   - Mismo `--titulo` que uno anterior = corrección (reemplaza ese video y actualiza la versión).
+   - `python publicar.py lista` muestra qué hay en cada página.
+2. Armar el paquete con TODA la web (todas las entregas de todos los clientes, porque cada publicación reemplaza el sitio entero):
+   `python publicar.py paquete --destino "<scratchpad de la sesión>\partes"`
+   (nunca en el Escritorio: Google Drive sincroniza el Escritorio y la extensión de Chrome no sube esos archivos).
+3. Publicar en Chrome (Claude in Chrome, cuenta de Google de Agus): app.netlify.com/projects/nxt-revision/deploys → con JS crear un `<input type=file>` por cada parte → subir cada parte con file_upload (UNA por llamada, máximo 10 MB) → unirlas con JS en un solo `File([...partes], 'nxt-revision.zip')` → ponerlo en `#dropzone-file-upload` y disparar `change`. Esperar a que diga "Published".
+4. Verificar en vivo `nxt-revision.netlify.app/#gabriel`: que estén todos los videos (los viejos también) y que el nuevo cargue.
+5. Pasarle a Agus el link, listo para mandar.
+
+El número del título es el del video de Gabriel ("Video 38", "Video 39"…), igual que la carpeta.
+
+**Feedback del cliente**: planilla de Google "Feedback NXT" (hoja "Feedback"): cliente, video, versión, segundo, nombre y texto. Cuando Agus pregunte "¿qué dijo Gabriel?", leerla y corregir con el segundo exacto.
+
 ## Correcciones de Gabriel del 2026-11-21 (AG1 y Lemme vs IM8) · valen para todos
 
 Dijo "de resto está brutal". Lo que pidió, textual, y la regla que deja:
