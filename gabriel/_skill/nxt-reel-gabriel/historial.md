@@ -2,6 +2,11 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-23 · 40 v03: correcciones de Gabriel por WhatsApp (10 capturas)
+
+Todo lo que eran imágenes pasó a video (84,53 s). 0–3 s: fábrica de suplementos (BPW LAB) + cinta de galletas (oreo.com); 3–5 s: galletas en la mano (oreo.com); 12–15 s: fábrica + "Months of research & development" (anuncio de Mondelēz, primer Oreo violeta); 15–19 s: chica comiendo Chips Ahoy y con Sour Patch Kids (anuncio de Mondelēz); 19–22 s: comiendo Oreo + anuncio oficial; 22–25 s: galleta en leche (oreo.com); 34 s: anuncio de Ghost con el logo encima; 35–37 s: empleado de Mondelēz entre sus marcas en la tienda; 47–49 s: anuncio de Ghost.
+- Dónde salió el material: la Biblioteca de Anuncios por página (Mondelēz 106000626118914, BPW LAB 538443872694494, Nutracap 754378371377950, Ghost 357038457504023 con PAIS=AU) y los videos de oreo.com (videos.ctfassets.net). Sour Patch Kids no tiene videos propios en su web.
+
 ## 2026-11-23 · Feedback de Gabriel en la web de revisión (38, 39 y 40) → 38 v03, 39 v02, 40 v02
 
 Leído del Apps Script (`?entrega=gabriel`). Aplicado tal cual:
