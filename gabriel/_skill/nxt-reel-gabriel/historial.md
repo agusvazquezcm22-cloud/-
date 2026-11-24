@@ -2,6 +2,13 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-24 · 41 v02: correcciones de Gabriel en la web (8 notas)
+
+- Todos los videos a pantalla completa (el video corporativo de Danone iba en recuadro arriba con el resto desenfocado): recorte 9:16 por escena; foto de Ozempic a pantalla completa; tarjetas de prensa sobre fondo nítido.
+- 1,6 s "comer menos": hombre con un plato chico (anuncio de Huel sin marca visible). 0–1 s: familia comiendo (anuncio de Activia).
+- 4 s Danone: logo de Danone grande (cierre de su video corporativo) y después yogur.
+- 6,2 s "todo borroso": videos nítidos de Huel; solo se desenfocan el rótulo "Huel saves", las letras de la bolsa y el rótulo "he eats Huel…".
+
 ## 2026-11-24 · Videos 41 a 46 (nueva tanda, v01) · armados en paralelo, uno por agente
 
 Crudos en Drive (carpetas "41." a "46." de Gabriel). Guías del documento actualizado (exportado a `scratchpad/guia_24nov.txt`). Todos con las reglas del feedback del 38–40: hook con videos, Gabriel se mueve, final con la voz, gráficos ≤ ~4 s, contadores de plata, marcas medidas con 0 avisos. En la revisión antes de entregar se devolvieron el 41 y el 44 (gráficos chicos con mucho blanco, prensa en letra chica o en franja sobre blanco, un anuncio repetido 4 veces): de ahí salieron las reglas "gráficos grandes", "prensa como tarjeta" y "cada video una vez".

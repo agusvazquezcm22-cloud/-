@@ -28,6 +28,15 @@ description: "Edita reels de NXT Media para Gabriel Monsalve (@gabriel.growthp, 
 
 Las frases textuales de Gabriel y cómo se resolvió cada una están en `referencias/gabriel.md`, sección 0.k.
 
+## Videos SIEMPRE a pantalla completa (Gabriel, feedback del 41, 2026-11-24)
+
+"No me gusta solo arriba y resto borroso, los videos que acompañan tienen que ser pantalla completa"; "no entiendo por qué todos los videos salen arriba y el resto de la pantalla se pone borrosa"; "aquí quedó todo el video borroso y no se ve nada".
+- Ningún video ni foto va en un recuadro arriba sobre su versión desenfocada (`Clip(..., entero=…)`, `encaje=…`, `panel(…)` quedan prohibidos para material de apoyo). Todo a pantalla completa (cover).
+- Video apaisado (corporativo, YouTube de la marca): recortarlo a una franja 9:16 donde está la acción, escena por escena, con `recorte=(w, h, x, y)` (en el 41, `dan_x.json`: franja de 340×605 elegida por densidad de bordes y revisada a ojo), sin las franjas negras ni los subtítulos quemados. Si se ve muy blando, buscar antes anuncios verticales de la marca en la Biblioteca (en el 41: Activia 1472105633000943, Danone 137530892945545).
+- Para no revelar una marca antes de tiempo: nunca desenfocar el video entero. Elegir tramos donde no se lea, o desenfocar SOLO la zona del logo o del rótulo (`ClipZonas`, en `41/gabriel41_v02.py`).
+- Las tarjetas de prensa van sobre un fondo real NÍTIDO (oscurecido), no desenfocado.
+- Lo que se ve tiene que ser lo que dice: "comer menos" → alguien con un plato chico; "Danone, la de los yogures" → el logo de Danone grande y después yogur (no Activia con Danone en una esquina).
+
 ## Más videos que gráficos, hook dopamínico (Gabriel, feedback del 38, 39 y 40, 2026-11-23)
 
 - **Hook (0–6 s): ráfaga de videos** de las marcas que se van a nombrar, ~1,5 s cada uno ("o si no alcanzan todas, las que alcancen"), con el título encima: "necesitamos que el hook sea lo más dopamínico posible siempre". No una imagen fija ni una cuadrícula.
@@ -36,7 +45,7 @@ Las frases textuales de Gabriel y cómo se resolvió cada una están en `referen
 - **Gráficos más visuales**: "que no quede simplemente tachar la palabra sino algo visualmente más llamativo o con figuras" (figuras, objetos que se transforman, personas, íconos), y "efecto de dinero" cuando hay plata en juego (`lluvia_billetes` en el 39 v02, `contador` en verde_ayudas).
 - **Lo que se ve tiene que ser lo que se dice**: "esta representación no está alineada con lo que se dice" (40: "suplementos deportivos" → gente entrenando, no tarros grises; "dejar de inventar sabores" → video del trabajo detrás de un sabor, no vainilla/chocolate tachados). Para un oficio o una persona que se nombra (fisicoculturista, instructor de vuelo): una foto real (Wikimedia Commons sirve; no stock pago).
 - **Gráficos grandes, sin huecos** (revisión del 41 y el 44): cada gráfico propio llena y≈170–730 con elementos grandes (figuras e íconos ≥ 200 px, textos ≥ 60 px), entrando por partes. Nunca pastillitas arriba con todo el blanco vacío debajo.
-- **Notas de prensa y páginas como tarjeta**, nunca la página entera en letra chica ni una franja fina sobre blanco: zoom hasta que la frase marcada sea grande (alto de mayúscula ≥ ~45 px) y entre completa con margen (nunca cortada por un borde), dentro de una tarjeta (medio + titular arriba, el párrafo con la frase abajo) que llena y≈170–730 sobre un fondo real desenfocado (producto o anuncio de la marca).
+- **Notas de prensa y páginas como tarjeta** (fondo nítido, ver "Videos SIEMPRE a pantalla completa"), nunca la página entera en letra chica ni una franja fina sobre blanco: zoom hasta que la frase marcada sea grande (alto de mayúscula ≥ ~45 px) y entre completa con margen (nunca cortada por un borde), dentro de una tarjeta (medio + titular arriba, el párrafo con la frase abajo) que llena y≈170–730 sobre un fondo real desenfocado (producto o anuncio de la marca).
 - **Cada video o anuncio una sola vez**: si se reusa un clip, ponerle su nombre real de fuente para que `--control` lo detecte.
 - Si la marca no tiene ningún video (Bio.me: sin anuncios activos ni videos en su sitio), se avisa en la entrega.
 
