@@ -64,10 +64,10 @@ POCAS = [(3, 2), (6, 4), (1, 6), (8, 7), (5, 8)]                          # celd
 VEINTE = set(np.random.default_rng(4).choice(100, 21, replace=False).tolist())
 
 
-def grilla(im, encendidas, t_llenado=None, tl=0.0, y0=190, paso=56, grandes=()):
+def grilla(im, encendidas, t_llenado=None, tl=0.0, y0=180, paso=44, grandes=()):
     """10 x 10 perfiles. encendidas: conjunto de indices (o 'todas'); t_llenado: se van prendiendo en ese tiempo."""
     for i in range(100):
-        r, c = divmod(i, 10); x = 540 + (c - 4.5) * paso * 1.6; y = y0 + r * paso
+        r, c = divmod(i, 10); x = 540 + (c - 4.5) * paso * 2.0; y = y0 + r * paso
         on = (encendidas == 'todas' or i in encendidas)
         if t_llenado is not None and i / 100 * t_llenado[1] > tl - t_llenado[0]: on = False
         if (c, r) in grandes: pegar(im, P_GRANDE, x, y, 0.62); continue
@@ -79,8 +79,14 @@ def g_cien(tl, T):                    # "podria tener 100 influencers" -> se lle
     if tl < 1.30: grilla(im, 'todas', (0.0, 0.9), tl)
     else: grilla(im, VEINTE)
     c100 = contador(100, 0.0, dur=0.9, prefijo='', tam=110, color=VERDE_B)
-    if tl < 1.30: c100(im, tl, 540, 790 - 140)
-    else: contador(20, 1.30, dur=0.5, prefijo='', desde=100, tam=110, color=VERDE_B)(im, tl, 540, 650)
+    if tl < 1.30: c100(im, tl, 540, 640)
+    else: contador(20, 1.30, dur=0.5, prefijo='', desde=100, tam=110, color=VERDE_B)(im, tl, 540, 640)
+    return im
+
+
+def g_selectivos(tl, T):              # "Pero ellos fueron muy selectivos": de las 100 quedan unas 20
+    im = fondo_grafico(); grilla(im, 'todas' if tl < 0.5 else VEINTE)
+    if tl > 0.7: pegar(im, pastilla('Muy selectivos', 48, fondo=VERDE_B), 540, 660, pop(tl, 0.7))
     return im
 
 
@@ -90,16 +96,16 @@ def g_todas(tl, T):                   # "lo mas facil era mandarle frascos a tod
 
 def g_pocas(tl, T):                   # "o cuando es suficiente con unas pocas que viven en carne propia el problema"
     im = fondo_grafico(); grilla(im, set(), None, tl, grandes=POCAS if tl > 0.35 else ())
-    if tl > 0.6: pegar(im, pastilla('Viven el problema', 44, fondo=VERDE_B), 540, 680, pop(tl, 0.6))
+    if tl > 0.6: pegar(im, pastilla('Viven el problema', 44, fondo=VERDE_B), 540, 660, pop(tl, 0.6))
     return im
 
 
 def g_contra(tl, T):                  # "porque si escoges mal puede jugar en tu contra"
     im = fondo_grafico(); p = ease((tl - 0.3) / 0.5)
     for i in range(100):
-        r, c = divmod(i, 10); x = 540 + (c - 4.5) * 56 * 1.6; y = 190 + r * 56
+        r, c = divmod(i, 10); x = 540 + (c - 4.5) * 88; y = 180 + r * 44
         pegar(im, P_ROJA if (i * 37 % 100) / 100 < p else P_OFF, x, y, 1.0)
-    if tl > 0.9: pegar(im, pastilla('Puede jugar en tu contra', 46, fondo=ROJO), 540, 690, pop(tl, 0.9))
+    if tl > 0.9: pegar(im, pastilla('Puede jugar en tu contra', 46, fondo=ROJO), 540, 660, pop(tl, 0.9))
     return im
 
 
@@ -177,6 +183,13 @@ P3 = lambda r: tuple(v * 3 for v in r)
 FBJ = J('fb'); FB2J = J('fb2'); IPJ = J('ip')
 
 
+def zona(png, y0, y1):
+    """Captura entera (3 px por px CSS) con todo lo de arriba de y0 y lo de abajo de y1 (px) tapado en blanco: solo queda la
+    frase y sus lineas vecinas (sin la marca antes de tiempo, sin promesas de salud ni precios alrededor)."""
+    a = img(png).copy(); a[:y0] = 255; a[y1:] = 255; return a
+R3 = lambda r: tuple(v * 3 for v in r)                       # rect CSS -> px de la captura
+
+
 def tira(png, y0, y1, oy=330):
     """Franja de una captura (px de la captura, 3 px por px CSS) a todo el ancho sobre fondo blanco, desde y=oy de pantalla.
     Devuelve (lona, convertidor de rectangulo CSS -> lona)."""
@@ -209,25 +222,25 @@ def g_logo(tl, T):
 
 
 # ------------------------------------------------------------ tomas
-toma('01', 0.00, 1.68, Serie([(0.00, clip('1100049709572980', 0.3, nombre='anuncio-video:1100049709572980 (creadora con el frasco)')),
-                              (0.84, clip('1003093062812851', 4.1, nombre='anuncio-video:1003093062812851 (s4: capsulas en la mano)'))]), GAB,
+toma('01', 0.00, 1.68, Serie([(0.00, clip('1100049709572980', 2.3, nombre='anuncio-video:1100049709572980 (s2: gomitas en la mano)')),
+                              (0.84, clip('1100049709572980', 8.7, nombre='anuncio-video:1100049709572980 (s9: gomitas entre los dedos)'))]), GAB,
      T_(['100 influencers'], 180, 76, t0=-1.0, clave={'100'}))
 toma('02', 1.68, 4.28, Grafico(lambda tl, T: g_cien(tl + 0.0, T)), GAB)                                                         # "100 influencers... poco mas de 20"
-toma('03', 4.28, 6.36, lienzo(FB_T, (0, 0, W), (40, 60, W - 80), [('caja', cFT(_une(FBJ['t'])), 0.94)], nombre='forbesargentina.com: titulo 15% al mes'), GAB,
-     contador_toma(15, 0.94, cy=640, prefijo='+', sufijo='% cada mes', tam=96))
+toma('03', 4.28, 6.36, lienzo(zona(f'{A}/cap/fb_t.png', 1540, 1745), (1150, 1010, 1310), (1360, 1100, 1100), [('caja', R3(FBJ['t'][0]), 0.94)], nombre='forbesargentina.com: titulo 15% al mes', dur_mov=0.6), GAB,
+     contador_toma(15, 0.94, cy=250, prefijo='+', sufijo='% cada mes', tam=96))
 toma('04', 6.36, 8.56, lienzo(panel(FUND, y=260), (0, 0, W), (30, 40, W - 60), nombre='forbesargentina.com: los fundadores (logo desenfocado)'), GAB,
      contador_toma(20000, 1.22, cy=200, sufijo='', tam=96))
-toma('05', 8.56, 10.24, clip('1003093062812851', 0.2, nombre='anuncio-video:1003093062812851 (s0: el frasco)'), GAB)
+toma('05', 8.56, 10.24, lienzo(panel(FRASCOS, y=300), (0, 0, W), (40, 60, W - 80), nombre='iprofesional.com: frascos (desenfocados)'), GAB)
 toma('06', 10.24, 13.58, Grafico(g_mapa), GAB)
-toma('07', 13.58, 15.36, lienzo(panel(FRASCOS, y=300), (0, 0, W), (40, 60, W - 80), nombre='iprofesional.com: frascos (desenfocados)'), GAB)
-toma('08', 15.36, 16.46, clip('1100049709572980', 3.0, nombre='anuncio-video:1100049709572980 (s3: gomitas en la mano)'), GAB)
+toma('07', 13.58, 15.36, clip('1003093062812851b', 5.1, nombre='anuncio-video:1003093062812851 (s5: el frasco en la mano; su subtitulo "de Bloom Life" desenfocado)'), GAB)
+toma('08', 15.36, 16.46, clip('1100049709572980', 9.9, nombre='anuncio-video:1100049709572980 (s10: la creadora)'), GAB)
 toma('09', 16.46, 17.70, Grafico(g_historia), GAB)
 S[-1]['fuentes'] = ['grafico: historia de Instagram generica (foto de iprofesional.com)']
-toma('10', 17.70, 20.16, lienzo(IP_M, (0, 0, W), (30, 50, W - 60), [('caja', cIM(_une(IPJ['mer'])), 0.05)], nombre='iprofesional.com: hay mercado'), GAB)
+toma('10', 17.70, 20.16, lienzo(zona(f'{A}/cap/ip_mer.png', 1460, 1900), (120, 743, 1960), None, [('caja', R3(IPJ['mer'][0]), 0.05), ('caja', R3(IPJ['mer'][1]), 0.05)], nombre='iprofesional.com: hay mercado'), GAB)
 toma('11', 20.16, 21.48, Grafico(g_llega), GAB)
 toma('12', 21.48, 26.78, Serie([
-    (0.00, clip('1148661857682621', 4.0, nombre='anuncio-video:1148661857682621 (s4: logo bloom life)')),                       # "Asi nacio en Argentina"
-    (1.04, Grafico(g_logo)),                                                                                                     # "Bloom Life"
+    (0.00, clip('1514823533995674', 5.3, nombre='anuncio-video:1514823533995674 (s5: abre la bolsa, sin logo)')),               # "Asi nacio en Argentina"
+    (0.92, Grafico(g_logo)),                                                                                                     # "Bloom Life"
     (1.98, lienzo(blanco(PR('p17'), 300), (0, 0, W), (40, 60, W - 80), nombre='mercadolibre: gomitas')),                        # "gomitas"
     (2.38, lienzo(blanco(PR('p06'), 220, 560), (0, 0, W), (60, 60, W - 120), nombre='mercadolibre: capsulas')),                # "y capsulas con hongos"
     (3.12, lienzo(blanco(PR('p10'), 220, 600), (0, 0, W), (60, 60, W - 120), nombre='mercadolibre: melena de leon')),          # "como la melena de leon"
@@ -236,22 +249,22 @@ toma('12', 21.48, 26.78, Serie([
 S[-1]['fuentes'] += ['logo de Bloom Life (mercadolibre.com.ar)']
 toma('13', 26.78, 28.54, clip('1514823533995674', 20.7, nombre='anuncio-video:1514823533995674 (s20: creadora con reishi)'), GAB)
 toma('14', 28.54, 30.54, Grafico(g_todas), GAB)
-toma('15', 30.54, 32.30, clip('1436292494786093', 0.5, nombre='anuncio-video:1436292494786093 (clienta desayunando)'), GAB)
-toma('16', 32.30, 36.78, lienzo(FB_E, (0, 0, W), (20, 40, W - 40), [('caja', cFE(FB2J['emb_1'][0]), 0.60, 1.46), ('caja', cFE(FB2J['emb_2'][0]), 1.46, 2.30),
-                                                                    ('caja', cFE(FB2J['emb'][0]), 2.30)], nombre='forbesargentina.com: embajadoras', dur_mov=0.5), GAB)
+toma('15', 30.54, 32.30, Grafico(g_selectivos), GAB)
+toma('16', 32.30, 36.78, lienzo(zona(f'{A}/cap/fb2_emb.png', 1380, 1830), (1000, 1035, 1350), (1050, 1075, 1250), [('caja', R3(FB2J['emb_1'][0]), 0.60, 1.46), ('caja', R3(FB2J['emb_2'][0]), 1.46, 2.30),
+                                                                    ('caja', R3(FB2J['emb'][0]), 2.30)], nombre='forbesargentina.com: embajadoras', dur_mov=0.5), GAB)
 toma('17', 36.78, 38.94, clip('1003093062812851', 21.0, nombre='anuncio-video:1003093062812851 (s21: clienta con dos frascos)'), GAB)
 toma('18', 38.94, 42.04, Grafico(g_95), GAB)
 toma('19', 42.04, 43.40, clip('1100049709572980', 5.5, nombre='anuncio-video:1100049709572980 (s5: la creadora hablando)'), GAB)
 toma('20', 43.40, 45.20, Grafico(g_confian), GAB)
-toma('21', 45.20, 46.80, clip('3039820476363901', 0.3, nombre='anuncio-video:3039820476363901 (capsulas en la mano)'), GAB)
-toma('22', 46.80, 51.36, lienzo(IP_P, (0, 0, W), (30, 50, W - 60), [('caja', cIP(_une(IPJ['pref'])), 1.82)], nombre='iprofesional.com: preferimos vender menos'), GAB)
+toma('21', 45.20, 46.80, clip('1003093062812851', 4.1, nombre='anuncio-video:1003093062812851 (s4: capsulas en la mano)'), GAB)
+toma('22', 46.80, 51.36, lienzo(zona(f'{A}/cap/ip_pref.png', 520, 860), (0, -425, 2460), (60, -380, 2340), [('caja', R3(IPJ['pref'][0]), 1.82), ('caja', R3(IPJ['pref'][1]), 1.82)], nombre='iprofesional.com: preferimos vender menos'), GAB)
 toma('23', 51.36, 53.00, lienzo(panel(Image.open(f'{A}/press/ipro_609707.jpg').convert('RGB'), y=180, ancho=760), (0, 0, W), (40, 60, W - 80), nombre='iprofesional.com: frasco en la cama'), GAB)
-toma('24', 53.00, 55.74, lienzo(IP_C, (0, 0, W), (30, 50, W - 60), [('caja', cIC(_une(IPJ['cin'])), 1.10)], nombre='iprofesional.com: hasta 50% mas'), GAB,
-     contador_toma(50, 1.48, cy=620, prefijo='hasta ', sufijo='% más', tam=92))
+toma('24', 53.00, 55.74, lienzo(zona(f'{A}/cap/ip_cin.png', 1460, 1760), (0, 535, 2460), None, [('caja', R3(IPJ['cin'][0]), 1.10), ('caja', R3(IPJ['cin'][1]), 1.10)], nombre='iprofesional.com: hasta 50% mas'), GAB,
+     contador_toma(50, 1.48, cy=250, prefijo='hasta ', sufijo='% más', tam=92))
 toma('25', 55.74, 59.36, Serie([(0.00, clip('1514823533995674', 22.0, nombre='anuncio-video:1514823533995674 (s22)')),
                                 (0.90, clip('1100049709572980', 13.2, nombre='anuncio-video:1100049709572980 (s13)')),
                                 (1.80, clip('1436292494786093', 5.0, nombre='anuncio-video:1436292494786093 (s5)')),
-                                (2.70, clip('1514823533995674', 5.4, nombre='anuncio-video:1514823533995674 (s5: abre la bolsa)'))]), GAB)
+                                (2.70, clip('1003093062812851', 0.1, nombre='anuncio-video:1003093062812851 (s0: frascos en la mesa)'))]), GAB)
 toma('26', 59.36, 61.00, Grafico(g_pocas), GAB)
 toma('27', 61.00, 62.92, clip('1100049709572980', 15.4, nombre='anuncio-video:1100049709572980 (s15)'), GAB)
 toma('28', 62.92, 65.00, Grafico(g_contra), GAB)

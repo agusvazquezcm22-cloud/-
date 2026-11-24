@@ -1,0 +1,67 @@
+  1.02s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | corte 2
+  2.04s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | Ozempic
+  3.58s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | yogures Danone
+  4.54s glitch     19.7 dB bajo la voz ( -21.2 dBFS)  Fast Glitch 1.mp3 | marca desenfocada
+  5.04s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | ¿Cual?
+  7.18s transicion 19.9 dB bajo la voz ( -21.4 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | capitulo: la compra
+  9.10s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (13).wav | recuadro: close to 1 billion
+  9.16s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | contador
+ 10.20s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | llega a 1.000 M
+ 10.56s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: el plato
+ 11.86s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot)_2.wav | comes menos
+ 12.46s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | proteina
+ 12.76s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | nutrientes
+ 13.52s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (13).wav | golpe clave 1 de 2: x2
+ 13.78s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | linea de produccion
+ 15.00s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | Food Dive
+ 15.66s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | subrayado: GLP-1
+ 18.44s transicion 21.0 dB bajo la voz ( -22.5 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | capitulo: el fundador
+ 20.38s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | fundador
+ 21.46s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | contador -80.000
+ 22.40s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | llega
+ 22.42s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: planes
+ 24.20s glitch     19.7 dB bajo la voz ( -21.2 dBFS)  Fast Glitch 1.mp3 | se cruzan
+ 25.28s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | demasiado complicado
+ 25.90s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | por lo simple
+ 27.40s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: todo en uno
+ 28.50s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | la bolsa
+ 29.72s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (7).wav | golpe clave 2 de 2: Huel
+ 30.62s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | polvo
+ 32.74s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | 40 g de proteina
+ 34.92s transicion 19.9 dB bajo la voz ( -21.4 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | capitulo: la estrategia de Danone
+ 36.42s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | Activia
+ 37.90s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | supermercados
+ 39.30s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | corte
+ 40.88s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | venta directa
+ 42.70s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Button, Cursor, Select (5).wav | subrayado: direct-to-consumer
+ 45.46s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (1).wav | recuadro: 4.000.000
+ 45.50s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | contador clientes
+ 46.62s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: rompecabezas
+ 47.22s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot)_2.wav | encajan
+ 47.72s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | check
+ 48.32s transicion 21.0 dB bajo la voz ( -22.5 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | capitulo: la leccion
+ 50.06s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | come
+ 50.60s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | duerme
+ 51.14s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | se cuida
+ 51.54s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: cliente sin marca
+ 53.64s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | clienta
+ 54.28s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (6).wav | entra el logo
+ 56.14s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | el producto
+ 57.72s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | forma de comer
+ 60.14s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | rafaga de habitos
+ 60.76s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | r2
+ 61.38s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | r3
+ 62.00s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | r4
+ 62.62s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: pasos
+ 63.96s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | la marca lo lee
+ 65.00s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | la bolsa
+ 67.34s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot)_2.wav | toma la delantera
+ 67.68s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | tomando Huel
+ 69.86s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | recuadro: Seguir
+
+Sonidos: 60 en 71.0 s · archivos distintos: 17 (todos del paquete de Naza)
+Veces que se usa cada archivo: Granular Combo (13).wav x23, camera shutter sfx (1).mp3 x9, Mini list (one shot).wav x3, Countdown, List, Numbers (5).wav x3, Coin Flip (Spin, Rotation) (1).wav x3, Mini list (one shot)_2.wav x3, Mini list down _2.wav x3, Mini list down _1.wav x3, Magnetic, Button (7).wav x3, Fast Glitch 1.mp3 x2, slow woosh.mp3 x2, Magnetic, Button (13).wav x2, Hit Impact (No FX) (4).wav x2, Momo WOOSH 3.mp3 x2, Button, Cursor, Select (5).wav x1, Granular, Button, Select (1).wav x1, Granular, Button, Select (6).wav x1
+Voz: -14.3 LUFS, pico -1.5 dBFS
+Pico de toda la pista de efectos: -20.5 dBFS (19.0 dB bajo el pico de la voz)
+Mezcla final: -14.3 LUFS, pico -1.4 dBFS
+Tonos sostenidos (pitidos) entre 300 Hz y 6 kHz: ninguno
