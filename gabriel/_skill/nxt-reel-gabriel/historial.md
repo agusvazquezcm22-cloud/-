@@ -2,6 +2,11 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-24 · 45 v02 (9 notas) y 46 v02 (1 nota) de Gabriel en la web
+
+- **45:** todo a pantalla completa y en video: góndola de supermercado (anuncio de Mondelēz) en "300 tiendas"; Ollie hablando a cámara (su anuncio 985135284619460, único video que existe de él: 360×640, se ve algo blando) en "Ollie Puddick", "anuncios" y "contando su historia"; bomberos y surf de Wikimedia Commons; "dejó su trabajo de bombero" con un clip de Commons de un bombero poniéndose el equipo **pasado al revés** (no hay video libre de alguien sacándoselo): avisar.
+- **46:** las cuatro tarjetas de Entrepreneur (15–21 s) pasaron a videos de Liquid I.V.; quedan solo dos tarjetas de texto (colaboración pagada y US$1.000 M). Mosaicos a pantalla completa. No existe video del equipo de Liquid I.V. hablando con clientes: van clientes y creadores usando el producto.
+
 ## 2026-11-24 · 42 y 43 aprobados por Gabriel · 44 v02 (9 notas en la web)
 
 - 22,9 logo de baja calidad → video de la marca (Full Day, frascos); gomitas, cápsulas y melena de león también en video.

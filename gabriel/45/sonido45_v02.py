@@ -1,4 +1,4 @@
-"""Video 45 («El bombero del cafe», Innerbloom) · sonidos. Receta 2 (sin el sonido "angelical", efectos bajos); termina con la voz.
+"""Video 45 v02 («El bombero del cafe», Innerbloom) · sonidos. Receta 2 (sin el sonido "angelical", efectos bajos); termina con la voz.
 Uso: python3 sonido45_v01.py <video_sin_sonido.mp4> <salida.mp4>"""
 import os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
@@ -9,7 +9,7 @@ SON = os.environ.get('GAB_SONIDOS', os.path.join(A, '..', 'sonidos'))
 DUR = 79.233
 EVENTOS = [
     foto(1.50, 'hook: segundo corte de bomberos'),
-    plano(2.76, 'lista de tiendas'), bop(3.88, CUENTA, '+300 tiendas'), bop(4.38, MONEDA, 'llega a 300'),
+    plano(2.76, 'estanteria de tienda'), bop(3.88, CUENTA, '+300 tiendas'), bop(4.38, MONEDA, 'llega a 300'),
     plano(4.72, 'incendio'),
     tr(7.56, SLOW, AIRE_BOT, 'capitulo: Ollie'), foto(8.40, 'bomberos de Nueva Zelanda'),
     plano(9.40, 'bombero equipandose'), foto(11.68, 'madrugadas'), foto(12.56, 'cafe'),
@@ -25,13 +25,13 @@ EVENTOS = [
     clic(45.38, GR1, 'recuadro: perdio tiendas'),
     plano(46.60, 'grafico: tiendas'), bop(47.38, L1, 'nuevas'), bop(48.46, O2, 'las que ya tenia'),
     plano(49.34, 'camion de bomberos'),
-    clic(51.30, GR6, 'recuadro: dejo de ser bombero'), clic(52.26, CUR, 'recuadro: sin red, sin inversionistas'),
+    plano(50.90, 'bombero se saca el casco'),
     plano(54.30, 'su marca'),
     tr(55.42, SLOW, AIRE_BOT, 'vender por internet'),
     clic(59.98, MG10, 'recuadro: US$1 M'), bop(59.98, CUENTA, 'contador'), bop(60.58, MONEDA, 'llega al millon'),
-    plano(61.84, 'su anuncio'), clic(63.52, MG13, 'recuadro: olliepuddick'),
+    plano(61.84, 'Ollie en su anuncio'),
     plano(65.56, 'grafico: directo'), bop(66.30, L1, 'flecha'), bop(67.40, O1, 'control'),
-    tr(68.20, MOMO, AIRE_DEEP, 'su historia'),
+    tr(68.20, MOMO, AIRE_DEEP, 'Ollie a camara'),
     golpe(72.76, 'golpe clave 2 de 2: autenticidad'),
     plano(73.62, 'Ollie a camara'), clic(77.48, MG7, 'sigueme'),
 ]

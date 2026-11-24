@@ -1,4 +1,9 @@
-"""Video 45 · "El bombero del cafe" (Innerbloom, Ollie Puddick) · v01
+"""v02 (feedback de Gabriel en la web, 2026-11-24): todo a PANTALLA COMPLETA (nada de foto/video arriba sobre su version
+desenfocada) y videos en vez de fotos donde lo pidio: 4,4 s estanteria de tienda (video); 8,2 s Ollie hablando (anuncio); 18,6 y
+22,8 s videos a pantalla completa; 34,3 s Ollie con su producto (anuncio); 52,2 s bombero sacandose el casco (video de Commons
+reproducido al reves: en el original se lo pone); 55,2 s video; 64,9 s el anuncio de Ollie hablando (no la tarjeta con el nombre
+subrayado); 69,8 s Ollie a camara a pantalla completa. Unico video real de Ollie: el anuncio 985135284619460 (se usan tramos distintos).
+Video 45 · "El bombero del cafe" (Innerbloom, Ollie Puddick) · v01
 Formato pantalla verde, historia del fundador (guia de Gabriel, VIDEO 45, linea 4065) + todo lo que Gabriel fue corrigiendo:
 - Gabriel cambia de lugar toma a toma (CI / CD / C); termina con la voz (DUR = crudo, sin cola).
 - Hook con dos cortes de VIDEO reales en los primeros 3 s; mas videos que graficos; cada fuente de video se usa una sola vez.
@@ -36,9 +41,8 @@ def foto(path, crop=None, blur=()):
 
 def panel(im, y=170, ancho=W, alto_max=820):
     """La foto grande arriba (desde y 170), sobre su version desenfocada a pantalla completa."""
-    k = min(ancho / im.width, alto_max / im.height); f = im.resize((int(im.width * k), int(im.height * k)), Image.LANCZOS)
-    c = Image.fromarray(cubrir(im)).filter(ImageFilter.GaussianBlur(40))
-    c = Image.blend(c, Image.new('RGB', c.size, (0, 0, 0)), 0.25); c.paste(f, ((W - f.width) // 2, y)); return c
+    # v02 (Gabriel): ya no va la foto arriba sobre su version desenfocada: la foto a PANTALLA COMPLETA
+    return Image.fromarray(cubrir(im))
 
 
 def foto_toma(path, crop=None, blur=(), nombre=None, y=170, zoom=0.04, **k):
@@ -61,7 +65,7 @@ def tarjeta(png, y0, y1, grupos, fondo, nombre, escala=3, top=170, ancho=1064, x
     ya, yb = _blanca(y0 * escala, -1), _blanca(y1 * escala, 1); y0 = ya / escala
     card = im.crop((int(x0 * escala), ya, int(x1 * escala), yb))
     k = ancho / card.width; card = card.resize((ancho, int(card.height * k)), Image.LANCZOS)
-    c = Image.fromarray(cubrir(fondo)).filter(ImageFilter.GaussianBlur(36)); c = Image.blend(c, Image.new('RGB', c.size, (0, 0, 0)), 0.3)
+    c = Image.fromarray(cubrir(fondo)).filter(ImageFilter.GaussianBlur(2)); c = Image.blend(c, Image.new('RGB', c.size, (0, 0, 0)), 0.35)   # v02: fondo nitido
     m = Image.new('L', card.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, card.width - 1, card.height - 1], radius=28, fill=255)
     xo = (W - ancho) // 2; c.paste(card, (xo, top), m)
     ms = []
@@ -205,19 +209,19 @@ NUTC, NUTR = _nutricion()
 toma('01', 0.00, 2.76, Serie([(0.00, clip('cfa', 21.0, nombre='commons: CFA, bomberos apagando un incendio')),          # "apagando incendios"
                               (1.50, clip('mwss', 27.0, nombre='commons: bomberos frente al fuego (MWSS 172)'))]), GAB)
 S[-1]['fuentes'] = ['commons.wikimedia.org: Mobile firefighting training prop (CFA, Australia)', 'commons.wikimedia.org: MWSS 172 Firefighting Training']
-toma('02', 2.76, 4.72, foto_toma(f'{A}/cap/stores_map.png', (90, 700, 760, 1000), nombre='innerbloomcoffee.com.au: lista de tiendas (sin el titulo con la marca)', y=235, alto_max=490), GAB,
+toma('02', 2.76, 4.72, clip('estanteria_mdlz', 16.3, vel=0.6, nombre='anuncio-video:2447289685760086 (pasillo de supermercado lleno de productos)'), GAB,
      contador_toma(300, 1.12, cy=140, prefijo='+', sufijo=' tiendas', dur=0.5, tam=110))                                 # "300" (3.88)
 toma('03', 4.72, 7.56, clip('usaf', 33.5, nombre='commons: incendio de entrenamiento (31 CE)'), GAB)                       # "casi lo pierde todo"
-toma('04', 7.56, 9.40, Serie([(0.00, foto_toma(f'{A}/cap/story.png', (0, 400, 820, 2580), nombre='innerbloomcoffee.com.au/our-story: Ollie Puddick', alto_max=760)),
-                              (0.84, foto_toma(f'{A}/commons/bomberos1.jpg', nombre='commons: bomberos de Nueva Zelanda (Palmerston North, 2019)'))]), GAB,
+toma('04', 7.56, 9.40, Serie([(0.00, clip('985135284619460', 22.3, nombre='anuncio-video:985135284619460 s22 (Ollie hablando a camara)')),
+                              (0.84, clip('usaf', 22.7, nombre='commons: bomberos junto al camion (31 CE)'))]), GAB,
      varios(entre(0.0, 0.84, T_(['Ollie Puddick'], 110, 70)), entre(0.84, 9, T_(['Bombero profesional'], 110, 66))))
 toma('05', 9.40, 11.68, clip('afn', 21.0, nombre='commons: bombero equipandose (AFN)'), GAB)                             # "turnos largos"
 toma('06', 11.68, 12.56, foto_toma(S_('Untitled_Studio_Innerbloom_Jan25-4353.jpg'), nombre='innerbloomcoffee.com.au: corredores al amanecer'), GAB)   # "madrugadas"
 toma('07', 12.56, 14.64, foto_toma(S_('InnerbloomMay26-1661.jpg'), (0, 300, 2000, 2700), BLUR_MAY26, nombre='innerbloomcoffee.com.au: cafe servido (logo desenfocado)'), GAB)   # "cafe, pero mucho cafe"
-toma('08', 14.64, 16.40, clip('surf2', 3.4, nombre='commons: surf en Oahu'), GAB)                                        # "vivia en el mar, era surfista"
+toma('08', 14.64, 16.40, clip('surf1', 4.0, nombre='commons: surf'), GAB)                                        # "vivia en el mar, era surfista"
 toma('09', 16.40, 18.26, foto_toma(S_('Colouring_Ollie.00_03_06_05.Still040.jpg'), nombre='innerbloomcoffee.com.au: Ollie en la piscina'), GAB)   # "competia en deportes acuaticos"
-toma('10', 18.26, 21.26, foto_toma(S_('510B4819.jpg'), None, BLUR_510B, nombre='innerbloomcoffee.com.au: Ollie tomando su cafe en la playa'), GAB)   # "necesitaba rendir"
-toma('11', 21.26, 23.36, foto_toma(S_('A8C5C506-9F0D-4083-95DE-EC38781C9D3F.jpg'), nombre='innerbloomcoffee.com.au: Ollie con palmeras'), GAB,
+toma('10', 18.26, 21.26, clip('afn', 31.0, nombre='commons: bombero en el circuito fisico (AFN)'), GAB)   # "necesitaba rendir"
+toma('11', 21.26, 23.36, clip('surf2', 5.6, nombre='commons: surf en Oahu, Hawai (Estados Unidos)'), GAB,
      T_(['En Estados Unidos'], 110, 64, t0=0.8))
 toma('12', 23.36, 26.16, foto_toma(S_('Innerbloom_Cinny_Bun-1367.jpg'), (0, 0, 2000, 2501), BLUR_CINNY, nombre='innerbloomcoffee.com.au: cafe frio sobre hielo (logo desenfocado)'), GAB,
      T_(['Cold brew'], 110, 72, t0=0.18))                                                                                  # "cafe cold brew" (23.36)
@@ -225,8 +229,9 @@ toma('13', 26.16, 28.90, Grafico(g_idea), GAB)
 toma('14', 28.90, 32.86, Serie([(0.00, Grafico(g_revela)),
                               (1.20, lienzo(NUTC, (0, 0, W), (20, 30, W - 40), [('caja', NUTR, 1.16)], nombre='innerbloomcoffee.com.au: 15,4 g de proteina'))]), GAB)
 S[-1]['fuentes'] = ['innerbloomcoffee.com.au: logo y latas', 'innerbloomcoffee.com.au: 15,4 g de proteina']
-toma('15', 32.86, 34.86, foto_toma(S_('ourplace_ollie.jpg'), nombre='ourplacemagazine.co.nz: Ollie en su puesto del mercado'), GAB,
-     varios(T_(['Mercados de agricultores'], 110, 60, t0=0.9), lambda pil, tl, T: pegar(pil, pastilla('Foto: Our Place Magazine', 34, fondo=(236, 236, 232), color=GRIS, pad=(28, 14)), 540, 145)))
+toma('15', 32.86, 34.86, Serie([(0.00, foto_toma(S_('ourplace_ollie.jpg'), nombre='ourplacemagazine.co.nz: Ollie en su puesto del mercado')),
+                              (0.90, clip('985135284619460', 9.6, nombre='anuncio-video:985135284619460 s9 (Ollie con su producto)'))]), GAB,
+     varios(T_(['Mercados de agricultores'], 110, 60, t0=0.3)))
 toma('16', 34.86, 38.10, tarjeta(FN_PNG('tiendas'), 459.9, 620.9, [(FN['tiendas'], 1.24, None)], FONDO_LATAS, 'buzzsprout.com (Foodpreneur): 300 tiendas'), GAB)
 toma('17', 38.10, 40.88, oscurece(S_('UntitledStudio-Innerbloom-Sep25-9479.jpg'), 0.6, 1.6), GAB)
 S[-1]['fuentes'] = ['innerbloomcoffee.com.au: latas en la mano']
@@ -234,9 +239,8 @@ toma('18', 40.88, 44.50, Grafico(g_plata), GAB)
 toma('19', 44.50, 46.60, tarjeta(FN_PNG('perdio'), 459.9, 620.9, [(FN['perdio'], 0.88, None)], FONDO_CAFE, 'buzzsprout.com (Foodpreneur): perdio tiendas'), GAB)
 toma('20', 46.60, 49.34, Grafico(g_tiendas), GAB)
 toma('21', 49.34, 50.90, clip('helsinki', 7.0, nombre='commons: camion de bomberos que sale'), GAB)                       # "dejo su trabajo de bombero"
-toma('22', 50.90, 54.30, tarjeta(FN_PNG('bombero'), 459.9, 620.9, [(FN['bombero'], 0.40, 1.36), (FN['bombero_1'], 1.36, None)],
-                                 Image.open(f'{A}/commons/bomberos2.jpg').convert('RGB'), 'buzzsprout.com (Foodpreneur): dejo de ser bombero'), GAB)
-toma('23', 54.30, 55.42, foto_toma(S_('UntitledStudio-Innerbloom-Sep25-9474.jpg'), nombre='innerbloomcoffee.com.au: lata en la mano'), GAB)   # "dedicarse solo a su marca"
+toma('22', 50.90, 54.30, clip('mwss_rev', 0.5, nombre='commons: bombero sacandose el casco (MWSS 172, al reves)'), GAB)   # "dejo su trabajo de bombero, sin inversionistas..." 
+toma('23', 54.30, 55.42, clip('985135284619460', 32.2, nombre='anuncio-video:985135284619460 s32 (su producto)'), GAB)   # "dedicarse solo a su marca"
 toma('24', 55.42, 58.04, lienzo(img(f'{A}/cap/prodpage.png'), (0, 330, 1640), (860, 1520, 760), dur_mov=1.8,
                                  nombre='innerbloomcoffee.com.au: tienda online'), GAB)                                                     # "vender por internet"
 toma('25', 58.04, 61.84, tarjeta(FN_PNG('millon'), 499.9, 580.9, [(FN['millon'], 1.94, None)], FONDO_LATAS, 'buzzsprout.com (Foodpreneur): US$1 M online', top=380), GAB,
@@ -251,14 +255,12 @@ def _anuncio_tarjeta():
     fx, fy, fw, fh = ADC['frase']
     return bg, (xo + fx * 3 * k, top + fy * 3 * k, fw * 3 * k, fh * 3 * k)
 ADCARD, ADBOX = _anuncio_tarjeta()
-toma('26', 61.84, 65.56, Lienzo(ADCARD, (0, 0, W), (ADBOX[0] + ADBOX[2] / 2 - 225, ADBOX[1] - 420 * 450 / W, 450), [('caja', ADBOX, 1.68)], dur_mov=0.9), GAB)   # "sale el mismo" (63.52)
-S[-1]['fuentes'] = ['facebook.com/ads/library: anuncio 985135284619460 (InnerBloom with olliepuddick)']
+toma('26', 61.84, 65.56, clip('985135284619460', 23.2, nombre='anuncio-video:985135284619460 s23 (Ollie hablando en su anuncio)'), GAB)   # "sale el mismo" (63.52)
 toma('27', 65.56, 68.20, Grafico(g_directo), GAB)
-toma('28', 68.20, 71.00, lienzo(panel(Image.open(f'{A}/cap/story.png').convert('RGB').crop((880, 880, 1620, 1275)), y=200, alto_max=560), (0, 0, W), (20, 30, W - 40),
-                                 nombre='innerbloomcoffee.com.au/our-story: su historia'), GAB)                                            # "contando su historia"
+toma('28', 68.20, 71.00, clip('985135284619460', 29.0, nombre='anuncio-video:985135284619460 s29 (Ollie a camara)'), GAB)                                            # "contando su historia"
 toma('29', 71.00, 73.62, foto_toma(S_('Coffee.jpg'), nombre='innerbloomcoffee.com.au: dos latas'), GAB,
      T_(['AUTENTICIDAD'], 110, 100, t0=1.76, clave={'AUTENTICIDAD'}))                                                       # "La autenticidad" (72.76)
-toma('30', 73.62, 79.233, Serie([(0.00, clip('985135284619460', 21.9, nombre='anuncio-video:985135284619460 (Ollie a camara)')),
+toma('30', 73.62, 79.233, Serie([(0.00, clip('985135284619460', 1.0, nombre='anuncio-video:985135284619460 s1 (Ollie a camara)')),
                                  (3.86, foto_toma(S_('Innerbloom6pk.jpg'), (0, 300, 2000, 2400), nombre='innerbloomcoffee.com.au: latas'))]), GAB,
      entre(3.86, 9, T_(['Sígueme para más historias'], 110, 60, emo='👇')))
 # Gabriel cambia de lugar toma a toma (izquierda / derecha / centro)

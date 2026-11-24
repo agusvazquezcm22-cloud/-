@@ -1,0 +1,54 @@
+  1.50s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | hook: segundo corte de bomberos
+  2.76s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | estanteria de tienda
+  3.88s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | +300 tiendas
+  4.38s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | llega a 300
+  4.72s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | incendio
+  7.56s transicion 19.7 dB bajo la voz ( -21.2 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | capitulo: Ollie
+  8.40s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | bomberos de Nueva Zelanda
+  9.40s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | bombero equipandose
+ 11.68s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | madrugadas
+ 12.56s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | cafe
+ 14.64s transicion 20.8 dB bajo la voz ( -22.3 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | el mar
+ 16.40s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | piscina
+ 18.26s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | tomando su cafe
+ 21.26s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | Estados Unidos
+ 23.36s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | cold brew
+ 26.16s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: algo mas
+ 26.86s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | +
+ 28.41s glitch     19.7 dB bajo la voz ( -21.2 dBFS)  Fast Glitch 1.mp3 | ?
+ 29.56s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (13).wav | golpe clave 1 de 2: asi nacio Innerbloom
+ 31.26s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (13).wav | recuadro: 15,4 g
+ 32.86s transicion 19.7 dB bajo la voz ( -21.2 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | el mercado
+ 34.86s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | Foodpreneur: 300 tiendas
+ 36.10s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | recuadro: 300 tiendas
+ 38.10s transicion 20.8 dB bajo la voz ( -22.3 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | el problema
+ 40.88s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: la plata
+ 41.84s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | tiendas
+ 42.92s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | entra
+ 44.20s glitch     19.7 dB bajo la voz ( -21.2 dBFS)  Fast Glitch 1.mp3 | sale
+ 45.38s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (1).wav | recuadro: perdio tiendas
+ 46.60s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: tiendas
+ 47.38s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | nuevas
+ 48.46s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot)_2.wav | las que ya tenia
+ 49.34s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | camion de bomberos
+ 50.90s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | bombero se saca el casco
+ 54.30s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | su marca
+ 55.42s transicion 19.7 dB bajo la voz ( -21.2 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | vender por internet
+ 59.98s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (10).wav | recuadro: US$1 M
+ 59.98s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | contador
+ 60.58s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | llega al millon
+ 61.84s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | Ollie en su anuncio
+ 65.56s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: directo
+ 66.30s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | flecha
+ 67.40s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | control
+ 68.20s transicion 20.8 dB bajo la voz ( -22.3 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | Ollie a camara
+ 72.76s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (7).wav | golpe clave 2 de 2: autenticidad
+ 73.62s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | Ollie a camara
+ 77.48s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | sigueme
+
+Sonidos: 47 en 79.2 s · archivos distintos: 16 (todos del paquete de Naza)
+Veces que se usa cada archivo: Granular Combo (13).wav x21, camera shutter sfx (1).mp3 x6, slow woosh.mp3 x3, Momo WOOSH 3.mp3 x3, Mini list (one shot).wav x3, Magnetic, Button (7).wav x3, Countdown, List, Numbers (5).wav x2, Coin Flip (Spin, Rotation) (1).wav x2, Fast Glitch 1.mp3 x2, Hit Impact (No FX) (4).wav x2, Magnetic, Button (13).wav x2, Mini list down _1.wav x2, Mini list down _2.wav x1, Granular, Button, Select (1).wav x1, Mini list (one shot)_2.wav x1, Magnetic, Button (10).wav x1
+Voz: -14.1 LUFS, pico -1.5 dBFS
+Pico de toda la pista de efectos: -20.5 dBFS (19.0 dB bajo el pico de la voz)
+Mezcla final: -14.1 LUFS, pico -1.5 dBFS
+Tonos sostenidos (pitidos) entre 300 Hz y 6 kHz: ninguno
