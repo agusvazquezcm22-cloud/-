@@ -230,11 +230,11 @@ def tarjeta_nota(png, y0, y1, medio, fondo, sigma=34, ytop=150, ybot=730, x0=36,
 FONDO_A = Image.open(f'{A}/press/ipro_609704.jpg').convert('RGB')                     # mano con una gomita (sin logo)
 FONDO_B = Image.open(f'{A}/press/ipro_609707.jpg').convert('RGB')
 FONDO_C = Image.open(f'{A}/prod/hi/p01.webp').convert('RGB')
-N_FT, cNFT = tarjeta_nota(f'{A}/capm/fb_t.png', 178, 322, 'Forbes Argentina', FONDO_A, sigma=40)
-N_FE, cNFE = tarjeta_nota(f'{A}/capm/fb_emb.png', 165, 328, 'Forbes Argentina', FONDO_C)
-N_IM, cNIM = tarjeta_nota(f'{A}/capm/ip_mer.png', 160, 334, 'iProfesional', FONDO_A, sigma=40)
+N_FT, cNFT = tarjeta_nota(f'{A}/capm/fb_t.png', 165, 258, 'Forbes Argentina', FONDO_A, sigma=40)
+N_FE, cNFE = tarjeta_nota(f'{A}/capm/fb_emb.png', 170, 308, 'Forbes Argentina', FONDO_C)
+N_IM, cNIM = tarjeta_nota(f'{A}/capm/ip_mer.png', 188, 332, 'iProfesional', FONDO_A, sigma=40)
 N_IP, cNIP = tarjeta_nota(f'{A}/capm/ip_pref.png', 186, 334, 'iProfesional', FONDO_B)
-N_IC, cNIC = tarjeta_nota(f'{A}/capm/ip_cin.png', 150, 330, 'iProfesional', FONDO_C)
+N_IC, cNIC = tarjeta_nota(f'{A}/capm/ip_cin.png', 188, 332, 'iProfesional', FONDO_C)
 VISTA = ((0, 0, W), (16, 28, W - 32))                                                # empuje leve
 
 
