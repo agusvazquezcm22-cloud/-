@@ -360,10 +360,10 @@ toma('05', 8.70, 11.26, Nota(f'{EP}/ent_bil.png', (cen(F_BIL)[0], cen(F_BIL)[1],
 toma('06', 11.26, 12.92, seg(L['papa'], 2.0, 'creador de Liquid I.V. (papa)'), GAB)
 toma('07', 12.92, 15.00, seg(L['rosa'], 1.0, 'creadora preparando Liquid I.V.'), GAB)
 usar(EN + ' (one-to-one relationship)')
-toma('08', 15.00, 18.66, Serie([(0.00, seg('1667569918286485', 0.6, 'clienta mostrando su Liquid I.V.')),               # "con los que hablan uno a uno"
+toma('08', 15.00, 18.66, Serie([(0.00, seg('1094155246768851', 2.4, 'sobre de Liquid I.V. en la botella')),               # "con los que hablan uno a uno"
                                 (1.04, seg('1089803047221823', 1.6, 'clienta tomando Liquid I.V.')),                            # "les cuentan ideas en las que estan trabajando"
                                 (2.24, seg('1482949820426574', 1.6, 'cliente sonriendo'))]), GAB)                       # "y les preguntan que tienen en la cabeza"
-toma('09', 18.66, 20.98, seg('1755322075758439', 1.8, 'anuncio de Liquid I.V. (Prime Time for Hydration)'), GAB)       # "sus mejores ideas de marketing"
+toma('09', 18.66, 20.98, seg('2019305582089395', 0.6, 'anuncio de Liquid I.V. con un equipo de carreras'), GAB)       # "sus mejores ideas de marketing"
 toma('10', 20.98, 22.08, Grafico(g_ideas(CHIP_L)), GAB)
 toma('11', 22.08, 23.42, seg(B1, 89.0, 'creadora de Bloom con la lata, afuera'), GAB, logo_arriba(CHIP_B, 0.3, 215))
 toma('12', 23.42, 24.40, bl('sparkling-energy_1'), GAB)                                                                  # "bebidas energeticas"
