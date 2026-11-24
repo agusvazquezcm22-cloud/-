@@ -45,12 +45,12 @@ class ClipZona(Clip):
         fr[y:y + h, x:x + w] = cv2.GaussianBlur(fr[y:y + h, x:x + w], (0, 0), 24); return fr, tr
 
 
-def borroso(i, ss, nombre, **k):
-    usar(nombre); return ClipBorroso(ad(i, 'mp4'), ss, **k)
+def borroso(i, ss, **k):
+    usar('anuncio-video:' + i); return ClipBorroso(ad(i, 'mp4'), ss, **k)
 
 
 DAN = dict(recorte=(1920, 680, 0, 200), entero=270)                       # video corporativo de danone.com (16:9 con franjas negras)
-dan = lambda ss, nombre: clip('danone_corp', ss, nombre='danone.com: video corporativo (' + nombre + ')', **DAN)
+dan = lambda ss, escena, **k: clip('danone_corp', ss, nombre='danone.com: video corporativo, escena ' + escena, **dict(DAN, **k))
 
 
 def panel(im, y=300, ancho=W, sigma=40):
@@ -88,113 +88,115 @@ PER = _persona()
 hlogo = lambda w: HUEL_LOGO.resize((w, int(HUEL_LOGO.height * w / HUEL_LOGO.width)), Image.LANCZOS)
 
 
-def g_plato(tl, T):                  # "si comes menos, cada comida tiene que valer por dos" (10.56-13.78)
+# Coordinador (revision del 41): "graficos chicos con mucho blanco" -> todo llena y 170-730, figuras >= 200 px, textos >= 60 px.
+def g_plato(tl, T):                  # "si comes menos (12.08), cada comida tiene que valer por dos (13.52)" (10.56-13.78)
     im = fondo_grafico(); d = ImageDraw.Draw(im)
-    r = lerp(250, 165, ease((tl - 1.26) / 0.5)) * pop(tl, 0.05)
+    r = lerp(270, 190, ease((tl - 1.52) / 0.5)) * pop(tl, 0.05)        # el plato se achica en "comes menos"
     if r > 0:
-        d.ellipse([540 - r, 440 - r, 540 + r, 440 + r], fill=(255, 255, 255), outline=TINTA, width=8)
-        d.ellipse([540 - r * .72, 440 - r * .72, 540 + r * .72, 440 + r * .72], outline=(210, 210, 206), width=5)
-    if tl > 1.3: pegar(im, pastilla('Comes menos', 42, fondo=GRIS), 540, 205, pop(tl, 1.3))
-    if tl > 1.9: pegar(im, pastilla('Proteína', 50, fondo=VERDE_OSC), 330, 600, lerp(0.7, 1.1, pop(tl, 1.9)))
-    if tl > 2.2: pegar(im, pastilla('Nutrientes', 50, fondo=VERDE_OSC), 760, 600, lerp(0.7, 1.1, pop(tl, 2.2)))
-    if tl > 2.96: pegar(im, _texto('x2', 150, ROJO), 540, 440, lerp(0.6, 1, pop(tl, 2.96)))
+        d.ellipse([540 - r, 450 - r, 540 + r, 450 + r], fill=(255, 255, 255), outline=TINTA, width=12)
+        d.ellipse([540 - r * .74, 450 - r * .74, 540 + r * .74, 450 + r * .74], outline=(205, 205, 200), width=8)
+    if 1.52 < tl < 2.0: pegar(im, pastilla('Comes menos', 64, fondo=GRIS), 540, 450, pop(tl, 1.52))
+    if tl > 2.0: pegar(im, pastilla('Proteína', 66, fondo=VERDE_OSC), 540, 380, lerp(0.7, 1, pop(tl, 2.0)))
+    if tl > 2.3: pegar(im, pastilla('Nutrientes', 66, fondo=VERDE_OSC), 540, 520, lerp(0.7, 1, pop(tl, 2.3)))
+    if tl > 2.96: pegar(im, _texto('x2', 200, ROJO), 900, 270, lerp(0.6, 1, pop(tl, 2.96)))
     return im
 
 
-def g_complicado(tl, T):             # "sus planes de alimentacion eran demasiado complicados" (22.42-25.90)
+def g_complicado(tl, T):             # "porque sus planes de alimentacion eran demasiado complicados" (22.42-25.90)
     im = fondo_grafico(); d = ImageDraw.Draw(im); rnd = np.random.default_rng(3)
-    for k in range(9):
-        t0 = 0.05 + k * 0.16
+    for k in range(6):
+        t0 = 0.05 + k * 0.2
         if tl < t0: continue
-        x, y = 170 + (k % 3) * 370, 260 + (k // 3) * 150; ang = rnd.uniform(-14, 14)
-        hoja = _caja(['Plan ' + str(k + 1)], 250, 110, (250, 236, 200) if k % 2 else (236, 236, 232), 36)
+        x, y = 200 + (k % 3) * 340, 300 + (k // 3) * 250; ang = rnd.uniform(-12, 12)
+        hoja = Image.new('RGBA', (290, 220), (0, 0, 0, 0)); dh = ImageDraw.Draw(hoja)
+        dh.rounded_rectangle([0, 0, 289, 219], radius=22, fill=((250, 236, 200) if k % 2 else (236, 236, 232)) + (255,), outline=TINTA + (255,), width=7)
+        dh.text((145, 52), 'Plan ' + str(k + 1), font=font(60), fill=TINTA + (255,), anchor='mm')
+        for q in range(3): dh.rounded_rectangle([34, 104 + q * 34, 256 - q * 40, 120 + q * 34], radius=8, fill=(190, 190, 186, 255))
         pegar(im, hoja.rotate(ang, expand=True, resample=Image.BICUBIC), x, y, pop(tl, t0))
-    if tl > 1.5:
-        p = ease((tl - 1.5) / 0.6)
-        for k in range(5):
-            a = (150 + k * 190, 230); b = (930 - k * 170, 610)
-            d.line([a, (a[0] + (b[0] - a[0]) * p, a[1] + (b[1] - a[1]) * p)], fill=ROJO, width=7)
-    if tl > 2.86: pegar(im, pastilla('Demasiado complicado', 52, fondo=ROJO), 540, 700, lerp(0.8, 1, pop(tl, 2.86)))
+    if tl > 1.4:
+        p = ease((tl - 1.4) / 0.6)
+        for a, b in (((120, 200), (960, 680)), ((960, 200), (120, 680)), ((540, 180), (540, 700)), ((100, 440), (980, 440))):
+            d.line([a, (a[0] + (b[0] - a[0]) * p, a[1] + (b[1] - a[1]) * p)], fill=ROJO, width=12)
+    if tl > 2.86: pegar(im, pastilla('Demasiado complicado', 72, fondo=ROJO), 540, 440, lerp(0.8, 1, pop(tl, 2.86)))
     return im
 
 
-TARROS = [_tarro(c) for c in ((236, 196, 120), (180, 210, 230), (214, 120, 110), (150, 200, 150))]
-BOLSA = None
+TARROS = [_tarro(c, 230) for c in ((236, 196, 120), (180, 210, 230), (214, 120, 110), (150, 200, 150))]
 
 
-def _bolsa(w=260):
-    c = Image.new('RGBA', (w, int(w * 1.3)), (0, 0, 0, 0)); d = ImageDraw.Draw(c); W_, H_ = c.size
+def _bolsa(w=330):
+    c = Image.new('RGBA', (w, int(w * 1.35)), (0, 0, 0, 0)); d = ImageDraw.Draw(c); W_, H_ = c.size
     d.polygon([(W_ * .12, H_ * .1), (W_ * .88, H_ * .1), (W_ * .95, H_ * .98), (W_ * .05, H_ * .98)], fill=(17, 17, 20, 255))
     d.rectangle([W_ * .12, H_ * .02, W_ * .88, H_ * .12], fill=(40, 40, 44, 255))
-    d.rounded_rectangle([W_ * .22, H_ * .42, W_ * .78, H_ * .62], radius=10, fill=(255, 255, 255, 255))
-    d.text((W_ / 2, H_ * .52), 'Todo en 1', font=font(int(w * .11)), fill=TINTA + (255,), anchor='mm'); return c
-BOLSA = _bolsa(380)
+    d.rounded_rectangle([W_ * .16, H_ * .40, W_ * .84, H_ * .64], radius=12, fill=(255, 255, 255, 255))
+    d.text((W_ / 2, H_ * .52), 'Todo en 1', font=font(62), fill=TINTA + (255,), anchor='mm'); return c
+BOLSA = _bolsa()
 
 
-def g_uno(tl, T):                    # "todos los nutrientes en un solo producto" (27.40-29.72)
+def g_uno(tl, T):                    # 25.90-29.72: "se arriesgo por lo simple (27.42), todos los nutrientes (27.92) en un solo producto (29.38)"
     im = fondo_grafico()
-    p = ease((tl - 0.7) / 0.55)
+    p = ease((tl - 2.4) / 0.5)
     for k, t in enumerate(TARROS):
-        x0, y0 = 170 + k * 247, 330
-        if p < 1: pegar(im, t, lerp(x0, 540, p), lerp(y0, 440, p), pop(tl, 0.05 + k * 0.1) * lerp(1, 0.2, p))
-    if tl > 1.1: pegar(im, BOLSA, 540, 440, lerp(0.6, 1, pop(tl, 1.1)))
-    if tl > 1.6: pegar(im, pastilla('Un solo producto', 50, fondo=VERDE_OSC), 540, 700, pop(tl, 1.6))
+        x0 = 150 + k * 260
+        if p < 1: pegar(im, t, lerp(x0, 540, p), lerp(400, 450, p), pop(tl, 0.05 + k * 0.15) * lerp(1, 0.3, p))
+    if 1.4 < tl < 2.0: pegar(im, pastilla('Por lo simple', 66, fondo=TINTA), 540, 660, pop(tl, 1.4))
+    if 2.0 < tl < 2.75: pegar(im, pastilla('Todos los nutrientes', 64, fondo=GRIS), 540, 660, pop(tl, 2.0))
+    if tl > 2.7: pegar(im, BOLSA, 540, 420, lerp(0.6, 1, pop(tl, 2.7)))
+    if tl > 3.3: pegar(im, pastilla('Un solo producto', 66, fondo=VERDE_OSC), 540, 690, pop(tl, 3.3))
     return im
 
 
-def _pieza(txt, col, tam=(380, 200), lado='d'):
-    w, h = tam; c = Image.new('RGBA', (w + 60, h), (0, 0, 0, 0)); d = ImageDraw.Draw(c)
+def _pieza(txt, col, w=430, h=260, lado='d'):
+    c = Image.new('RGBA', (w + 70, h), (0, 0, 0, 0)); d = ImageDraw.Draw(c)
     if lado == 'd':
-        d.rounded_rectangle([0, 0, w, h - 1], radius=26, fill=col + (255,), outline=TINTA + (255,), width=6)
-        d.ellipse([w - 34, h / 2 - 38, w + 42, h / 2 + 38], fill=col + (255,), outline=TINTA + (255,), width=6)
-        d.rectangle([w - 40, h / 2 - 32, w - 3, h / 2 + 32], fill=col + (255,))
-        d.text((w / 2, h / 2), txt, font=font(44), fill=TINTA + (255,), anchor='mm')
+        d.rounded_rectangle([0, 0, w, h - 1], radius=30, fill=col + (255,), outline=TINTA + (255,), width=8)
+        d.ellipse([w - 40, h / 2 - 48, w + 52, h / 2 + 48], fill=col + (255,), outline=TINTA + (255,), width=8)
+        d.rectangle([w - 46, h / 2 - 40, w - 4, h / 2 + 40], fill=col + (255,))
+        for k, t in enumerate(txt): d.text((w / 2, h / 2 + (k - (len(txt) - 1) / 2) * 70), t, font=font(62), fill=TINTA + (255,), anchor='mm')
     else:
-        d.rounded_rectangle([60, 0, w + 59, h - 1], radius=26, fill=col + (255,), outline=TINTA + (255,), width=6)
-        d.ellipse([60 - 38, h / 2 - 38, 60 + 38, h / 2 + 38], fill=(250, 250, 248, 255), outline=TINTA + (255,), width=6)
-        d.text((60 + w / 2 + 14, h / 2), txt, font=font(44), fill=TINTA + (255,), anchor='mm')
+        d.rounded_rectangle([70, 0, w + 69, h - 1], radius=30, fill=col + (255,), outline=TINTA + (255,), width=8)
+        d.ellipse([70 - 48, h / 2 - 48, 70 + 48, h / 2 + 48], fill=(250, 250, 248, 255), outline=TINTA + (255,), width=8)
+        for k, t in enumerate(txt): d.text((70 + w / 2 + 16, h / 2 + (k - (len(txt) - 1) / 2) * 70), t, font=font(62), fill=TINTA + (255,), anchor='mm')
     return c
-P_SUPER, P_DIRECTA = _pieza('Supermercados', (226, 236, 250)), _pieza('Venta directa', (212, 240, 224), lado='i')
+P_SUPER, P_DIRECTA = _pieza(['Super-', 'mercados'], (226, 236, 250)), _pieza(['Venta', 'directa'], (212, 240, 224), lado='i')
 
 
 def g_rompecabezas(tl, T):           # "Y era justo lo que le faltaba a Danone" (46.62-48.32)
     im = fondo_grafico(); p = ease((tl - 0.6) / 0.5)
-    pegar(im, P_SUPER, lerp(250, 345, p), 440, pop(tl, 0.05)); pegar(im, P_DIRECTA, lerp(840, 735, p), 440, pop(tl, 0.2))
-    pegar(im, pastilla('Danone', 40, fondo=(0, 84, 166)), 300, 290, pop(tl, 0.1)); pegar(im, pastilla('Huel', 40, fondo=TINTA), 790, 290, pop(tl, 0.25))
-    if tl > 1.1: pegar(im, _texto('✓', 110, VERDE_OSC), 540, 640, pop(tl, 1.1))
+    pegar(im, P_SUPER, lerp(230, 300, p), 470, pop(tl, 0.05)); pegar(im, P_DIRECTA, lerp(850, 780, p), 470, pop(tl, 0.2))
+    pegar(im, pastilla('Danone', 64, fondo=(0, 84, 166)), 270, 250, pop(tl, 0.1)); pegar(im, pastilla('Huel', 64, fondo=TINTA), 810, 250, pop(tl, 0.25))
+    if tl > 1.1: pegar(im, _texto('✓', 150, VERDE_OSC), 540, 680, pop(tl, 1.1))
     return im
 
 
-ETIQ = None
-
-
-def _etiqueta(w=300, h=150):
+def _etiqueta(w=380, h=230):
     c = Image.new('RGBA', (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(c)
-    d.rounded_rectangle([0, 0, w - 1, h - 1], radius=26, fill=(255, 255, 255, 255), outline=TINTA + (255,), width=6)
-    for x in range(30, w - 30, 30): d.line([(x, h / 2), (x + 15, h / 2)], fill=(190, 190, 186, 255), width=5)
+    d.rounded_rectangle([0, 0, w - 1, h - 1], radius=30, fill=(255, 255, 255, 255), outline=TINTA + (255,), width=8)
+    for x in range(40, w - 40, 40): d.line([(x, h / 2), (x + 20, h / 2)], fill=(190, 190, 186, 255), width=8)
     return c
 ETIQ = _etiqueta()
+PER_G = _persona(tam=300)
 
 
-def g_cliente(tl, T):                # "nace un cliente nuevo que todavia no tiene una marca" + "la primera marca que lo identifica se lo lleva"
-    im = fondo_grafico(); d = ImageDraw.Draw(im)
-    pegar(im, PER, 300, 420, pop(tl, 0.05)); pegar(im, _texto('?', 120, ROJO), 300, 250, pop(tl, 0.3))
-    pegar(im, ETIQ, 760, 420, pop(tl, 0.5))
-    if tl < 2.6 and tl > 0.9: pegar(im, pastilla('Cliente nuevo, sin marca', 44, fondo=TINTA), 540, 680, pop(tl, 0.9))
+def g_cliente(tl, T):                # "nace un cliente nuevo (52.12) que todavia no tiene una marca (53.48)" + "la primera marca que lo identifica (54.74) se lo lleva (55.96)"
+    im = fondo_grafico()
+    pegar(im, PER_G, 280, 470, pop(tl, 0.05)); pegar(im, _texto('?', 190, ROJO), 280, 240, pop(tl, 0.3))
+    pegar(im, ETIQ, 780, 430, pop(tl, 0.5))
+    if 0.9 < tl < 2.6: pegar(im, pastilla('Sin marca', 66, fondo=TINTA), 780, 640, pop(tl, 0.9))
     if tl > 3.24:                                                          # 54.28 "primera marca"
-        pegar(im, hlogo(230), 760, 420, lerp(0.6, 1, pop(tl, 3.24)))
-        pegar(im, pastilla('Se lo lleva', 50, fondo=VERDE_OSC), 540, 680, pop(tl, 3.6))
+        pegar(im, hlogo(300), 780, 430, lerp(0.6, 1, pop(tl, 3.24)))
+        pegar(im, pastilla('Se lo lleva', 66, fondo=VERDE_OSC), 780, 640, pop(tl, 3.6))
     return im
 
 
-def g_pasos(tl, T):                  # "la marca que sepa leer esos cambios (63.96) y posicionar su producto a tiempo (65.72) ... la delantera (67.34)"
+def g_pasos(tl, T):                  # "la marca que sepa leer esos cambios (63.96) ... a tiempo (65.72) ... la delantera (67.34)"
     im = fondo_grafico(); d = ImageDraw.Draw(im)
-    pasos = [(['Cambia', 'el hábito'], 0.05, (236, 236, 232)), (['La marca', 'lo lee'], 1.34, (250, 236, 200)), (['Toma la', 'delantera'], 4.72, (212, 240, 224))]
+    pasos = [(['Cambia el hábito'], 0.05, (236, 236, 232)), (['La marca lo lee'], 1.34, (250, 236, 200)), (['Toma la delantera'], 4.72, (212, 240, 224))]
     for i, (s, t0, col) in enumerate(pasos):
         if tl < t0: continue
-        x = 190 + i * 350
-        if i: flecha_recta(d, (x - 350 + 150, 440), (x - 160, 440), ease((tl - t0) / 0.18))
-        pegar(im, _caja(s, 290, 160, col, 44), x, 440, lerp(0.86, 1, pop(tl, t0)))
+        y = 250 + i * 200
+        if i: flecha_recta(d, (540, y - 200 + 70), (540, y - 72), ease((tl - t0) / 0.18))
+        pegar(im, _caja(s, 760, 140, col, 66), 540, y, lerp(0.86, 1, pop(tl, t0)))
     return im
 
 
@@ -235,48 +237,85 @@ F_4M = P2(_une(BLKJ['frases']['4,000,000 satisfied customers']))
 F_DTC = P2(DANJ['frases']['strong digital direct-to-consumer sales'][0])
 OZ = panel(Image.open(f'{A}/cap/ozempic.jpg').convert('RGB'), y=330)
 
+
+# ------------------------------------------------------------ notas como tarjeta (coordinador: "nada de paginas enteras de texto chico")
+# Capturas a ancho de celular (390 px CSS, 3 px por px CSS, pagina_movil.js con FRASES medidas en el mismo momento).
+M = lambda n: json.load(open(f'{A}/cap/{n}.json'))
+
+
+def _tapar3(n):
+    c = Image.open(f'{A}/cap/{n}.png').convert('RGB'); d = ImageDraw.Draw(c)
+    for r in (M(n).get('frases_todas', {}).get('Huel') or []):
+        x, y, w, h = [v * 3 for v in r[0]]; d.rounded_rectangle([x - 6, y - 3, x + w + 6, y + h + 3], radius=10, fill=TINTA)
+    return c
+
+
+def tarjeta_nota(fondo, piezas, y0=170, y1=730, sigma=34, etiqueta=None):
+    """fondo: PIL real (se desenfoca y oscurece). piezas: [(PIL captura, caja px, ancho en pantalla)].
+    Devuelve (lienzo PIL 1080x1920, mapeos) donde mapeos[i](rect_css) -> rect en pantalla (captura 3x)."""
+    bg = Image.fromarray(cubrir(fondo)).filter(ImageFilter.GaussianBlur(sigma)); bg = Image.fromarray((np.asarray(bg) * 0.6).astype(np.uint8))
+    hs = [(c.crop(b), b, w) for c, b, w in piezas]; alto = sum(int(cc.height * w / cc.width) for cc, b, w in hs) + 24 * (len(hs) - 1) + 60
+    if etiqueta is not None: alto += etiqueta.height + 24
+    y = y0 + max(0, (y1 - y0 - alto) // 2); cw = max(w for _, _, w in hs) + 60
+    d = ImageDraw.Draw(bg); d.rounded_rectangle([(W - cw) / 2, y, (W + cw) / 2, y + alto], radius=34, fill=(255, 255, 255))
+    y += 30; mapeos = []
+    if etiqueta is not None: bg.paste(etiqueta, (int((W - etiqueta.width) / 2), y), etiqueta); y += etiqueta.height + 24
+    for cc, b, w in hs:
+        k = w / cc.width; im = cc.resize((w, int(cc.height * k)), Image.LANCZOS); x = (W - w) // 2; bg.paste(im, (x, y))
+        mapeos.append(lambda r, x=x, y=y, k=k, b=b: (x + (r[0] * 3 - b[0]) * k, y + (r[1] * 3 - b[1]) * k, r[2] * 3 * k, r[3] * 3 * k))
+        y += im.height + 24
+    return bg, mapeos
+
+
+_rte = _tapar3('m_rte')
+NOTA_RTE, MAP_RTE = tarjeta_nota(_rte.crop((0, 1065, 1170, 1620)), [(_rte, (420, 0, 760, 120), 300), (_rte, (0, 480, 1170, 760), 1000)], y0=150, y1=560)
+F_BILLION = MAP_RTE[1](M('m_rte')['frases']['close to €1 billion'][0])
+_fd = _tapar3('m_fd')
+NOTA_FD, MAP_FD = tarjeta_nota(Image.open(f'{A}/cap/bg_dan16.jpg').convert('RGB').crop((0, 200, 1920, 880)),
+                               [(_fd, (40, 420, 1170, 690), 760), (_fd, (30, 6840, 1155, 7125), 1020)], etiqueta=pastilla('Food Dive', 46, fondo=(0, 92, 120)))
+F_GLP = [MAP_FD[1](r) for r in M('m_fd')['frases']['consumers on GLP-1s, who have suppressed appetites but still need to ensure they receive their complete nutrients']]
+_bk = Image.open(f'{A}/cap/m_black.png').convert('RGB')
+NOTA_BK, MAP_BK = tarjeta_nota(Image.open(f'{A}/cap/bg_glass.jpg').convert('RGB'), [(_bk, (30, 1515, 1140, 1635), 1000), (_bk, (30, 1644, 900, 1800), 760)],
+                               y0=170, y1=560, etiqueta=hlogo(300))
+F_4M = MAP_BK[0](M('m_black')['frases']['4,000,000 satisfied customers'][0])
+
 # ------------------------------------------------------------ tomas
-toma('01', 0.00, 2.04, Serie([(0.00, dan(27.0, 'gente comiendo')), (1.02, dan(28.3, 'desayuno'))]), GAB)              # "millones de personas empezaban a comer menos"
+toma('01', 0.00, 2.04, Serie([(0.00, dan(26.8, '26.7')), (1.02, dan(28.5, '28.5', vel=0.75))]), GAB)              # "millones de personas empezaban a comer menos"
 toma('02', 2.04, 3.58, lienzo(OZ, (0, 0, W), (120, 210, W - 240), nombre='commons.wikimedia.org: Ozempic (foto)'), GAB)  # "por medicamentos como Ozempic"
-toma('03', 3.58, 4.54, dan(0.4, 'heladera con yogures Danone'), GAB)                                                     # "Danone, la de los yogures"
-toma('04', 4.54, 7.18, borroso('1780988933101495', 0.4, 'anuncio-video:1780988933101495 (Huel, desenfocado)'), GAB,     # "buscaba una marca que tuviera..."
-     T_(['¿Cuál?'], 300, 90, t0=0.5))
-toma('05', 7.18, 10.56, lienzo(RTE, (0, 40, 1640), (40, 60, 1560), [('caja', F_BILLION, 1.90)], nombre='rte.ie: Danone compra por casi €1.000 M (Huel tapado)'), GAB,
-     contador_toma(1000, 1.98, cy=640, prefijo='Casi €', sufijo=' M', tam=110))                                         # "acordo pagar mil millones de euros"
+toma('03', 3.58, 4.54, dan(0.3, '0.0'), GAB)                                                                            # "Danone, la de los yogures" (heladera con Activia y Danone)
+toma('04', 4.54, 7.18, borroso('1595225641819088', 1.0), GAB, T_(['¿Cuál?'], 300, 90, t0=0.5))                         # "buscaba una marca..." (Huel desenfocado)
+toma('05', 7.18, 10.56, lienzo(NOTA_RTE, (0, 0, W), (20, 30, W - 40), [('caja', F_BILLION, 1.90)], nombre='rte.ie: Danone compra por casi €1.000 M (Huel tapado)'), GAB,
+     contador_toma(1000, 1.98, cy=640, prefijo='Casi €', sufijo=' M', tam=100))
 toma('06', 10.56, 13.78, Grafico(g_plato), GAB)
-toma('07', 13.78, 15.00, dan(53.0, 'linea de produccion'), GAB)                                                         # "Su director general tenia claro..."
-toma('08', 15.00, 18.44, lienzo(FD, (120, 4180, 1360), (150, 4200, 1300), [('sub', r, 0.66) for r in F_GLP], nombre='fooddive.com: consumidores de GLP-1 (Huel tapado)'), GAB)
-toma('09', 18.44, 20.38, borroso('1595225641819088', 1.0, 'anuncio-video:1595225641819088 (Huel, desenfocado)'), GAB)  # "no es una marca que salio de la nada"
-usar('anuncio-video:2143082343178303 (fundador de Huel; rotulo tapado)')
-toma('10', 20.38, 22.42, ClipZona(ad('2143082343178303', 'mp4'), 5.8, zona=(0, 860, 860, 420)), GAB,                   # "su fundador ya habia perdido 80 mil libras"
-     varios(contador_toma(80000, 1.08, cy=470, prefijo='-£', tam=110), entre(1.1, 9, lambda pil, tl, T: pegar(pil, pastilla('Fuente: The Grocer', 34, fondo=(236, 236, 232), color=GRIS, pad=(30, 16)), 540, 600))))
+toma('07', 13.78, 15.00, dan(10.0, '9.7'), GAB)                                                                         # "Su director general tenia claro..."
+toma('08', 15.00, 18.44, lienzo(NOTA_FD, (0, 0, W), (20, 30, W - 40), [('sub', r, 0.66) for r in F_GLP], nombre='fooddive.com: consumidores de GLP-1 (Huel tapado)'), GAB)
+toma('09', 18.44, 20.38, borroso('897943063070733', 22.0), GAB)                                                         # "no es una marca que salio de la nada"
+usar('anuncio-video:2143082343178303')
+toma('10', 20.38, 22.42, ClipZona(ad('2143082343178303', 'mp4'), 5.8, zona=(0, 860, 860, 420)), GAB,                   # el fundador (rotulo "Founder of Huel" tapado)
+     varios(contador_toma(80000, 1.08, cy=470, prefijo='-£', tam=110), entre(1.1, 9, lambda pil, tl, T: pegar(pil, pastilla('Fuente: The Grocer', 40, fondo=(236, 236, 232), color=GRIS, pad=(30, 16)), 540, 610))))
 toma('11', 22.42, 25.90, Grafico(g_complicado), GAB)
-toma('12', 25.90, 27.40, borroso('897943063070733', 22.0, 'anuncio-video:897943063070733 (Huel, desenfocado)'), GAB)    # "esta segunda vez se arriesgo por lo simple"
-toma('13', 27.40, 29.72, Grafico(g_uno), GAB)
-toma('14', 29.72, 30.62, Grafico(lambda tl, T: (lambda im: (pegar(im, hlogo(int(lerp(620, 700, ease(tl / 0.4)))), 540, 430, 1.0), im)[1])(fondo_grafico())), GAB)
+toma('13', 25.90, 29.72, Grafico(g_uno), GAB)
+toma('14', 29.72, 30.62, Grafico(lambda tl, T: (lambda im: (pegar(im, hlogo(int(lerp(760, 840, ease(tl / 0.4)))), 540, 450, 1.0), im)[1])(fondo_grafico())), GAB)
 S[-1]['fuentes'] = ['logo de huel.com']
-toma('15', 30.62, 32.74, clip('2143082343178303', 8.7, nombre='anuncio-video:2143082343178303 (s8.7: Black Edition en polvo)'), GAB)     # "comidas completas en polvo"
-toma('16', 32.74, 34.92, clip('3000851350254150', 21.2, nombre='anuncio-video:3000851350254150 (40 g de proteina)'), GAB)  # "con 40 gramos de proteina"
-toma('17', 34.92, 37.90, dan(17.2, 'Activia y Aqua en la planta'), GAB)            # "la estrategia de Danone iba mas alla"
-toma('18', 37.90, 40.88, Serie([(0.00, dan(53.8, 'cajas en la cinta')), (1.40, dan(14.3, 'vasos de yogur en la linea'))]), GAB)                # "Danone vende sobre todo en supermercados"
-toma('19', 40.88, 42.40, clip('1139302692155017', 25.4, nombre='anuncio-video:1139302692155017 (s25: "Huel shipped directly to your door")'), GAB)
-toma('20', 42.40, 43.76, lienzo(DANP, (400, 7050, 1240), (480, 7090, 1160), [('sub', F_DTC, 0.30)], nombre='danone.com: venta directa por internet'), GAB)   # "venta directa por internet"
-toma('21', 43.76, 46.62, lienzo(BLK, (640, 120, 1000), (700, 150, 940), [('caja', F_4M, 1.70)], nombre='uk.huel.com: 4.000.000 de clientes'), GAB,
-     contador_toma(4, 1.74, cy=640, prefijo='+', sufijo=' millones de clientes', tam=80))                              # "mas de 4 millones de clientes"
+toma('15', 30.62, 34.92, clip('3000851350254150', 19.0), GAB)                                                           # "comidas completas en polvo con 40 gramos de proteina" (vaso con "40g protein" desde 32.6)
+toma('17', 34.92, 37.90, Serie([(0.00, dan(14.5, '14.4')), (1.75, dan(16.6, '16.6'))]), GAB)                           # "la estrategia de Danone iba mas alla"
+toma('18', 37.90, 40.88, Serie([(0.00, dan(53.2, '53.2', vel=0.7)), (1.14, dan(17.8, '17.8', vel=0.7)), (2.42, dan(19.3, '19.2'))]), GAB)   # "Danone vende sobre todo en supermercados"
+toma('19', 40.88, 43.76, clip('1139302692155017', 25.0), GAB, T_(['Venta directa por internet'], 200, 62, t0=1.86))     # s25: "Huel shipped directly to your door"
+toma('21', 43.76, 46.62, lienzo(NOTA_BK, (0, 0, W), (20, 30, W - 40), [('caja', F_4M, 1.70)], nombre='uk.huel.com: 4.000.000 de clientes'), GAB,
+     contador_toma(4, 1.74, cy=640, prefijo='+', sufijo=' millones de clientes', tam=76))
 toma('22', 46.62, 48.32, Grafico(g_rompecabezas), GAB)
-toma('23', 48.32, 51.54, Serie([(0.00, dan(58.0, 'gente')), (1.74, dan(27.6, 'comer')), (2.28, dan(0.0, 'de noche')), (2.82, clip('1780988933101495', 3.8, nombre='anuncio-video:1780988933101495 (cuidarse)'))]), GAB,
+toma('23', 48.32, 51.54, Serie([(0.00, dan(57.75, '57.7', vel=0.65)), (1.74, dan(47.9, '47.8')), (2.28, dan(12.6, '12.4')), (2.82, dan(27.7, '27.6'))]), GAB,
      varios(entre(1.74, 2.28, T_(['Come'], 200, 64)), entre(2.28, 2.82, T_(['Duerme'], 200, 64)), entre(2.82, 9, T_(['Se cuida'], 200, 64))))  # come 50.06 / duerme 50.60 / se cuida 51.14
 toma('24', 51.54, 53.64, Grafico(g_cliente), GAB)
-toma('25', 53.64, 54.70, clip('1318473731360637', 1.0, nombre='anuncio-video:1318473731360637 (clienta con su shaker)'), GAB)
+toma('25', 53.64, 54.70, dan(122.9, '122.8'), GAB)
 toma('26', 54.70, 56.14, desfase(g_cliente, 3.16), GAB)
-toma('27', 56.14, 57.72, clip('1780988933101495', 16.0, nombre='anuncio-video:1780988933101495 (s16: el producto)'), GAB)  # "Huel no tuvo que cambiar su producto"
-toma('28', 57.72, 60.14, clip('1318473731360637', 9.0, nombre='anuncio-video:1318473731360637 (s9: su forma de comer)'), GAB)
-toma('29', 60.14, 62.62, Serie([(0.00, clip('1595225641819088', 30.0, nombre='anuncio-video:1595225641819088 (s30)')), (0.62, dan(29.4, 'tomando agua')),
-                                (1.24, clip('897943063070733', 1.0, nombre='anuncio-video:897943063070733 (s1)')), (1.86, dan(28.9, 'desayuno con cafe'))]), GAB)   # rafaga de habitos
+toma('27', 56.14, 57.72, clip('1547645686825388', 0.0, vel=0.8), GAB)                                                     # "Huel no tuvo que cambiar su producto" (la caja de prueba)
+toma('28', 57.72, 60.14, clip('1318473731360637', 9.0), GAB)                                                              # "la forma de comer de ese tipo de clientes"
+toma('29', 60.14, 62.62, Serie([(0.00, dan(29.35, '29.3')), (0.62, dan(61.1, '61.0')), (1.24, dan(65.0, '64.9')), (1.86, dan(54.7, '54.6'))]), GAB)   # rafaga de habitos
 toma('30', 62.62, 65.00, Grafico(g_pasos), GAB)
-toma('31', 65.00, 66.30, clip('1139302692155017', 12.4, nombre='anuncio-video:1139302692155017 (s12: la bolsa)'), GAB)
+toma('31', 65.00, 66.30, dan(127.75, '127.7', vel=0.77), GAB)
 toma('32', 66.30, 67.68, desfase(g_pasos, 3.68), GAB)
-toma('33', 67.68, 69.62, clip('1780988933101495', 10.0, nombre='anuncio-video:1780988933101495 (s10: tomando Huel)'), GAB)  # "Mandaselo a esa persona..."
+toma('33', 67.68, 69.62, clip('1780988933101495', 10.0), GAB)                                                             # "Mandaselo a esa persona..." (tomando Huel)
 toma('34', 69.62, 71.03, lienzo(PERFIL, (0, 0, W), (30, 40, W - 60), [('caja', R_SEGUIR, 0.25)], nombre='instagram.com/gabriel.growthp (perfil)'), GAB)  # "y sigueme"
 
 LUGARES = ['CI', 'CD', 'C']

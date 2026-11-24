@@ -17,7 +17,7 @@ shaker gratis se prueba con el anuncio en video de Huel "Free shaker with your f
 vacia): se usa su imagen original.
 Tiempos de la transcripcion del crudo (58,5 s).
 """
-import os, sys, json, math
+import os, sys, json, math, subprocess
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '_kit'))
 from verde_ayudas import *
 import verde_ayudas as _va
@@ -115,7 +115,7 @@ def _cupon(apagado=False):
 
 
 ETQ, ETQ_GRIS = _etiqueta('20% OFF'), _etiqueta('20% OFF', apagada=True)
-REGALO, PER, CAB = _regalo(300), _persona(230), _cabeza(560, 560)
+REGALO, PER, CAB = _regalo(380), _persona(300), _cabeza(600, 600)
 TARRO = _tarro()
 
 
@@ -123,31 +123,31 @@ def g_descuento(tl, T):              # "...darte el descuento que quieran (6.10)
     im = fondo_grafico(); d = ImageDraw.Draw(im)
     p = ease((tl - 0.92) / 0.35)                                                       # la etiqueta se corre y se achica
     k = lerp(0.6, 1.0, pop(tl, 0.0, 0.14)) * lerp(1.0, 0.62, p)
-    pegar(im, ETQ, lerp(540, 250, p), lerp(420, 430, p), k * lerp(1.0, 0.9, p))
+    pegar(im, ETQ, lerp(540, 250, p), lerp(440, 450, p), k * lerp(1.15, 1.25, p))
     if p < 0.3:                                                                         # contador 0 -> 20 % dentro de la etiqueta
         pass
-    if tl > 1.05: pegar(im, _texto('+', 150, TINTA), 540, 430, pop(tl, 1.05))
-    if tl > 1.25: pegar(im, REGALO, 830, 400, lerp(0.7, 1.0, pop(tl, 1.25, 0.22)))
-    if tl > 1.45: pegar(im, pastilla('Un regalo', 50, fondo=VERDE_OSC), 830, 640, pop(tl, 1.45))
+    if tl > 1.05: pegar(im, _texto('+', 200, TINTA), 545, 440, pop(tl, 1.05))
+    if tl > 1.25: pegar(im, REGALO, 830, 390, lerp(0.7, 1.0, pop(tl, 1.25, 0.22)))
+    if tl > 1.45: pegar(im, pastilla('Un regalo', 66, fondo=VERDE_OSC), 830, 660, pop(tl, 1.45))
     return im
 
 
 def g_cabeza(tl, T):                 # "...lo que pasa en la cabeza (9.50) de su cliente cuando ve uno (10.58)"
     im = fondo_grafico()
     pegar(im, CAB, 540, 440, lerp(0.9, 1, pop(tl, 0.0, 0.2)))
-    if tl > 1.10: pegar(im, ETQ.resize((330, 130), Image.LANCZOS), 520, 330, lerp(0.5, 1, pop(tl, 1.10, 0.15)))
+    if tl > 1.10: pegar(im, ETQ.resize((440, 172), Image.LANCZOS), 520, 320, lerp(0.5, 1, pop(tl, 1.10, 0.15)))
     return im
 
 
 def g_valemenos(tl, T):              # "...es un descuento (13.84). Solo le estas diciendo que tu producto realmente vale menos (16.22)"
     im = fondo_grafico(); d = ImageDraw.Draw(im)
-    pegar(im, TARRO, 320, 450, pop(tl, 0.0) * 1.2)
-    pegar(im, ETQ.resize((340, 134), Image.LANCZOS), 320, 230, pop(tl, 0.12))
+    pegar(im, TARRO, 300, 480, pop(tl, 0.0) * 1.6)
+    pegar(im, ETQ.resize((420, 165), Image.LANCZOS), 300, 230, pop(tl, 0.12))
     k = lerp(1.0, 0.45, ease((tl - 2.3) / 0.6))                                          # el tarro "vale menos": se achica
     if tl > 1.0:
-        pegar(im, TARRO, 780, 450 + (1 - k) * 140, pop(tl, 1.0) * k * 1.2)
+        pegar(im, TARRO, 760, 480 + (1 - k) * 180, pop(tl, 1.0) * k * 1.6)
         flecha_recta(d, (960, 260), (960, 600), ease((tl - 2.3) / 0.3))
-    if tl > 2.5: pegar(im, pastilla('Vale menos', 54, fondo=ROJO_), 790, 680, pop(tl, 2.5))
+    if tl > 2.5: pegar(im, pastilla('Vale menos', 70, fondo=ROJO_), 760, 690, pop(tl, 2.5))
     return im
 
 
@@ -161,8 +161,8 @@ def g_calendario(tl, T):             # "siempre va a esperar (18.30) a que vuelv
         x = 160 + i * 253; pegar(im, c, x, 340, pop(tl, 0.0 + i * 0.12))
         t0 = 0.45 + i * 0.32
         if tl > t0: pegar(im, ETQ.resize((200, 80), Image.LANCZOS), x + 20, 250, pop(tl, t0, 0.14))
-    pegar(im, PER, 260, 610, pop(tl, 0.3))
-    if tl > 0.65: pegar(im, pastilla('Esperando el próximo…', 48, fondo=TINTA), 650, 640, pop(tl, 0.65))
+    pegar(im, PER, 230, 600, pop(tl, 0.3))
+    if tl > 0.65: pegar(im, pastilla('Esperando el próximo…', 60, fondo=TINTA), 650, 640, pop(tl, 0.65))
     return im
 
 
@@ -170,7 +170,7 @@ def g_mal(tl, T):                    # "El problema es que es muy facil hacerlo 
     im = fondo_grafico()
     pegar(im, _regalo(340, (214, 48, 49)), 540, 410, lerp(0.85, 1, pop(tl, 0.0)))
     if tl > 0.5: pegar(im, _texto('!', 260, ROJO_), 800, 280, lerp(0.6, 1, pop(tl, 0.5, 0.14)))
-    if tl > 1.2: pegar(im, pastilla('Fácil hacerlo mal', 56, fondo=TINTA), 540, 650, pop(tl, 1.2))
+    if tl > 1.2: pegar(im, pastilla('Fácil hacerlo mal', 66, fondo=TINTA), 540, 650, pop(tl, 1.2))
     return im
 
 
@@ -179,23 +179,23 @@ def g_llavero(tl, T):                # "Mira Huel no te regala un llavero (32.84
     gris = tl > 2.05
     if tl > 1.10: pegar(im, _llavero(320, gris), 300, 420, pop(tl, 1.10))
     if tl > 1.60: pegar(im, _cupon(gris).resize((420, 224), Image.LANCZOS), 760, 430, pop(tl, 1.60))
-    if tl > 2.05: pegar(im, pastilla('No suma nada', 50, fondo=(120, 120, 116)), 540, 660, pop(tl, 2.05))
+    if tl > 2.05: pegar(im, pastilla('No suma nada', 62, fondo=(120, 120, 116)), 540, 660, pop(tl, 2.05))
     if tl < 1.10: pegar(im, _texto('¿Qué regala Huel?', 70, TINTA), 540, 400, pop(tl, 0.0))
     return im
 
 
 def g_ventas(tl, T):                 # "el dia que las ventas se frenan (39.70) la tentacion (40.12) ... Bajar el precio (41.52)"
     im = fondo_grafico(); d = ImageDraw.Draw(im)
-    pts = [(120, 640), (260, 560), (400, 470), (520, 420), (640, 410), (760, 408), (900, 406)]
+    pts = [(110, 700), (250, 590), (390, 460), (510, 380), (640, 362), (780, 356), (960, 352)]
     p = min(1, tl / 0.9); n = 1 + p * (len(pts) - 1)
     seg = [pts[int(i)] if i == int(i) else pts[int(i)] for i in range(int(n))]
-    for a, b in zip(pts[:int(n)], pts[1:int(n) + 1]): d.line([a, b], fill=VERDE_OSC if a[0] < 500 else (200, 120, 40), width=14)
-    d.line([(100, 660), (940, 660)], fill=TINTA, width=5); d.line([(100, 660), (100, 300)], fill=TINTA, width=5)
-    if 0.56 < tl < 0.98: pegar(im, pastilla('Las ventas se frenan', 44, fondo=(200, 120, 40)), 700, 330, pop(tl, 0.56))
+    for a, b in zip(pts[:int(n)], pts[1:int(n) + 1]): d.line([a, b], fill=VERDE_OSC if a[0] < 500 else (200, 120, 40), width=22)
+    d.line([(90, 720), (990, 720)], fill=TINTA, width=7); d.line([(90, 720), (90, 200)], fill=TINTA, width=7)
+    if 0.56 < tl < 0.98: pegar(im, pastilla('Las ventas se frenan', 64, fondo=(200, 120, 40)), 720, 250, pop(tl, 0.56))
     if tl > 0.98:
         z = ease((tl - 2.38) / 0.4)                                                    # zoom al boton en "Bajar el precio"
         ap = 1.0 if 2.9 < tl < 3.2 else 0.0
-        pegar(im, _boton(ap), lerp(540, 540, z), lerp(480, 470, z), lerp(0.7, 1.25, z) * pop(tl, 0.98, 0.2))
+        pegar(im, _boton(ap), 560, lerp(500, 450, z), lerp(1.05, 1.5, z) * pop(tl, 0.98, 0.2))
     return im
 
 
@@ -204,25 +204,46 @@ def _card_top(png):
     """Tarjeta de la Biblioteca (2 px por px CSS) recortada arriba del creativo, sobre el gris de la Biblioteca."""
     card = Image.open(png).convert('RGB'); k = 980 / card.width; card = card.resize((980, int(card.height * k)), Image.LANCZOS)
     c = Image.new('RGB', (W, H), (240, 242, 245)); c.paste(card, (50, 300)); return np.asarray(c), 2 * k
-ELC, fE = _card_top(f'{A}/cap/el_card_top.png')
 ELJ = json.load(open(f'{A}/cap/el_fbmeta.json'))['cards']['1571246460604433']['frases']
-cE = lambda r: (50 + r[0] * fE, 300 + r[1] * fE, r[2] * fE, r[3] * fE)
+
+
+def _panel_el():
+    """Tarjeta de Extra Life en grande: recorte (px de la captura, 2 px por px CSS) del encabezado y la frase, a 2,8x, como tarjeta
+    blanca sobre un cuadro desenfocado de un video de extra-life.cl (la frase queda con letras de mas de 45 px de alto)."""
+    x0, y0, x1, y1, k = 20, 392, 400, 562, 2.8
+    card = Image.open(f'{A}/cap/el_card_top.png').convert('RGB').crop((x0, y0, x1, y1)); card = card.resize((int((x1 - x0) * k), int((y1 - y0) * k)), Image.LANCZOS)
+    subprocess.run(['ffmpeg', '-v', '0', '-y', '-ss', '3', '-i', ad('w2', 'mp4'), '-frames:v', '1', '/tmp/_el42bg.jpg'])
+    bg = Image.fromarray(cubrir(Image.open('/tmp/_el42bg.jpg').convert('RGB'))).filter(ImageFilter.GaussianBlur(30))
+    cx, cy = (W - card.width) // 2, 200
+    m = Image.new('L', card.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, card.width - 1, card.height - 1], radius=28, fill=255)
+    bg.paste(card, (cx, cy), m)
+    conv = lambda r: (cx + (r[0] * 2 - x0) * k, cy + (r[1] * 2 - y0) * k, r[2] * 2 * k, r[3] * 2 * k)   # rect CSS medido -> pantalla
+    return np.asarray(bg), conv
+ELC, cE = _panel_el()
 
 HU = Image.open(f'{A}/cap/hu_ad_limpio.jpg').convert('RGB')                         # creativo del anuncio 1766309524036309 (1200 px)
-HUC = Image.new('RGB', (W, H), (246, 246, 246)); _h = HU.resize((W, W), Image.LANCZOS); HUC.paste(_h, (0, 150)); HUC = np.asarray(HUC)
-kh = W / 1200
-# "Free T-shirt / and shaker" MEDIDO por pixeles en hu_ad_img.jpg: filas 953-985 y 1013-1045, columnas 62-298
-F_SHAKER = (62 * kh, 150 + 953 * kh, (298 - 62) * kh, (1045 - 953) * kh)
+def _panel_hu():
+    """Creativo de Huel en grande: recorte del bloque "Free T-shirt and shaker" + logo + el vaso (x 0-1010, y 700-1180 del
+    creativo de 1200 px) a 1,07x, como tarjeta sobre el mismo creativo desenfocado."""
+    x0, y0, x1, y1, k = 0, 700, 1010, 1180, 1.07
+    card = HU.crop((x0, y0, x1, y1)).resize((int((x1 - x0) * k), int((y1 - y0) * k)), Image.LANCZOS)
+    bg = Image.fromarray(cubrir(HU)).filter(ImageFilter.GaussianBlur(34))
+    cx, cy = (W - card.width) // 2, 200
+    m = Image.new('L', card.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, card.width - 1, card.height - 1], radius=28, fill=255)
+    bg.paste(card, (cx, cy), m)
+    # "Free T-shirt / and shaker" MEDIDO por pixeles en hu_ad_img.jpg: filas 953-985 y 1013-1045, columnas 62-298
+    return np.asarray(bg), (cx + (62 - x0) * k, cy + (953 - y0) * k, (298 - 62) * k, (1045 - 953) * k)
+HUC, F_SHAKER = _panel_hu()
 
 # ------------------------------------------------------------ tomas
 toma('01', 0.00, 3.94, Serie([
     (0.00, clip('1556341659546393', 8.0, nombre='anuncio-video:1556341659546393 (Huel, hook)')),
-    (1.28, clip('1571246460604433', 6.0, nombre='anuncio-video:1571246460604433 (Extra Life, hook)')),
+    (1.28, clip('1665080868147350', 1.0, nombre='anuncio-video:1665080868147350 (Extra Life, hook)')),
     (2.80, clip('1780988933101495', 0.3, nombre='anuncio-video:1780988933101495 (Huel, hook)')),
 ]), 'C', T_(['La trampa del descuento'], 190, 72, t0=-1.0, clave={'descuento'}, emo='🔥'))
 toma('02', 3.94, 5.10, clip('1139302692155017', 8.8, nombre='anuncio-video:1139302692155017 (Huel: free welcome kit)'), 'CI')   # "Fijate en sus anuncios"
-toma('03', 5.10, 6.10, lienzo(ELC, (0, 200, W), (40, 500, 640), [('sub', cE(ELJ['¡LLEVA UNA BOTELLA GRATIS!'][0]), 0.15)],
-                              nombre='tarjeta:extra life botella gratis', dur_mov=0.5), 'CD')
+toma('03', 5.10, 6.10, lienzo(ELC, (0, 0, W), (12, 10, W - 24), [('sub', cE(ELJ['¡LLEVA UNA BOTELLA GRATIS!'][0]), 0.15)],
+                              nombre='tarjeta:extra life botella gratis', dur_mov=0.8), 'CD')
 toma('04', 6.10, 8.12, Grafico(g_descuento), 'C')
 toma('05', 8.12, 9.40, clip('1032986392494613', 2.0, nombre='anuncio-video:1032986392494613 (Extra Life)'), 'CI')
 toma('06', 9.40, 10.98, Grafico(g_cabeza), 'CD')
@@ -234,20 +255,20 @@ toma('11', 19.60, 21.62, clip('988073447054924', 10.4, nombre='anuncio-video:988
 toma('12', 21.62, 23.50, clip('w5', 0.5, nombre='extra-life.cl: video w5'), 'CD')
 toma('13', 23.50, 25.74, Grafico(g_mal), 'C')
 toma('14', 25.74, 28.76, clip('1214119060794363', 15.0, nombre='anuncio-video:1214119060794363 (Huel con su shaker)'), 'CI',
-     T_(['Relacionado con tu producto'], 190, 60, t0=0.3))
+     T_(['Relacionado con tu producto'], 190, 62, t0=0.3))
 toma('15', 28.76, 31.68, clip('w1', 0.5, nombre='extra-life.cl: video w1 (sachet en su botella)'), 'CD',
-     T_(['O con lo que tu cliente necesita'], 190, 56, t0=0.3))
+     T_(['O con lo que tu cliente necesita'], 190, 60, t0=0.3))
 toma('16', 31.68, 34.12, Grafico(g_llavero), 'C')
 toma('17', 34.12, 37.04, clip('1815601653082584', 17.3, nombre='anuncio-video:1815601653082584 (Huel: free shaker with your first order)'), 'CI')
 toma('18', 37.04, 39.14, clip('3878492702464195', 0.5, nombre='anuncio-video:3878492702464195 (Extra Life en la farmacia)'), 'CD')
 toma('19', 39.14, 42.94, Grafico(g_ventas), 'C')
 toma('20', 42.94, 44.88, clip('1166900458589155', 0.3, nombre='anuncio-video:1166900458589155 (Extra Life)'), 'CI')
-toma('21', 44.88, 49.92, lienzo(HUC, (0, 0, W), (0, 600, 760), [('caja', F_SHAKER, 2.96)], nombre='anuncio:1766309524036309 (creativo Huel: free T-shirt and shaker)', dur_mov=2.8), 'CD')
+toma('21', 44.88, 49.92, lienzo(HUC, (0, 0, W), (0, 230, 640), [('caja', F_SHAKER, 2.96)], nombre='anuncio:1766309524036309 (creativo Huel: free T-shirt and shaker)', dur_mov=2.8), 'CD')
 toma('22', 49.92, 52.72, clip('1295471681923871', 20.0, nombre='anuncio-video:1295471681923871 (Extra Life)'), 'C')
 toma('23', 52.72, 55.88, Serie([(0.00, clip('687165790307897', 8.0, nombre='anuncio-video:687165790307897 (Extra Life)')),
                                 (1.50, clip('3000851350254150', 0.0, nombre='anuncio-video:3000851350254150 (Huel)'))]), 'CI')
 toma('24', 55.88, 58.50, clip('1562772322216568', 44.0, nombre='anuncio-video:1562772322216568 (Huel en su dia)'), 'C',
-     T_(['Mándaselo antes de su próxima promo'], 190, 54, t0=0.2, emo='👇'))
+     T_(['Mándaselo antes de', 'su próxima promo'], 210, 62, t0=0.2, emo='👇'))
 SHOTS = S
 REPETICION_PERMITIDA = {}
 

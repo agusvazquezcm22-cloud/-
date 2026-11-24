@@ -1,0 +1,52 @@
+  1.28s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | hook: Extra Life
+  2.80s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | hook: Huel
+  3.94s transicion 20.6 dB bajo la voz ( -22.1 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | anuncio de Huel: welcome kit
+  5.25s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (13).wav | subrayado: lleva una botella gratis
+  6.10s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (13).wav | golpe clave 1 de 2: 20% OFF
+  7.15s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | la etiqueta se corre
+  7.35s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | entra el regalo
+  8.12s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | Extra Life
+  9.40s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: la cabeza
+ 10.50s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | la etiqueta en la cabeza
+ 10.98s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | clientes de Extra Life
+ 13.72s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: vale menos
+ 13.84s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot)_2.wav | etiqueta
+ 16.02s glitch     19.7 dB bajo la voz ( -21.2 dBFS)  Fast Glitch 1.mp3 | se achica: vale menos
+ 16.80s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | Huel
+ 17.68s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: calendario
+ 18.13s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | descuento 1
+ 18.45s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | descuento 2
+ 18.77s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | descuento 3
+ 19.09s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot)_2.wav | descuento 4
+ 19.60s transicion 21.7 dB bajo la voz ( -23.2 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | lo que hace que destaquen
+ 21.62s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | Extra Life
+ 23.50s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: facil hacerlo mal
+ 24.00s glitch     19.7 dB bajo la voz ( -21.2 dBFS)  Fast Glitch 1.mp3 | signo !
+ 25.74s transicion 20.6 dB bajo la voz ( -22.1 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | relacionado con tu producto
+ 28.76s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | lo que tu cliente necesita
+ 31.68s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: llavero y cupon
+ 32.78s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | llavero
+ 33.28s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | cupon
+ 33.73s glitch     19.7 dB bajo la voz ( -21.2 dBFS)  Fast Glitch 1.mp3 | se apagan
+ 34.12s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (7).wav | golpe clave 2 de 2: te regala un shaker
+ 37.04s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | Extra Life en la farmacia
+ 39.14s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: las ventas
+ 39.70s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | se frenan
+ 40.12s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | aparece el boton
+ 41.52s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | zoom al boton
+ 42.04s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (1).wav | boton apretado
+ 42.94s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | Extra Life
+ 44.88s transicion 22.5 dB bajo la voz ( -24.0 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | Huel lo entendio
+ 47.84s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (10).wav | recuadro: free t-shirt and shaker
+ 49.92s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | experiencia del cliente
+ 52.72s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | mandaselo
+ 54.22s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | Huel
+ 55.88s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | cierre: Huel en su dia
+ 56.08s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (6).wav | aparece el texto final
+
+Sonidos: 45 en 58.5 s · archivos distintos: 17 (todos del paquete de Naza)
+Veces que se usa cada archivo: Granular Combo (13).wav x16, camera shutter sfx (1).mp3 x7, Mini list (one shot).wav x3, Mini list down _2.wav x3, Fast Glitch 1.mp3 x3, slow woosh.mp3 x2, Magnetic, Button (13).wav x2, Hit Impact (No FX) (4).wav x2, Mini list (one shot)_2.wav x2, Mini list down _1.wav x2, Momo WOOSH 3.mp3 x2, Magnetic, Button (7).wav x2, Coin Flip (Spin, Rotation) (1).wav x1, Countdown, List, Numbers (5).wav x1, Granular, Button, Select (1).wav x1, Magnetic, Button (10).wav x1, Granular, Button, Select (6).wav x1
+Voz: -15.0 LUFS, pico -1.5 dBFS
+Pico de toda la pista de efectos: -19.2 dBFS (17.7 dB bajo el pico de la voz)
+Mezcla final: -14.9 LUFS, pico -1.5 dBFS
+Tonos sostenidos (pitidos) entre 300 Hz y 6 kHz: ninguno
