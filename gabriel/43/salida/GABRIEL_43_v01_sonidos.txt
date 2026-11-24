@@ -1,0 +1,53 @@
+  1.28s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | hook: caja DIRTEA
+  2.40s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | hook: DIRTEA en polvo
+  3.38s transicion 19.8 dB bajo la voz ( -21.3 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | DIRTEA
+  4.78s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | chai
+  5.20s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | cacao
+  5.66s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | gomitas
+  6.04s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico x3
+  7.32s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | x3
+  8.72s transicion 20.9 dB bajo la voz ( -22.4 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | Let Loose
+ 11.20s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico 2 M
+ 11.54s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | contador
+ 12.54s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | US$2 M
+ 13.84s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | pantalla dividida
+ 14.04s glitch     19.7 dB bajo la voz ( -21.2 dBFS)  Fast Glitch 1.mp3 | signo de pregunta
+ 17.66s transicion 19.8 dB bajo la voz ( -21.3 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | capitulo: las ofertas de DIRTEA
+ 19.04s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | Black Friday
+ 22.32s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (13).wav | recuadro: 40% off & free gifts
+ 23.70s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico 50%
+ 24.78s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | 40 a 50
+ 26.36s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | otra mas
+ 28.68s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | clienta
+ 31.74s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: cuando comprar
+ 31.98s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | 40
+ 32.76s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | 50
+ 33.62s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | la siguiente
+ 34.96s transicion 20.9 dB bajo la voz ( -22.4 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | capitulo: Let Loose
+ 37.46s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | una historia
+ 39.98s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | fundadora
+ 41.74s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | bandeja de entrada
+ 44.28s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (13).wav | golpe clave 1 de 2: el correo
+ 44.66s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | correos de DIRTEA
+ 45.38s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | 32 correos
+ 46.70s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | en 30 dias
+ 49.28s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | bienvenida de Let Loose
+ 51.64s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | 9 correos
+ 52.46s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | sobres
+ 53.36s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | una sola cosa
+ 55.28s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | quien la creo
+ 56.16s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | por que funciona
+ 56.94s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | en que se diferencia
+ 57.78s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | que dicen sus clientes
+ 58.78s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | correo de la fundadora
+ 59.80s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (1).wav | recuadro: Founder
+ 62.06s transicion 19.8 dB bajo la voz ( -21.3 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | cierre: las dos marcas
+ 66.10s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (7).wav | golpe clave 2 de 2: la pregunta final
+ 71.00s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | aparece comentarios
+
+Sonidos: 46 en 71.9 s · archivos distintos: 14 (todos del paquete de Naza)
+Veces que se usa cada archivo: Granular Combo (13).wav x17, camera shutter sfx (1).mp3 x9, Countdown, List, Numbers (5).wav x4, slow woosh.mp3 x3, Mini list (one shot).wav x3, Coin Flip (Spin, Rotation) (1).wav x3, Mini list down _2.wav x2, Mini list down _1.wav x2, Momo WOOSH 3.mp3 x2, Magnetic, Button (13).wav x2, Hit Impact (No FX) (4).wav x2, Magnetic, Button (7).wav x2, Fast Glitch 1.mp3 x1, Granular, Button, Select (1).wav x1
+Voz: -14.2 LUFS, pico -1.5 dBFS
+Pico de toda la pista de efectos: -19.9 dBFS (18.4 dB bajo el pico de la voz)
+Mezcla final: -14.2 LUFS, pico -1.5 dBFS
+Tonos sostenidos (pitidos) entre 300 Hz y 6 kHz: ninguno
