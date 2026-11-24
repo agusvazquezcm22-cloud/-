@@ -2,6 +2,17 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-24 · Videos 41 a 46 (nueva tanda, v01) · armados en paralelo, uno por agente
+
+Crudos en Drive (carpetas "41." a "46." de Gabriel). Guías del documento actualizado (exportado a `scratchpad/guia_24nov.txt`). Todos con las reglas del feedback del 38–40: hook con videos, Gabriel se mueve, final con la voz, gráficos ≤ ~4 s, contadores de plata, marcas medidas con 0 avisos. En la revisión antes de entregar se devolvieron el 41 y el 44 (gráficos chicos con mucho blanco, prensa en letra chica o en franja sobre blanco, un anuncio repetido 4 veces): de ahí salieron las reglas "gráficos grandes", "prensa como tarjeta" y "cada video una vez".
+- **41** Huel / Danone (71,0 s). Ozempic de Wikimedia; supermercados, Londres y "duerme" con escenas del video corporativo de Danone; las £80k de The Grocer (anti-bots) como contador con fuente; botón "Seguir" dibujado sobre la captura real del perfil.
+- **42** La trampa del descuento, Huel + Extra Life (58,5 s). La página de prueba de Huel ya no regala el shaker: se prueba con anuncios de Huel ("Free shaker with your first order", "Free T-shirt and shaker"). Sin precios.
+- **43** Dirtea vs Let Loose (71,9 s). Emails de las imágenes que pasó Gabriel (carpeta "Referencias email - Let Loose y Dirtea", id `1lOvmuhL11dW4jIlDH-1iP9Yev2Vk-reO`; el link venía con I/l cambiadas). Dirtea solo recortes, sin la presentadora. The Grocer y el video de la agencia de Let Loose (YouTube) no se pudieron: gráficos con contador y "según su agencia". Frases digestivas desenfocadas.
+- **44** Bloom Life (68,0 s). Forbes e iProfesional recapturados a ancho de celular (`scratchpad/v44/frase_movil.js`) y en tarjeta. Sin posteos reales de Flor Raggi / Pía Slapka (Instagram pide sesión): sus nombres marcados en Forbes.
+- **45** Innerbloom (79,2 s). Fotos de bomberos de Nueva Zelanda (Wikimedia), Ollie de Our Place Magazine y de sus anuncios; podcasts Foodpreneur y Beyond the Surface marcados; anuncio con @olliepuddick.
+- **46** Creadores que se quedan, Liquid I.V. + Bloom (77,9 s). Entrevista de Entrepreneur en tarjetas; Bloom solo tenía 2 videos activos (página 655412221523654), algunas escenas se repiten.
+- Ninguno pudo mostrar el perfil de Gabriel con "Seguir" real (Instagram sin sesión).
+
 ## 2026-11-23 · 40 v03: correcciones de Gabriel por WhatsApp (10 capturas)
 
 Todo lo que eran imágenes pasó a video (84,53 s). 0–3 s: fábrica de suplementos (BPW LAB) + cinta de galletas (oreo.com); 3–5 s: galletas en la mano (oreo.com); 12–15 s: fábrica + "Months of research & development" (anuncio de Mondelēz, primer Oreo violeta); 15–19 s: chica comiendo Chips Ahoy y con Sour Patch Kids (anuncio de Mondelēz); 19–22 s: comiendo Oreo + anuncio oficial; 22–25 s: galleta en leche (oreo.com); 34 s: anuncio de Ghost con el logo encima; 35–37 s: empleado de Mondelēz entre sus marcas en la tienda; 47–49 s: anuncio de Ghost.

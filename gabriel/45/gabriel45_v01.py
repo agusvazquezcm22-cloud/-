@@ -152,12 +152,12 @@ def g_tiendas(tl, T):                # "por estar buscando tiendas nuevas (47.38
     gris = tl > 1.86
     for i in range(3):
         pegar(im, (TIENDA_G if gris and i != 1 else TIENDA).resize((220, 220)), 200, 210 + 0 + i * 0, 1.0) if False else None
-    for i, (x, y) in enumerate(((180, 300), (180, 560))):
+    for i, (x, y) in enumerate(((190, 270), (190, 500))):
         pegar(im, TIENDA_G.resize((220, 220)) if gris else TIENDA.resize((220, 220)), x, y, pop(tl, 0.05 + i * 0.1))
-    if tl > 0.05: pegar(im, _texto('Las de antes', 60, GRIS if gris else TINTA), 200, 720, 1.0)
-    for i, (x, y) in enumerate(((620, 300), (880, 300), (620, 560), (880, 560))):
+    if tl > 0.05: pegar(im, _texto('Las de antes', 60, GRIS if gris else TINTA), 200, 655, 1.0)
+    for i, (x, y) in enumerate(((620, 270), (880, 270), (620, 500), (880, 500))):
         if tl > 0.78 + i * 0.18: pegar(im, TIENDA_N.resize((220, 220)), x, y, pop(tl, 0.78 + i * 0.18))
-    if tl > 0.78: pegar(im, _texto('Nuevas', 60, VERDE_OSC), 750, 700, pop(tl, 0.78))
+    if tl > 0.78: pegar(im, _texto('Nuevas', 60, VERDE_OSC), 750, 655, pop(tl, 0.78))
     return im
 
 
@@ -170,13 +170,13 @@ PERSONA = _persona()
 def g_directo(tl, T):                # "Vender directo por internet le devolvio el control (67.40) de su negocio"
     im = fondo_grafico(); d = ImageDraw.Draw(im)
     pegar(im, logo(560, oscuro=True), 540, 230, pop(tl, 0.05))
-    pegar(im, PERSONA.resize((300, 300)), 820, 520, pop(tl, 0.25))
-    pegar(im, _texto('Cliente', 66, TINTA), 820, 700, pop(tl, 0.25))
+    pegar(im, PERSONA.resize((300, 300)), 820, 470, pop(tl, 0.25))
+    pegar(im, _texto('Cliente', 66, TINTA), 820, 650, pop(tl, 0.25))
     p = ease((tl - 0.40) / 0.5)
     if p > 0:
-        pegar(im, TIENDA_G.resize((220, 220)), 300, 520, 1 - ease((tl - 0.40) / 0.45))   # la tienda del medio se va
-        _flecha_gruesa(d, 160, 520, 640, VERDE_OSC, 60, p)
-    if tl > 1.84: pegar(im, pastilla('Control', 76, fondo=VERDE_OSC), 330, 690, lerp(0.86, 1, pop(tl, 1.84)))
+        pegar(im, TIENDA_G.resize((220, 220)), 300, 470, 1 - ease((tl - 0.40) / 0.45))   # la tienda del medio se va
+        _flecha_gruesa(d, 160, 470, 640, VERDE_OSC, 60, p)
+    if tl > 1.84: pegar(im, pastilla('Control', 76, fondo=VERDE_OSC), 330, 640, lerp(0.86, 1, pop(tl, 1.84)))
     return im
 
 
