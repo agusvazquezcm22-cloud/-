@@ -1,4 +1,38 @@
-# NXT · Estilo Amy (AmyFit) — guía de edición v0.1
+# NXT · Estilo Amy (AmyFit) — guía de edición v0.2
+
+## 0. Lo que pidió Amy (24/11) — manda sobre todo lo demás
+
+Estas indicaciones vienen de Amy y de Agus después de ver la primera versión de la Tanda 2. Donde choquen con las secciones 1 a 6 (que describen las referencias viejas), vale esto.
+
+**Look**
+
+- **Minimalista, limpio, bonito.** Sin colores fuertes y sin letras muy grandes.
+- Solo dos colores de texto: **blanco** y el **verde de marca `#BCCD9D`** (RGB 188, 205, 157), tomado de la portada «MI MÉTODO · VIDA FIT».
+- El verde va **solo en las palabras clave**.
+- Fuera: verde neón, Montserrat Black gigante con glow, tramos en blanco y negro.
+
+**Cómo queda el texto**
+
+- Subtítulo: Montserrat Light 52 px blanco, igual que antes. La palabra clave va en la misma línea, en **Montserrat SemiBold verde**.
+- Título (gancho, idea central, llamado a la acción): 2 líneas de **92 px**; la primera en Light blanca, la segunda en SemiBold verde. Sin glow, solo sombra suave. Misma entrada (sube con fundido).
+- Pocos títulos: 4 en 30 s alcanza.
+
+**Cortes — esto no puede fallar**
+
+- Cortar solo en silencios medidos (0,25 s o más), dejando unos 0,12 s de aire antes y después de la voz.
+- Si Amy arranca una frase y la deja a medias, **se saca entera** y se pasa a la siguiente idea completa. Ejemplo: «ella se llama Ya…» afuera, directo a «Si quieres saber qué fue lo que hizo mi clienta».
+- Nunca dos tramos seguidos con el mismo encuadre: se ve como un salto.
+- El final no se recorta: la última palabra entra completa y después hay cierre.
+- Antes de entregar: transcribir el audio del resultado y comparar con el guion, y medir el nivel en cada unión. Si una unión cae sobre voz, se corrige.
+
+**Cierre**
+
+- Tarjeta «Seguir» de **@amyfitcoach_** (blanca, botón verde de marca, toque que pasa a «Siguiendo»), unos 2 s sobre B-roll oscurecido. Está en `kit/amy_seguir.py`.
+- Sin logo de Instagram.
+
+**Entre clientes**
+
+- Cada cliente de NXT tiene que verse distinto. No reciclar el mismo recurso con todos.
 
 Hecha a partir de las 16 referencias de la carpeta de Drive «AMY - EDICIÓN / Referencias».
 
@@ -39,7 +73,7 @@ Hay dos formas de agrupar las palabras:
 
 Recomendación: usar **frase corta**, que es el modo del video más nuevo y el más fácil de leer. Confirmar con Amy.
 
-## 3. Títulos (medido)
+## 3. Títulos de las referencias viejas (medido) — reemplazado por la sección 0
 
 Es el recurso principal del estilo: frase de 2 o 3 líneas, **línea fina + palabra fuerte**.
 
@@ -76,7 +110,7 @@ Es el recurso principal del estilo: frase de 2 o 3 líneas, **línea fina + pala
 - **Rótulo**: Montserrat Black 124 px con glow fuerte, centrado arriba (línea base y = 374). Ejemplo: «Parte 1», fijo durante todo el cierre.
 - Los dos entran en corte seco, junto con un corte de plano.
 
-## 5. Otros recursos (visto, falta medir)
+## 5. Otros recursos de las referencias viejas (visto) — usar solo si Amy los pide
 
 - **Verde neón** para números y datos: «↓5kg», «50%», «90°», «1500kcal», «PLAN B». También líneas y glow verde sobre el cuerpo en tutoriales.
 - **Rojo** para lo negativo («PEOR») y zonas marcadas en rojo. **Amarillo** en «rico / dulce».
