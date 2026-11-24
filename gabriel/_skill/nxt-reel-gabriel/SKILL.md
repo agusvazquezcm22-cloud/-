@@ -37,6 +37,14 @@ Las frases textuales de Gabriel y cómo se resolvió cada una están en `referen
 - Las tarjetas de prensa van sobre un fondo real NÍTIDO (oscurecido), no desenfocado.
 - Lo que se ve tiene que ser lo que dice: "comer menos" → alguien con un plato chico; "Danone, la de los yogures" → el logo de Danone grande y después yogur (no Activia con Danone en una esquina).
 
+## Pocos extractos de texto, personas reales cuando se las nombra (Gabriel, feedback del 44, 2026-11-24)
+
+- "No abusemos tanto de los extractos de texto, porque se torna aburrido el video; usémoslo cuando sea realmente relevante, pero no para poner frases exactas": una nota de prensa solo para probar un dato fuerte (una cifra, una compra). Nunca para repetir la frase que ya dicen los subtítulos ("otra vez aquí otro extracto con lo mismo que dicen los subtítulos, no hace sentido"). En su lugar: el fundador hablando (rueda de prensa, entrevista, su video) o videos de la marca.
+- Cuando nombra a una persona (embajadora, famosa, fundador): una foto o un video de ELLA (Wikimedia Commons suele tener a las famosas: Florencia Raggi, Pía Slapka), con su nombre en un rótulo corto. No el texto de una nota con su nombre.
+- La imagen tiene que reflejar la frase ("aquí la imagen no refleja lo que se está diciendo"): "no quisieran ser más reconocidos" → seguidores que suben, no la nota de prensa.
+- Un mismo video no vuelve ("este video ya se había usado al inicio"; "este también está muy igual que el otro"): ojo con anuncios distintos que son la MISMA pieza (en el 44 tres ids eran la misma "10% OFF"), y con dos momentos casi iguales del mismo clip.
+- Imágenes de baja calidad (un logo chico agrandado) → un video llamativo de la marca.
+
 ## Más videos que gráficos, hook dopamínico (Gabriel, feedback del 38, 39 y 40, 2026-11-23)
 
 - **Hook (0–6 s): ráfaga de videos** de las marcas que se van a nombrar, ~1,5 s cada uno ("o si no alcanzan todas, las que alcancen"), con el título encima: "necesitamos que el hook sea lo más dopamínico posible siempre". No una imagen fija ni una cuadrícula.

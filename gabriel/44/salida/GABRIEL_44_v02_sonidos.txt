@@ -1,0 +1,65 @@
+  0.84s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | hook: corte 2
+  1.68s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grilla de 100
+  1.70s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | se llenan los perfiles
+  2.98s glitch     19.7 dB bajo la voz ( -21.2 dBFS)  Fast Glitch 1.mp3 | quedan 20
+  4.28s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | Forbes
+  5.22s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (13).wav | recuadro: crecen 15%
+  5.24s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | +15% cada mes
+  6.36s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | los fundadores
+  7.58s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | contador US$20.000
+  8.30s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | llega a 20.000
+  8.56s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | el frasco
+ 10.24s transicion 20.1 dB bajo la voz ( -21.6 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | capitulo: nacio en Estados Unidos
+ 11.14s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot).wav | Argentina
+ 13.58s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | frasco en la mano
+ 15.36s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | la influencer
+ 16.46s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | historia de Instagram
+ 17.00s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _2.wav | corazones
+ 17.75s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | recuadro: la respuesta fue inmediata
+ 20.16s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | la flecha llega a Argentina
+ 20.80s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list (one shot)_2.wav | hay mercado
+ 21.48s transicion 21.2 dB bajo la voz ( -22.7 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | la revelacion
+ 22.52s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (13).wav | golpe clave 1 de 2: Bloom Life
+ 23.46s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | gomitas
+ 23.86s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | capsulas
+ 24.60s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | melena de leon
+ 26.10s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | ashwagandha
+ 26.78s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | creadora
+ 28.54s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grilla: todas
+ 28.60s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | se llenan
+ 30.54s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | muy selectivos
+ 31.10s glitch     19.7 dB bajo la voz ( -21.2 dBFS)  Fast Glitch 1.mp3 | se apagan
+ 32.30s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | Forbes: embajadoras
+ 32.90s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (1).wav | recuadro: Florencia Raggi
+ 33.76s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Granular, Button, Select (6).wav | recuadro: Pia Slapka
+ 34.60s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Button, Cursor, Select (5).wav | recuadro: mas de 20 embajadoras
+ 36.78s transicion 20.1 dB bajo la voz ( -21.6 dBFS)  slow woosh.mp3 + Granular Combo (13).wav | capitulo: quien les compra
+ 38.94s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: 95%
+ 39.10s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Countdown, List, Numbers (5).wav | contador 95%
+ 42.04s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | la creadora
+ 43.40s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: embajadora
+ 44.20s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Mini list down _1.wav | confian
+ 45.20s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | gomitas
+ 46.80s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | iProfesional: la frase
+ 48.62s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (10).wav | recuadro: preferimos vender menos
+ 51.36s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | frasco
+ 53.00s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | iProfesional: 50%
+ 54.10s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (13).wav | recuadro: hasta un 50%
+ 54.48s bop        22.7 dB bajo la voz ( -24.2 dBFS)  Coin Flip (Spin, Rotation) (1).wav | contador 50%
+ 55.74s transicion 21.2 dB bajo la voz ( -22.7 dBFS)  Momo WOOSH 3.mp3 + Granular Combo (13).wav | capitulo: la leccion
+ 56.64s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | rafaga 2
+ 57.54s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | rafaga 3
+ 58.44s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | rafaga 4
+ 59.36s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | grafico: unas pocas
+ 61.00s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | creadora
+ 62.92s golpe      19.0 dB bajo la voz ( -20.5 dBFS)  Hit Impact (No FX) (4).wav + Magnetic, Button (7).wav | golpe clave 2 de 2: puede jugar en tu contra
+ 65.00s plano      22.0 dB bajo la voz ( -23.5 dBFS)  Granular Combo (13).wav | cierre: clientas con sus frascos
+ 65.20s clic       20.2 dB bajo la voz ( -21.7 dBFS)  Magnetic, Button (7).wav | aparece mandaselo
+ 66.40s foto       20.2 dB bajo la voz ( -21.7 dBFS)  camera shutter sfx (1).mp3 | ultimo corte
+
+Sonidos: 58 en 68.0 s · archivos distintos: 18 (todos del paquete de Naza)
+Veces que se usa cada archivo: Granular Combo (13).wav x24, camera shutter sfx (1).mp3 x11, Countdown, List, Numbers (5).wav x4, Magnetic, Button (13).wav x3, Coin Flip (Spin, Rotation) (1).wav x3, Magnetic, Button (7).wav x3, Fast Glitch 1.mp3 x2, slow woosh.mp3 x2, Momo WOOSH 3.mp3 x2, Hit Impact (No FX) (4).wav x2, Mini list (one shot).wav x1, Mini list down _2.wav x1, Mini list (one shot)_2.wav x1, Granular, Button, Select (1).wav x1, Granular, Button, Select (6).wav x1, Button, Cursor, Select (5).wav x1, Mini list down _1.wav x1, Magnetic, Button (10).wav x1
+Voz: -14.5 LUFS, pico -1.5 dBFS
+Pico de toda la pista de efectos: -19.4 dBFS (17.9 dB bajo el pico de la voz)
+Mezcla final: -14.5 LUFS, pico -1.5 dBFS
+Tonos sostenidos (pitidos) entre 300 Hz y 6 kHz: ninguno

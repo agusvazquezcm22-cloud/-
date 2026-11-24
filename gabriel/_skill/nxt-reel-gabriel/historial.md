@@ -2,6 +2,14 @@
 
 Se actualiza cada vez que se termina una versión o una tanda de correcciones. Lo más nuevo arriba.
 
+## 2026-11-24 · 42 y 43 aprobados por Gabriel · 44 v02 (9 notas en la web)
+
+- 22,9 logo de baja calidad → video de la marca (Full Day, frascos); gomitas, cápsulas y melena de león también en video.
+- 34,2 Flor Raggi y Pía Slapka → sus fotos de Wikimedia Commons, con su nombre. 35,6 "ser más reconocidos" → gráfico de seguidores que suben.
+- 43 / 56,1 / 66,8 videos repetidos → otros momentos y otros anuncios (había tres ids que eran la misma pieza "10% OFF").
+- 47,3 y 53,8 sin extractos de iProfesional → videos (escritorio, el frasco en la mano con contador "hasta 50% más"); el rótulo con promesa del anuncio se desenfoca solo en su franja.
+- Todo a pantalla completa (fotos de los fundadores y de prensa sin recuadro), tarjetas sobre fondo nítido.
+
 ## 2026-11-24 · 41 v02: correcciones de Gabriel en la web (8 notas)
 
 - Todos los videos a pantalla completa (el video corporativo de Danone iba en recuadro arriba con el resto desenfocado): recorte 9:16 por escena; foto de Ozempic a pantalla completa; tarjetas de prensa sobre fondo nítido.
