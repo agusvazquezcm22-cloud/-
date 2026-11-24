@@ -131,7 +131,7 @@ TIENDA, TIENDA_G, TIENDA_N = _tienda(), _tienda(gris=True), _tienda(col=(30, 150
 def _flecha_gruesa(d, x0, y, x1, col, grosor, p):
     if p <= 0: return
     xe = x0 + (x1 - x0) * p
-    d.rectangle([x0, y - grosor / 2, xe - grosor * 0.9, y + grosor / 2], fill=col)
+    if xe - grosor * 0.9 > x0: d.rectangle([x0, y - grosor / 2, xe - grosor * 0.9, y + grosor / 2], fill=col)
     d.polygon([(xe, y), (xe - grosor * 1.4, y - grosor * 1.1), (xe - grosor * 1.4, y + grosor * 1.1)], fill=col)
 
 

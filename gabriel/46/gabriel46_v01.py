@@ -386,7 +386,7 @@ toma('26', 51.80, 54.94, seg(L['manager'], 8.0, 'creadora Hydration Manager'), G
 toma('27', 54.94, 57.30, seg(L['cocina'], 5.8, 'clienta preparando su vaso'), GAB)
 toma('28', 57.30, 59.02, Grafico(g_perfiles), GAB)
 toma('29', 59.02, 60.80, seg(L['papa'], 10.0, 'creador de Liquid I.V. con gorro'), GAB, T_(['2 · Enséñales qué vende'], 210, 62, t0=0.0, clave={'vende'}))
-toma('30', 60.80, 63.18, Mosaico([seg(L['manager'], 40.0, 'creadora Hydration Manager en el auto'), seg(L['rosa'], 6.0, 'creadora con su bebe'),
+toma('30', 60.80, 63.18, Mosaico([seg(L['manager'], 50.0, 'creadora Hydration Manager con gorra'), seg(L['rosa'], 10.4, 'creadora con su bebe'),
                                   seg(L['bolsas'], 8.0, 'creadora mostrando sobres'), seg(B1, 80.0, 'creadora de Bloom corriendo')], marca=0, t_marca=0.94), GAB)
 toma('31', 63.18, 66.30, seg('1418322423102928', 23.0, 'creadora con su taza'), GAB, T_(['3 · Escúchalos'], 210, 66, t0=0.0, clave={'Escúchalos'}))
 toma('32', 66.30, 68.56, Grafico(g_ideas(None, 'Tu próximo anuncio')), GAB)
