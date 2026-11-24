@@ -8,7 +8,7 @@ import sys, os, json, subprocess, numpy as np, cv2
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import amytext as T
 
-VERSION = "0.1"
+VERSION = "0.2"
 P = json.load(open(sys.argv[1]))
 BASE = os.path.dirname(os.path.abspath(sys.argv[1]))
 rp = lambda p: p if os.path.isabs(p) else os.path.join(BASE, p)
@@ -23,6 +23,7 @@ class Elem:
     """Un bloque de texto ya rasterizado: alfa de texto, glow y sombra recortados a su caja."""
     def __init__(self, lines, style, f0, f1, anim="corte", dur=1, f_bloque=None):
         self.f0, self.f1, self.anim, self.dur = f0, f1, anim, dur
+        self.col = np.float32(style.get("color", [255, 255, 255])[::-1])   # color del texto (RGB en el JSON)
         self.fb = f0 if f_bloque is None else f_bloque   # cuadro en que arranca la animación del bloque
         canvas = np.zeros((H, W), np.float32)
         sh = style.get("cursiva_falsa", 0)
@@ -78,8 +79,8 @@ class Elem:
         if y1 > H: return
         reg = img[y0:y1, x0:x1].astype(np.float32)
         if self.s is not None: reg *= (1 - self._shift(self.s, frac) * o)[..., None]
-        if self.g is not None: reg += (255 - reg) * (self._shift(self.g, frac) * o * o)[..., None]
-        reg += (255 - reg) * (self._shift(self.a, frac) * o)[..., None]
+        if self.g is not None: reg += (self.col - reg) * (self._shift(self.g, frac) * o * o)[..., None]
+        reg += (self.col - reg) * (self._shift(self.a, frac) * o)[..., None]
         img[y0:y1, x0:x1] = np.clip(reg, 0, 255).astype(np.uint8)
 
     def mask_at(self, f):
