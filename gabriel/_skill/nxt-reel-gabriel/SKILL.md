@@ -35,6 +35,9 @@ Las frases textuales de Gabriel y cómo se resolvió cada una están en `referen
 - **Al hablar de la marca, su publicidad**: "en especial cuando ya empezamos a hablar de la marca, meter vídeos de la publicidad de ellos".
 - **Gráficos más visuales**: "que no quede simplemente tachar la palabra sino algo visualmente más llamativo o con figuras" (figuras, objetos que se transforman, personas, íconos), y "efecto de dinero" cuando hay plata en juego (`lluvia_billetes` en el 39 v02, `contador` en verde_ayudas).
 - **Lo que se ve tiene que ser lo que se dice**: "esta representación no está alineada con lo que se dice" (40: "suplementos deportivos" → gente entrenando, no tarros grises; "dejar de inventar sabores" → video del trabajo detrás de un sabor, no vainilla/chocolate tachados). Para un oficio o una persona que se nombra (fisicoculturista, instructor de vuelo): una foto real (Wikimedia Commons sirve; no stock pago).
+- **Gráficos grandes, sin huecos** (revisión del 41 y el 44): cada gráfico propio llena y≈170–730 con elementos grandes (figuras e íconos ≥ 200 px, textos ≥ 60 px), entrando por partes. Nunca pastillitas arriba con todo el blanco vacío debajo.
+- **Notas de prensa y páginas como tarjeta**, nunca la página entera en letra chica ni una franja fina sobre blanco: zoom hasta que la frase marcada sea grande (alto de mayúscula ≥ ~45 px) y entre completa con margen (nunca cortada por un borde), dentro de una tarjeta (medio + titular arriba, el párrafo con la frase abajo) que llena y≈170–730 sobre un fondo real desenfocado (producto o anuncio de la marca).
+- **Cada video o anuncio una sola vez**: si se reusa un clip, ponerle su nombre real de fuente para que `--control` lo detecte.
 - Si la marca no tiene ningún video (Bio.me: sin anuncios activos ni videos en su sitio), se avisa en la entrega.
 
 ## Base para los próximos videos (Agus, 2026-11-23: "top, seguir así, el cliente va a renovar 30 videos más… quiero que sea una base")
