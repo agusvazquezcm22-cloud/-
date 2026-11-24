@@ -1,0 +1,103 @@
+{
+  "cliente": "Gabriel Monsalve",
+  "titulo": "Videos",
+  "fecha": "2026-11-24",
+  "videos": [
+    {
+      "n": 1,
+      "titulo": "Video 31",
+      "version": "final",
+      "archivo": "videos/gabriel/video-31-final.mp4"
+    },
+    {
+      "n": 2,
+      "titulo": "Video 32",
+      "version": "final",
+      "archivo": "videos/gabriel/video-32-final.mp4"
+    },
+    {
+      "n": 3,
+      "titulo": "Video 33",
+      "version": "corrección",
+      "archivo": "videos/gabriel/video-33-correccion.mp4"
+    },
+    {
+      "n": 4,
+      "titulo": "Video 34",
+      "version": "final",
+      "archivo": "videos/gabriel/video-34-final.mp4"
+    },
+    {
+      "n": 5,
+      "titulo": "Video 35",
+      "version": "v01",
+      "archivo": "videos/gabriel/video-35-v01.mp4"
+    },
+    {
+      "n": 6,
+      "titulo": "Video 36",
+      "version": "final",
+      "archivo": "videos/gabriel/video-36-final.mp4"
+    },
+    {
+      "n": 7,
+      "titulo": "Video 37",
+      "version": "corrección",
+      "archivo": "videos/gabriel/video-37-correccion.mp4"
+    },
+    {
+      "n": 8,
+      "titulo": "Video 38",
+      "version": "corrección",
+      "archivo": "videos/gabriel/video-38-correccion.mp4"
+    },
+    {
+      "n": 9,
+      "titulo": "Video 39",
+      "version": "corrección",
+      "archivo": "videos/gabriel/video-39-correccion.mp4"
+    },
+    {
+      "n": 10,
+      "titulo": "Video 40",
+      "version": "corrección",
+      "archivo": "videos/gabriel/video-40-correccion.mp4"
+    },
+    {
+      "n": 11,
+      "titulo": "Video 41",
+      "version": "final",
+      "archivo": "videos/gabriel/video-41-final.mp4"
+    },
+    {
+      "n": 12,
+      "titulo": "Video 42",
+      "version": "final",
+      "archivo": "videos/gabriel/video-42-final.mp4"
+    },
+    {
+      "n": 13,
+      "titulo": "Video 43",
+      "version": "final",
+      "archivo": "videos/gabriel/video-43-final.mp4"
+    },
+    {
+      "n": 14,
+      "titulo": "Video 44",
+      "version": "final",
+      "archivo": "videos/gabriel/video-44-final.mp4"
+    },
+    {
+      "n": 15,
+      "titulo": "Video 45",
+      "version": "final",
+      "archivo": "videos/gabriel/video-45-final.mp4"
+    },
+    {
+      "n": 16,
+      "titulo": "Video 46",
+      "version": "final",
+      "archivo": "videos/gabriel/video-46-final.mp4"
+    }
+  ]
+}
