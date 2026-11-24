@@ -19,7 +19,8 @@ SEG = [(0.90, 1.66, "med", {}), (1.66, 5.42, "close", {}),
        (28.15, 29.85, "br_rdl", {"in": 2.6}), (29.85, 31.62, "br_crunch", {"in": 3.0}),
        (31.62, 33.20, "close", {})]
 SEG = [(g(a), g(b), s, e) for a, b, s, e in SEG]
-FIN = 66                                      # cierre: 2,2 s con la tarjeta Seguir
+FIN = 10                                      # cola: 1/3 s sobre el último cuadro para que no termine en seco
+T_SEGUIR = 31.80                              # la tarjeta Seguir entra mientras Amy dice la última frase
 out0 = []; n = 0
 for a, b, src, ex in SEG:
     k = int(round((b - a) * FPS)); out0.append((n, n + k)); n += k
@@ -55,7 +56,7 @@ if "--solo-json" not in sys.argv:
     base = f"{V}/base_{VER}.mp4"; aud = f"{V}/audio_{VER}.m4a"
     enc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
                             "-c:v", "libx264", "-preset", "veryfast", "-crf", "10", "-pix_fmt", "yuv420p", base], stdin=subprocess.PIPE)
-    caps = {}; foto0 = None
+    caps = {}; foto0 = None; avatar = cv2.imread(f"{V}/avatar.png"); f_seg = tmap(T_SEGUIR)
     for (a, b, src, ex), (o0, o1) in zip(SEG, out0):
         c = caps.setdefault(src, cv2.VideoCapture(f"{V}/{src}.mp4"))
         c.set(cv2.CAP_PROP_POS_FRAMES, int(round((ex["in"] if "in" in ex else a) * FPS)))
@@ -65,12 +66,10 @@ if "--solo-json" not in sys.argv:
             if not ok: img = last.copy()          # el crudo termina justo al final de la voz
             last = img.copy()
             if ex.get("foto"): put_card(img, f - foto0)
+            if f >= f_seg: SEG_CARD.dibujar(img, f - f_seg, avatar, cy=1330)
             enc.stdin.write(img.tobytes())
-    avatar = cv2.imread(f"{V}/avatar.png")
-    c = cv2.VideoCapture(f"{V}/br_squat.mp4"); c.set(cv2.CAP_PROP_POS_FRAMES, 150)
-    for k in range(FIN):                           # cierre sobre B-roll oscurecido
-        ok, img = c.read(); d = 1 - 0.42 * min(k / 8.0, 1.0)
-        img = (img.astype(np.float32) * d).astype(np.uint8); SEG_CARD.dibujar(img, k - 8, avatar)
+    for k in range(FIN):                           # cola sobre el último cuadro, con la tarjeta ya en «Siguiendo»
+        img = last.copy(); SEG_CARD.dibujar(img, NV + k - f_seg, avatar, cy=1330)
         enc.stdin.write(img.tobytes())
     enc.stdin.close(); enc.wait()
     # audio: mismas uniones que el video; 8 ms de fundido en cada una; cola de ambiente que se apaga
@@ -83,7 +82,7 @@ if "--solo-json" not in sys.argv:
     for i, (a, b) in enumerate(pieces):
         d = b - a; fc += f"[0:a]atrim={a:.4f}:{b:.4f},asetpts=PTS-STARTPTS,afade=t=in:d=0.008,afade=t=out:st={d - 0.008:.4f}:d=0.008,apad=whole_dur={d:.4f}[a{i}];"; lab_.append(f"[a{i}]")
     fd = FIN / FPS
-    fc += f"[0:a]atrim=19.35:21.15,asetpts=PTS-STARTPTS,afade=t=in:d=0.05,afade=t=out:st=0.6:d=1.1,apad=whole_dur={fd:.4f}[tail];"
+    fc += f"[0:a]atrim=19.50:20.00,asetpts=PTS-STARTPTS,afade=t=in:d=0.02,afade=t=out:st=0.05:d=0.27,atrim=0:{fd:.4f},apad=whole_dur={fd:.4f}[tail];"
     fc += "".join(lab_) + f"[tail]concat=n={len(pieces) + 1}:v=0:a=1,highpass=f=80,loudnorm=I=-14:TP=-1.5:LRA=11[o]"
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{S}/t2raw/v1_IMG_1732.MOV", "-filter_complex", fc, "-map", "[o]", "-ar", "48000", "-c:a", "aac", "-b:a", "256k", aud], check=True)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", base, "-i", aud, "-map", "0:v", "-map", "1:a", "-c", "copy", mux], check=True)

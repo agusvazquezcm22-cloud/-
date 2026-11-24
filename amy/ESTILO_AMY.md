@@ -27,8 +27,15 @@ Estas indicaciones vienen de Amy y de Agus después de ver la primera versión d
 
 **Cierre**
 
-- Tarjeta «Seguir» de **@amyfitcoach_** (blanca, botón verde de marca, toque que pasa a «Siguiendo»), unos 2 s sobre B-roll oscurecido. Está en `kit/amy_seguir.py`.
-- Sin logo de Instagram.
+- Tarjeta «Seguir» de **@amyfitcoach_** (blanca, botón verde de marca, toque que pasa a «Siguiendo»). Está en `kit/amy_seguir.py`.
+- **Entra mientras Amy está terminando de hablar**, sobre la última frase, y pasa a «Siguiendo» cuando dice la última palabra. No va después de que termina.
+- En videos sin voz entra sobre el último ejercicio, unos 2 s antes del final.
+- Va debajo del subtítulo (centro en y = 1330). Sin logo de Instagram.
+
+**Videos de ejercicio sin voz**
+
+- Cortar en las pausas del movimiento, con repeticiones enteras.
+- Alternar plano entero y plano cerrado en cada corte.
 
 **Entre clientes**
 
