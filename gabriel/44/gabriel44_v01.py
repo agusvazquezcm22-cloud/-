@@ -206,6 +206,38 @@ IP_P, cIP = tira(f'{A}/cap/ip_pref.png', 540, 800, 330)
 IP_C, cIC = tira(f'{A}/cap/ip_cin.png', 1530, 1760, 300)
 _une = lambda rs: (min(r[0] for r in rs), min(r[1] for r in rs), max(r[0] + r[2] for r in rs) - min(r[0] for r in rs), max(r[1] + r[3] for r in rs) - min(r[1] for r in rs))
 
+# ------------------------------------------------------------ notas como tarjeta (pedido del coordinador: sin hueco blanco gigante,
+# texto grande, nunca cortado por un borde). Capturas a ancho de celular (capm/, frase_movil.js: Forbes 280 px CSS, iProfesional
+# 320 px CSS, 3 px por px CSS) para que cada linea entre entera; la tarjeta llena y 150-730 sobre una foto real desenfocada.
+JM = lambda n: json.load(open(f'{A}/capm/{n}meta.json'))
+FBM, IPM = JM('fb'), JM('ip')
+
+
+def tarjeta_nota(png, y0, y1, medio, fondo, sigma=34, ytop=150, ybot=730, x0=36, ancho=1008, pad=24):
+    """Tarjeta blanca redondeada con el nombre del medio arriba y las lineas y0-y1 (px CSS) de la captura debajo, a todo el
+    ancho de la tarjeta. fondo: PIL (foto real) que va desenfocada detras. Devuelve (lona PIL, conv rect CSS -> lona)."""
+    cap = Image.open(png).convert('RGB'); k = (ancho - 2 * pad) / cap.width
+    cuerpo = cap.crop((0, int(y0 * 3), cap.width, int(y1 * 3))); cuerpo = cuerpo.resize((ancho - 2 * pad, int(cuerpo.height * k)), Image.LANCZOS)
+    cab = 74; alto = cab + cuerpo.height + pad; yc = ytop + max(0, (ybot - ytop - alto) // 2)
+    assert yc + alto <= ybot + 2, ('la tarjeta no entra', png, alto)
+    c = Image.fromarray(cubrir(fondo)).filter(ImageFilter.GaussianBlur(sigma)); c = Image.blend(c, Image.new('RGB', c.size, (0, 0, 0)), 0.18)
+    m = Image.new('L', (ancho, alto), 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, ancho - 1, alto - 1], radius=34, fill=255)
+    t = Image.new('RGB', (ancho, alto), (255, 255, 255)); d = ImageDraw.Draw(t)
+    d.text((pad + 4, cab // 2 + 4), medio, font=font(40), fill=TINTA, anchor='lm'); d.line([(pad, cab - 6), (ancho - pad, cab - 6)], fill=(226, 226, 222), width=3)
+    t.paste(cuerpo, (pad, cab)); c.paste(t, (x0, yc), m)
+    conv = lambda r: (x0 + pad + r[0] * 3 * k, yc + cab + (r[1] - y0) * 3 * k, r[2] * 3 * k, r[3] * 3 * k)
+    return c, conv
+FONDO_A = Image.open(f'{A}/press/ipro_609704.jpg').convert('RGB')                     # mano con una gomita (sin logo)
+FONDO_B = Image.open(f'{A}/press/ipro_609707.jpg').convert('RGB')
+FONDO_C = Image.open(f'{A}/prod/hi/p01.webp').convert('RGB')
+N_FT, cNFT = tarjeta_nota(f'{A}/capm/fb_t.png', 178, 322, 'Forbes Argentina', FONDO_A, sigma=40)
+N_FE, cNFE = tarjeta_nota(f'{A}/capm/fb_emb.png', 165, 328, 'Forbes Argentina', FONDO_C)
+N_IM, cNIM = tarjeta_nota(f'{A}/capm/ip_mer.png', 160, 334, 'iProfesional', FONDO_A, sigma=40)
+N_IP, cNIP = tarjeta_nota(f'{A}/capm/ip_pref.png', 186, 334, 'iProfesional', FONDO_B)
+N_IC, cNIC = tarjeta_nota(f'{A}/capm/ip_cin.png', 150, 330, 'iProfesional', FONDO_C)
+VISTA = ((0, 0, W), (16, 28, W - 32))                                                # empuje leve
+
+
 # ------------------------------------------------------------ fotos
 FUND = tapar(Image.open(f'{A}/press/forbes_fund.jpg').convert('RGB'), [(1100, 400, 700, 160), (890, 720, 230, 150), (1420, 770, 230, 130)]).crop((700, 250, 1900, 1500))
 FRASCOS = Image.open(f'{A}/press/ipro_609703.jpg').convert('RGB').filter(ImageFilter.GaussianBlur(9))      # etiquetas ilegibles
@@ -226,8 +258,8 @@ toma('01', 0.00, 1.68, Serie([(0.00, clip('1100049709572980', 2.3, nombre='anunc
                               (0.84, clip('1100049709572980', 8.7, nombre='anuncio-video:1100049709572980 (s9: gomitas entre los dedos)'))]), GAB,
      T_(['100 influencers'], 180, 76, t0=-1.0, clave={'100'}))
 toma('02', 1.68, 4.28, Grafico(lambda tl, T: g_cien(tl + 0.0, T)), GAB)                                                         # "100 influencers... poco mas de 20"
-toma('03', 4.28, 6.36, lienzo(zona(f'{A}/cap/fb_t.png', 1540, 1745), (1150, 1010, 1310), (1360, 1100, 1100), [('caja', R3(FBJ['t'][0]), 0.94)], nombre='forbesargentina.com: titulo 15% al mes', dur_mov=0.6), GAB,
-     contador_toma(15, 0.94, cy=250, prefijo='+', sufijo='% cada mes', tam=96))
+toma('03', 4.28, 6.36, lienzo(N_FT, *VISTA, [('caja', cNFT(FBM['t'][0]), 0.94)], nombre='forbesargentina.com: titulo 15% al mes'), GAB,
+     contador_toma(15, 0.94, cy=1180, prefijo='+', sufijo='% cada mes', tam=80))
 toma('04', 6.36, 8.56, lienzo(panel(FUND, y=260), (0, 0, W), (30, 40, W - 60), nombre='forbesargentina.com: los fundadores (logo desenfocado)'), GAB,
      contador_toma(20000, 1.22, cy=200, sufijo='', tam=96))
 toma('05', 8.56, 10.24, lienzo(panel(FRASCOS, y=300), (0, 0, W), (40, 60, W - 80), nombre='iprofesional.com: frascos (desenfocados)'), GAB)
@@ -236,7 +268,7 @@ toma('07', 13.58, 15.36, clip('1003093062812851b', 5.1, nombre='anuncio-video:10
 toma('08', 15.36, 16.46, clip('1100049709572980', 9.9, nombre='anuncio-video:1100049709572980 (s10: la creadora)'), GAB)
 toma('09', 16.46, 17.70, Grafico(g_historia), GAB)
 S[-1]['fuentes'] = ['grafico: historia de Instagram generica (foto de iprofesional.com)']
-toma('10', 17.70, 20.16, lienzo(zona(f'{A}/cap/ip_mer.png', 1460, 1900), (120, 743, 1960), None, [('caja', R3(IPJ['mer'][0]), 0.05), ('caja', R3(IPJ['mer'][1]), 0.05)], nombre='iprofesional.com: hay mercado'), GAB)
+toma('10', 17.70, 20.16, lienzo(N_IM, *VISTA, [('caja', cNIM(r), 0.05) for r in IPM['mer']], nombre='iprofesional.com: hay mercado'), GAB)
 toma('11', 20.16, 21.48, Grafico(g_llega), GAB)
 toma('12', 21.48, 26.78, Serie([
     (0.00, clip('1514823533995674', 5.3, nombre='anuncio-video:1514823533995674 (s5: abre la bolsa, sin logo)')),               # "Asi nacio en Argentina"
@@ -250,17 +282,17 @@ S[-1]['fuentes'] += ['logo de Bloom Life (mercadolibre.com.ar)']
 toma('13', 26.78, 28.54, clip('1514823533995674', 20.7, nombre='anuncio-video:1514823533995674 (s20: creadora con reishi)'), GAB)
 toma('14', 28.54, 30.54, Grafico(g_todas), GAB)
 toma('15', 30.54, 32.30, Grafico(g_selectivos), GAB)
-toma('16', 32.30, 36.78, lienzo(zona(f'{A}/cap/fb2_emb.png', 1380, 1830), (1000, 1035, 1350), (1050, 1075, 1250), [('caja', R3(FB2J['emb_1'][0]), 0.60, 1.46), ('caja', R3(FB2J['emb_2'][0]), 1.46, 2.30),
-                                                                    ('caja', R3(FB2J['emb'][0]), 2.30)], nombre='forbesargentina.com: embajadoras', dur_mov=0.5), GAB)
+toma('16', 32.30, 36.78, lienzo(N_FE, *VISTA, [('caja', cNFE(FBM['emb_1'][0]), 0.60, 1.46), ('caja', cNFE(FBM['emb_2'][0]), 1.46, 2.30),
+                                                                    ('caja', cNFE(FBM['emb'][0]), 2.30)], nombre='forbesargentina.com: embajadoras'), GAB)
 toma('17', 36.78, 38.94, clip('1003093062812851', 21.0, nombre='anuncio-video:1003093062812851 (s21: clienta con dos frascos)'), GAB)
 toma('18', 38.94, 42.04, Grafico(g_95), GAB)
 toma('19', 42.04, 43.40, clip('1100049709572980', 5.5, nombre='anuncio-video:1100049709572980 (s5: la creadora hablando)'), GAB)
 toma('20', 43.40, 45.20, Grafico(g_confian), GAB)
 toma('21', 45.20, 46.80, clip('1003093062812851', 4.1, nombre='anuncio-video:1003093062812851 (s4: capsulas en la mano)'), GAB)
-toma('22', 46.80, 51.36, lienzo(zona(f'{A}/cap/ip_pref.png', 520, 860), (0, -425, 2460), (60, -380, 2340), [('caja', R3(IPJ['pref'][0]), 1.82), ('caja', R3(IPJ['pref'][1]), 1.82)], nombre='iprofesional.com: preferimos vender menos'), GAB)
+toma('22', 46.80, 51.36, lienzo(N_IP, *VISTA, [('caja', cNIP(r), 1.82) for r in IPM['pref']], nombre='iprofesional.com: preferimos vender menos'), GAB)
 toma('23', 51.36, 53.00, lienzo(panel(Image.open(f'{A}/press/ipro_609707.jpg').convert('RGB'), y=180, ancho=760), (0, 0, W), (40, 60, W - 80), nombre='iprofesional.com: frasco en la cama'), GAB)
-toma('24', 53.00, 55.74, lienzo(zona(f'{A}/cap/ip_cin.png', 1460, 1760), (0, 535, 2460), None, [('caja', R3(IPJ['cin'][0]), 1.10), ('caja', R3(IPJ['cin'][1]), 1.10)], nombre='iprofesional.com: hasta 50% mas'), GAB,
-     contador_toma(50, 1.48, cy=250, prefijo='hasta ', sufijo='% más', tam=92))
+toma('24', 53.00, 55.74, lienzo(N_IC, *VISTA, [('caja', cNIC(r), 1.10) for r in IPM['cin']], nombre='iprofesional.com: hasta 50% mas'), GAB,
+     contador_toma(50, 1.48, cy=1180, prefijo='hasta ', sufijo='% más', tam=80))
 toma('25', 55.74, 59.36, Serie([(0.00, clip('1514823533995674', 22.0, nombre='anuncio-video:1514823533995674 (s22)')),
                                 (0.90, clip('1100049709572980', 13.2, nombre='anuncio-video:1100049709572980 (s13)')),
                                 (1.80, clip('1436292494786093', 5.0, nombre='anuncio-video:1436292494786093 (s5)')),
