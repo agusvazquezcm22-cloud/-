@@ -180,7 +180,8 @@ def g_llavero(tl, T):                # "Mira Huel no te regala un llavero (32.84
     if tl > 1.10: pegar(im, _llavero(320, gris), 300, 420, pop(tl, 1.10))
     if tl > 1.60: pegar(im, _cupon(gris).resize((420, 224), Image.LANCZOS), 760, 430, pop(tl, 1.60))
     if tl > 2.05: pegar(im, pastilla('No suma nada', 62, fondo=(120, 120, 116)), 540, 660, pop(tl, 2.05))
-    if tl < 1.10: pegar(im, _texto('¿Qué regala Huel?', 70, TINTA), 540, 400, pop(tl, 0.0))
+    if tl < 1.10:
+        pegar(im, _regalo(300, (40, 40, 44)), 540, 360, pop(tl, 0.0)); pegar(im, _texto('¿Qué regala Huel?', 92, TINTA), 540, 640, pop(tl, 0.1))
     return im
 
 
@@ -223,12 +224,12 @@ ELC, cE = _panel_el()
 
 HU = Image.open(f'{A}/cap/hu_ad_limpio.jpg').convert('RGB')                         # creativo del anuncio 1766309524036309 (1200 px)
 def _panel_hu():
-    """Creativo de Huel en grande: recorte del bloque "Free T-shirt and shaker" + logo + el vaso (x 0-1010, y 700-1180 del
-    creativo de 1200 px) a 1,07x, como tarjeta sobre el mismo creativo desenfocado."""
-    x0, y0, x1, y1, k = 0, 700, 1010, 1180, 1.07
+    """Creativo de Huel en grande: recorte del bloque "Free T-shirt and shaker" + logo (x 0-560, y 905-1185 del creativo de
+    1200 px) a 1,9x, como tarjeta sobre el mismo creativo desenfocado (letras de mas de 45 px de alto)."""
+    x0, y0, x1, y1, k = 0, 905, 560, 1185, 1.9
     card = HU.crop((x0, y0, x1, y1)).resize((int((x1 - x0) * k), int((y1 - y0) * k)), Image.LANCZOS)
     bg = Image.fromarray(cubrir(HU)).filter(ImageFilter.GaussianBlur(34))
-    cx, cy = (W - card.width) // 2, 200
+    cx, cy = (W - card.width) // 2, 190
     m = Image.new('L', card.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, card.width - 1, card.height - 1], radius=28, fill=255)
     bg.paste(card, (cx, cy), m)
     # "Free T-shirt / and shaker" MEDIDO por pixeles en hu_ad_img.jpg: filas 953-985 y 1013-1045, columnas 62-298
@@ -263,7 +264,7 @@ toma('17', 34.12, 37.04, clip('1815601653082584', 17.3, nombre='anuncio-video:18
 toma('18', 37.04, 39.14, clip('3878492702464195', 0.5, nombre='anuncio-video:3878492702464195 (Extra Life en la farmacia)'), 'CD')
 toma('19', 39.14, 42.94, Grafico(g_ventas), 'C')
 toma('20', 42.94, 44.88, clip('1166900458589155', 0.3, nombre='anuncio-video:1166900458589155 (Extra Life)'), 'CI')
-toma('21', 44.88, 49.92, lienzo(HUC, (0, 0, W), (0, 230, 640), [('caja', F_SHAKER, 2.96)], nombre='anuncio:1766309524036309 (creativo Huel: free T-shirt and shaker)', dur_mov=2.8), 'CD')
+toma('21', 44.88, 49.92, lienzo(HUC, (0, 0, W), (14, 12, W - 28), [('caja', F_SHAKER, 2.96)], nombre='anuncio:1766309524036309 (creativo Huel: free T-shirt and shaker)', dur_mov=2.8), 'CD')
 toma('22', 49.92, 52.72, clip('1295471681923871', 20.0, nombre='anuncio-video:1295471681923871 (Extra Life)'), 'C')
 toma('23', 52.72, 55.88, Serie([(0.00, clip('687165790307897', 8.0, nombre='anuncio-video:687165790307897 (Extra Life)')),
                                 (1.50, clip('3000851350254150', 0.0, nombre='anuncio-video:3000851350254150 (Huel)'))]), 'CI')

@@ -110,13 +110,13 @@ def g_ideas(chip, etiqueta=None):
     def f(tl, T):
         im = fondo_grafico(); d = ImageDraw.Draw(im)
         for i in range(5):
-            pegar(im, GENTE[i % 3], 140 + (i % 3) * 150, 330 + (i // 3) * 200 + (0 if i < 3 else 0) + (75 if i >= 3 else 0) * 0, pop(tl, 0.03 + i * 0.06))
+            pegar(im, GENTE[i % 3], 130 + (i % 3) * 160 + (80 if i >= 3 else 0), 300 + (i // 3) * 210, pop(tl, 0.03 + i * 0.06))
         p = ease((tl - 0.3) / 0.25)
         if p > 0:
             for yy in (330, 530): flecha_recta(d, (480, yy), (650, 430), p)
         if tl > 0.45: pegar(im, FOCO.resize((260, 338), Image.LANCZOS), 820, 410, lerp(0.8, 1, pop(tl, 0.45)))
         if chip is not None and tl > 0.55: pegar(im, chip, 820, 650, pop(tl, 0.55))
-        if etiqueta and tl > 0.55: pegar(im, pastilla(etiqueta, 60, fondo=VERDE_OSC), 820, 660, pop(tl, 0.55))
+        if etiqueta and tl > 0.55: pegar(im, pastilla(etiqueta, 60, fondo=VERDE_OSC), 700, 670, pop(tl, 0.55))
         return im
     return f
 
@@ -126,7 +126,7 @@ def _caja_muestra(tam=120):
     d.rectangle([4, h * .25, w - 4, h - 4], fill=(214, 178, 130, 255), outline=TINTA + (255,), width=5)
     d.polygon([(4, h * .25), (w / 2, h * .05), (w - 4, h * .25)], fill=(232, 200, 155, 255), outline=TINTA + (255,))
     d.line([(w / 2, h * .25), (w / 2, h - 4)], fill=TINTA + (255,), width=4); return c
-CAJA = _caja_muestra()
+CAJA = _caja_muestra(165)
 C_MUESTRAS = contador(20000, 0.15, dur=1.8, prefijo='10.000 – ', sufijo='', tam=120, desde=10000)
 
 
@@ -135,9 +135,9 @@ def g_muestras(tl, T):                # "Llego a mandar entre 10 mil y 20 mil mu
     pegar(im, CHIP_B, 540, 215, pop(tl, 0.0))
     C_MUESTRAS(im, tl, 540, 345)
     if tl > 0.5: pegar(im, pastilla('muestras al mes', 62, fondo=TINTA), 540, 470, pop(tl, 0.5))
-    n = int(min(14, max(0, (tl - 0.05) / 0.1)))
+    n = int(min(10, max(0, (tl - 0.05) / 0.12)))
     for i in range(n):
-        x = 170 + (i % 7) * 123; y = 680 - (i // 7) * 100
+        x = 150 + (i % 5) * 195; y = 690 - (i // 5) * 140
         pegar(im, CAJA, x, y, 1.0)
     return im
 
@@ -157,10 +157,10 @@ def g_cuatro(tl, T):                  # "hay cuatro cosas que te pueden ahorrar 
     for i in range(4):
         k = pop(tl, 0.1 + i * 0.15)
         if k <= 0: continue
-        x = 165 + i * 250; y = 380
-        d.rounded_rectangle([x - 100, y - 100, x + 100, y + 100], radius=26, fill=(255, 255, 255), outline=TINTA, width=7)
-        d.text((x, y), str(i + 1), font=font(110), fill=VERDE_OSC, anchor='mm')
-    if tl > 1.9: pegar(im, pastilla('4 cosas', 72, fondo=TINTA), 540, 600, pop(tl, 1.9))
+        x = 160 + i * 253; y = 400
+        d.rounded_rectangle([x - 115, y - 140, x + 115, y + 140], radius=30, fill=(255, 255, 255), outline=TINTA, width=8)
+        d.text((x, y), str(i + 1), font=font(150), fill=VERDE_OSC, anchor='mm')
+    if tl > 1.9: pegar(im, pastilla('4 cosas', 76, fondo=TINTA), 540, 650, pop(tl, 1.9))
     lluvia_billetes(im, tl - 3.0)                                                     # "ahorrar mucha plata" (50.94)
     return im
 
@@ -176,13 +176,14 @@ def _perfil(chico=True):
         d.text((w / 2, 230), '1M', font=font(70), fill=TINTA + (255,), anchor='mm'); d.text((w / 2, 290), 'seguidores', font=font(32), fill=GRIS + (255,), anchor='mm')
     return c
 P_CHICO, P_GRANDE = _perfil(True), _perfil(False)
+P_CHICO, P_GRANDE = (p.resize((380, 418), Image.LANCZOS) for p in (P_CHICO, P_GRANDE))
 
 
 def g_perfiles(tl, T):                # "...convence mucho mas que una cuenta enorme que nunca lo ha vivido" (57.30-59.02)
     im = fondo_grafico()
-    pegar(im, P_GRANDE, 760, 420, lerp(1.25, 0.85, ease((tl - 0.8) / 0.4)) * pop(tl, 0.0))
-    pegar(im, P_CHICO, 300, 420, lerp(0.75, 1.15, ease((tl - 0.8) / 0.4)) * pop(tl, 0.1))
-    if tl > 1.0: pegar(im, _texto_g('>', 120, VERDE_OSC), 530, 420, pop(tl, 1.0))
+    pegar(im, P_GRANDE, 790, 450, lerp(1.25, 0.85, ease((tl - 0.8) / 0.4)) * pop(tl, 0.0))
+    pegar(im, P_CHICO, 280, 450, lerp(0.75, 1.15, ease((tl - 0.8) / 0.4)) * pop(tl, 0.1))
+    if tl > 1.0: pegar(im, _texto_g('>', 150, VERDE_OSC), 535, 450, pop(tl, 1.0))
     return im
 
 
@@ -198,14 +199,14 @@ def _calendario(tam=230):
     for r in range(3):
         for k in range(4): d.rounded_rectangle([22 + k * 50, 92 + r * 44, 54 + k * 50, 120 + r * 44], radius=6, fill=(220, 220, 216, 255))
     d.ellipse([22 + 2 * 50 - 6, 92 + 44 - 6, 54 + 2 * 50 + 6, 120 + 44 + 6], outline=VERDE_OSC + (255,), width=6); return c
-CAL = _calendario(250)
+CAL = _calendario(280)
 
 
 def _moneda(tam=200):
     c = Image.new('RGBA', (tam, tam), (0, 0, 0, 0)); d = ImageDraw.Draw(c)
     d.ellipse([0, 0, tam - 1, tam - 1], fill=(255, 205, 60, 255), outline=TINTA + (255,), width=7)
     d.text((tam / 2, tam / 2), '$', font=font(int(tam * .6)), fill=TINTA + (255,), anchor='mm'); return c
-MONEDA_G = _moneda(240)
+MONEDA_G = _moneda(280)
 
 
 def g_razon(tl, T):                   # "ganar algo por cada venta (70.62) o volver a trabajar contigo cada mes (72.16)"
@@ -240,12 +241,12 @@ def g_ejemplo(thumbs):
     hacia las demas (cuadros reales de los videos de creadoras)."""
     def f(tl, T):
         im = fondo_grafico(); d = ImageDraw.Draw(im)
-        c0 = thumbs[0]; pegar(im, c0, 540, 290, lerp(0.85, 1, pop(tl, 0.0))); pegar(im, CHECK, 540 + c0.width // 2 - 30, 290 - c0.height // 2 + 30, pop(tl, 0.15))
+        c0 = thumbs[0]; pegar(im, c0, 540, 320, lerp(0.85, 1, pop(tl, 0.0))); pegar(im, CHECK, 540 + c0.width // 2 - 30, 320 - c0.height // 2 + 30, pop(tl, 0.15))
         for i, t in enumerate(thumbs[1:4]):
             x = 210 + i * 330; t0 = 0.4 + i * 0.12
             if tl > t0:
-                flecha_recta(d, (540 + (x - 540) * 0.25, 290 + c0.height // 2 + 6), (x, 485), ease((tl - t0) / 0.18))
-                pegar(im, t, x, 610, pop(tl, t0 + 0.1))
+                flecha_recta(d, (540 + (x - 540) * 0.25, 320 + c0.height // 2 + 6), (x, 505), ease((tl - t0) / 0.18))
+                pegar(im, t, x, 620, pop(tl, t0 + 0.1))
         return im
     return f
 
@@ -325,39 +326,42 @@ cen = lambda r: (r[0] + r[2] / 2, r[1] + r[3] / 2)
 
 
 # ------------------------------------------------------------ fondos y miniaturas
-FONDO_L = fondo_real('28530720373295972', 2.0)             # fondo real desenfocado (anuncio de producto de Liquid I.V.) para las tarjetas
-FONDO_P = fondo_real('1061262113579933', 2.0)
-THUMBS = [_thumb(B1, 30.0, 230, 230), _thumb(L['rosa'], 9.0, 190, 190), _thumb(B2, 24.0, 190, 190), _thumb(L['bolsas'], 12.0, 190, 190)]
+FONDO_P = fondo_real('1061262113579933', 2.0)              # fondo real desenfocado (anuncio de producto de Liquid I.V.) para las tarjetas
+FONDO_L = FONDO_P
+THUMBS = [_thumb(B1, 30.0, 270, 270), _thumb(L['rosa'], 9.0, 220, 220), _thumb(B2, 24.0, 220, 220), _thumb(L['bolsas'], 12.0, 220, 220)]
 bl = lambda h: lienzo(Image.open(f'{A}/bloom/{h}_w.jpg').convert('RGB'), (0, 0, 1400), (70, 70, 1260), nombre=f'bloomnu.com: {h}')
 EN = 'www.entrepreneur.com: entrevista al CEO de Liquid I.V.'
 EP = f'{A}/cap'
-LPC = (2 * LP['quien'][0], 2 * LP['quien'][1], 2 * LP['quien'][2], 2 * LP['quien'][3])          # "Edward Digges with Liquid I.V." (medido)
+# "Edward Digges with Liquid I.V." MEDIDO por pixeles en la captura (filas 385-411, x 117-489): el rect 'quien' del json cayo una
+# linea mas abajo, sobre "Sponsored" (revisar_marcas.py lo mostro).
+LPC = (117, 385, 373, 27)
 LPF = tuple(2 * v for v in LP['frases']['#LiquidIVPartner'][0])                                   # "#LiquidIVPartner" (medido)
 seg = lambda i, ss, txt, **k: clip(i, ss, nombre=f'anuncio-video:{i} (s{ss:g}: {txt})', **k)
 
 # ------------------------------------------------------------ tomas
-toma('01', 0.00, 2.10, Serie([(0.00, seg(L['naranja'], 0.5, 'creadora reponiendo Liquid I.V.')),          # hook: 2 cortes en los primeros 2 s
+toma('01', 0.00, 2.10, Serie([(0.00, seg('2383146145805609', 0.2, 'deportista tomando Liquid I.V.')),          # hook: 2 cortes en los primeros 2 s
                               (1.05, seg(B1, 36.0, 'creadora con una lata de Bloom'))]), GAB,
      T_(['Creadores que se quedan'], 190, 74, t0=-1.0, clave={'quedan'}))
-toma('02', 2.10, 3.86, Nota(f'{EP}/lp_card_979279478106524.png', (440, 470, 860), (430, 470, 760), [('caja', LPC, 0.30, 0.95), ('sub', LPF, 0.95)], FONDO_P, dur_mov=0.6, t_mov=0.9), GAB)
+toma('02', 2.10, 3.86, Serie([(0.00, Nota(f'{EP}/lp_card_979279478106524.png', (cen(LPC)[0], cen(LPC)[1] + 20, 800), None, [('caja', LPC, 0.25)], FONDO_P)),
+                             (0.90, Nota(f'{EP}/lp_card_979279478106524.png', (cen(LPF)[0] + 150, cen(LPF)[1], 520), None, [('sub', LPF, 0.05)], FONDO_P))]), GAB)
 S[-1]['fuentes'] = ['tarjeta-biblioteca:979279478106524 (Edward Digges with Liquid I.V.)']
 toma('03', 3.86, 6.94, Serie([(0.00, seg(L['bolsas'], 2.0, 'creadora con sobres')), (0.77, seg(B2, 7.0, 'creadora de Bloom en su estudio')),
                               (1.54, seg(L['rayas'], 10.0, 'creadora en la cocina')), (2.31, seg('2027745281964723', 2.0, 'creadora de Liquid I.V.'))]), GAB,
      T_(['¿Qué la hace efectiva?'], 200, 70, t0=0.1, clave={'efectiva?'}))
-toma('04', 6.94, 8.70, seg(L['meta'], 3.0, 'producto de Liquid I.V.'), GAB, logo_arriba(CHIP_L, 0.0, 215))
+toma('04', 6.94, 8.70, seg('28530720373295972', 1.0, 'producto de Liquid I.V.'), GAB, logo_arriba(CHIP_L, 0.0, 215))
 usar(EN + ' (US$1.000 M)')
-toma('05', 8.70, 11.26, Nota(f'{EP}/ent_bil.png', (cen(F_BIL)[0], cen(F_BIL)[1], 1500), (cen(F_BIL)[0], cen(F_BIL)[1], 950), [('caja', F_BIL, 1.05)], FONDO_L, dur_mov=0.7, t_mov=0.2), GAB,
-     varios(contador_toma(1000, 1.02, cy=1150, sufijo=' M', tam=100), entre(1.2, 9, lambda pil, tl, T: pegar(pil, pastilla('según su director', 40, fondo=(236, 236, 232), color=GRIS, pad=(30, 16)), 540, 790))))
+toma('05', 8.70, 11.26, Nota(f'{EP}/ent_bil.png', (cen(F_BIL)[0], cen(F_BIL)[1], 1500), (cen(F_BIL)[0], cen(F_BIL)[1], 900), [('caja', F_BIL, 1.05)], FONDO_L, dur_mov=0.7, t_mov=0.2), GAB,
+     varios(contador_toma(1000, 1.02, cy=1150, sufijo=' M', tam=100), entre(1.2, 9, lambda pil, tl, T: pegar(pil, pastilla('según su director', 40, fondo=(236, 236, 232), color=GRIS, pad=(30, 16)), 800, 690))))
 toma('06', 11.26, 12.92, seg(L['papa'], 2.0, 'creador de Liquid I.V. (papa)'), GAB)
 toma('07', 12.92, 15.00, seg(L['rosa'], 1.0, 'creadora preparando Liquid I.V.'), GAB)
 usar(EN + ' (one-to-one relationship)')
 toma('08', 15.00, 18.66, Serie([
-    (0.00, Nota(f'{EP}/ent3_u.png', (cen(F_UNO)[0], cen(F_UNO)[1], 1300), (cen(F_UNO)[0], cen(F_UNO)[1], 820), [('caja', F_UNO, 0.12)], FONDO_L, dur_mov=0.3)),     # "uno a uno"
-    (0.68, Nota(f'{EP}/ent3_u.png', (cen(F_IDEAS)[0], cen(F_IDEAS)[1], 820), None, [('caja', F_IDEAS, 0.05)], FONDO_L)),                                           # "les cuentan ideas"
-    (2.24, Nota(f'{EP}/ent3_u.png', (cen(F_MENTE)[0] + 120, cen(F_MENTE)[1], 820), None, [('caja', F_MENTE, 0.05)], FONDO_L)),                                      # "que tienen en la cabeza"
+    (0.00, Nota(f'{EP}/ent3_u.png', (cen(F_UNO)[0], cen(F_UNO)[1], 1200), (cen(F_UNO)[0], cen(F_UNO)[1], 720), [('caja', F_UNO, 0.12)], FONDO_L, dur_mov=0.3)),     # "uno a uno"
+    (0.68, Nota(f'{EP}/ent3_u.png', (cen(F_IDEAS)[0], cen(F_IDEAS)[1], 720), None, [('caja', F_IDEAS, 0.05)], FONDO_L)),                                           # "les cuentan ideas"
+    (2.24, Nota(f'{EP}/ent3_u.png', (cen(F_MENTE)[0] + 100, cen(F_MENTE)[1], 640), None, [('caja', F_MENTE, 0.05)], FONDO_L)),                                      # "que tienen en la cabeza"
 ]), GAB)
 usar(EN + ' (insights to marketing)')
-toma('09', 18.66, 20.98, Nota(f'{EP}/ent4_m.png', (cen(F_INS)[0], cen(F_INS)[1], 820), (cen(F_MKT)[0], cen(F_MKT)[1], 820), [('caja', F_INS, 1.32, 2.06), ('caja', F_MKT, 2.06)], FONDO_L, dur_mov=0.35, t_mov=1.75), GAB)
+toma('09', 18.66, 20.98, Nota(f'{EP}/ent4_m.png', (cen(F_INS)[0], cen(F_INS)[1], 700), (cen(F_MKT)[0], cen(F_MKT)[1], 760), [('caja', F_INS, 1.32, 2.06), ('caja', F_MKT, 2.06)], FONDO_L, dur_mov=0.35, t_mov=1.75), GAB)
 toma('10', 20.98, 22.08, Grafico(g_ideas(CHIP_L)), GAB)
 toma('11', 22.08, 23.42, seg(B1, 89.0, 'creadora de Bloom con la lata, afuera'), GAB, logo_arriba(CHIP_B, 0.3, 215))
 toma('12', 23.42, 24.40, bl('sparkling-energy_1'), GAB)                                                                  # "bebidas energeticas"
@@ -367,30 +371,30 @@ toma('15', 27.10, 29.32, Grafico(g_muestras), GAB)
 toma('16', 29.32, 30.42, seg(B2, 5.5, 'creadora agarra una lata de Bloom'), GAB)
 toma('17', 30.42, 31.98, Serie([(0.00, seg(B1, 17.0, 'creadora de Bloom en la tienda')), (0.52, seg(B1, 2.0, 'creadora de Bloom en el auto')), (1.04, seg(B2, 22.0, 'creadora de Bloom en el escritorio'))]), GAB)
 toma('18', 31.98, 33.96, Grafico(g_un_video), GAB)
-toma('19', 33.96, 36.96, Mosaico([seg('1693636698843470', 1.0, 'creador de Liquid I.V.'), seg(L['depto'], 4.0, 'creador en su depto'),
+toma('19', 33.96, 36.96, Mosaico([seg(L['naranja'], 0.5, 'creadora reponiendo Liquid I.V.'), seg(L['depto'], 4.0, 'creador en su depto'),
                                   seg(L['rayas'], 30.0, 'cartera con sobres'), seg(L['cocina'], 0.5, 'creadora en la cocina')]), GAB,
-     varios(T_(['1 grupo'], 200, 70, t0=0.05), entre(1.82, 9, T_(['Llamada cada semana 📅'], 200, 64))))
+     varios(entre(0, 1.82, T_(['1 grupo'], 200, 72, t0=0.05)), entre(1.82, 9, T_(['Llamada cada semana'], 200, 64, emo='📅'))))
 toma('20', 36.96, 39.20, seg(B1, 70.0, 'creadora de Bloom hablando a camara'), GAB,
      entre(0.9, 9, lambda pil, tl, T: (pegar(pil, CHECK, 820, 330, pop(tl, 0)), pegar(pil, pastilla('Este vende', 60, fondo=VERDE_OSC), 820, 470, pop(tl, 0.1)))))
 toma('21', 39.20, 40.70, Grafico(g_ejemplo(THUMBS)), GAB)
 toma('22', 40.70, 42.76, Serie([(0.00, seg(L['choco'], 1.0, 'manos con taza')), (0.69, seg('1001821399664769', 1.0, 'sobres de Liquid I.V.')),
                                 (1.38, seg(B2, 18.2, 'lata de Bloom de cerca'))]), GAB)
 toma('23', 42.76, 46.08, seg(B1, 44.0, 'creadora de Bloom hablando con la lata'), GAB)
-toma('24', 46.08, 47.84, seg(L['meta'], 0.5, 'creador sonriendo'), GAB)
+toma('24', 46.08, 47.84, seg('1693636698843470', 0.9, 'creador sonriendo'), GAB)
 toma('25', 47.84, 51.80, Grafico(g_cuatro), GAB)
 toma('26', 51.80, 54.94, seg(L['manager'], 8.0, 'creadora Hydration Manager'), GAB, T_(['1 · A quién le habla', '> cuántos seguidores'], 230, 60, t0=0.0, clave={'habla'}))
 toma('27', 54.94, 57.30, seg(L['cocina'], 5.8, 'clienta preparando su vaso'), GAB)
 toma('28', 57.30, 59.02, Grafico(g_perfiles), GAB)
 toma('29', 59.02, 60.80, seg(L['papa'], 10.0, 'creador de Liquid I.V. con gorro'), GAB, T_(['2 · Enséñales qué vende'], 210, 62, t0=0.0, clave={'vende'}))
-toma('30', 60.80, 63.18, Mosaico([seg(L['naranja'], 10.0, 'creadora con su pedido'), seg(L['rosa'], 6.0, 'creadora con su bebe'),
+toma('30', 60.80, 63.18, Mosaico([seg(L['manager'], 40.0, 'creadora Hydration Manager en el auto'), seg(L['rosa'], 6.0, 'creadora con su bebe'),
                                   seg(L['bolsas'], 8.0, 'creadora mostrando sobres'), seg(B1, 80.0, 'creadora de Bloom corriendo')], marca=0, t_marca=0.94), GAB)
-toma('31', 63.18, 66.30, seg(L['depto'], 9.0, 'creador en su depto'), GAB, T_(['3 · Escúchalos'], 210, 66, t0=0.0, clave={'Escúchalos'}))
+toma('31', 63.18, 66.30, seg('1418322423102928', 23.0, 'creadora con su taza'), GAB, T_(['3 · Escúchalos'], 210, 66, t0=0.0, clave={'Escúchalos'}))
 toma('32', 66.30, 68.56, Grafico(g_ideas(None, 'Tu próximo anuncio')), GAB)
 toma('33', 68.56, 70.40, seg(B2, 28.0, 'creadora de Bloom en el escritorio con la lata'), GAB, T_(['4 · Una razón para seguir'], 210, 60, t0=0.0, clave={'seguir'}))
 toma('34', 70.40, 73.56, Grafico(g_razon), GAB)
 toma('35', 73.56, 76.26, seg(B1, 22.0, 'creadora de Bloom en la caja de la tienda'), GAB,
-     T_(['Guárdalo 📌'], 200, 72, t0=0.05))
-toma('36', 76.26, 77.90, seg(B1, 93.0, 'creadora de Bloom brindando con la lata'), GAB, T_(['Sígueme para más 👇'], 200, 66, t0=0.2))
+     T_(['Guárdalo'], 200, 76, t0=0.05, emo='📌'))
+toma('36', 76.26, 77.90, seg(B1, 93.0, 'creadora de Bloom brindando con la lata'), GAB, T_(['Sígueme para más'], 200, 70, t0=0.2, emo='👇'))
 
 # Gabriel cambia de lugar toma a toma (izquierda / derecha / centro)
 LUGARES = ['CI', 'CD', 'C']

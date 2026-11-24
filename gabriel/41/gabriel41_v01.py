@@ -267,17 +267,18 @@ def tarjeta_nota(fondo, piezas, y0=170, y1=730, sigma=34, etiqueta=None):
     return bg, mapeos
 
 
-_rte = _tapar3('m_rte')
-NOTA_RTE, MAP_RTE = tarjeta_nota(_rte.crop((0, 1065, 1170, 1620)), [(_rte, (420, 0, 760, 120), 300), (_rte, (0, 480, 1170, 760), 1000)], y0=150, y1=560)
-F_BILLION = MAP_RTE[1](M('m_rte')['frases']['close to €1 billion'][0])
-_fd = _tapar3('m_fd')
-NOTA_FD, MAP_FD = tarjeta_nota(Image.open(f'{A}/cap/bg_dan16.jpg').convert('RGB').crop((0, 200, 1920, 880)),
-                               [(_fd, (40, 420, 1170, 690), 760), (_fd, (30, 6840, 1155, 7125), 1020)], etiqueta=pastilla('Food Dive', 46, fondo=(0, 92, 120)))
-F_GLP = [MAP_FD[1](r) for r in M('m_fd')['frases']['consumers on GLP-1s, who have suppressed appetites but still need to ensure they receive their complete nutrients']]
-_bk = Image.open(f'{A}/cap/m_black.png').convert('RGB')
-NOTA_BK, MAP_BK = tarjeta_nota(Image.open(f'{A}/cap/bg_glass.jpg').convert('RGB'), [(_bk, (30, 1515, 1140, 1635), 1000), (_bk, (30, 1644, 900, 1800), 760)],
-                               y0=170, y1=560, etiqueta=hlogo(300))
-F_4M = MAP_BK[0](M('m_black')['frases']['4,000,000 satisfied customers'][0])
+_rte = _tapar3('n_rte')                                                      # 320 px CSS de ancho: la letra queda mas grande
+NOTA_RTE, MAP_RTE = tarjeta_nota(_rte.crop((0, 1110, 960, 1660)), [(_rte, (330, 0, 640, 110), 220), (_rte, (0, 600, 960, 890), 960)], y0=150, y1=500)
+F_BILLION = MAP_RTE[1](M('n_rte')['frases']['close to €1 billion'][0])
+_fd = _tapar3('n_fd')
+_bgfd = Image.open(f'{A}/cap/bg_dan16.jpg').convert('RGB').crop((0, 200, 1920, 880))
+NOTA_FD0, _ = tarjeta_nota(_bgfd, [(_fd, (30, 330, 960, 710), 960)], etiqueta=pastilla('Food Dive', 50, fondo=(0, 92, 120)))     # titular
+NOTA_FD, MAP_FD = tarjeta_nota(_bgfd, [(_fd, (30, 6785, 960, 7105), 1040)], etiqueta=pastilla('Food Dive', 50, fondo=(0, 92, 120)))   # el parrafo
+F_GLP = [MAP_FD[0](r) for r in M('n_fd')['frases']['consumers on GLP-1s, who have suppressed appetites but still need to ensure they receive their complete nutrients']]
+_bk = Image.open(f'{A}/cap/n_black.png').convert('RGB')
+NOTA_BK, MAP_BK = tarjeta_nota(Image.open(f'{A}/cap/bg_glass.jpg').convert('RGB'), [(_bk, (30, 1320, 900, 1470), 960), (_bk, (30, 1505, 820, 1598), 520)],
+                               y0=160, y1=600, etiqueta=hlogo(220))
+F_4M = _une([MAP_BK[0](r) for r in M('n_black')['frases']['4,000,000 satisfied customers']])
 
 # ------------------------------------------------------------ tomas
 toma('01', 0.00, 2.04, Serie([(0.00, dan(26.8, '26.7')), (1.02, dan(28.5, '28.5', vel=0.75))]), GAB)              # "millones de personas empezaban a comer menos"
@@ -285,10 +286,11 @@ toma('02', 2.04, 3.58, lienzo(OZ, (0, 0, W), (120, 210, W - 240), nombre='common
 toma('03', 3.58, 4.54, dan(0.3, '0.0'), GAB)                                                                            # "Danone, la de los yogures" (heladera con Activia y Danone)
 toma('04', 4.54, 7.18, borroso('1595225641819088', 1.0), GAB, T_(['¿Cuál?'], 300, 90, t0=0.5))                         # "buscaba una marca..." (Huel desenfocado)
 toma('05', 7.18, 10.56, lienzo(NOTA_RTE, (0, 0, W), (20, 30, W - 40), [('caja', F_BILLION, 1.90)], nombre='rte.ie: Danone compra por casi €1.000 M (Huel tapado)'), GAB,
-     contador_toma(1000, 1.98, cy=640, prefijo='Casi €', sufijo=' M', tam=100))
+     contador_toma(1000, 1.98, cy=672, prefijo='Casi €', sufijo=' M', tam=82))
 toma('06', 10.56, 13.78, Grafico(g_plato), GAB)
 toma('07', 13.78, 15.00, dan(10.0, '9.7'), GAB)                                                                         # "Su director general tenia claro..."
-toma('08', 15.00, 18.44, lienzo(NOTA_FD, (0, 0, W), (20, 30, W - 40), [('sub', r, 0.66) for r in F_GLP], nombre='fooddive.com: consumidores de GLP-1 (Huel tapado)'), GAB)
+toma('08', 15.00, 18.44, Serie([(0.00, lienzo(NOTA_FD0, (0, 0, W), (10, 15, W - 20), nombre='fooddive.com: titular (Huel tapado)')),
+                                (0.54, lienzo(NOTA_FD, (0, 0, W), (10, 15, W - 20), [('sub', r, 0.12) for r in F_GLP], nombre='fooddive.com: consumidores de GLP-1'))]), GAB)
 toma('09', 18.44, 20.38, borroso('897943063070733', 22.0), GAB)                                                         # "no es una marca que salio de la nada"
 usar('anuncio-video:2143082343178303')
 toma('10', 20.38, 22.42, ClipZona(ad('2143082343178303', 'mp4'), 5.8, zona=(0, 860, 860, 420)), GAB,                   # el fundador (rotulo "Founder of Huel" tapado)
@@ -302,7 +304,7 @@ toma('17', 34.92, 37.90, Serie([(0.00, dan(14.5, '14.4')), (1.75, dan(16.6, '16.
 toma('18', 37.90, 40.88, Serie([(0.00, dan(53.2, '53.2', vel=0.7)), (1.14, dan(17.8, '17.8', vel=0.7)), (2.42, dan(19.3, '19.2'))]), GAB)   # "Danone vende sobre todo en supermercados"
 toma('19', 40.88, 43.76, clip('1139302692155017', 25.0), GAB, T_(['Venta directa por internet'], 200, 62, t0=1.86))     # s25: "Huel shipped directly to your door"
 toma('21', 43.76, 46.62, lienzo(NOTA_BK, (0, 0, W), (20, 30, W - 40), [('caja', F_4M, 1.70)], nombre='uk.huel.com: 4.000.000 de clientes'), GAB,
-     contador_toma(4, 1.74, cy=640, prefijo='+', sufijo=' millones de clientes', tam=76))
+     contador_toma(4, 1.74, cy=680, prefijo='+', sufijo=' millones de clientes', tam=66))
 toma('22', 46.62, 48.32, Grafico(g_rompecabezas), GAB)
 toma('23', 48.32, 51.54, Serie([(0.00, dan(57.75, '57.7', vel=0.65)), (1.74, dan(47.9, '47.8')), (2.28, dan(12.6, '12.4')), (2.82, dan(27.7, '27.6'))]), GAB,
      varios(entre(1.74, 2.28, T_(['Come'], 200, 64)), entre(2.28, 2.82, T_(['Duerme'], 200, 64)), entre(2.82, 9, T_(['Se cuida'], 200, 64))))  # come 50.06 / duerme 50.60 / se cuida 51.14
