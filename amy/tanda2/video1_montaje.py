@@ -83,8 +83,11 @@ if "--solo-json" not in sys.argv:
         d = b - a; fc += f"[0:a]atrim={a:.4f}:{b:.4f},asetpts=PTS-STARTPTS,afade=t=in:d=0.008,afade=t=out:st={d - 0.008:.4f}:d=0.008,apad=whole_dur={d:.4f}[a{i}];"; lab_.append(f"[a{i}]")
     fd = FIN / FPS
     fc += f"[0:a]atrim=19.50:20.00,asetpts=PTS-STARTPTS,afade=t=in:d=0.02,afade=t=out:st=0.05:d=0.27,atrim=0:{fd:.4f},apad=whole_dur={fd:.4f}[tail];"
-    fc += "".join(lab_) + f"[tail]concat=n={len(pieces) + 1}:v=0:a=1,highpass=f=80,loudnorm=I=-14:TP=-1.5:LRA=11[o]"
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{S}/t2raw/v1_IMG_1732.MOV", "-filter_complex", fc, "-map", "[o]", "-ar", "48000", "-c:a", "aac", "-b:a", "256k", aud], check=True)
+    fc += "".join(lab_) + f"[tail]concat=n={len(pieces) + 1}:v=0:a=1,loudnorm=I=-14:TP=-1.5:LRA=11[o]"
+    # ruido de gimnasio: reductor de voz (RNNoise, modelo bd) al 80 %: baja el fondo ~12 dB y la voz casi no cambia
+    limpia = f"{V}/voz_limpia.wav"
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{S}/t2raw/v1_IMG_1732.MOV", "-vn", "-ac", "1", "-ar", "48000", "-af", f"highpass=f=80,arnndn=m={S}/nr/bd.rnnn:mix=0.8", limpia], check=True)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", limpia, "-filter_complex", fc, "-map", "[o]", "-ar", "48000", "-ac", "2", "-c:a", "aac", "-b:a", "256k", aud], check=True)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", base, "-i", aud, "-map", "0:v", "-map", "1:a", "-c", "copy", mux], check=True)
     json.dump({"piezas_audio": pieces, "segmentos": [(s[0], s[1], s[2], o) for s, o in zip(SEG, out0)]}, open(f"{V}/cortes_{VER}.json", "w"))
 
@@ -124,4 +127,11 @@ P = {"video": mux, "salida": f"{S}/out/AMY_T2_video1_{VER}_master.mp4", "limpiar
                 "titulo_fino": SH2, "titulo_clave": {"color": VERDE, **SH2}},
      "subtitulos": subs, "titulos": titulos, "notas": notas}
 json.dump(P, open(f"{V}/proyecto_{VER}.json", "w"), ensure_ascii=False, indent=1)
-print("cuadros", NF, "= %.2f s" % (NF / FPS))
+ev = [{"f": n_["f0"], "tipo": "clave"} for n_ in notas if n_["estilo"] == "clave"]
+for t_ in titulos:
+    for ln in t_["lineas"]:
+        if ln.get("estilo") == "titulo_clave": ev.append({"f": ln["f_ver"], "tipo": "clave"})
+        elif ln["tam"] == 60: ev.append({"f": ln["f_ver"], "tipo": "lista"})
+ev += [{"f": [o for s_, o in zip(SEG, out0) if s_[3].get("foto")][0][0], "tipo": "foto"}, {"f": tmap(T_SEGUIR), "tipo": "seguir"}, {"f": tmap(T_SEGUIR) + SEG_CARD.TAP, "tipo": "toque"}]
+json.dump({"fps": FPS, "eventos": sorted(ev, key=lambda e: e["f"])}, open(f"{V}/eventos_{VER}.json", "w"))
+print("cuadros", NF, "= %.2f s" % (NF / FPS), "| sonidos", len(ev))

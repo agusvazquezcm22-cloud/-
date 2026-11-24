@@ -26,13 +26,16 @@ def c(f0, f1, partes, base=1081):
 # Cortes del crudo IMG_1698 (en pausas del movimiento, repeticiones enteras):
 #   0-181  círculos con banda, plano entero   (14,17 s) | 181-280 aperturas de frente, plano cerrado (29,80 s)
 # 280-376  aperturas de espalda, plano entero (37,73 s) | 376-532 remo con banda, plano cerrado       (52,37 s)
-c(78, 135, "sin hacer esto antes"); c(135, 181, [("3 ejercicios ", 1), ("con banda", 0)]); c(181, 280, [("menos ", 0), ("lesiones", 1)])
+c(108, 181, [("3 ejercicios ", 1), ("con banda", 0)]); c(181, 280, [("menos ", 0), ("lesiones", 1)])
 c(280, 376, [("más ", 0), ("movilidad", 1)]); c(376, 450, [("y mejor ", 0), ("postura", 1)]); c(450, 532, "guárdalo para tu próximo entreno")
 tam = 92; w = max(adv("no entrenes", "light", tam), adv("tren superior", "semibold", tam)); x = round(540 - w / 2, 1)
 SH = {"sombra_op": 0.55, "sombra_sigma": 5, "sombra_dy": 2}; SH2 = {"sombra_op": 0.5, "sombra_sigma": 9, "sombra_dy": 2}
 P = {"video": BASE2, "salida": SALIDA, "limpiar_original": False, "fuentes": FU,
      "estilo": {"subtitulo": {"fuente": "light", "tam": TS, "tracking": TR, "x_centro": 540, "base": 1081, **SH}, "sub_parte": SH, "clave": {"color": VERDE, **SH}, "titulo_fino": SH2, "titulo_clave": {"color": VERDE, **SH2}},
      "subtitulos": subs, "notas": notas,
-     "titulos": [{"f0": 3, "f1": 78, "lineas": [dict(texto="no entrenes", fuente="light", tam=tam, tracking=TR, x=x, base=1090, estilo="titulo_fino"),
-                                               dict(texto="tren superior", fuente="semibold", tam=tam, tracking=TR, x=x, base=1090 + round(0.9 * tam), estilo="titulo_clave", f_ver=20)]}]}
+     "titulos": [{"f0": 3, "f1": 108, "lineas": [dict(texto="no entrenes", fuente="light", tam=tam, tracking=TR, x=x, base=1070, estilo="titulo_fino"),
+                                                dict(texto="tren superior", fuente="semibold", tam=tam, tracking=TR, x=x, base=1070 + round(0.9 * tam), estilo="titulo_clave", f_ver=20),
+                                                dict(texto="sin antes saber esto", fuente="light", tam=54, tracking=TR, x=x, base=1070 + round(0.9 * tam) + 76, estilo="titulo_fino", f_ver=44)]}]}
+ev = [{"f": n_["f0"], "tipo": "clave"} for n_ in notas if n_["estilo"] == "clave"] + [{"f": 20, "tipo": "clave"}, {"f": CIERRE, "tipo": "seguir"}, {"f": CIERRE + C.TAP, "tipo": "toque"}]
+json.dump({"fps": 30, "eventos": sorted(ev, key=lambda e: e["f"])}, open(PROY.replace(".json", "_eventos.json"), "w"))
 json.dump(P, open(PROY, "w"), ensure_ascii=False, indent=1); print("ok", f)

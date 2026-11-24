@@ -37,6 +37,21 @@ Estas indicaciones vienen de Amy y de Agus después de ver la primera versión d
 - Cortar en las pausas del movimiento, con repeticiones enteras.
 - Alternar plano entero y plano cerrado en cada corte.
 
+**Sonido**
+
+- Efectos de la carpeta «sonidos» de NXT, siempre cortos y suaves. La mezcla está en `kit/amy_sonidos.py`.
+
+| Cuándo | Sonido | Pico |
+|---|---|---|
+| Aparece una palabra clave en verde | Magnetic, Button (10) — clic de 17 ms | −10 dBFS |
+| Cada renglón de una lista | Mini list (one shot) — tic de 11 ms | −11 dBFS |
+| Entra la tarjeta de una foto | Deep, Mini, Whoosh (11) | −15 dBFS |
+| Entra la tarjeta Seguir | Button, Cursor, Select (5) | −11 dBFS |
+| Toque del botón Seguir | Magnetic, Button (7) | −10 dBFS |
+
+- Ruido de fondo del gimnasio: reductor de voz (RNNoise, modelo `bd`) al 80 %. Baja el fondo unos 12 dB y la voz casi no cambia. No pasarlo al 100 %: la voz pierde cuerpo.
+- Voz final a −14 LUFS.
+
 **Entre clientes**
 
 - Cada cliente de NXT tiene que verse distinto. No reciclar el mismo recurso con todos.
